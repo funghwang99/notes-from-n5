@@ -62,6 +62,7 @@ if (archiveEntries.length && archiveFilters.length) {
     "hy-vong": "Hy vọng",
     "tuoi-tre": "Tuổi trẻ",
     "mat-mat": "Mất mát",
+    "ngoai-anh-den": "Ngoài ánh đèn",
     "di-san": "Di sản",
   };
   const requestedPath = new URLSearchParams(window.location.search).get("path");
