@@ -62,14 +62,13 @@ if (archiveEntries.length && archiveFilters.length) {
     "hy-vong": "Hy vọng",
     "tuoi-tre": "Tuổi trẻ",
     "mat-mat": "Mất mát",
-    "tro-ve": "Trở về",
     "di-san": "Di sản",
   };
   const requestedPath = new URLSearchParams(window.location.search).get("path");
   const activePath = Object.hasOwn(paths, requestedPath) ? requestedPath : "all";
 
   archiveEntries.forEach((entry) => {
-    const entryPaths = entry.dataset.paths.split(/\s+/);
+    const entryPaths = entry.dataset.paths.split(/\s+/).filter(Boolean);
     entry.hidden = activePath !== "all" && !entryPaths.includes(activePath);
   });
 

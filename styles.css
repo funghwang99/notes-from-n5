@@ -493,7 +493,7 @@ button:focus-visible {
   transition: padding 180ms ease, color 180ms ease;
 }
 
-.path-row:hover {
+a.path-row:hover {
   padding-left: 0.7rem;
   color: var(--red);
 }
@@ -519,7 +519,7 @@ button:focus-visible {
   transition: color 180ms ease;
 }
 
-.path-row:hover p {
+a.path-row:hover p {
   color: var(--ink-soft);
 }
 
@@ -529,7 +529,11 @@ button:focus-visible {
   transition: color 180ms ease, transform 180ms ease;
 }
 
-.path-row:hover .path-arrow,
+.path-row-disabled {
+  cursor: default;
+}
+
+a.path-row:hover .path-arrow,
 .path-row:focus-visible .path-arrow {
   color: var(--red);
   transform: translate(0.2rem, -0.2rem);
