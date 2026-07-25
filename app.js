@@ -39,3 +39,17 @@ if ("IntersectionObserver" in window) {
 } else {
   revealElements.forEach((element) => element.classList.add("is-visible"));
 }
+
+const readingProgress = document.querySelector("[data-reading-progress]");
+
+if (readingProgress) {
+  const updateProgress = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    readingProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+  };
+
+  updateProgress();
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  window.addEventListener("resize", updateProgress);
+}
