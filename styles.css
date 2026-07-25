@@ -1085,6 +1085,10 @@ a.path-row:hover .path-arrow,
   border-bottom: 1px solid var(--line);
 }
 
+.archive-entry[hidden] {
+  display: none;
+}
+
 .archive-entry + .archive-entry {
   border-top: 0;
 }
