@@ -64,6 +64,7 @@ if (archiveEntries.length && archiveFilters.length) {
     "mat-mat": "Mất mát",
     "ngoai-anh-den": "Ngoài ánh đèn",
     "di-san": "Di sản",
+    "bat-tu": "Bất tử",
   };
   const requestedPath = new URLSearchParams(window.location.search).get("path");
   const activePath = Object.hasOwn(paths, requestedPath) ? requestedPath : "all";
