@@ -1372,3 +1372,1314 @@ a.path-row:hover .path-arrow,
     margin-left: 0;
   }
 }
+
+/* Essay system: one visual grammar for every story */
+
+.story-figure {
+  margin: clamp(4rem, 8vw, 7rem) 0;
+}
+
+.story-figure img {
+  display: block;
+  width: 100%;
+  max-height: 52rem;
+  object-fit: cover;
+}
+
+.story-figure figcaption,
+.story-diptych figcaption {
+  margin-top: 0.8rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.6;
+}
+
+.story-figure figcaption a,
+.story-diptych figcaption a {
+  text-underline-offset: 0.18em;
+}
+
+.story-figure--wide {
+  margin-right: -8rem;
+  margin-left: -8rem;
+}
+
+.story-figure--left {
+  width: min(38rem, 76vw);
+  margin-left: -8rem;
+}
+
+.story-figure--right {
+  width: min(38rem, 76vw);
+  margin-right: -8rem;
+  margin-left: auto;
+}
+
+.story-figure--portrait {
+  width: min(30rem, 72vw);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.story-figure--round img {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.story-diptych {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 2.2rem);
+  margin: clamp(4rem, 8vw, 7rem) -8rem;
+}
+
+.story-diptych .story-figure {
+  margin: 0;
+}
+
+.story-diptych img {
+  display: block;
+  width: 100%;
+  height: clamp(18rem, 34vw, 32rem);
+  object-fit: cover;
+}
+
+/* 01 — Hope: a red editorial manifesto */
+
+.layout-hope {
+  background: #eee9df;
+}
+
+.layout-hope .reading-progress {
+  background: #f3d5d0;
+}
+
+.layout-hope .article-hero {
+  position: relative;
+  min-height: 96svh;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 49.9%, rgba(255, 255, 255, 0.12) 50%, transparent 50.1%),
+    #a91e31;
+}
+
+.layout-hope .article-hero::before {
+  position: absolute;
+  top: 7rem;
+  right: 3vw;
+  color: rgba(255, 255, 255, 0.09);
+  content: "01";
+  font-size: min(43vw, 38rem);
+  font-weight: 750;
+  letter-spacing: -0.14em;
+  line-height: 0.8;
+}
+
+.layout-hope .article-heading {
+  position: relative;
+  z-index: 1;
+}
+
+.layout-hope .article-heading h1 {
+  max-width: 8ch;
+}
+
+.layout-hope .article-heading .eyebrow,
+.layout-hope .article-deck,
+.layout-hope .article-byline {
+  color: #f0d9d6;
+}
+
+.layout-hope .article-cover {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 4rem, 58rem);
+  margin-top: -5rem;
+  padding: 1rem;
+  background: #f5f0e7;
+  box-shadow: 0 2rem 5rem rgba(23, 23, 20, 0.18);
+  transform: rotate(-1deg);
+}
+
+.layout-hope .article-body {
+  width: min(100% - 2.4rem, 52rem);
+}
+
+.layout-hope .article-body .article-lead {
+  margin-right: -5rem;
+  margin-left: -5rem;
+  font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+}
+
+.layout-hope .pull-quote {
+  margin-right: -9rem;
+  margin-left: -9rem;
+  padding: clamp(2rem, 5vw, 5rem);
+  border: 0;
+  background: var(--red);
+  color: var(--white);
+}
+
+.layout-hope .pull-quote > span,
+.layout-hope .pull-quote cite {
+  color: #efb5bd;
+}
+
+.layout-hope .story-figure img {
+  filter: saturate(0.78) contrast(1.04);
+}
+
+/* 02 — Budapest: a match timeline */
+
+.layout-final {
+  background: #ece9df;
+}
+
+.layout-final .article-hero {
+  position: relative;
+  min-height: 94svh;
+  background:
+    linear-gradient(rgba(216, 123, 135, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216, 123, 135, 0.12) 1px, transparent 1px),
+    #121a17;
+  background-size: 4rem 4rem;
+}
+
+.layout-final .article-hero::after {
+  position: absolute;
+  top: 50%;
+  right: clamp(1.2rem, 7vw, 8rem);
+  width: min(28vw, 22rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(248, 245, 237, 0.22);
+  border-radius: 50%;
+  content: "";
+  transform: translateY(-50%);
+}
+
+.layout-final .article-heading {
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.4fr);
+  gap: 1.2rem 4rem;
+}
+
+.layout-final .article-heading .eyebrow {
+  grid-column: 1 / -1;
+}
+
+.layout-final .article-heading h1 {
+  grid-column: 1;
+  grid-row: 2 / 4;
+}
+
+.layout-final .article-heading .article-deck {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: end;
+}
+
+.layout-final .article-heading .article-byline {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: end;
+}
+
+.layout-final .article-cover {
+  width: min(100% - 2.4rem, 92rem);
+}
+
+.layout-final .article-cover img {
+  width: min(100%, 58rem);
+  margin: 0 auto;
+}
+
+.layout-final .article-body {
+  position: relative;
+  width: min(100% - 3.6rem, 53rem);
+  padding-left: 4rem;
+  border-left: 1px solid #8a9990;
+  counter-reset: final-passage;
+}
+
+.layout-final .article-body > p:not(.chapter-line) {
+  position: relative;
+  counter-increment: final-passage;
+}
+
+.layout-final .article-body > p:not(.chapter-line)::before {
+  position: absolute;
+  top: 0.48rem;
+  left: -5.7rem;
+  display: grid;
+  width: 3rem;
+  height: 1.5rem;
+  place-items: center;
+  border: 1px solid #8a9990;
+  border-radius: 2rem;
+  background: #ece9df;
+  color: #56655e;
+  content: counter(final-passage, decimal-leading-zero);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+}
+
+.layout-final .pull-quote {
+  border-color: #8a9990;
+}
+
+.layout-final .chapter-line {
+  color: #1e473b;
+  font-style: italic;
+}
+
+/* 03 — Saka: a letter kept for six years */
+
+.layout-letter {
+  background:
+    linear-gradient(90deg, transparent 4.9rem, rgba(183, 38, 57, 0.16) 5rem, transparent 5.1rem),
+    repeating-linear-gradient(#f4efe4 0, #f4efe4 2.15rem, #d7d0c2 2.2rem);
+}
+
+.layout-letter .site-header {
+  border-bottom-color: rgba(23, 23, 20, 0.16);
+  color: var(--ink);
+}
+
+.layout-letter .article-hero {
+  min-height: 82svh;
+  background: transparent;
+  color: var(--ink);
+  text-align: center;
+}
+
+.layout-letter .article-heading {
+  margin: 0 auto;
+}
+
+.layout-letter .article-heading .eyebrow {
+  color: var(--red);
+}
+
+.layout-letter .article-heading h1 {
+  max-width: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.07em;
+}
+
+.layout-letter .article-deck {
+  margin: 0 auto;
+  color: #5e594f;
+}
+
+.layout-letter .article-byline {
+  justify-content: center;
+  border-top-color: var(--line);
+  color: #777165;
+}
+
+.layout-letter .article-cover {
+  width: min(100% - 4rem, 48rem);
+  padding: 1rem 1rem 3.5rem;
+  background: #faf7f0;
+  box-shadow: 0 1.5rem 5rem rgba(74, 63, 47, 0.16);
+  transform: rotate(1.2deg);
+}
+
+.layout-letter .article-body {
+  width: min(100% - 4rem, 51rem);
+  padding: clamp(2rem, 5vw, 5rem);
+  border: 1px solid #d2cabb;
+  background: rgba(250, 247, 240, 0.92);
+  box-shadow: 0 2rem 6rem rgba(74, 63, 47, 0.1);
+}
+
+.layout-letter .article-body .article-lead::first-letter {
+  float: none;
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.layout-letter .pull-quote:first-child {
+  position: relative;
+  margin: 0 0 4rem;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid #ccd6de;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 0.7rem 1.8rem rgba(32, 61, 80, 0.08);
+}
+
+.layout-letter .pull-quote:first-child::before {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.7rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #101010;
+  color: #fff;
+  content: "7";
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.layout-letter .pull-quote:first-child blockquote {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.layout-letter .story-diptych {
+  margin-right: -3rem;
+  margin-left: -3rem;
+}
+
+.layout-letter .story-diptych .story-figure:first-child {
+  transform: rotate(-2deg);
+}
+
+.layout-letter .story-diptych .story-figure:last-child {
+  transform: translateY(2rem) rotate(2deg);
+}
+
+/* 04 — Gyökeres: the mask and the crowd */
+
+.layout-mask {
+  background:
+    radial-gradient(circle at 50% 24rem, rgba(183, 38, 57, 0.18), transparent 28rem),
+    #11110f;
+  color: var(--white);
+}
+
+.layout-mask .article-hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #0e0e0d;
+}
+
+.layout-mask .article-hero::before,
+.layout-mask .article-hero::after {
+  position: absolute;
+  top: 50%;
+  width: min(32vw, 30rem);
+  aspect-ratio: 0.7;
+  border: 1px solid rgba(183, 38, 57, 0.55);
+  border-radius: 50%;
+  content: "";
+  transform: translateY(-50%);
+}
+
+.layout-mask .article-hero::before {
+  left: -8vw;
+}
+
+.layout-mask .article-hero::after {
+  right: -8vw;
+}
+
+.layout-mask .article-heading {
+  z-index: 1;
+  text-align: center;
+}
+
+.layout-mask .article-heading h1 {
+  max-width: 9ch;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.layout-mask .article-deck {
+  margin: 0 auto;
+}
+
+.layout-mask .article-byline {
+  justify-content: center;
+}
+
+.layout-mask .article-cover {
+  width: 100%;
+  margin-top: 0;
+}
+
+.layout-mask .article-cover img {
+  width: 100%;
+  max-height: 82svh;
+  object-fit: cover;
+}
+
+.layout-mask .article-cover figcaption {
+  padding: 0 1.2rem;
+  color: #817c73;
+  text-align: center;
+}
+
+.layout-mask .article-body > p {
+  color: #c7c1b6;
+}
+
+.layout-mask .article-body .article-lead,
+.layout-mask .article-body .chapter-line {
+  color: var(--white);
+}
+
+.layout-mask .pull-quote {
+  padding: 3rem;
+  border: 1px solid #3b3832;
+  background: rgba(31, 30, 27, 0.9);
+}
+
+.layout-mask .story-figure--left {
+  margin-left: -12rem;
+}
+
+.layout-mask .story-figure--left img {
+  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+}
+
+.layout-mask .story-figure--round {
+  width: min(42rem, 82vw);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.layout-mask .story-figure figcaption,
+.layout-mask .story-figure figcaption a {
+  color: #8d877c;
+}
+
+.layout-mask .article-end {
+  border-color: #3b3832;
+}
+
+/* 05 — Hale End: architectural foundations */
+
+.layout-foundations {
+  background:
+    linear-gradient(rgba(88, 80, 67, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 80, 67, 0.07) 1px, transparent 1px),
+    #e4e0d7;
+  background-size: 2.8rem 2.8rem;
+}
+
+.layout-foundations .article-hero {
+  position: relative;
+  min-height: 88svh;
+  background: #d4cfc5;
+  color: var(--ink);
+}
+
+.layout-foundations .site-header {
+  border-bottom-color: rgba(23, 23, 20, 0.18);
+  color: var(--ink);
+}
+
+.layout-foundations .article-hero::after {
+  position: absolute;
+  right: clamp(1.2rem, 7vw, 8rem);
+  bottom: 0;
+  width: 38%;
+  height: 42%;
+  border: 1px solid #8f8778;
+  border-bottom: 0;
+  content: "";
+}
+
+.layout-foundations .article-heading {
+  z-index: 1;
+}
+
+.layout-foundations .article-heading h1 {
+  text-transform: lowercase;
+}
+
+.layout-foundations .article-heading .eyebrow {
+  color: #695e4b;
+}
+
+.layout-foundations .article-deck {
+  color: #5c574e;
+}
+
+.layout-foundations .article-byline {
+  border-top-color: #a9a193;
+  color: #746e63;
+}
+
+.layout-foundations .article-cover {
+  width: min(100% - 2.4rem, 56rem);
+  padding: 1rem;
+  border: 1px solid #9d9588;
+  background: #e8e4dc;
+}
+
+.layout-foundations .article-body {
+  width: min(100% - 2.4rem, 55rem);
+}
+
+.layout-foundations .article-body > p {
+  padding: 0 0 0 2rem;
+  border-left: 0.35rem solid rgba(91, 79, 60, 0.13);
+}
+
+.layout-foundations .pull-quote {
+  position: relative;
+  padding: 3rem;
+  border: 1px solid #9d9588;
+  background: #d6d0c5;
+}
+
+.layout-foundations .pull-quote::after {
+  position: absolute;
+  right: 1rem;
+  bottom: -0.22em;
+  color: rgba(91, 79, 60, 0.08);
+  content: "STONE";
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 800;
+  line-height: 0.8;
+}
+
+.layout-foundations .story-figure {
+  padding: 0.8rem;
+  border: 1px solid #9d9588;
+  background: #ebe7df;
+}
+
+/* 06 — Neymar: a prince in blue and gold */
+
+.layout-prince {
+  background: #f1eadb;
+}
+
+.layout-prince .reading-progress {
+  background: #d5ad47;
+}
+
+.layout-prince .article-hero {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(213, 173, 71, 0.22), transparent 23rem),
+    #0a2f4f;
+  text-align: center;
+}
+
+.layout-prince .article-heading {
+  margin: 0 auto;
+}
+
+.layout-prince .article-heading .eyebrow {
+  color: #d5ad47;
+}
+
+.layout-prince .article-heading h1 {
+  max-width: 13ch;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.065em;
+}
+
+.layout-prince .article-deck {
+  margin: 0 auto;
+  color: #bfcad1;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.layout-prince .article-byline {
+  justify-content: center;
+  border-top-color: rgba(213, 173, 71, 0.38);
+  color: #8ea2b0;
+}
+
+.layout-prince .article-cover {
+  width: min(100% - 4rem, 48rem);
+  padding: 0.7rem;
+  border: 1px solid #b68d2f;
+  background: #0a2f4f;
+}
+
+.layout-prince .article-cover img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.layout-prince .article-body > p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.08rem, 1.5vw, 1.27rem);
+}
+
+.layout-prince .article-body .article-lead {
+  text-align: center;
+}
+
+.layout-prince .pull-quote {
+  border-color: #b68d2f;
+  text-align: center;
+}
+
+.layout-prince .pull-quote > span {
+  color: #947121;
+}
+
+.layout-prince .chapter-line {
+  color: #0a2f4f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  text-align: center;
+}
+
+.layout-prince .story-diptych {
+  padding: 1rem;
+  border: 1px solid #b68d2f;
+  background: #0a2f4f;
+}
+
+.layout-prince .story-diptych figcaption,
+.layout-prince .story-diptych figcaption a {
+  color: #bfcad1;
+}
+
+/* 07 — Ronaldo: a black-and-white monument */
+
+.layout-monument {
+  background: #eeeae0;
+}
+
+.layout-monument .article-hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #0b0b0a;
+}
+
+.layout-monument .article-hero::after {
+  position: absolute;
+  right: -0.08em;
+  bottom: -0.22em;
+  color: rgba(255, 255, 255, 0.055);
+  content: "7";
+  font-size: min(78vw, 54rem);
+  font-weight: 800;
+  letter-spacing: -0.14em;
+  line-height: 1;
+}
+
+.layout-monument .article-heading {
+  z-index: 1;
+  width: min(100%, 72rem);
+}
+
+.layout-monument .article-heading h1 {
+  max-width: 7ch;
+  text-transform: uppercase;
+}
+
+.layout-monument .article-cover {
+  width: min(100% - 4rem, 38rem);
+  margin-top: -7rem;
+  margin-right: 8vw;
+  padding: 0.5rem;
+  background: #0b0b0a;
+}
+
+.layout-monument .article-cover img {
+  filter: grayscale(1) contrast(1.08);
+}
+
+.layout-monument .article-body {
+  position: relative;
+  width: min(100% - 4rem, 50rem);
+  padding-left: 3rem;
+  border-left: 0.55rem solid #111;
+}
+
+.layout-monument .article-body::before {
+  position: absolute;
+  top: 0;
+  left: -2.3rem;
+  color: #111;
+  content: "THE LAST ROOM";
+  font-size: 0.58rem;
+  font-weight: 750;
+  letter-spacing: 0.18em;
+  writing-mode: vertical-rl;
+}
+
+.layout-monument .pull-quote {
+  padding: 3rem;
+  border: 0;
+  background: #111;
+  color: var(--white);
+}
+
+.layout-monument .pull-quote cite {
+  color: #9c978e;
+}
+
+.layout-monument .chapter-line {
+  text-transform: uppercase;
+}
+
+.layout-monument .story-figure img {
+  filter: grayscale(1) contrast(1.06);
+}
+
+/* 08 — Rice: a blueprint that holds */
+
+.layout-keystone {
+  background:
+    linear-gradient(rgba(36, 70, 89, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36, 70, 89, 0.08) 1px, transparent 1px),
+    #e8ecea;
+  background-size: 2rem 2rem;
+}
+
+.layout-keystone .reading-progress {
+  background: #5a8fa7;
+}
+
+.layout-keystone .article-hero {
+  position: relative;
+  min-height: 92svh;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(150, 189, 205, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(150, 189, 205, 0.12) 1px, transparent 1px),
+    #173142;
+  background-size: 3rem 3rem;
+}
+
+.layout-keystone .article-hero::after {
+  position: absolute;
+  right: 8vw;
+  bottom: -11rem;
+  width: min(42vw, 34rem);
+  height: min(42vw, 34rem);
+  border: 1px solid rgba(159, 200, 216, 0.42);
+  border-radius: 50% 50% 0 0;
+  content: "";
+}
+
+.layout-keystone .article-heading {
+  z-index: 1;
+}
+
+.layout-keystone .article-heading .eyebrow {
+  color: #9fc8d8;
+}
+
+.layout-keystone .article-cover {
+  width: min(100% - 2.4rem, 68rem);
+  padding: 0.7rem;
+  border: 1px solid #7393a1;
+  background: #e8ecea;
+}
+
+.layout-keystone .article-cover::before {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #436778;
+  content: "FIG. 08 / STRUCTURAL LOAD";
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.layout-keystone .article-body {
+  width: min(100% - 2.4rem, 52rem);
+}
+
+.layout-keystone .article-body > p {
+  color: #283b43;
+}
+
+.layout-keystone .pull-quote {
+  padding: 3rem;
+  border: 1px solid #7393a1;
+  background: rgba(232, 236, 234, 0.82);
+}
+
+.layout-keystone .pull-quote > span {
+  color: #436778;
+}
+
+.layout-keystone .chapter-line {
+  color: #173142;
+}
+
+.layout-keystone .story-figure {
+  padding: 0.7rem;
+  border: 1px solid #7393a1;
+  background: #e8ecea;
+}
+
+.layout-keystone .story-figure figcaption {
+  color: #436778;
+  font-family: "Courier New", monospace;
+}
+
+/* 09 — Trossard: a contact sheet for a supporting actor */
+
+.layout-photoessay {
+  background: #dad7cf;
+}
+
+.layout-photoessay .article-hero {
+  min-height: 78svh;
+  background: #292927;
+}
+
+.layout-photoessay .article-heading h1 {
+  max-width: 12ch;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.layout-photoessay .article-cover {
+  width: min(100% - 2.4rem, 86rem);
+  padding: clamp(0.8rem, 2vw, 1.5rem);
+  background: #191918;
+}
+
+.layout-photoessay .article-cover img {
+  width: min(100%, 64rem);
+  margin: 0 auto;
+}
+
+.layout-photoessay .article-cover figcaption {
+  color: #8f8a81;
+  text-align: center;
+}
+
+.layout-photoessay .article-body {
+  width: min(100% - 2.4rem, 54rem);
+}
+
+.layout-photoessay .article-body > p {
+  max-width: 45rem;
+}
+
+.layout-photoessay .article-body > p:nth-of-type(3n) {
+  margin-left: auto;
+}
+
+.layout-photoessay .story-figure {
+  padding: 0.7rem 0.7rem 2.7rem;
+  background: #f3f0e8;
+  box-shadow: 0 1rem 2.5rem rgba(23, 23, 20, 0.18);
+}
+
+.layout-photoessay .story-figure--portrait {
+  margin-left: -6rem;
+  transform: rotate(-2deg);
+}
+
+.layout-photoessay .story-figure--wide {
+  transform: rotate(1deg);
+}
+
+.layout-photoessay .story-figure figcaption {
+  padding: 0 0.6rem;
+  font-family: "Courier New", monospace;
+}
+
+.layout-photoessay .pull-quote {
+  margin-right: 0;
+  margin-left: 0;
+  padding: 2rem;
+  border: 1px solid #8d887f;
+  background: transparent;
+}
+
+.layout-photoessay .chapter-line {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
+/* 10 — Messi: the last summer, framed like cinema */
+
+.layout-summer {
+  background:
+    linear-gradient(180deg, #e7d4bd 0, #f2ede3 34rem, #f2ede3 100%);
+}
+
+.layout-summer .reading-progress {
+  background: #d38a63;
+}
+
+.layout-summer .article-hero {
+  min-height: 100svh;
+  background:
+    linear-gradient(180deg, rgba(9, 26, 45, 0.08), rgba(9, 26, 45, 0.88)),
+    radial-gradient(circle at 72% 28%, #d7a779 0, transparent 28rem),
+    #17354b;
+}
+
+.layout-summer .article-heading {
+  align-self: end;
+}
+
+.layout-summer .article-heading .eyebrow {
+  color: #efb48f;
+}
+
+.layout-summer .article-heading h1 {
+  max-width: 12ch;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.07em;
+}
+
+.layout-summer .article-deck {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.layout-summer .article-cover {
+  width: 100%;
+  margin-top: 0;
+  background: #0e2030;
+}
+
+.layout-summer .article-cover img {
+  width: 100%;
+  max-height: 88svh;
+  object-fit: cover;
+}
+
+.layout-summer .article-cover figcaption {
+  margin: 0;
+  padding: 0.8rem 1.2rem;
+  color: #9da7ad;
+  text-align: center;
+}
+
+.layout-summer .article-body {
+  width: min(100% - 2.4rem, 52rem);
+}
+
+.layout-summer .article-body > p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.08rem, 1.5vw, 1.28rem);
+}
+
+.layout-summer .article-body .article-lead {
+  text-align: center;
+}
+
+.layout-summer .chapter-line {
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
+  padding: clamp(4rem, 8vw, 8rem) 8vw;
+  background: #17354b;
+  color: #f0dfcc;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  text-align: center;
+}
+
+.layout-summer .pull-quote {
+  border-color: #c89b78;
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+
+.layout-summer .pull-quote > span {
+  color: #a96b48;
+}
+
+.layout-summer .story-diptych {
+  position: relative;
+  margin-right: calc(50% - 44vw);
+  margin-left: calc(50% - 44vw);
+  padding: 1rem;
+  background: #102638;
+}
+
+.layout-summer .story-diptych::before {
+  position: absolute;
+  top: -1.8rem;
+  left: 0;
+  color: #936e55;
+  content: "2014 / 2022";
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+}
+
+.layout-summer .story-diptych figcaption,
+.layout-summer .story-diptych figcaption a {
+  color: #aab2b6;
+}
+
+/* 11 — Özil: a language set like a disappearing book */
+
+.layout-language {
+  background: #eee9dc;
+}
+
+.layout-language .reading-progress {
+  background: #807a6e;
+}
+
+.layout-language .site-header {
+  border-bottom-color: rgba(23, 23, 20, 0.16);
+  color: var(--ink);
+}
+
+.layout-language .article-hero {
+  min-height: 92svh;
+  border-bottom: 1px solid #9f988b;
+  background:
+    linear-gradient(90deg, transparent calc(50% - 1px), rgba(23, 23, 20, 0.1) 50%, transparent calc(50% + 1px)),
+    #eee9dc;
+  color: var(--ink);
+}
+
+.layout-language .article-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.65fr);
+  gap: 4rem;
+  align-items: end;
+}
+
+.layout-language .article-heading .eyebrow {
+  grid-column: 1 / -1;
+  color: #696257;
+}
+
+.layout-language .article-heading h1 {
+  grid-column: 1;
+  grid-row: 2 / 4;
+  max-width: 11ch;
+  margin-bottom: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.07em;
+}
+
+.layout-language .article-deck {
+  grid-column: 2;
+  grid-row: 2;
+  color: #5f5a51;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.layout-language .article-byline {
+  grid-column: 2;
+  grid-row: 3;
+  border-top-color: #bdb5a7;
+  color: #716b61;
+}
+
+.layout-language .article-cover {
+  width: min(100% - 4rem, 64rem);
+  padding: 1rem;
+  border: 1px solid #9f988b;
+  background: #e3ddcf;
+}
+
+.layout-language .article-body {
+  width: min(100% - 3rem, 52rem);
+}
+
+.layout-language .article-body > p {
+  color: #292722;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.08rem, 1.45vw, 1.24rem);
+}
+
+.layout-language .article-body > p:not(.chapter-line) {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.layout-language .article-lead {
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #9f988b;
+}
+
+.layout-language .pull-quote {
+  position: relative;
+  padding-left: 3rem;
+  border: 0;
+  border-left: 1px solid #81796c;
+}
+
+.layout-language .pull-quote::before {
+  position: absolute;
+  top: 3rem;
+  left: -0.75rem;
+  padding: 0.25rem;
+  background: #eee9dc;
+  color: #81796c;
+  content: "§";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.3rem;
+}
+
+.layout-language .chapter-line {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+}
+
+.layout-language .article-inline-figure {
+  position: relative;
+  padding: 0.8rem 0.8rem 2.5rem;
+  border: 1px solid #9f988b;
+  background: #e3ddcf;
+}
+
+.layout-language .article-inline-figure::after {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.8rem;
+  color: #81796c;
+  content: "N5 / 11";
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+}
+
+@media (max-width: 900px) {
+  .story-figure--wide,
+  .story-figure--left,
+  .story-figure--right,
+  .story-diptych {
+    width: auto;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .layout-hope .article-body .article-lead {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .layout-hope .pull-quote {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .layout-final .article-heading,
+  .layout-language .article-heading {
+    display: block;
+  }
+
+  .layout-final .article-hero::after,
+  .layout-foundations .article-hero::after,
+  .layout-keystone .article-hero::after {
+    opacity: 0.45;
+  }
+
+  .layout-letter .story-diptych {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .layout-mask .story-figure--left,
+  .layout-photoessay .story-figure--portrait {
+    margin-left: 0;
+  }
+
+  .layout-summer .story-diptych {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .story-diptych {
+    grid-template-columns: 1fr;
+  }
+
+  .story-diptych img {
+    height: auto;
+    max-height: 32rem;
+  }
+
+  .story-figure--portrait,
+  .story-figure--round {
+    width: auto;
+  }
+
+  .layout-hope .article-cover,
+  .layout-letter .article-cover,
+  .layout-prince .article-cover,
+  .layout-monument .article-cover {
+    width: calc(100% - 2.4rem);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .layout-hope .article-cover {
+    margin-top: -2rem;
+  }
+
+  .layout-final .article-body {
+    width: calc(100% - 2.4rem);
+    padding-left: 2rem;
+  }
+
+  .layout-final .article-body > p:not(.chapter-line)::before {
+    left: -3.45rem;
+    width: 2.3rem;
+  }
+
+  .layout-letter {
+    background:
+      linear-gradient(90deg, transparent 1.65rem, rgba(183, 38, 57, 0.13) 1.7rem, transparent 1.75rem),
+      repeating-linear-gradient(#f4efe4 0, #f4efe4 2.15rem, #d7d0c2 2.2rem);
+  }
+
+  .layout-letter .article-body {
+    width: calc(100% - 1.6rem);
+    padding: 2rem 1.3rem;
+  }
+
+  .layout-letter .story-diptych .story-figure:last-child {
+    transform: rotate(1deg);
+  }
+
+  .layout-mask .pull-quote,
+  .layout-monument .pull-quote,
+  .layout-keystone .pull-quote,
+  .layout-foundations .pull-quote {
+    padding: 2rem 1.2rem;
+  }
+
+  .layout-foundations .article-body > p {
+    padding-left: 1rem;
+  }
+
+  .layout-monument .article-cover {
+    margin-top: -2rem;
+  }
+
+  .layout-monument .article-body {
+    width: calc(100% - 2.4rem);
+    padding-left: 1.5rem;
+    border-left-width: 0.25rem;
+  }
+
+  .layout-monument .article-body::before {
+    display: none;
+  }
+
+  .layout-photoessay .story-figure {
+    transform: none;
+  }
+
+  .layout-summer .chapter-line {
+    padding-right: 1.2rem;
+    padding-left: 1.2rem;
+  }
+
+  .layout-language .article-body > p:not(.chapter-line) {
+    text-align: left;
+  }
+}
