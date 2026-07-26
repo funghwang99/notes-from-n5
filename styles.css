@@ -1157,7 +1157,7 @@ a.path-row:hover .path-arrow,
 .archive-entry {
   display: grid;
   max-width: 96rem;
-  grid-template-columns: minmax(12rem, 0.55fr) 4rem minmax(18rem, 1fr) auto;
+  grid-template-columns: minmax(12rem, 0.55fr) minmax(18rem, 1fr) auto;
   gap: clamp(1.5rem, 4vw, 4rem);
   align-items: center;
   margin: 0 auto;
@@ -1176,11 +1176,6 @@ a.path-row:hover .path-arrow,
 
 .archive-thumb img {
   aspect-ratio: 1.2;
-}
-
-.archive-index {
-  color: var(--muted);
-  font-size: 0.7rem;
 }
 
 .archive-entry-copy h2 {
@@ -1510,10 +1505,6 @@ a.path-row:hover .path-arrow,
   .featured-article,
   .archive-entry {
     grid-template-columns: 1fr;
-  }
-
-  .archive-index {
-    display: none;
   }
 
   .archive-arrow {
