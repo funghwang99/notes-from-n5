@@ -1,3 +1,78 @@
+/* Self-hosted typefaces keep Vietnamese glyphs and accents consistent
+   across Windows, macOS, Android and iOS. */
+
+@font-face {
+  font-family: "Inter N5";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("fonts/inter-vietnamese-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "Inter N5";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter N5";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("fonts/inter-vietnamese-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "Inter N5";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("fonts/inter-latin-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Lora N5";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url("fonts/lora-vietnamese-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "Lora N5";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url("fonts/lora-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Lora N5";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url("fonts/lora-vietnamese-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "Lora N5";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url("fonts/lora-latin-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --paper: #f3f0e8;
   --paper-deep: #e8e3d8;
@@ -8,7 +83,9 @@
   --red: #b72639;
   --red-soft: #d97b87;
   --white: #f8f5ed;
-  --sans: Inter, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --sans: "Inter N5", Inter, "Helvetica Neue", Arial, sans-serif;
+  --serif: "Lora N5", Lora, Georgia, "Times New Roman", serif;
+  --mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
 * {
@@ -25,7 +102,11 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
+  font-kerning: normal;
+  font-optical-sizing: auto;
+  font-synthesis: none;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -1156,7 +1237,7 @@ a.path-row:hover .path-arrow,
   margin: 1.2rem 0 2rem;
   font-size: clamp(4rem, 9vw, 9.5rem);
   font-weight: 520;
-  letter-spacing: -0.09em;
+  letter-spacing: -0.055em;
   line-height: 0.84;
 }
 
@@ -1246,8 +1327,8 @@ a.path-row:hover .path-arrow,
   margin: 1rem 0;
   font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 520;
-  letter-spacing: -0.055em;
-  line-height: 1.08;
+  letter-spacing: -0.025em;
+  line-height: 1.14;
 }
 
 .pull-quote cite {
@@ -1266,8 +1347,8 @@ a.path-row:hover .path-arrow,
   color: var(--ink);
   font-size: clamp(2.7rem, 6vw, 6.5rem);
   font-weight: 520;
-  letter-spacing: -0.075em;
-  line-height: 0.96;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
 }
 
 .article-end {
@@ -1664,10 +1745,10 @@ a.path-row:hover .path-arrow,
 
 .layout-letter .article-heading h1 {
   max-width: none;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.035em;
 }
 
 .layout-letter .article-deck {
@@ -1979,15 +2060,15 @@ a.path-row:hover .path-arrow,
   max-width: 13ch;
   margin-right: auto;
   margin-left: auto;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-weight: 400;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.035em;
 }
 
 .layout-prince .article-deck {
   margin: 0 auto;
   color: #bfcad1;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
 }
 
 .layout-prince .article-byline {
@@ -2009,7 +2090,7 @@ a.path-row:hover .path-arrow,
 }
 
 .layout-prince .article-body > p {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-size: clamp(1.08rem, 1.5vw, 1.27rem);
 }
 
@@ -2028,7 +2109,7 @@ a.path-row:hover .path-arrow,
 
 .layout-prince .chapter-line {
   color: #0a2f4f;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-style: italic;
   text-align: center;
 }
@@ -2220,7 +2301,7 @@ a.path-row:hover .path-arrow,
 
 .layout-keystone .story-figure figcaption {
   color: #436778;
-  font-family: "Courier New", monospace;
+  font-family: var(--mono);
 }
 
 /* 09 — Trossard: a contact sheet for a supporting actor */
@@ -2236,7 +2317,7 @@ a.path-row:hover .path-arrow,
 
 .layout-photoessay .article-heading h1 {
   max-width: 12ch;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-weight: 400;
 }
 
@@ -2285,7 +2366,7 @@ a.path-row:hover .path-arrow,
 
 .layout-photoessay .story-figure figcaption {
   padding: 0 0.6rem;
-  font-family: "Courier New", monospace;
+  font-family: var(--mono);
 }
 
 .layout-photoessay .pull-quote {
@@ -2297,7 +2378,7 @@ a.path-row:hover .path-arrow,
 }
 
 .layout-photoessay .chapter-line {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-style: italic;
 }
 
@@ -2330,13 +2411,13 @@ a.path-row:hover .path-arrow,
 
 .layout-summer .article-heading h1 {
   max-width: 12ch;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-weight: 400;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.035em;
 }
 
 .layout-summer .article-deck {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
 }
 
 .layout-summer .article-cover {
@@ -2363,7 +2444,7 @@ a.path-row:hover .path-arrow,
 }
 
 .layout-summer .article-body > p {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-size: clamp(1.08rem, 1.5vw, 1.28rem);
 }
 
@@ -2377,14 +2458,14 @@ a.path-row:hover .path-arrow,
   padding: clamp(4rem, 8vw, 8rem) 8vw;
   background: #17354b;
   color: #f0dfcc;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-style: italic;
   text-align: center;
 }
 
 .layout-summer .pull-quote {
   border-color: #c89b78;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   text-align: center;
 }
 
@@ -2456,16 +2537,16 @@ a.path-row:hover .path-arrow,
   grid-row: 2 / 4;
   max-width: 11ch;
   margin-bottom: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-weight: 400;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.035em;
 }
 
 .layout-language .article-deck {
   grid-column: 2;
   grid-row: 2;
   color: #5f5a51;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
 }
 
 .layout-language .article-byline {
@@ -2488,7 +2569,7 @@ a.path-row:hover .path-arrow,
 
 .layout-language .article-body > p {
   color: #292722;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-size: clamp(1.08rem, 1.45vw, 1.24rem);
 }
 
@@ -2517,12 +2598,12 @@ a.path-row:hover .path-arrow,
   background: #eee9dc;
   color: #81796c;
   content: "§";
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-size: 1.3rem;
 }
 
 .layout-language .chapter-line {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
   text-align: center;
