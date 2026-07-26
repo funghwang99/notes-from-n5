@@ -1216,15 +1216,49 @@ a.path-row:hover .path-arrow,
 }
 
 .article-hero {
+  position: relative;
+  isolation: isolate;
   display: grid;
   min-height: 88svh;
+  overflow: hidden;
   place-items: end start;
   padding: 10rem clamp(1.2rem, 7vw, 8rem) 6rem;
   background: var(--ink);
   color: var(--white);
 }
 
+.article-hero-media {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background-image: var(--article-hero-image);
+  background-position: var(--article-hero-position, center);
+  background-repeat: no-repeat;
+  background-size: var(--article-hero-size, cover);
+  filter: saturate(var(--article-hero-saturation, 0.82))
+    contrast(var(--article-hero-contrast, 1.04));
+  transform: scale(1.012);
+}
+
+.article-hero-media::after {
+  position: absolute;
+  inset: 0;
+  background: var(
+    --article-hero-overlay,
+    linear-gradient(90deg, rgba(12, 12, 11, 0.9), rgba(12, 12, 11, 0.5)),
+    linear-gradient(0deg, rgba(12, 12, 11, 0.7), transparent 70%)
+  );
+  content: "";
+}
+
+.article-hero::before,
+.article-hero::after {
+  z-index: -1;
+}
+
 .article-heading {
+  position: relative;
+  z-index: 1;
   width: min(100%, 82rem);
 }
 
@@ -1279,6 +1313,111 @@ a.path-row:hover .path-arrow,
   margin-top: 0.8rem;
   color: var(--muted);
   font-size: 0.68rem;
+}
+
+/* Each essay carries its own cover image into the title field. The overlays
+   preserve the visual language of the eleven layouts while keeping Vietnamese
+   display type readable across desktop and mobile. */
+
+.layout-hope {
+  --article-hero-image: url("hope-that-kills-us.png");
+  --article-hero-position: 82% center;
+  --article-hero-size: auto 100%;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(117, 13, 31, 0.97) 0%, rgba(151, 21, 43, 0.9) 52%, rgba(151, 21, 43, 0.34) 100%),
+    linear-gradient(0deg, rgba(87, 7, 21, 0.58), transparent 62%);
+}
+
+.layout-final {
+  --article-hero-image: url("budapest-final.webp");
+  --article-hero-position: 58% center;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(10, 22, 18, 0.95) 0%, rgba(10, 22, 18, 0.76) 52%, rgba(10, 22, 18, 0.34) 100%),
+    linear-gradient(0deg, rgba(8, 17, 14, 0.75), transparent 68%);
+}
+
+.layout-letter {
+  --article-hero-image: url("saka-you-deserve-more.webp");
+  --article-hero-position: 82% center;
+  --article-hero-size: auto 100%;
+  --article-hero-saturation: 0.72;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(244, 239, 228, 0.98) 0%, rgba(244, 239, 228, 0.94) 53%, rgba(244, 239, 228, 0.6) 100%),
+    linear-gradient(0deg, rgba(244, 239, 228, 0.82), transparent 60%);
+}
+
+.layout-mask {
+  --article-hero-image: url("viktor-gyokeres-mask.webp");
+  --article-hero-position: 50% 43%;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(10, 10, 9, 0.68), rgba(10, 10, 9, 0.48)),
+    linear-gradient(0deg, rgba(8, 8, 7, 0.88), rgba(8, 8, 7, 0.16) 70%);
+}
+
+.layout-foundations {
+  --article-hero-image: url("hale-end-foundations.webp");
+  --article-hero-position: 52% center;
+  --article-hero-saturation: 0.62;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(220, 215, 205, 0.97) 0%, rgba(220, 215, 205, 0.88) 53%, rgba(220, 215, 205, 0.48) 100%),
+    linear-gradient(0deg, rgba(220, 215, 205, 0.72), transparent 65%);
+}
+
+.layout-prince {
+  --article-hero-image: url("neymar-final-world-cup.webp");
+  --article-hero-position: 76% center;
+  --article-hero-size: auto 100%;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(5, 34, 58, 0.96) 0%, rgba(5, 34, 58, 0.83) 56%, rgba(5, 34, 58, 0.32) 100%),
+    linear-gradient(0deg, rgba(4, 27, 45, 0.75), transparent 64%);
+}
+
+.layout-monument {
+  --article-hero-image: url("ronaldo-last-empty-room.webp");
+  --article-hero-position: 82% center;
+  --article-hero-size: auto 100%;
+  --article-hero-saturation: 0;
+  --article-hero-contrast: 1.1;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(8, 8, 7, 0.98) 0%, rgba(8, 8, 7, 0.86) 52%, rgba(8, 8, 7, 0.26) 100%),
+    linear-gradient(0deg, rgba(5, 5, 5, 0.78), transparent 64%);
+}
+
+.layout-keystone {
+  --article-hero-image: url("declan-rice-keystone.webp");
+  --article-hero-position: 82% center;
+  --article-hero-size: auto 100%;
+  --article-hero-saturation: 0.68;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(17, 43, 58, 0.97) 0%, rgba(17, 43, 58, 0.88) 54%, rgba(17, 43, 58, 0.3) 100%),
+    linear-gradient(0deg, rgba(12, 32, 43, 0.75), transparent 65%);
+}
+
+.layout-photoessay {
+  --article-hero-image: url("trossard-between-chapters.webp");
+  --article-hero-position: 54% 42%;
+  --article-hero-saturation: 0.65;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(28, 28, 26, 0.95) 0%, rgba(28, 28, 26, 0.7) 54%, rgba(28, 28, 26, 0.3) 100%),
+    linear-gradient(0deg, rgba(20, 20, 19, 0.76), transparent 65%);
+}
+
+.layout-summer {
+  --article-hero-image: url("messi-last-summer.webp");
+  --article-hero-position: 60% center;
+  --article-hero-saturation: 0.72;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(19, 31, 36, 0.94) 0%, rgba(19, 31, 36, 0.7) 54%, rgba(19, 31, 36, 0.28) 100%),
+    linear-gradient(0deg, rgba(14, 23, 27, 0.8), transparent 68%);
+}
+
+.layout-language {
+  --article-hero-image: url("ozil-language-hero.webp");
+  --article-hero-position: 62% center;
+  --article-hero-saturation: 0.56;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(238, 233, 220, 0.98) 0%, rgba(238, 233, 220, 0.91) 52%, rgba(238, 233, 220, 0.42) 100%),
+    linear-gradient(0deg, rgba(238, 233, 220, 0.74), transparent 68%);
 }
 
 .article-body {
