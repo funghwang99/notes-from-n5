@@ -2385,6 +2385,7 @@ a.path-row:hover .path-arrow,
 /* 10 — Messi: the last summer, framed like cinema */
 
 .layout-summer {
+  overflow-x: clip;
   background:
     linear-gradient(180deg, #e7d4bd 0, #f2ede3 34rem, #f2ede3 100%);
 }
