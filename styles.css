@@ -3676,7 +3676,7 @@ a.path-row:hover .path-arrow,
   background: #101b22;
   color: #e5dfd4;
   text-align: center;
-  transform: translateX(-50%);
+  translate: -50% 0;
 }
 
 .theseus-beat::after {
