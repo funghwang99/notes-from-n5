@@ -4345,3 +4345,614 @@ a.path-row:hover .path-arrow,
     padding: 3.2rem 1.5rem;
   }
 }
+
+/* 15 — Ian Wright: light that crossed the dark before the world looked up */
+
+.layout-wright {
+  --article-hero-image: url("wright-hero.webp");
+  --article-hero-position: 48% 42%;
+  --article-hero-saturation: 0.76;
+  --article-hero-contrast: 1.08;
+  --article-hero-overlay:
+    linear-gradient(90deg, rgba(5, 12, 24, 0.97) 0%, rgba(5, 12, 24, 0.84) 42%, rgba(5, 12, 24, 0.2) 100%),
+    linear-gradient(0deg, rgba(5, 12, 24, 0.88), transparent 66%);
+  overflow-x: clip;
+  background:
+    linear-gradient(rgba(27, 47, 71, 0.045) 1px, transparent 1px),
+    #eee9df;
+  background-size: 100% 4.6rem;
+}
+
+.layout-wright .reading-progress {
+  background: #d8ab57;
+}
+
+.layout-wright .site-header {
+  border-bottom-color: rgba(224, 189, 117, 0.2);
+}
+
+.layout-wright .article-hero {
+  min-height: 100svh;
+  border-bottom: 1px solid rgba(216, 171, 87, 0.36);
+  background: #08111f;
+}
+
+.layout-wright .article-heading {
+  width: min(100%, 76rem);
+}
+
+.layout-wright .article-heading .eyebrow {
+  color: #e0bd75;
+}
+
+.layout-wright .article-heading h1 {
+  max-width: 9ch;
+  margin-bottom: 1.7rem;
+  font-family: var(--serif);
+  font-size: clamp(4.7rem, 10vw, 10.5rem);
+  font-weight: 430;
+  letter-spacing: -0.052em;
+  line-height: 0.82;
+}
+
+.layout-wright .article-deck {
+  max-width: 39rem;
+  color: #d0c7b8;
+  font-family: var(--serif);
+}
+
+.layout-wright .article-byline {
+  max-width: 48rem;
+  border-top-color: rgba(224, 189, 117, 0.28);
+  color: #9a958a;
+}
+
+.wright-starfield {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wright-starfield::before,
+.wright-starfield::after {
+  position: absolute;
+  border-radius: 50%;
+  background: #f3d99d;
+  content: "";
+  opacity: 0.7;
+}
+
+.wright-starfield::before {
+  top: 19%;
+  left: 9%;
+  width: 0.22rem;
+  height: 0.22rem;
+  box-shadow:
+    17vw 11vh 0 -1px #f3d99d,
+    28vw -3vh 0 -1px #f3d99d,
+    46vw 18vh 0 -1px #f3d99d,
+    73vw -4vh 0 -1px #f3d99d,
+    81vw 31vh 0 -1px #f3d99d;
+}
+
+.wright-starfield::after {
+  right: 18%;
+  bottom: 14%;
+  width: 0.15rem;
+  height: 0.15rem;
+  box-shadow:
+    -12vw -9vh 0 -1px #f3d99d,
+    -39vw 4vh 0 -1px #f3d99d,
+    9vw -27vh 0 -1px #f3d99d;
+}
+
+.wright-starfield span {
+  position: absolute;
+  top: 13%;
+  right: 14%;
+  width: 1px;
+  height: 42%;
+  background: linear-gradient(transparent, rgba(224, 189, 117, 0.62), transparent);
+  transform: rotate(38deg);
+  transform-origin: center;
+}
+
+.wright-starfield span:nth-child(2) {
+  top: 42%;
+  right: 34%;
+  height: 29%;
+  opacity: 0.42;
+}
+
+.wright-starfield span:nth-child(3) {
+  top: 3%;
+  right: 61%;
+  height: 22%;
+  opacity: 0.3;
+}
+
+.layout-wright .article-body {
+  width: min(100% - 2.4rem, 80rem);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: clamp(5rem, 10vw, 10rem);
+}
+
+.wright-passage {
+  position: relative;
+  width: min(100%, 52rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.wright-passage > p {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 2rem;
+  color: #29323b;
+  font-family: var(--serif);
+  font-size: clamp(1.08rem, 1.45vw, 1.25rem);
+  line-height: 1.96;
+}
+
+.wright-passage .article-lead {
+  color: #101b27;
+  font-size: clamp(1.28rem, 2vw, 1.64rem);
+  line-height: 1.8;
+}
+
+.wright-passage .article-lead::first-letter {
+  color: #b77b27;
+}
+
+.wright-figure {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(4.5rem, 9vw, 8rem);
+  margin-bottom: clamp(4.5rem, 9vw, 8rem);
+}
+
+.wright-figure img {
+  display: block;
+  width: 100%;
+  background: #08111f;
+  filter: saturate(0.8) contrast(1.04);
+  object-fit: cover;
+}
+
+.wright-figure figcaption {
+  margin-top: 0.85rem;
+  color: #6f6b62;
+  font-size: 0.64rem;
+  letter-spacing: 0.07em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.wright-figure--pigden,
+.wright-figure--rocky,
+.wright-figure--179 {
+  left: 50%;
+  width: min(72rem, calc(100vw - 2.4rem));
+  translate: -50% 0;
+}
+
+.wright-figure--pigden {
+  padding: 0.7rem;
+  border: 1px solid rgba(116, 91, 47, 0.4);
+  background: #d8d0c2;
+}
+
+.wright-figure--pigden::after {
+  position: absolute;
+  right: 1.7rem;
+  bottom: -2.8rem;
+  width: 1px;
+  height: 4.5rem;
+  background: linear-gradient(#b77b27, transparent);
+  content: "";
+}
+
+.wright-figure--pigden img {
+  aspect-ratio: 1.9 / 1;
+  object-position: center;
+}
+
+.wright-phrase {
+  position: relative;
+  left: 50%;
+  width: min(76rem, calc(100vw - 2.4rem));
+  margin: clamp(6rem, 11vw, 10rem) 0;
+  padding: clamp(4rem, 9vw, 8rem) clamp(1.5rem, 8vw, 7rem);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 72% 50%, rgba(221, 177, 90, 0.2), transparent 18rem),
+    #08111f;
+  color: #f0e8d9;
+  translate: -50% 0;
+}
+
+.wright-phrase::before {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  left: 48%;
+  height: 1px;
+  background: linear-gradient(90deg, #e0bd75, transparent);
+  content: "";
+}
+
+.wright-phrase > span {
+  color: #b39d72;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.wright-phrase blockquote {
+  position: relative;
+  z-index: 1;
+  max-width: 9ch;
+  margin: 1rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(3.2rem, 8vw, 8.4rem);
+  font-style: italic;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.wright-passage--distance {
+  margin-top: clamp(8rem, 13vw, 13rem);
+}
+
+.wright-passage--distance::before {
+  position: absolute;
+  z-index: 0;
+  top: -6rem;
+  right: -24rem;
+  width: 38rem;
+  height: 38rem;
+  border: 1px solid rgba(141, 111, 55, 0.13);
+  border-radius: 50%;
+  content: "";
+}
+
+.wright-passage > .wright-light-line {
+  margin: clamp(4rem, 8vw, 7rem) 0;
+  color: #14293c;
+  font-size: clamp(2.3rem, 5vw, 5rem);
+  font-style: italic;
+  letter-spacing: -0.045em;
+  line-height: 1.14;
+}
+
+.wright-signal {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: calc(100% + 10rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: clamp(5rem, 9vw, 8rem) 0 clamp(6rem, 10vw, 9rem) -5rem;
+  border-top: 1px solid rgba(127, 93, 38, 0.42);
+}
+
+.wright-signal::after {
+  position: absolute;
+  top: -0.22rem;
+  left: 0;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: #d5a64c;
+  box-shadow: 15.5rem 0 1rem #d5a64c, 31rem 0 1rem #d5a64c, 46.5rem 0 1rem #d5a64c;
+  content: "";
+}
+
+.wright-signal div {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.5rem 1rem 0 0;
+}
+
+.wright-signal strong {
+  color: #b17a2d;
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  font-weight: 430;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.wright-signal span {
+  color: #736d61;
+  font-size: 0.59rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.wright-figure--palace {
+  width: min(29rem, calc(100vw - 4.8rem));
+  margin-left: -5rem;
+  padding: 0.7rem 0.7rem 2.7rem;
+  background: #111b2a;
+  box-shadow: 0 1.7rem 4.5rem rgba(22, 29, 38, 0.18);
+  transform: rotate(-1.3deg);
+}
+
+.wright-figure--palace img {
+  aspect-ratio: 5 / 7;
+  object-position: center top;
+}
+
+.wright-figure--palace figcaption {
+  padding: 0 0.5rem;
+  color: #aaa292;
+}
+
+.wright-passage--arsenal {
+  margin-top: clamp(9rem, 15vw, 15rem);
+  padding-left: 4.7rem;
+}
+
+.wright-passage--arsenal::before {
+  position: absolute;
+  top: 0.65rem;
+  bottom: 0;
+  left: 1.25rem;
+  width: 1px;
+  background: linear-gradient(#c08b37, rgba(192, 139, 55, 0.14));
+  content: "";
+}
+
+.wright-passage > .wright-threshold {
+  margin: 0 0 clamp(5rem, 9vw, 8rem);
+  color: #7f1f2e;
+  font-size: clamp(2rem, 4.5vw, 4.2rem);
+  font-style: italic;
+  letter-spacing: -0.04em;
+  line-height: 1.22;
+}
+
+.wright-figure--rocky {
+  padding: 0.75rem 0.75rem 2.8rem;
+  background: #0e1724;
+}
+
+.wright-figure--rocky img {
+  aspect-ratio: 16 / 9;
+  object-position: center;
+}
+
+.wright-figure--rocky figcaption {
+  padding: 0 0.35rem;
+  color: #aaa292;
+}
+
+.wright-passage > .wright-only {
+  margin: clamp(5rem, 9vw, 8rem) 0;
+  color: #0c1b2b;
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-style: italic;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.wright-figure--179 {
+  padding: 0.75rem;
+  background: #0c1522;
+}
+
+.wright-figure--179::after {
+  position: absolute;
+  inset: 0.75rem;
+  background: linear-gradient(90deg, transparent 52%, rgba(4, 10, 17, 0.52));
+  content: "";
+  pointer-events: none;
+}
+
+.wright-figure--179 img {
+  aspect-ratio: 16 / 9;
+}
+
+.wright-figure--179 > span {
+  position: absolute;
+  z-index: 2;
+  right: 3rem;
+  bottom: 1.3rem;
+  color: rgba(239, 224, 193, 0.82);
+  font-family: var(--serif);
+  font-size: clamp(5rem, 15vw, 13rem);
+  font-style: italic;
+  letter-spacing: -0.08em;
+  line-height: 0.78;
+}
+
+.wright-passage--seen {
+  margin-top: clamp(10rem, 16vw, 16rem);
+}
+
+.wright-passage--seen::after {
+  position: absolute;
+  z-index: 0;
+  right: -6rem;
+  bottom: 6rem;
+  width: 12rem;
+  height: 28rem;
+  background: linear-gradient(90deg, transparent, rgba(215, 171, 87, 0.1), transparent);
+  content: "";
+  transform: rotate(18deg);
+}
+
+.wright-passage > .wright-answer {
+  margin: clamp(5rem, 9vw, 8rem) 0;
+  color: #8b2636;
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  font-style: italic;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  text-align: center;
+}
+
+.wright-coda {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-top: clamp(9rem, 15vw, 15rem);
+  padding: clamp(7rem, 13vw, 13rem) 0 clamp(8rem, 15vw, 15rem);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 84%, rgba(222, 181, 99, 0.17), transparent 24rem),
+    #08111f;
+  color: #e8e2d6;
+  translate: -50% 0;
+}
+
+.wright-coda::before {
+  position: absolute;
+  top: -18rem;
+  left: 50%;
+  width: 1px;
+  height: 45rem;
+  background: linear-gradient(transparent, #e0bd75, transparent);
+  content: "";
+  transform: rotate(42deg);
+}
+
+.wright-coda-light {
+  position: absolute;
+  top: 12%;
+  right: 8%;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #f0d698;
+  box-shadow: 0 0 2rem #e0bd75;
+}
+
+.wright-coda .wright-passage {
+  width: min(100% - 2.4rem, 52rem);
+}
+
+.wright-coda .wright-passage > p {
+  color: #c9c4ba;
+}
+
+.wright-coda .wright-passage > .wright-final-line {
+  margin: clamp(4rem, 8vw, 7rem) 0 0;
+  color: #f1e9da;
+  font-size: clamp(2.4rem, 5vw, 5.3rem);
+  font-style: italic;
+  letter-spacing: -0.048em;
+  line-height: 1.08;
+}
+
+.wright-coda .wright-passage > .wright-final-line + .wright-final-line {
+  margin-top: 1.5rem;
+  color: #e0bd75;
+}
+
+.layout-wright .article-end {
+  border-top-color: rgba(122, 91, 41, 0.34);
+}
+
+@media (max-width: 820px) {
+  .layout-wright {
+    --article-hero-position: 58% center;
+    --article-hero-overlay:
+      linear-gradient(90deg, rgba(5, 12, 24, 0.97) 0%, rgba(5, 12, 24, 0.8) 65%, rgba(5, 12, 24, 0.28) 100%),
+      linear-gradient(0deg, rgba(5, 12, 24, 0.94), transparent 62%);
+  }
+
+  .layout-wright .article-hero {
+    min-height: 92svh;
+  }
+
+  .layout-wright .article-heading h1 {
+    font-size: clamp(3.8rem, 17vw, 7rem);
+  }
+
+  .wright-signal {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 1rem;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .wright-signal::after {
+    display: none;
+  }
+
+  .wright-figure--palace {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .wright-passage--arsenal {
+    padding-left: 3rem;
+  }
+
+  .wright-passage--arsenal::before {
+    left: 0.7rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .wright-starfield span {
+    opacity: 0.35;
+  }
+
+  .wright-phrase {
+    padding: 4rem 1.35rem;
+  }
+
+  .wright-phrase::before {
+    left: 68%;
+  }
+
+  .wright-figure--pigden {
+    padding: 0.45rem;
+  }
+
+  .wright-figure--pigden img {
+    aspect-ratio: 1.55 / 1;
+  }
+
+  .wright-passage > .wright-light-line,
+  .wright-passage > .wright-threshold {
+    font-size: clamp(2rem, 10vw, 3.2rem);
+  }
+
+  .wright-passage--distance::before,
+  .wright-passage--seen::after {
+    display: none;
+  }
+
+  .wright-passage--arsenal {
+    padding-left: 1.8rem;
+  }
+
+  .wright-passage--arsenal::before {
+    left: 0.2rem;
+  }
+
+  .wright-figure--rocky,
+  .wright-figure--179 {
+    padding: 0.45rem;
+  }
+
+  .wright-figure--179::after {
+    inset: 0.45rem;
+  }
+
+  .wright-figure--179 > span {
+    right: 1.1rem;
+    bottom: 0.7rem;
+  }
+
+  .wright-coda .wright-passage > .wright-final-line {
+    font-size: clamp(2.1rem, 11vw, 3.5rem);
+  }
+}
