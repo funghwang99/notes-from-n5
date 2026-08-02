@@ -4356,7 +4356,7 @@ a.path-row:hover .path-arrow,
   --article-hero-overlay:
     linear-gradient(90deg, rgba(5, 12, 24, 0.97) 0%, rgba(5, 12, 24, 0.84) 42%, rgba(5, 12, 24, 0.2) 100%),
     linear-gradient(0deg, rgba(5, 12, 24, 0.88), transparent 66%);
-  overflow-x: clip;
+  overflow-x: hidden;
   background:
     linear-gradient(rgba(27, 47, 71, 0.045) 1px, transparent 1px),
     #eee9df;
@@ -4611,8 +4611,8 @@ a.path-row:hover .path-arrow,
   position: absolute;
   z-index: 0;
   top: -6rem;
-  right: -24rem;
-  width: 38rem;
+  right: -8rem;
+  width: 22rem;
   height: 38rem;
   border: 1px solid rgba(141, 111, 55, 0.13);
   border-radius: 50%;
