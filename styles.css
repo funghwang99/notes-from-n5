@@ -3670,7 +3670,7 @@ a.path-row:hover .path-arrow,
   position: relative;
   z-index: 2;
   width: min(72rem, calc(100vw - 2.4rem));
-  margin: clamp(6rem, 11vw, 10rem) 0 clamp(6rem, 11vw, 10rem) 50%;
+  margin: clamp(6rem, 11vw, 10rem) 0 clamp(6rem, 11vw, 10rem) calc(50% - 2.4rem);
   padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 8vw, 7rem);
   overflow: hidden;
   background: #101b22;
@@ -3763,9 +3763,9 @@ a.path-row:hover .path-arrow,
   object-position: center 18%;
 }
 
-.layout-theseus .theseus-closing {
+.layout-theseus .theseus-section > .theseus-closing {
   width: min(68rem, calc(100vw - 2.4rem));
-  margin: clamp(7rem, 13vw, 12rem) 0 0 50%;
+  margin: clamp(7rem, 13vw, 12rem) 0 0 calc(50% - 2.4rem);
   padding: clamp(3.5rem, 8vw, 7rem);
   background:
     linear-gradient(180deg, rgba(16, 27, 34, 0.92), #101b22),
@@ -3846,6 +3846,7 @@ a.path-row:hover .path-arrow,
   }
 
   .theseus-beat {
+    margin-left: calc(50% - 1.25rem);
     padding: 4rem 1.2rem 5rem;
   }
 
@@ -3855,7 +3856,8 @@ a.path-row:hover .path-arrow,
     padding: 3rem 1.6rem;
   }
 
-  .layout-theseus .theseus-closing {
+  .layout-theseus .theseus-section > .theseus-closing {
+    margin-left: calc(50% - 1.25rem);
     padding: 3.2rem 1.5rem;
   }
 }
