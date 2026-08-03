@@ -1,0 +1,37 @@
+/* Thierry Henry — The Crown We All Wore */
+.layout-henry{--henry-wine:#210b0d;--henry-red:#8f1820;--henry-gold:#caa762;--henry-paper:#f0eadf;background:#f0eadf;color:#251d1d;overflow-x:clip}
+.layout-henry .reading-progress{background:#caa762}
+.layout-henry .site-header{border-bottom-color:rgba(202,167,98,.22)}
+.henry-hero{min-height:100svh;background:#210b0d;border-bottom:1px solid rgba(202,167,98,.35);isolation:isolate}
+.henry-hero .article-hero-media{background-image:linear-gradient(90deg,rgba(21,5,7,.98) 0%,rgba(21,5,7,.9) 42%,rgba(21,5,7,.28) 100%),linear-gradient(0deg,rgba(21,5,7,.88),transparent 62%),url("https://upload.wikimedia.org/wikipedia/commons/b/b5/Thierry_Henry_Statue_2.jpg");background-position:center,center,68% center;background-size:cover;filter:saturate(.72) contrast(1.08)}
+.henry-hero .article-heading{z-index:2;width:min(100%,76rem)}
+.henry-hero .eyebrow{color:#d7bb82}
+.henry-hero h1{max-width:9ch;margin-bottom:1.6rem;font-family:var(--serif);font-size:clamp(4.4rem,9.5vw,9.8rem);font-weight:430;letter-spacing:-.055em;line-height:.84}
+.henry-hero .article-deck{max-width:42rem;color:#d7cec2;font-family:var(--serif)}
+.henry-hero .article-byline{max-width:48rem;border-top-color:rgba(202,167,98,.3);color:#aaa097}
+.henry-royal-mark{position:absolute;z-index:1;right:clamp(1rem,5vw,5rem);bottom:clamp(2rem,5vw,5rem);display:grid;width:clamp(8rem,17vw,15rem);aspect-ratio:1;place-items:center;border:1px solid rgba(202,167,98,.35);border-radius:50%;color:rgba(232,210,166,.18);font-family:var(--serif);font-size:clamp(4rem,10vw,9rem)}
+.henry-royal-mark:before,.henry-royal-mark:after{position:absolute;width:112%;height:1px;background:rgba(202,167,98,.2);content:"";transform:rotate(45deg)}
+.henry-royal-mark:after{transform:rotate(-45deg)}
+.henry-body{width:min(100% - 2.4rem,82rem);margin:0 auto;padding:clamp(5rem,10vw,10rem) 0}
+.henry-section{position:relative;width:min(100%,52rem);margin:0 auto}
+.henry-section>p{margin:0 0 2rem;color:#312827;font-family:var(--serif);font-size:clamp(1.08rem,1.45vw,1.25rem);line-height:1.96}
+.henry-section .article-lead{color:#1e1415;font-size:clamp(1.32rem,2vw,1.7rem);line-height:1.78}
+.henry-section .article-lead:first-letter{float:left;margin:.12em .12em 0 0;color:#8f1820;font-size:4.7em;line-height:.75}
+.henry-line{color:#7e171e!important;font-style:italic}
+.henry-line--large{margin:clamp(2.5rem,5vw,4.5rem) 0!important;color:#491116!important;font-size:clamp(1.55rem,3vw,2.5rem)!important;line-height:1.28!important}
+.henry-figure{position:relative;left:50%;width:min(74rem,calc(100vw - 2.4rem));margin:clamp(4rem,9vw,8rem) 0;translate:-50% 0}
+.henry-figure img{display:block;width:100%;max-height:76svh;background:#1f1112;filter:saturate(.78) contrast(1.06);object-fit:cover}
+.henry-figure figcaption{margin-top:.75rem;color:#746965;font-size:.62rem;letter-spacing:.08em;line-height:1.55;text-transform:uppercase}
+.henry-figure--wide img{aspect-ratio:1.55/1;object-position:center}
+.henry-figure--highbury{width:min(68rem,calc(100vw - 2.4rem));padding:.7rem;border:1px solid rgba(118,75,53,.35);background:#d8d0c3}
+.henry-figure--highbury img{aspect-ratio:4/3}
+.henry-figure--statue{width:min(76rem,calc(100vw - 2.4rem));padding:clamp(.6rem,1.3vw,1rem);background:#210b0d}
+.henry-figure--statue img{aspect-ratio:1.5/1;object-position:center}
+.henry-figure--statue figcaption{color:#b8aa9d}
+.henry-crown{position:relative;left:50%;width:min(76rem,calc(100vw - 2.4rem));margin:clamp(5rem,10vw,9rem) 0;padding:clamp(4rem,9vw,8rem) clamp(1.5rem,8vw,7rem);overflow:hidden;background:radial-gradient(circle at 78% 30%,rgba(202,167,98,.22),transparent 20rem),#210b0d;color:#f2e7d7;translate:-50% 0}
+.henry-crown:before{position:absolute;right:-2rem;bottom:-5rem;color:rgba(202,167,98,.08);content:"14";font-family:var(--serif);font-size:clamp(12rem,29vw,28rem);line-height:1}
+.henry-crown span{position:relative;color:#caa762;font-size:.64rem;letter-spacing:.2em}
+.henry-crown blockquote{position:relative;max-width:16ch;margin:2rem 0 0;font-family:var(--serif);font-size:clamp(2.3rem,5.5vw,5rem);font-style:italic;line-height:1.04}
+.henry-return,.henry-kingdom,.henry-farewell,.henry-two-bodies{margin-top:clamp(4rem,8vw,8rem)}
+.henry-two-bodies:before{position:absolute;top:0;bottom:0;left:-3rem;width:1px;background:linear-gradient(transparent,#8f1820,transparent);content:""}
+@media(max-width:720px){.henry-hero .article-hero-media{background-position:center,center,61% center}.henry-hero h1{font-size:clamp(3.65rem,17vw,6rem)}.henry-royal-mark{opacity:.62}.henry-body{width:min(100% - 2rem,82rem)}.henry-section>p{font-size:1.08rem;line-height:1.88}.henry-line--large{font-size:clamp(1.5rem,8vw,2.2rem)!important}.henry-two-bodies:before{display:none}}
