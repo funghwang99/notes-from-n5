@@ -96,3 +96,9 @@ if (archiveEntries.length && archiveFilters.length) {
     archiveStatus.textContent = `Mạch ${paths[activePath]}`;
   }
 }
+
+if (document.body.classList.contains("layout-letter")) {
+  const style = document.createElement("style");
+  style.textContent = ".layout-letter .article-body .article-lead::first-letter{color:inherit}";
+  document.head.append(style);
+}
