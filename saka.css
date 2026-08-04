@@ -1,0 +1,4 @@
+/* Bukayo Saka — keep the opening paragraph understated. */
+.layout-letter .article-body .article-lead::first-letter {
+  color: inherit;
+}
