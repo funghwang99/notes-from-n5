@@ -30,7 +30,8 @@
 .baggio-figure figcaption{margin-top:.78rem;color:#6e6b64;font-size:.62rem;letter-spacing:.08em;line-height:1.55;text-transform:uppercase}
 .baggio-figure--hero{width:min(70rem,calc(100vw - 2.4rem));padding:.7rem;border:1px solid rgba(80,95,111,.35);background:#d7d2c8}
 .baggio-figure--hero img{aspect-ratio:1.7/1;object-position:center 35%}
-.baggio-figure--action img{aspect-ratio:1.62/1;object-position:center 42%}
+.baggio-figure--action{width:min(62rem,calc(100vw - 2.4rem));padding:.7rem;border:1px solid rgba(80,95,111,.35);background:#101824}
+.baggio-figure--action img{height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center}
 .baggio-figure--penalty{width:min(78rem,calc(100vw - 2.4rem));padding:clamp(.6rem,1.3vw,1rem);background:var(--baggio-night)}
 .baggio-figure--penalty img{aspect-ratio:16/9;object-position:center}
 .baggio-figure--penalty figcaption{color:#aaa9a4}
