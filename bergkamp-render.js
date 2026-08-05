@@ -1,12 +1,13 @@
 (() => {
   const root = document.querySelector("[data-bergkamp-article]");
-  const text = window.BERGKAMP_TEXT || [];
+  const normalizeText = (value) => String(value ?? "").normalize("NFC").replace(/[\u200B-\u200D\uFEFF]/g, "");
+  const text = (window.BERGKAMP_TEXT || []).map(normalizeText);
   if (!root || text.length !== 21) return;
 
   const paragraph = (value, className = "") => {
     const p = document.createElement("p");
     if (className) p.className = className;
-    p.textContent = value;
+    p.textContent = normalizeText(value);
     return p;
   };
 
@@ -14,9 +15,9 @@
     const box = document.createElement("div");
     box.className = "bergkamp-section-label reveal is-visible";
     const numberEl = document.createElement("span");
-    numberEl.textContent = number;
+    numberEl.textContent = normalizeText(number);
     const titleEl = document.createElement("p");
-    titleEl.textContent = title;
+    titleEl.textContent = normalizeText(title);
     box.append(numberEl, titleEl);
     return box;
   };
