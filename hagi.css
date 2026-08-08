@@ -1,0 +1,46 @@
+:root{--h-ink:#111a32;--h-paper:#f2efe6;--h-blue:#214f9a;--h-yellow:#efd338;--h-red:#c9333a;--h-line:rgba(17,26,50,.17)}
+.layout-hagi{background:var(--h-paper);color:var(--h-ink)}
+.layout-hagi .reading-progress{background:var(--h-yellow)}
+.layout-hagi .site-header{background:rgba(17,26,50,.95);border-bottom-color:rgba(255,255,255,.1)}
+.layout-hagi .site-header,.layout-hagi .site-header a,.layout-hagi .menu-button{color:#faf7ef}
+.hagi-hero{position:relative;min-height:96vh;overflow:hidden;background:var(--h-ink);color:#faf7ef}
+.hagi-hero-photo{position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,26,50,.98) 0%,rgba(17,26,50,.88) 38%,rgba(17,26,50,.25) 72%,rgba(17,26,50,.45) 100%),linear-gradient(0deg,rgba(17,26,50,.8),transparent 45%),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Hagi.jpg?width=2000") center 34%/cover no-repeat;filter:saturate(.72) contrast(1.07)}
+.hagi-flag{position:absolute;top:0;right:0;display:grid;grid-template-columns:repeat(3,18px);height:100%}
+.hagi-flag i:nth-child(1){background:var(--h-blue)}.hagi-flag i:nth-child(2){background:var(--h-yellow)}.hagi-flag i:nth-child(3){background:var(--h-red)}
+.hagi-hero-copy{position:relative;z-index:2;display:flex;min-height:96vh;flex-direction:column;justify-content:center;width:min(780px,calc(100% - 3rem));margin-left:clamp(1.5rem,7vw,8rem);padding:9rem 0 5rem}
+.hagi-hero .eyebrow{color:#f2d765;letter-spacing:.18em}
+.hagi-hero h1{margin:1.2rem 0 1.45rem;font-family:var(--serif);font-size:clamp(4.4rem,9vw,9.5rem);font-weight:600;letter-spacing:-.065em;line-height:.83}
+.hagi-deck{max-width:650px;margin:0;color:rgba(250,247,239,.78);font-family:var(--serif);font-size:clamp(1.1rem,1.6vw,1.42rem);line-height:1.62}
+.hagi-hero .article-byline{display:flex;flex-wrap:wrap;gap:.7rem 1.5rem;margin-top:2.5rem;padding-top:1.1rem;border-top:1px solid rgba(250,247,239,.22);color:rgba(250,247,239,.64)}
+.hagi-94{position:absolute;z-index:1;right:5vw;bottom:-.08em;color:rgba(239,211,56,.16);font-family:var(--sans);font-size:clamp(13rem,30vw,31rem);font-weight:800;letter-spacing:-.1em;line-height:.72}
+.hagi-article{font-family:var(--serif)}
+.hagi-section{width:min(840px,calc(100% - 3rem));margin:0 auto;padding:clamp(4.8rem,9vw,8rem) 0}
+.hagi-section+.hagi-section{border-top:1px solid var(--h-line)}
+.hagi-section p{margin:0 0 1.55em;font-size:clamp(1.12rem,1.45vw,1.3rem);line-height:1.84;letter-spacing:normal;word-spacing:normal}
+.hagi-section .article-lead{font-size:clamp(1.42rem,2vw,1.78rem);line-height:1.63}
+.hagi-emphasis{margin:clamp(3.2rem,7vw,5.5rem) 0!important;padding:clamp(2rem,4vw,3.2rem);border-left:5px solid var(--h-yellow);background:#171f38;color:#faf7ef;font-size:clamp(1.45rem,2.6vw,2.2rem)!important;font-style:italic;line-height:1.45!important}
+.hagi-years{display:grid;grid-template-columns:1fr minmax(60px,180px) 1fr;align-items:center;gap:1.5rem;margin:clamp(3.8rem,8vw,6.5rem) 0;padding:clamp(2rem,4vw,3.5rem) 0;border-block:1px solid var(--h-line)}
+.hagi-years>div{display:grid;gap:.55rem}.hagi-years span{font-family:var(--sans);font-size:clamp(3.2rem,7vw,6rem);font-weight:800;letter-spacing:-.06em;line-height:.85}.hagi-years p{margin:0;font-family:var(--sans);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}.hagi-years i{height:1px;background:linear-gradient(90deg,var(--h-blue),var(--h-yellow),var(--h-red))}
+.hagi-figure{width:min(1180px,calc(100% - 3rem));margin:0 auto clamp(4rem,8vw,7rem)}
+.hagi-figure img{display:block;width:100%;background:#ddd8cb}
+.hagi-figure figcaption{margin-top:.8rem;color:rgba(17,26,50,.56);font-family:var(--sans);font-size:.76rem;line-height:1.5}
+.hagi-figure--rosebowl img{aspect-ratio:16/7;object-fit:cover;filter:saturate(.72) contrast(1.05)}
+.hagi-figure--portrait{width:min(580px,calc(100% - 3rem))}.hagi-figure--portrait img{aspect-ratio:2/3;object-fit:cover;object-position:center 18%;filter:saturate(.72) contrast(1.03)}
+.hagi-section-label{display:flex;align-items:center;gap:1rem;margin-bottom:clamp(2.4rem,5vw,4rem);font-family:var(--sans)}
+.hagi-section-label span{padding:.7rem .9rem;background:var(--h-ink);color:#faf7ef;font-size:.72rem;font-weight:700;letter-spacing:.12em}
+.hagi-section-label p{margin:0;font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.hagi-revolution{position:relative;margin:clamp(3rem,7vw,5rem) 0;padding:clamp(2.4rem,5vw,4rem) clamp(1.5rem,4vw,3rem);border-block:1px solid var(--h-ink);font-family:var(--serif);font-size:clamp(2rem,4.8vw,4.5rem);font-style:italic;line-height:1.1;text-align:center}
+.hagi-revolution:before{content:"1989 → 1994";display:block;margin-bottom:1.1rem;color:var(--h-red);font-family:var(--sans);font-size:.72rem;font-style:normal;font-weight:700;letter-spacing:.16em}
+.hagi-scoreband{display:grid;grid-template-columns:1fr auto auto auto 1fr;align-items:center;gap:clamp(.8rem,3vw,2rem);width:min(1180px,calc(100% - 3rem));margin:0 auto;padding:clamp(2rem,5vw,4rem);background:var(--h-yellow);color:var(--h-ink);font-family:var(--sans);text-align:center}
+.hagi-scoreband span{font-size:clamp(.75rem,1.2vw,.95rem);font-weight:800;letter-spacing:.16em}.hagi-scoreband strong{font-size:clamp(3.5rem,8vw,7.5rem);line-height:.8}.hagi-scoreband i{font-size:2rem;font-style:normal}
+.hagi-near{margin:clamp(3rem,7vw,5rem) 0!important;color:var(--h-red);font-family:var(--sans)!important;font-size:clamp(2.7rem,6.5vw,6.5rem)!important;font-weight:800;letter-spacing:-.055em!important;line-height:.92!important}
+.hagi-legacy{padding-bottom:clamp(5rem,10vw,9rem)}
+.hagi-coda{position:relative;overflow:hidden;background:var(--h-ink);color:#faf7ef}
+.hagi-coda p{position:relative;z-index:2;width:min(840px,calc(100% - 3rem));margin:0 auto;padding:clamp(7rem,14vw,13rem) 0;font-family:var(--serif);font-size:clamp(1.8rem,3.2vw,3.2rem);font-style:italic;line-height:1.46}
+.hagi-door{position:absolute;right:8vw;top:50%;width:min(27vw,340px);aspect-ratio:.62;transform:translateY(-50%);border:1px solid rgba(250,247,239,.22);opacity:.55}
+.hagi-door i:first-child{position:absolute;inset:0;border-left:18px solid var(--h-blue);border-top:18px solid var(--h-yellow);border-right:18px solid var(--h-red)}
+.hagi-door i:last-child{position:absolute;top:50%;left:0;width:82%;height:1px;background:rgba(250,247,239,.35);transform:rotate(-36deg);transform-origin:left}
+.layout-hagi .article-notes{width:min(840px,calc(100% - 3rem));margin:0 auto;padding:2.2rem 0 5rem;color:rgba(17,26,50,.58);font-family:var(--sans);font-size:.76rem;line-height:1.65}.layout-hagi .article-notes a{color:inherit}
+.layout-hagi .site-footer{background:#0d1428;color:rgba(250,247,239,.72)}
+@media(max-width:900px){.hagi-hero-copy{margin-left:1.5rem}.hagi-94{right:3vw}.hagi-years{grid-template-columns:1fr}.hagi-years i{width:100%}.hagi-scoreband{grid-template-columns:1fr auto auto auto 1fr}}
+@media(max-width:700px){.hagi-hero{min-height:88vh}.hagi-hero-copy{min-height:88vh;width:calc(100% - 2rem);margin-left:1rem;padding:7.5rem 0 4rem}.hagi-hero h1{font-size:clamp(3.8rem,17vw,6rem)}.hagi-hero-photo{background-position:61% center}.hagi-flag{grid-template-columns:repeat(3,9px)}.hagi-94{font-size:45vw;right:1rem}.hagi-section{width:calc(100% - 2rem);padding:4.6rem 0}.hagi-section p{font-size:1.08rem;line-height:1.78}.hagi-figure,.hagi-figure--portrait,.hagi-scoreband{width:calc(100% - 2rem)}.hagi-figure--rosebowl img{aspect-ratio:4/3}.hagi-scoreband{grid-template-columns:1fr auto 1fr;gap:.7rem}.hagi-scoreband span:first-child{grid-column:1}.hagi-scoreband strong:nth-of-type(1){grid-column:2}.hagi-scoreband i{display:none}.hagi-scoreband strong:nth-of-type(2){grid-column:2;grid-row:2}.hagi-scoreband span:last-child{grid-column:3;grid-row:2}.hagi-scoreband span{font-size:.65rem}.hagi-near{font-size:clamp(2.7rem,14vw,4.7rem)!important}.hagi-coda p{width:calc(100% - 2rem);padding:7rem 0}.hagi-door{right:-10vw;width:56vw;opacity:.3}.layout-hagi .article-notes{width:calc(100% - 2rem)}}
