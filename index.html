@@ -3,31 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Notes from N5 là nơi lưu lại những câu chuyện bóng đá còn ở lại sau tiếng còi."
-    />
-    <meta name="theme-color" content="#171714" />
+    <meta name="description" content="Notes from N5 là nơi những trận đấu đã kết thúc vẫn tiếp tục sống qua ký ức, con người và những câu chuyện còn ở lại sau tiếng còi." />
+    <meta name="theme-color" content="#141412" />
     <title>Notes from N5</title>
-    <link rel="stylesheet" href="styles.css?v=20260802-wright-1" />
-    <script src="app.js?v=20260727-paths-2" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260808-home-1" />
+    <link rel="stylesheet" href="home.css?v=20260808-home-1" />
+    <script src="app.js?v=20260808-home-1" defer></script>
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#main-content">Đi tới nội dung chính</a>
 
     <header class="site-header" data-header>
       <a class="brand" href="index.html" aria-label="Notes from N5, trang chủ">
         <span class="brand-mark">N5</span>
-        <span class="brand-copy">
-          <strong>Notes from N5</strong>
-          <small>Football essays</small>
-        </span>
+        <span class="brand-copy"><strong>Notes from N5</strong><small>Football essays</small></span>
       </a>
-
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button>
-        <span>Menu</span><i aria-hidden="true"></i>
-      </button>
-
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button><span>Menu</span><i aria-hidden="true"></i></button>
       <nav class="site-nav" id="site-navigation" aria-label="Điều hướng chính" data-navigation>
         <a class="is-current" href="index.html">Trang chủ</a>
         <a href="articles.html">Kho bài viết</a>
@@ -36,103 +27,120 @@
     </header>
 
     <main id="main-content">
-      <section class="hero">
-        <div class="hero-grid">
-          <div class="hero-copy reveal">
-            <p class="eyebrow">Một trang ghi chép về bóng đá</p>
-            <h1>Notes<br />from N5</h1>
-            <p class="hero-intro">Những câu chuyện bắt đầu từ một trận đấu, rồi ở lại lâu hơn cả tỷ số.</p>
-            <a class="text-link" href="#latest">Bắt đầu từ đây <span aria-hidden="true">↓</span></a>
+      <section class="home-masthead">
+        <div class="home-masthead-grid">
+          <div class="home-masthead-copy reveal">
+            <p class="home-kicker">Written after the final whistle</p>
+            <h1>Những gì còn lại <em>sau tiếng còi.</em></h1>
+            <p class="home-masthead-deck">Notes from N5 là nơi những trận đấu đã kết thúc vẫn tiếp tục sống, qua ký ức về một cầu thủ, một mùa hè, một thất bại hay một niềm tin chưa chịu biến mất.</p>
+            <div class="home-actions">
+              <a class="home-primary-link" href="articles.html">Vào kho bài viết <span aria-hidden="true">↗</span></a>
+              <a class="home-secondary-link" href="#latest">Hoặc bắt đầu từ những bài mới ↓</a>
+            </div>
+            <div class="home-edition" aria-label="Thông tin về Notes from N5">
+              <span><strong>Longform</strong> football essays</span>
+              <span><strong>Không</strong> chạy theo tin tức</span>
+              <span><strong>Viết</strong> từ ký ức</span>
+            </div>
           </div>
 
-          <div class="hero-art reveal" aria-hidden="true">
-            <div class="pitch-line pitch-line-one"></div>
-            <div class="pitch-line pitch-line-two"></div>
-            <div class="hero-disc"><span>N</span><strong>5</strong></div>
-            <p>Written after the final whistle</p>
+          <div class="home-collage reveal" aria-label="Một vài câu chuyện trên Notes from N5">
+            <a class="home-shot home-shot--one" href="the-world-was-late.html">
+              <img src="wright-hero.webp" alt="Ian Wright trong màu áo Arsenal." />
+              <span class="home-shot-copy"><span>Bất tử · Ian Wright</span><strong>The World Was Late.</strong></span>
+            </a>
+            <a class="home-shot home-shot--two" href="the-ship-that-still-knew-its-name.html">
+              <img src="adams-hero.webp" alt="Tony Adams trong màu áo Arsenal." />
+              <span class="home-shot-copy"><span>Bất tử · Tony Adams</span><strong>The Ship That Still Knew Its Name.</strong></span>
+            </a>
+            <a class="home-shot home-shot--three" href="the-shape-of-an-eight.html">
+              <img src="cazorla-oviedo-promotion.webp" alt="Santi Cazorla cùng Real Oviedo." />
+              <span class="home-shot-copy"><span>Ngoài ánh đèn · Santi Cazorla</span><strong>The Shape of an Eight.</strong></span>
+            </a>
+            <div class="home-collage-mark" aria-hidden="true">N5</div>
           </div>
-        </div>
-        <div class="hero-note reveal">
-          <span>01</span>
-          <p>Bóng đá, ký ức và những điều mình không muốn để thời gian cuốn mất.</p>
         </div>
       </section>
 
-      <section class="manifesto section-shell">
-        <p class="section-index reveal">Về trang viết</p>
-        <div class="manifesto-copy reveal">
-          <h2>Không chạy theo tin tức.<br />Không viết lại tỷ số.</h2>
-          <p>
-            Notes from N5 được làm cho những bài viết dài về cảm giác mà bóng đá để lại:
-            một mùa giải chưa kịp quên, một cầu thủ từng khiến mình tin, hay một khoảnh khắc
-            vẫn còn nguyên dù trận đấu đã kết thúc từ rất lâu.
-          </p>
+      <section class="home-manifesto">
+        <blockquote class="home-manifesto-quote reveal">Tỷ số ghi lại chuyện đã xảy ra. <em>Ký ức giữ lại chuyện nó đã làm với chúng ta.</em></blockquote>
+        <div class="home-manifesto-copy reveal">
+          <p class="eyebrow">Về trang viết</p>
+          <p>Ở đây, một bàn thắng không chỉ để kể lại bàn thắng. Một trận chung kết có thể dẫn tới câu chuyện về mất mát, một cầu thủ có thể trở thành ký ức của cả một thế hệ, và đôi khi điều đáng nhớ nhất lại nằm ở những người chưa bao giờ đứng giữa ánh đèn.</p>
+          <p>Notes from N5 được làm để đọc chậm. Không viết lại tỷ số, không chạy theo nhịp tin tức, chỉ giữ lại những điều vẫn còn nguyên sau khi trận đấu đã đi qua từ rất lâu.</p>
+          <p class="home-manifesto-signoff">Bóng đá · Ký ức · Con người</p>
         </div>
       </section>
 
-      <section class="latest section-shell" id="latest" data-permanent-highlight="the-crown-we-all-wore">
-        <div class="section-heading reveal">
-          <div>
-            <p class="eyebrow">Bài viết tiêu biểu</p>
-            <h2>Chiếc vương miện chúng ta từng mang</h2>
-          </div>
-          <p>
-            Thierry Henry, hai cơ thể của một nhà vua và cảm giác anh từng trao
-            cho tất cả những người yêu Arsenal.
-          </p>
+      <section class="home-latest" id="latest">
+        <div class="home-section-head reveal">
+          <div><p class="eyebrow">Mới trên N5</p><h2>Ba câu chuyện để bắt đầu.</h2></div>
+          <a href="articles.html">Xem toàn bộ kho bài viết ↗</a>
         </div>
 
-        <article class="featured-article reveal">
-          <a class="featured-image" href="the-crown-we-all-wore.html" aria-label="Đọc The Crown We All Wore">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Thierry_Henry_Statue_2.jpg" alt="Bức tượng Thierry Henry bên ngoài Emirates Stadium." />
+        <div class="home-story-grid">
+          <a class="home-story-main reveal" href="the-second-revolution.html">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Hagi.jpg?width=1800" alt="Gheorghe Hagi trong màu áo Romania." />
+            <span class="home-story-main-copy">
+              <p class="home-story-label">Di sản · Romania · Gheorghe Hagi</p>
+              <h3>The Second Revolution.</h3>
+              <p>Một mùa hè, một thế hệ và khoảnh khắc Romania bắt đầu tin rằng những cánh cửa lớn nhất cũng có thể mở.</p>
+            </span>
           </a>
-          <div class="featured-copy">
-            <p class="article-meta">Arsenal · Thierry Henry · 17 phút đọc</p>
-            <h3><a href="the-crown-we-all-wore.html">The Crown We All Wore.</a></h3>
-            <p>
-              Có những năm, Thierry Henry không chỉ mang chiếc vương miện của Arsenal.
-              Anh trao nó cho tất cả chúng ta.
-            </p>
-            <a class="quiet-button" href="the-crown-we-all-wore.html">
-              Đọc bài viết <span aria-hidden="true">↗</span>
+
+          <div class="home-story-side">
+            <a class="home-story-small reveal" href="the-move-before-the-move.html">
+              <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Dennis_Bergkamp_statue.jpg?width=1200" alt="Bức tượng Dennis Bergkamp bên ngoài Emirates Stadium." />
+              <span class="home-story-small-copy"><p class="home-story-label">Bất tử · Arsenal</p><h3>The Move Before the Move.</h3></span>
+            </a>
+            <a class="home-story-small reveal" href="the-second-arrow.html">
+              <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Roberto_Baggio_-_Italia_%2790.jpg?width=1200" alt="Roberto Baggio trong màu áo Italy." />
+              <span class="home-story-small-copy"><p class="home-story-label">Di sản · Italy</p><h3>The Second Arrow.</h3></span>
             </a>
           </div>
-        </article>
+        </div>
       </section>
 
-      <section class="paths section-shell">
-        <div class="section-heading compact reveal">
-          <div><p class="eyebrow">Mạch cảm xúc</p><h2>Những lối đi của N5</h2></div>
+      <section class="home-paths">
+        <div class="home-section-head reveal">
+          <div><p class="eyebrow">Mạch cảm xúc</p><h2>Không cần đọc theo thứ tự.</h2></div>
+          <a href="articles.html">Đi thẳng vào kho ↗</a>
         </div>
 
-        <div class="path-list">
-          <a class="path-row reveal" href="articles.html?path=hy-vong&v=20260727-paths-2#archive" aria-label="Xem các bài viết theo mạch Hy vọng">
-            <span>01</span><h3>Hy vọng</h3><p>Những mùa giải khiến ta chọn tin thêm một lần nữa.</p><span class="path-arrow" aria-hidden="true">↗</span>
+        <div class="home-path-grid">
+          <a class="home-path-card reveal" data-number="01" href="articles.html?path=hy-vong#archive">
+            <div class="home-path-top"><span>01</span><span class="home-path-arrow">↗</span></div><h3>Hy vọng</h3><p>Những mùa giải khiến ta biết mình có thể thất vọng, nhưng vẫn chọn tin thêm một lần nữa.</p>
           </a>
-          <a class="path-row reveal" href="articles.html?path=tuoi-tre&v=20260727-paths-2#archive" aria-label="Xem các bài viết theo mạch Tuổi trẻ">
-            <span>02</span><h3>Tuổi trẻ</h3><p>Những cái tên lớn lên cùng một thế hệ trên khán đài.</p><span class="path-arrow" aria-hidden="true">↗</span>
+          <a class="home-path-card reveal" data-number="02" href="articles.html?path=tuoi-tre#archive">
+            <div class="home-path-top"><span>02</span><span class="home-path-arrow">↗</span></div><h3>Tuổi trẻ</h3><p>Những cái tên lớn lên trên sân cùng lúc với một thế hệ lớn lên trên khán đài.</p>
           </a>
-          <a class="path-row reveal" href="articles.html?path=mat-mat&v=20260727-paths-2#archive" aria-label="Xem các bài viết theo mạch Mất mát">
-            <span>03</span><h3>Mất mát</h3><p>Những điều chỉ hiện rõ sau khi đã vuột khỏi tay.</p><span class="path-arrow" aria-hidden="true">↗</span>
+          <a class="home-path-card reveal" data-number="03" href="articles.html?path=mat-mat#archive">
+            <div class="home-path-top"><span>03</span><span class="home-path-arrow">↗</span></div><h3>Mất mát</h3><p>Những điều chỉ hiện rõ hình dạng của mình sau khi đã vuột khỏi tay.</p>
           </a>
-          <a class="path-row reveal" href="articles.html?path=ngoai-anh-den&v=20260727-paths-2#archive" aria-label="Xem các bài viết theo mạch Ngoài ánh đèn">
-            <span>04</span><h3>Ngoài ánh đèn</h3><p>Dành cho những người không đứng giữa ánh đèn, nhưng vẫn có một chỗ riêng trong ký ức khán đài.</p><span class="path-arrow" aria-hidden="true">↗</span>
+          <a class="home-path-card reveal" data-number="04" href="articles.html?path=ngoai-anh-den#archive">
+            <div class="home-path-top"><span>04</span><span class="home-path-arrow">↗</span></div><h3>Ngoài ánh đèn</h3><p>Dành cho những người không đứng giữa sân khấu, nhưng vẫn giữ một chỗ riêng trong ký ức.</p>
           </a>
-          <a class="path-row reveal" href="articles.html?path=di-san&v=20260727-paths-2#archive" aria-label="Xem các bài viết theo mạch Di sản">
-            <span>05</span><h3>Di sản</h3><p>Điều còn ở lại khi một cái tên không còn trên đội hình.</p><span class="path-arrow" aria-hidden="true">↗</span>
+          <a class="home-path-card reveal" data-number="05" href="articles.html?path=di-san#archive">
+            <div class="home-path-top"><span>05</span><span class="home-path-arrow">↗</span></div><h3>Di sản</h3><p>Điều còn ở lại khi một cái tên không còn nằm trên đội hình nhưng vẫn chưa rời khỏi bóng đá.</p>
           </a>
-          <a class="path-row reveal" href="articles.html?path=bat-tu&v=20260727-paths-2#archive" aria-label="Xem các bài viết theo mạch Bất tử">
-            <span>06</span><h3>Bất tử</h3><p>Những con người đã trở thành một phần trong danh tính Arsenal.</p><span class="path-arrow" aria-hidden="true">↗</span>
+          <a class="home-path-card reveal" data-number="06" href="articles.html?path=bat-tu#archive">
+            <div class="home-path-top"><span>06</span><span class="home-path-arrow">↗</span></div><h3>Bất tử</h3><p>Những con người không chỉ từng chơi cho Arsenal, mà đã trở thành một phần trong danh tính của nó.</p>
           </a>
+        </div>
+      </section>
+
+      <section class="home-closing">
+        <div class="home-closing-inner reveal">
+          <p class="eyebrow">Notes from N5</p>
+          <h2>Có những câu chuyện chỉ hiện ra khi trận đấu đã kết thúc.</h2>
+          <p>Nếu một cái tên vẫn còn ở lại trong đầu sau nhiều năm, có lẽ ở đâu đó trong kho bài viết đã có một câu chuyện dành cho nó.</p>
+          <a class="home-primary-link" href="articles.html">Mở kho bài viết <span aria-hidden="true">↗</span></a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <a class="brand footer-brand" href="index.html">
-        <span class="brand-mark">N5</span>
-        <span class="brand-copy"><strong>Notes from N5</strong><small>Football essays</small></span>
-      </a>
+      <a class="brand footer-brand" href="index.html"><span class="brand-mark">N5</span><span class="brand-copy"><strong>Notes from N5</strong><small>Football essays</small></span></a>
       <p>Viết từ ký ức. Giữ lại bằng câu chữ.</p>
       <p class="copyright">© <span data-year></span> Notes from N5</p>
     </footer>
