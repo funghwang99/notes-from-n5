@@ -94,7 +94,7 @@ if (document.body.classList.contains("layout-letter")) {
   document.head.append(style);
 }
 
-// Keep preview / archive thumbnails visually separate from each article hero.
+// Preview / archive thumbnails deliberately use a different image from each article hero.
 const thumbnailMap = {
   "nine-years-in-one-afternoon.html": {
     src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/FA_Cup_Final_2014_02.jpg?width=1400",
@@ -102,9 +102,9 @@ const thumbnailMap = {
     position: "center 38%",
   },
   "the-second-revolution.html": {
-    src: "https://cdn.plus.fifa.com/images/public/cms/b6/88/f4/86/b688f486-ef82-463c-aa85-73bf545c32fd.jpg?height=900&width=1600",
+    src: "https://cdn.mos.cms.futurecdn.net/v2/t%3A0%2Cl%3A180%2Ccw%3A450%2Cch%3A450%2Cq%3A80%2Cw%3A900/tUqyMqKPeNijbs8ki3cfK3.jpg",
     alt: "Gheorghe Hagi trong áo vàng Romania tại World Cup 1994.",
-    position: "center 28%",
+    position: "center 32%",
   },
   "the-move-before-the-move.html": {
     src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dennis_Bergkamp.jpg?width=1200",
@@ -112,34 +112,90 @@ const thumbnailMap = {
     position: "center 24%",
   },
   "the-second-arrow.html": {
-    src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/ROBERTO_BAGGIO_LANEROSSI_VICENZA_BIANCOROSSO.jpg?width=1200",
-    alt: "Roberto Baggio thời trẻ trong màu áo Vicenza.",
-    position: "center 24%",
+    src: "https://media-assets.vanityfair.it/photos/614cad28ab48b5e28ef85408/16:9/w_1600,c_limit/roberto-baggio-P.jpg",
+    alt: "Roberto Baggio cùng Italy tại trận chung kết World Cup 1994 ở Pasadena.",
+    position: "center 32%",
   },
   "the-crown-we-all-wore.html": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/6/66/Henry_And_Persie_Bonding_%28289633666%29.jpg",
-    alt: "Thierry Henry trong màu áo Arsenal tại Highbury.",
+    src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thierry_Henry%E2%80%99s_iconic_knee_slide.jpg?width=1200",
+    alt: "Thierry Henry trong một màn ăn mừng mang tính biểu tượng của Arsenal.",
     position: "center 28%",
   },
-  "the-world-was-late.html": { src: "wright-179.webp", alt: "Ian Wright trong màu áo Arsenal.", position: "center 22%" },
+  "the-world-was-late.html": {
+    src: "wright-179.webp",
+    alt: "Ian Wright trong màu áo Arsenal.",
+    position: "center 22%",
+  },
   "before-the-arms-were-raised.html": {
     src: "https://www.justarsenal.com/wp-content/uploads/2021/05/Steve-Bould.jpg",
     alt: "Steve Bould thi đấu cho Arsenal.",
     position: "center top",
   },
-  "the-ship-that-still-knew-its-name.html": { src: "adams-back-four.webp", alt: "Tony Adams cùng hàng phòng ngự Arsenal.", position: "center 24%" },
-  "the-shape-of-an-eight.html": { src: "cazorla-arsenal.webp", alt: "Santi Cazorla trong màu áo Arsenal.", position: "center 24%" },
-  "the-language-football-forgot.html": { src: "ozil-2015-16.webp", alt: "Mesut Özil trong màu áo Arsenal mùa 2015–16.", position: "center 24%" },
-  "the-last-summer-we-borrowed.html": { src: "messi-2022.webp", alt: "Lionel Messi cùng Argentina tại World Cup 2022.", position: "center 22%" },
-  "the-man-between-chapters.html": { src: "trossard-arrival.webp", alt: "Leandro Trossard trong những ngày đầu tại Arsenal.", position: "center 22%" },
-  "the-keystone.html": { src: "rice-freekick.webp", alt: "Declan Rice trong màu áo Arsenal.", position: "center 28%" },
-  "the-last-empty-room.html": { src: "ronaldo-2016.webp", alt: "Cristiano Ronaldo cùng đội tuyển Portugal năm 2016.", position: "center 22%" },
-  "the-prince-that-never-became-king.html": { src: "neymar-2014.webp", alt: "Neymar cùng Brazil tại World Cup 2014.", position: "center 20%" },
-  "the-stones-beneath.html": { src: "hale-quartet.webp", alt: "Những cầu thủ trưởng thành từ Hale End.", position: "center 28%" },
-  "until-i-put-on-the-mask.html": { src: "gyokeres-arrival.webp", alt: "Viktor Gyökeres trong những ngày đầu tại Arsenal.", position: "center 24%" },
-  "you-deserve-more.html": { src: "saka-young.webp", alt: "Bukayo Saka thời trẻ tại Arsenal.", position: "center 22%" },
-  "day-khong-phai-la-ket-thuc.html": { src: "budapest-2006.webp", alt: "Arsenal trong một ký ức Champions League trước Budapest.", position: "center 28%" },
-  "it-is-hope-that-kills-us.html": { src: "hope-fans.webp", alt: "Những người hâm mộ Arsenal trên khán đài.", position: "center 30%" },
+  "the-ship-that-still-knew-its-name.html": {
+    src: "adams-2002.webp",
+    alt: "Tony Adams trong màu áo Arsenal.",
+    position: "center 18%",
+  },
+  "the-shape-of-an-eight.html": {
+    src: "cazorla-arsenal.webp",
+    alt: "Santi Cazorla trong màu áo Arsenal.",
+    position: "center 24%",
+  },
+  "the-language-football-forgot.html": {
+    src: "ozil-2015-16.webp",
+    alt: "Mesut Özil trong màu áo Arsenal mùa 2015–16.",
+    position: "center 24%",
+  },
+  "the-last-summer-we-borrowed.html": {
+    src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lionel_Messi_Argentina_v_Egypt_7_July_2026-112.jpg?width=1400",
+    alt: "Lionel Messi trong màu áo Argentina tại World Cup 2026.",
+    position: "center 30%",
+  },
+  "the-man-between-chapters.html": {
+    src: "trossard-arrival.webp",
+    alt: "Leandro Trossard trong những ngày đầu tại Arsenal.",
+    position: "center 22%",
+  },
+  "the-keystone.html": {
+    src: "rice-freekick.webp",
+    alt: "Declan Rice trong màu áo Arsenal.",
+    position: "center 28%",
+  },
+  "the-last-empty-room.html": {
+    src: "ronaldo-2022.webp",
+    alt: "Cristiano Ronaldo trong màu áo Portugal tại World Cup 2022.",
+    position: "center 20%",
+  },
+  "the-prince-that-never-became-king.html": {
+    src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Neymar_at_2026_FIFA_World_Cup_by_YantsImages.jpg?width=1400",
+    alt: "Neymar trong màu áo Brazil tại World Cup 2026.",
+    position: "center 24%",
+  },
+  "the-stones-beneath.html": {
+    src: "hale-quartet.webp",
+    alt: "Những cầu thủ trưởng thành từ Hale End.",
+    position: "center 28%",
+  },
+  "until-i-put-on-the-mask.html": {
+    src: "gyokeres-arrival.webp",
+    alt: "Viktor Gyökeres trong những ngày đầu tại Arsenal.",
+    position: "center 24%",
+  },
+  "you-deserve-more.html": {
+    src: "saka-young.webp",
+    alt: "Bukayo Saka thời trẻ tại Arsenal.",
+    position: "center 22%",
+  },
+  "day-khong-phai-la-ket-thuc.html": {
+    src: "budapest-2006.webp",
+    alt: "Arsenal trong một ký ức Champions League trước Budapest.",
+    position: "center 28%",
+  },
+  "it-is-hope-that-kills-us.html": {
+    src: "hope-fans.webp",
+    alt: "Những người hâm mộ Arsenal trên khán đài.",
+    position: "center 30%",
+  },
 };
 
 Object.entries(thumbnailMap).forEach(([href, config]) => {
