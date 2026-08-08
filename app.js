@@ -156,7 +156,14 @@ loadFirstAvailableImage(bouldHeroImages, (source) => {
 
   if (document.body.classList.contains("layout-bould")) {
     document.body.style.setProperty("--article-hero-image", `url("${source}")`);
-    document.body.style.setProperty("--article-hero-position", "58% 30%");
+
+    const setBouldHeroCrop = () => {
+      const isMobile = window.matchMedia("(max-width: 760px)").matches;
+      document.body.style.setProperty("--article-hero-position", isMobile ? "50% 18%" : "50% 14%");
+    };
+
+    setBouldHeroCrop();
+    window.addEventListener("resize", setBouldHeroCrop);
 
     const lateCareerFigure = document.querySelector(".bould-figure--coach img");
     if (lateCareerFigure) {
