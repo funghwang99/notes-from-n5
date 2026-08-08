@@ -77,24 +77,15 @@ if (archiveEntries.length && archiveFilters.length) {
   archiveFilters.forEach((filter) => {
     const isCurrent = filter.dataset.archiveFilter === activePath;
     filter.classList.toggle("is-current", isCurrent);
-    if (isCurrent) {
-      filter.setAttribute("aria-current", "page");
-    } else {
-      filter.removeAttribute("aria-current");
-    }
+    if (isCurrent) filter.setAttribute("aria-current", "page");
+    else filter.removeAttribute("aria-current");
   });
 
   const visibleCount = archiveEntries.filter((entry) => !entry.hidden).length;
   const archiveCount = document.querySelector("[data-archive-count]");
   const archiveStatus = document.querySelector("[data-archive-status]");
-
-  if (archiveCount) {
-    archiveCount.textContent = `${visibleCount} bài viết`;
-  }
-
-  if (archiveStatus && activePath !== "all") {
-    archiveStatus.textContent = `Mạch ${paths[activePath]}`;
-  }
+  if (archiveCount) archiveCount.textContent = `${visibleCount} bài viết`;
+  if (archiveStatus && activePath !== "all") archiveStatus.textContent = `Mạch ${paths[activePath]}`;
 }
 
 if (document.body.classList.contains("layout-letter")) {
@@ -103,7 +94,63 @@ if (document.body.classList.contains("layout-letter")) {
   document.head.append(style);
 }
 
-// Playing-era image corrections for legacy essays.
+// Keep preview / archive thumbnails visually separate from each article hero.
+const thumbnailMap = {
+  "nine-years-in-one-afternoon.html": {
+    src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/FA_Cup_Final_2014_02.jpg?width=1400",
+    alt: "Arsenal trong trận chung kết FA Cup 2014 tại Wembley.",
+    position: "center 38%",
+  },
+  "the-second-revolution.html": {
+    src: "https://cdn.plus.fifa.com/images/public/cms/b6/88/f4/86/b688f486-ef82-463c-aa85-73bf545c32fd.jpg?height=900&width=1600",
+    alt: "Gheorghe Hagi trong áo vàng Romania tại World Cup 1994.",
+    position: "center 28%",
+  },
+  "the-move-before-the-move.html": {
+    src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dennis_Bergkamp.jpg?width=1200",
+    alt: "Dennis Bergkamp trong màu áo Arsenal.",
+    position: "center 24%",
+  },
+  "the-second-arrow.html": {
+    src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/ROBERTO_BAGGIO_LANEROSSI_VICENZA_BIANCOROSSO.jpg?width=1200",
+    alt: "Roberto Baggio thời trẻ trong màu áo Vicenza.",
+    position: "center 24%",
+  },
+  "the-crown-we-all-wore.html": {
+    src: "https://upload.wikimedia.org/wikipedia/commons/6/66/Henry_And_Persie_Bonding_%28289633666%29.jpg",
+    alt: "Thierry Henry trong màu áo Arsenal tại Highbury.",
+    position: "center 28%",
+  },
+  "the-world-was-late.html": { src: "wright-179.webp", alt: "Ian Wright trong màu áo Arsenal.", position: "center 22%" },
+  "before-the-arms-were-raised.html": {
+    src: "https://www.justarsenal.com/wp-content/uploads/2021/05/Steve-Bould.jpg",
+    alt: "Steve Bould thi đấu cho Arsenal.",
+    position: "center top",
+  },
+  "the-ship-that-still-knew-its-name.html": { src: "adams-back-four.webp", alt: "Tony Adams cùng hàng phòng ngự Arsenal.", position: "center 24%" },
+  "the-shape-of-an-eight.html": { src: "cazorla-arsenal.webp", alt: "Santi Cazorla trong màu áo Arsenal.", position: "center 24%" },
+  "the-language-football-forgot.html": { src: "ozil-2015-16.webp", alt: "Mesut Özil trong màu áo Arsenal mùa 2015–16.", position: "center 24%" },
+  "the-last-summer-we-borrowed.html": { src: "messi-2022.webp", alt: "Lionel Messi cùng Argentina tại World Cup 2022.", position: "center 22%" },
+  "the-man-between-chapters.html": { src: "trossard-arrival.webp", alt: "Leandro Trossard trong những ngày đầu tại Arsenal.", position: "center 22%" },
+  "the-keystone.html": { src: "rice-freekick.webp", alt: "Declan Rice trong màu áo Arsenal.", position: "center 28%" },
+  "the-last-empty-room.html": { src: "ronaldo-2016.webp", alt: "Cristiano Ronaldo cùng đội tuyển Portugal năm 2016.", position: "center 22%" },
+  "the-prince-that-never-became-king.html": { src: "neymar-2014.webp", alt: "Neymar cùng Brazil tại World Cup 2014.", position: "center 20%" },
+  "the-stones-beneath.html": { src: "hale-quartet.webp", alt: "Những cầu thủ trưởng thành từ Hale End.", position: "center 28%" },
+  "until-i-put-on-the-mask.html": { src: "gyokeres-arrival.webp", alt: "Viktor Gyökeres trong những ngày đầu tại Arsenal.", position: "center 24%" },
+  "you-deserve-more.html": { src: "saka-young.webp", alt: "Bukayo Saka thời trẻ tại Arsenal.", position: "center 22%" },
+  "day-khong-phai-la-ket-thuc.html": { src: "budapest-2006.webp", alt: "Arsenal trong một ký ức Champions League trước Budapest.", position: "center 28%" },
+  "it-is-hope-that-kills-us.html": { src: "hope-fans.webp", alt: "Những người hâm mộ Arsenal trên khán đài.", position: "center 30%" },
+};
+
+Object.entries(thumbnailMap).forEach(([href, config]) => {
+  document.querySelectorAll(`a[href*="${href}"] img`).forEach((image) => {
+    image.src = config.src;
+    image.alt = config.alt;
+    image.style.objectPosition = config.position;
+  });
+});
+
+// Playing-era hero corrections for Hagi and Steve Bould.
 const loadFirstAvailableImage = (sources, onReady) => {
   const trySource = (index) => {
     if (index >= sources.length) return;
@@ -122,20 +169,14 @@ const hagiPlayingImages = [
 ];
 
 loadFirstAvailableImage(hagiPlayingImages, (source) => {
-  document.querySelectorAll('a[href*="the-second-revolution.html"] img').forEach((image) => {
-    image.src = source;
-    image.alt = "Gheorghe Hagi trong áo vàng Romania tại World Cup 1994.";
-  });
-
-  if (document.body.classList.contains("layout-hagi")) {
-    const hero = document.querySelector(".hagi-hero-photo");
-    if (hero) {
-      hero.style.backgroundImage = `linear-gradient(90deg,rgba(17,26,50,.98) 0%,rgba(17,26,50,.88) 38%,rgba(17,26,50,.25) 72%,rgba(17,26,50,.45) 100%),linear-gradient(0deg,rgba(17,26,50,.8),transparent 45%),url("${source}")`;
-      hero.style.backgroundPosition = "center 34%";
-      hero.style.backgroundSize = "cover";
-    }
-    document.querySelectorAll(".hagi-figure figcaption").forEach((caption) => caption.remove());
+  if (!document.body.classList.contains("layout-hagi")) return;
+  const hero = document.querySelector(".hagi-hero-photo");
+  if (hero) {
+    hero.style.backgroundImage = `linear-gradient(90deg,rgba(17,26,50,.98) 0%,rgba(17,26,50,.88) 38%,rgba(17,26,50,.25) 72%,rgba(17,26,50,.45) 100%),linear-gradient(0deg,rgba(17,26,50,.8),transparent 45%),url("${source}")`;
+    hero.style.backgroundPosition = "center 34%";
+    hero.style.backgroundSize = "cover";
   }
+  document.querySelectorAll(".hagi-figure figcaption").forEach((caption) => caption.remove());
 });
 
 const bouldHeroImages = [
@@ -149,30 +190,23 @@ const bouldAwayImages = [
 ];
 
 loadFirstAvailableImage(bouldHeroImages, (source) => {
-  document.querySelectorAll('a[href*="before-the-arms-were-raised.html"] img').forEach((image) => {
-    image.src = source;
-    image.alt = "Steve Bould thi đấu cho Arsenal trong thập niên 1990.";
-    image.style.objectPosition = "center top";
-  });
+  if (!document.body.classList.contains("layout-bould")) return;
+  document.body.style.setProperty("--article-hero-image", `url("${source}")`);
+  document.body.style.setProperty("--article-hero-position", "left center");
 
-  if (document.body.classList.contains("layout-bould")) {
-    document.body.style.setProperty("--article-hero-image", `url("${source}")`);
-    document.body.style.setProperty("--article-hero-position", "left center");
+  const heroMedia = document.querySelector(".article-hero-media");
+  if (heroMedia) {
+    heroMedia.style.backgroundSize = "auto 100%";
+    heroMedia.style.backgroundRepeat = "no-repeat";
+    heroMedia.style.backgroundPosition = "left center";
+    heroMedia.style.transform = "none";
+  }
 
-    const heroMedia = document.querySelector(".article-hero-media");
-    if (heroMedia) {
-      heroMedia.style.backgroundSize = "auto 100%";
-      heroMedia.style.backgroundRepeat = "no-repeat";
-      heroMedia.style.backgroundPosition = "left center";
-      heroMedia.style.transform = "none";
-    }
-
-    const lateCareerFigure = document.querySelector(".bould-figure--coach img");
-    if (lateCareerFigure) {
-      lateCareerFigure.src = source;
-      lateCareerFigure.alt = "Steve Bould thi đấu cho Arsenal trong màu áo đỏ trắng.";
-      lateCareerFigure.style.objectPosition = "center top";
-    }
+  const lateCareerFigure = document.querySelector(".bould-figure--coach img");
+  if (lateCareerFigure) {
+    lateCareerFigure.src = source;
+    lateCareerFigure.alt = "Steve Bould thi đấu cho Arsenal trong màu áo đỏ trắng.";
+    lateCareerFigure.style.objectPosition = "center top";
   }
 });
 
