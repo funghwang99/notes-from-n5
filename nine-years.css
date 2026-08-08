@@ -1,0 +1,37 @@
+:root{--n-ink:#151513;--n-paper:#f2eee5;--n-red:#b32638;--n-gold:#d8aa49;--n-line:rgba(21,21,19,.16)}
+.layout-nine{background:var(--n-paper);color:var(--n-ink)}
+.layout-nine .reading-progress{background:var(--n-red)}
+.layout-nine .site-header{background:linear-gradient(180deg,rgba(8,8,7,.72),transparent);border-bottom-color:rgba(255,255,255,.14)}
+.layout-nine .site-header,.layout-nine .site-header a,.layout-nine .menu-button{color:#faf6ed}
+.nine-hero{position:relative;isolation:isolate;display:flex;min-height:96svh;overflow:hidden;align-items:flex-end;background:var(--n-ink);color:#faf6ed}
+.nine-hero-media{position:absolute;z-index:-3;inset:0;background:url("https://upload.wikimedia.org/wikipedia/commons/2/2b/FA_Cup_Final_2014_Wembley_stadium.jpg") center 48%/cover no-repeat;filter:saturate(.7) contrast(1.08);transform:scale(1.01)}
+.nine-hero-overlay{position:absolute;z-index:-2;inset:0;background:linear-gradient(90deg,rgba(10,10,9,.94) 0%,rgba(10,10,9,.68) 46%,rgba(10,10,9,.22) 75%),linear-gradient(0deg,rgba(10,10,9,.82) 0%,transparent 55%)}
+.nine-hero-copy{width:min(900px,calc(100% - 3rem));margin-left:clamp(1.5rem,7vw,8rem);padding:10rem 0 clamp(5rem,10vw,8rem)}
+.nine-hero .eyebrow{color:#e5b95a}
+.nine-hero h1{max-width:11ch;margin:1.15rem 0 1.5rem;font-family:var(--serif);font-size:clamp(4rem,9vw,9.2rem);font-weight:600;letter-spacing:-.075em;line-height:.84}
+.nine-deck{max-width:650px;margin:0;color:rgba(250,246,237,.78);font-family:var(--serif);font-size:clamp(1.1rem,1.6vw,1.42rem);line-height:1.65}
+.nine-hero .article-byline{display:flex;flex-wrap:wrap;gap:.7rem 1.6rem;margin-top:2.4rem;padding-top:1rem;border-top:1px solid rgba(250,246,237,.25);color:rgba(250,246,237,.66)}
+.nine-hero-number{position:absolute;right:clamp(1rem,4vw,4rem);bottom:clamp(1rem,3vw,2.5rem);display:flex;align-items:flex-end;gap:.8rem;color:rgba(250,246,237,.14);font-family:var(--sans)}
+.nine-hero-number span{font-size:clamp(7rem,20vw,20rem);font-weight:800;letter-spacing:-.09em;line-height:.68}.nine-hero-number small{margin-bottom:.2rem;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+.nine-article{font-family:var(--serif)}
+.nine-section{width:min(840px,calc(100% - 3rem));margin:0 auto;padding:clamp(4.8rem,9vw,8.5rem) 0}
+.nine-section p{margin:0 0 1.55em;font-size:clamp(1.12rem,1.45vw,1.3rem);line-height:1.84;letter-spacing:normal;word-spacing:normal}
+.nine-section .article-lead{font-size:clamp(1.42rem,2vw,1.78rem);line-height:1.64}
+.nine-score{display:grid;grid-template-columns:1fr auto auto auto;gap:clamp(.8rem,2vw,1.5rem);align-items:center;margin:clamp(3rem,7vw,5rem) 0;padding:1.4rem 1.6rem;background:var(--n-ink);color:#faf6ed;font-family:var(--sans)}
+.nine-score span{margin-right:auto;color:#d8aa49;font-size:.7rem;font-weight:800;letter-spacing:.16em}.nine-score strong{font-size:clamp(1.4rem,3vw,2.4rem);letter-spacing:-.04em}.nine-score i{color:#8f8a80;font-style:normal}
+.nine-figure{width:min(1180px,calc(100% - 3rem));margin:0 auto clamp(4rem,8vw,7rem)}
+.nine-figure img{display:block;width:100%;background:#ddd7cc;object-fit:cover}
+.nine-figure--memory{width:min(760px,calc(100% - 3rem));margin-top:1rem}.nine-figure--memory img{aspect-ratio:3/2;filter:saturate(.55) contrast(1.03)}
+.nine-figure--wound img{aspect-ratio:16/8;filter:saturate(.45) contrast(1.08) brightness(.88)}
+.nine-figure--turn img{aspect-ratio:16/8;filter:saturate(.82) contrast(1.04)}
+.nine-figure--release{width:min(820px,calc(100% - 3rem))}.nine-figure--release img{aspect-ratio:1/1;filter:saturate(.82) contrast(1.03)}
+.nine-timeline{display:grid;grid-template-columns:auto 1fr auto 1fr auto 1fr auto;align-items:center;gap:1rem;margin:clamp(3.5rem,8vw,6rem) 0;padding:2rem 0;border-block:1px solid var(--n-line)}
+.nine-timeline div{display:grid;gap:.45rem}.nine-timeline span{font-family:var(--sans);font-size:clamp(1.8rem,3.5vw,3.4rem);font-weight:800;letter-spacing:-.05em}.nine-timeline p{margin:0!important;color:#6c685f;font-family:var(--sans);font-size:.7rem!important;line-height:1.4!important;text-transform:uppercase;letter-spacing:.08em}.nine-timeline i{height:1px;background:var(--n-red)}
+.nine-pull{margin:clamp(3.5rem,7vw,5rem) 0;padding:clamp(2rem,4vw,3.2rem);border-left:5px solid var(--n-red);background:#e5dfd3;font-family:var(--serif);font-size:clamp(1.55rem,3.2vw,2.7rem);font-style:italic;line-height:1.42}
+.nine-minute{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 clamp(2rem,5vw,3.5rem);padding-bottom:1rem;border-bottom:1px solid var(--n-line);font-family:var(--sans)}.nine-minute span{color:var(--n-red);font-size:clamp(3.8rem,9vw,8rem);font-weight:850;letter-spacing:-.07em;line-height:.8}.nine-minute p{margin:0!important;font-family:var(--sans)!important;font-size:clamp(1.5rem,3vw,2.8rem)!important;font-weight:800;line-height:1!important}.nine-minute--equal span{color:#9b7a31}.nine-minute--winner{margin-top:clamp(4rem,8vw,7rem);padding:clamp(1.5rem,3vw,2.5rem);border:0;background:var(--n-red);color:#fff}.nine-minute--winner span{color:#fff}
+.nine-days{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:end;margin:clamp(3rem,7vw,5rem) 0;padding:clamp(2rem,4vw,3.5rem) 0;border-block:1px solid var(--n-ink)}.nine-days span{font-family:var(--sans);font-size:clamp(4.5rem,10vw,9rem);font-weight:850;letter-spacing:-.08em;line-height:.78}.nine-days p{max-width:14rem;margin:0!important;color:#67635b;font-family:var(--sans)!important;font-size:.78rem!important;font-weight:700;letter-spacing:.09em;line-height:1.45!important;text-transform:uppercase}
+.nine-coda{display:grid;min-height:72svh;place-items:center;padding:4rem 1.5rem;background:var(--n-ink);color:#faf6ed;text-align:center}.nine-coda p{margin:0;font-family:var(--serif);font-size:clamp(3.6rem,10vw,10rem);font-style:italic;font-weight:500;letter-spacing:-.065em;line-height:.9}
+.layout-nine .article-notes{width:min(840px,calc(100% - 3rem));margin:0 auto;padding:2.4rem 0 5rem;color:#777168;font-family:var(--sans);font-size:.72rem;line-height:1.65}.layout-nine .article-notes a{color:inherit}
+.layout-nine .site-footer{background:#0d0d0c;color:rgba(250,246,237,.72)}
+@media(max-width:900px){.nine-timeline{grid-template-columns:1fr}.nine-timeline i{width:100%}.nine-hero-number{opacity:.65}.nine-figure--wound img,.nine-figure--turn img{aspect-ratio:4/3}}
+@media(max-width:700px){.nine-hero{min-height:90svh}.nine-hero-copy{width:calc(100% - 2rem);margin-left:1rem;padding:7.5rem 0 4.5rem}.nine-hero h1{font-size:clamp(3.6rem,17vw,5.8rem)}.nine-hero-media{background-position:58% center}.nine-hero-number{right:.8rem;bottom:1rem}.nine-hero-number span{font-size:35vw}.nine-section{width:calc(100% - 2rem);padding:4.5rem 0}.nine-section p{font-size:1.08rem;line-height:1.78}.nine-figure,.nine-figure--memory,.nine-figure--release{width:calc(100% - 2rem);margin-bottom:4rem}.nine-figure--memory img,.nine-figure--wound img,.nine-figure--turn img{aspect-ratio:4/3}.nine-score{grid-template-columns:1fr auto auto}.nine-score span{grid-column:1/-1}.nine-days{grid-template-columns:1fr}.layout-nine .article-notes{width:calc(100% - 2rem)}}
