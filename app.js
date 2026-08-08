@@ -139,37 +139,39 @@ loadFirstAvailableImage(hagiPlayingImages, (source) => {
 });
 
 const bouldHeroImages = [
-  "https://www.arsenalpics.com/sq/5/steve-bould-arsenals-unforgettable-double-50143.jpg.webp",
+  "https://www.arsenalpics.com/p/5/steve-bould-arsenals-defensive-icon-50149.jpg.webp",
   "https://www.justarsenal.com/wp-content/uploads/2021/05/Steve-Bould.jpg",
 ];
 
 const bouldAwayImages = [
   "https://www.justarsenal.com/wp-content/uploads/2021/05/Steve-Bould.jpg",
-  "https://www.arsenalpics.com/sq/5/steve-bould-arsenals-unforgettable-double-50143.jpg.webp",
+  "https://www.arsenalpics.com/p/5/steve-bould-arsenals-defensive-icon-50149.jpg.webp",
 ];
 
 loadFirstAvailableImage(bouldHeroImages, (source) => {
   document.querySelectorAll('a[href*="before-the-arms-were-raised.html"] img').forEach((image) => {
     image.src = source;
     image.alt = "Steve Bould thi đấu cho Arsenal trong thập niên 1990.";
+    image.style.objectPosition = "center top";
   });
 
   if (document.body.classList.contains("layout-bould")) {
     document.body.style.setProperty("--article-hero-image", `url("${source}")`);
+    document.body.style.setProperty("--article-hero-position", "left center");
 
-    const setBouldHeroCrop = () => {
-      const isMobile = window.matchMedia("(max-width: 760px)").matches;
-      document.body.style.setProperty("--article-hero-position", isMobile ? "50% 18%" : "50% 14%");
-    };
-
-    setBouldHeroCrop();
-    window.addEventListener("resize", setBouldHeroCrop);
+    const heroMedia = document.querySelector(".article-hero-media");
+    if (heroMedia) {
+      heroMedia.style.backgroundSize = "auto 100%";
+      heroMedia.style.backgroundRepeat = "no-repeat";
+      heroMedia.style.backgroundPosition = "left center";
+      heroMedia.style.transform = "none";
+    }
 
     const lateCareerFigure = document.querySelector(".bould-figure--coach img");
     if (lateCareerFigure) {
       lateCareerFigure.src = source;
       lateCareerFigure.alt = "Steve Bould thi đấu cho Arsenal trong màu áo đỏ trắng.";
-      lateCareerFigure.style.objectPosition = "center 20%";
+      lateCareerFigure.style.objectPosition = "center top";
     }
   }
 });
@@ -180,6 +182,6 @@ loadFirstAvailableImage(bouldAwayImages, (source) => {
   if (firstFigure) {
     firstFigure.src = source;
     firstFigure.alt = "Steve Bould thi đấu cho Arsenal trong bộ áo sân khách màu vàng.";
-    firstFigure.style.objectPosition = "center 22%";
+    firstFigure.style.objectPosition = "center top";
   }
 });
