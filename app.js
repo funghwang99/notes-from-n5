@@ -102,3 +102,77 @@ if (document.body.classList.contains("layout-letter")) {
   style.textContent = ".layout-letter .article-body .article-lead::first-letter{color:inherit}";
   document.head.append(style);
 }
+
+// Playing-era image corrections for legacy essays.
+const loadFirstAvailableImage = (sources, onReady) => {
+  const trySource = (index) => {
+    if (index >= sources.length) return;
+    const probe = new Image();
+    probe.onload = () => onReady(sources[index]);
+    probe.onerror = () => trySource(index + 1);
+    probe.src = sources[index];
+  };
+  trySource(0);
+};
+
+const hagiPlayingImages = [
+  "https://www.theduochronicles.com/content/images/2023/04/gheorghe-hagi-world-cup-1994.jpg",
+  "https://cdn.mos.cms.futurecdn.net/v2/t%3A0%2Cl%3A180%2Ccw%3A450%2Cch%3A450%2Cq%3A80%2Cw%3A900/tUqyMqKPeNijbs8ki3cfK3.jpg",
+  "https://cdn-mds.pickx.be/NewsFolder/w-700_h-500/BELGAIMAGE-130809427_20200629015959.jpg",
+];
+
+loadFirstAvailableImage(hagiPlayingImages, (source) => {
+  document.querySelectorAll('a[href*="the-second-revolution.html"] img').forEach((image) => {
+    image.src = source;
+    image.alt = "Gheorghe Hagi trong áo vàng Romania tại World Cup 1994.";
+  });
+
+  if (document.body.classList.contains("layout-hagi")) {
+    const hero = document.querySelector(".hagi-hero-photo");
+    if (hero) {
+      hero.style.backgroundImage = `linear-gradient(90deg,rgba(17,26,50,.98) 0%,rgba(17,26,50,.88) 38%,rgba(17,26,50,.25) 72%,rgba(17,26,50,.45) 100%),linear-gradient(0deg,rgba(17,26,50,.8),transparent 45%),url("${source}")`;
+      hero.style.backgroundPosition = "center 34%";
+      hero.style.backgroundSize = "cover";
+    }
+    document.querySelectorAll(".hagi-figure figcaption").forEach((caption) => caption.remove());
+  }
+});
+
+const bouldHeroImages = [
+  "https://www.arsenalpics.com/sq/5/steve-bould-arsenals-unforgettable-double-50143.jpg.webp",
+  "https://www.justarsenal.com/wp-content/uploads/2021/05/Steve-Bould.jpg",
+];
+
+const bouldAwayImages = [
+  "https://www.justarsenal.com/wp-content/uploads/2021/05/Steve-Bould.jpg",
+  "https://www.arsenalpics.com/sq/5/steve-bould-arsenals-unforgettable-double-50143.jpg.webp",
+];
+
+loadFirstAvailableImage(bouldHeroImages, (source) => {
+  document.querySelectorAll('a[href*="before-the-arms-were-raised.html"] img').forEach((image) => {
+    image.src = source;
+    image.alt = "Steve Bould thi đấu cho Arsenal trong thập niên 1990.";
+  });
+
+  if (document.body.classList.contains("layout-bould")) {
+    document.body.style.setProperty("--article-hero-image", `url("${source}")`);
+    document.body.style.setProperty("--article-hero-position", "58% 30%");
+
+    const lateCareerFigure = document.querySelector(".bould-figure--coach img");
+    if (lateCareerFigure) {
+      lateCareerFigure.src = source;
+      lateCareerFigure.alt = "Steve Bould thi đấu cho Arsenal trong màu áo đỏ trắng.";
+      lateCareerFigure.style.objectPosition = "center 20%";
+    }
+  }
+});
+
+loadFirstAvailableImage(bouldAwayImages, (source) => {
+  if (!document.body.classList.contains("layout-bould")) return;
+  const firstFigure = document.querySelector(".bould-figure--statue img");
+  if (firstFigure) {
+    firstFigure.src = source;
+    firstFigure.alt = "Steve Bould thi đấu cho Arsenal trong bộ áo sân khách màu vàng.";
+    firstFigure.style.objectPosition = "center 22%";
+  }
+});
