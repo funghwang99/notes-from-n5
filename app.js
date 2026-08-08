@@ -162,9 +162,9 @@ const thumbnailMap = {
     position: "center 28%",
   },
   "the-last-empty-room.html": {
-    src: "ronaldo-2022.webp",
-    alt: "Cristiano Ronaldo trong màu áo Portugal tại World Cup 2022.",
-    position: "center 20%",
+    src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-086.jpg?width=1400",
+    alt: "Cristiano Ronaldo trong màu áo Portugal tại World Cup 2026.",
+    position: "center 28%",
   },
   "the-prince-that-never-became-king.html": {
     src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Neymar_at_2026_FIFA_World_Cup_by_YantsImages.jpg?width=1400",
