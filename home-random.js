@@ -29,26 +29,22 @@
   const style = document.createElement('style');
   style.textContent = `
     .home-collage.home-flow-gallery{position:relative;display:flex;min-height:72vh;align-items:center;overflow:hidden;isolation:isolate;margin-right:calc(clamp(1.2rem,5.5vw,6.5rem)*-1)}
-    .home-flow-viewport{position:relative;width:100%;overflow:hidden;padding:2.2rem 0;mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
-    .home-flow-track{display:flex;width:max-content;will-change:transform;animation:n5-flow 190s linear infinite}
-    .home-flow-gallery:hover .home-flow-track,.home-flow-gallery:focus-within .home-flow-track{animation-play-state:paused}
+    .home-flow-viewport{position:relative;width:100%;overflow:hidden;padding:2.2rem 0;cursor:grab;touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none;mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
+    .home-flow-gallery.is-dragging .home-flow-viewport{cursor:grabbing}
+    .home-flow-track{display:flex;width:max-content;will-change:transform;transform:translate3d(0,0,0)}
     .home-flow-set{display:flex;gap:1rem;padding-right:1rem;align-items:center}
-    .home-flow-card{position:relative;display:block;flex:0 0 clamp(15rem,18vw,20rem);height:clamp(22rem,52vh,31rem);overflow:hidden;background:linear-gradient(145deg,#2a2824,#141412);color:#f8f5ed;text-decoration:none;box-shadow:0 24px 55px rgba(0,0,0,.3);transition:transform 220ms ease,box-shadow 220ms ease}
-    .home-flow-card:nth-child(3n+2){height:clamp(19rem,44vh,27rem)}
-    .home-flow-card:nth-child(3n){height:clamp(21rem,48vh,29rem)}
-    .home-flow-card:hover,.home-flow-card:focus-visible{z-index:3;transform:translateY(-.4rem) scale(1.018);box-shadow:0 32px 72px rgba(0,0,0,.45);outline:none}
-    .home-flow-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.04);transition:transform 500ms ease,filter 500ms ease}
+    .home-flow-card{position:relative;display:block;flex:0 0 clamp(16rem,18vw,19rem);height:clamp(23rem,49vh,28rem);overflow:hidden;background:linear-gradient(145deg,#2a2824,#141412);color:#f8f5ed;text-decoration:none;box-shadow:0 24px 55px rgba(0,0,0,.3);transition:transform 220ms ease,box-shadow 220ms ease}
+    .home-flow-card:hover,.home-flow-card:focus-visible{z-index:3;transform:translateY(-.35rem);box-shadow:0 32px 72px rgba(0,0,0,.45);outline:none}
+    .home-flow-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;filter:saturate(.78) contrast(1.04);transition:transform 500ms ease,filter 500ms ease}
     .home-flow-card:hover img,.home-flow-card:focus-visible img{transform:scale(1.035);filter:saturate(.98) contrast(1.02)}
-    .home-flow-card:after{position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,8,7,.92) 0%,rgba(8,8,7,.48) 34%,rgba(8,8,7,.06) 72%);content:""}
+    .home-flow-card:after{position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,8,7,.92) 0%,rgba(8,8,7,.48) 34%,rgba(8,8,7,.06) 72%);content:"";pointer-events:none}
     .home-flow-card.is-image-missing:before{position:absolute;right:-.3rem;bottom:-1rem;color:rgba(248,245,237,.07);font-size:8rem;font-weight:850;letter-spacing:-.12em;content:"N5"}
-    .home-flow-copy{position:absolute;z-index:2;right:1rem;bottom:1.1rem;left:1rem}
+    .home-flow-copy{position:absolute;z-index:2;right:1rem;bottom:1.1rem;left:1rem;pointer-events:none}
     .home-flow-meta{display:block;margin-bottom:.45rem;color:#d3cdc2;font-size:.56rem;font-weight:760;letter-spacing:.11em;text-transform:uppercase}
-    .home-flow-copy strong{display:block;font-family:var(--serif);font-size:clamp(1.65rem,2.3vw,2.65rem);font-weight:520;letter-spacing:-.045em;line-height:.98}
+    .home-flow-copy strong{display:block;font-family:var(--serif);font-size:clamp(1.55rem,2.05vw,2.35rem);font-weight:520;letter-spacing:-.045em;line-height:.98}
     .home-collage-mark{display:none!important}
-    @keyframes n5-flow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-    @media(max-width:1000px){.home-collage.home-flow-gallery{min-height:58vh;margin-right:0}.home-flow-card{flex-basis:16rem;height:25rem}.home-flow-card:nth-child(3n+2){height:21rem}.home-flow-card:nth-child(3n){height:23rem}.home-flow-track{animation-duration:175s}}
-    @media(max-width:700px){.home-collage.home-flow-gallery{min-height:48vh;margin:1rem -1rem 0}.home-flow-viewport{padding:1rem 0;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}.home-flow-card{flex-basis:13rem;height:20rem}.home-flow-card:nth-child(3n+2){height:18rem}.home-flow-card:nth-child(3n){height:19rem}.home-flow-copy strong{font-size:1.55rem}.home-flow-track{animation-duration:150s}}
-    @media(prefers-reduced-motion:reduce){.home-flow-track{animation:none}.home-flow-viewport{overflow-x:auto;scrollbar-width:thin}.home-flow-set[aria-hidden="true"]{display:none}}
+    @media(max-width:1000px){.home-collage.home-flow-gallery{min-height:58vh;margin-right:0}.home-flow-card{flex-basis:15.5rem;height:22.5rem}}
+    @media(max-width:700px){.home-collage.home-flow-gallery{min-height:46vh;margin:1rem -1rem 0}.home-flow-viewport{padding:1rem 0;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}.home-flow-card{flex-basis:13.5rem;height:20rem}.home-flow-copy strong{font-size:1.5rem}}
   `;
   document.head.append(style);
 
@@ -56,6 +52,7 @@
     const card = document.createElement('a');
     card.className = 'home-flow-card';
     card.href = story.href;
+    card.draggable = false;
     if (duplicate) {
       card.setAttribute('aria-hidden', 'true');
       card.tabIndex = -1;
@@ -66,6 +63,7 @@
     image.alt = duplicate ? '' : story.alt;
     image.loading = 'lazy';
     image.decoding = 'async';
+    image.draggable = false;
     image.style.objectPosition = story.position || 'center';
     image.addEventListener('error', () => {
       image.remove();
@@ -93,12 +91,108 @@
   };
 
   host.classList.add('home-flow-gallery');
-  host.setAttribute('aria-label', 'Tất cả bài viết trên Notes from N5, tự động trôi từ phải sang trái. Rê chuột để tạm dừng.');
+  host.setAttribute('aria-label', 'Tất cả bài viết trên Notes from N5. Gallery tự trôi từ phải sang trái; có thể kéo ngang để duyệt và bấm vào từng bài để đọc.');
+
   const viewport = document.createElement('div');
   viewport.className = 'home-flow-viewport';
   const track = document.createElement('div');
   track.className = 'home-flow-track';
-  track.append(makeSet(false), makeSet(true));
+  const firstSet = makeSet(false);
+  const secondSet = makeSet(true);
+  track.append(firstSet, secondSet);
   viewport.append(track);
   host.replaceChildren(viewport);
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const AUTO_SPEED = 18;
+  let setWidth = 1;
+  let offset = 0;
+  let dragging = false;
+  let hovered = false;
+  let focused = false;
+  let startX = 0;
+  let startOffset = 0;
+  let activePointerId = null;
+  let moved = false;
+  let suppressClickUntil = 0;
+  let resumeAfter = 0;
+  let lastFrame = performance.now();
+
+  const measure = () => {
+    setWidth = Math.max(1, firstSet.getBoundingClientRect().width);
+    offset = ((offset % setWidth) + setWidth) % setWidth;
+    track.style.transform = `translate3d(${-offset}px,0,0)`;
+  };
+
+  const render = () => {
+    if (setWidth > 0) offset = ((offset % setWidth) + setWidth) % setWidth;
+    track.style.transform = `translate3d(${-offset}px,0,0)`;
+  };
+
+  const frame = (now) => {
+    const dt = Math.min(50, now - lastFrame);
+    lastFrame = now;
+    const paused = dragging || hovered || focused || now < resumeAfter;
+    if (!reduceMotion && !paused) {
+      offset += AUTO_SPEED * dt / 1000;
+      render();
+    }
+    requestAnimationFrame(frame);
+  };
+
+  viewport.addEventListener('mouseenter', () => { hovered = true; });
+  viewport.addEventListener('mouseleave', () => { hovered = false; });
+  viewport.addEventListener('focusin', () => { focused = true; });
+  viewport.addEventListener('focusout', (event) => {
+    if (!viewport.contains(event.relatedTarget)) focused = false;
+  });
+
+  viewport.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    dragging = true;
+    moved = false;
+    activePointerId = event.pointerId;
+    startX = event.clientX;
+    startOffset = offset;
+    resumeAfter = Infinity;
+    host.classList.add('is-dragging');
+    viewport.setPointerCapture(event.pointerId);
+  });
+
+  viewport.addEventListener('pointermove', (event) => {
+    if (!dragging || event.pointerId !== activePointerId) return;
+    const deltaX = event.clientX - startX;
+    if (Math.abs(deltaX) > 5) moved = true;
+    offset = startOffset - deltaX;
+    render();
+    if (moved) event.preventDefault();
+  });
+
+  const endDrag = (event) => {
+    if (!dragging || event.pointerId !== activePointerId) return;
+    dragging = false;
+    host.classList.remove('is-dragging');
+    if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+    activePointerId = null;
+    if (moved) suppressClickUntil = performance.now() + 450;
+    resumeAfter = performance.now() + 850;
+  };
+
+  viewport.addEventListener('pointerup', endDrag);
+  viewport.addEventListener('pointercancel', endDrag);
+
+  viewport.addEventListener('click', (event) => {
+    if (performance.now() < suppressClickUntil) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }, true);
+
+  viewport.addEventListener('dragstart', (event) => event.preventDefault());
+  window.addEventListener('resize', measure, { passive:true });
+
+  requestAnimationFrame(() => {
+    measure();
+    requestAnimationFrame(frame);
+  });
 })();
