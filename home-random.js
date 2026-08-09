@@ -42,9 +42,12 @@
     .home-flow-copy{position:absolute;z-index:2;right:1rem;bottom:1.1rem;left:1rem;pointer-events:none}
     .home-flow-meta{display:block;margin-bottom:.45rem;color:#d3cdc2;font-size:.56rem;font-weight:760;letter-spacing:.11em;text-transform:uppercase}
     .home-flow-copy strong{display:block;font-family:var(--serif);font-size:clamp(1.55rem,2.05vw,2.35rem);font-weight:520;letter-spacing:-.045em;line-height:.98}
+    .home-flow-arrow{position:absolute;z-index:10;top:50%;display:grid;width:3.15rem;height:3.15rem;place-items:center;border:1px solid rgba(248,245,237,.34);border-radius:50%;background:rgba(18,18,16,.72);color:#f8f5ed;font:400 1.45rem/1 var(--sans);cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:translateY(-50%);transition:background 180ms ease,border-color 180ms ease,transform 180ms ease,opacity 180ms ease}
+    .home-flow-arrow:hover,.home-flow-arrow:focus-visible{border-color:rgba(248,245,237,.78);background:rgba(248,245,237,.94);color:#171714;outline:none;transform:translateY(-50%) scale(1.06)}
+    .home-flow-arrow--prev{left:.55rem}.home-flow-arrow--next{right:.55rem}
     .home-collage-mark{display:none!important}
-    @media(max-width:1000px){.home-collage.home-flow-gallery{min-height:58vh;margin-right:0}.home-flow-card{flex-basis:15.5rem;height:22.5rem}}
-    @media(max-width:700px){.home-collage.home-flow-gallery{min-height:46vh;margin:1rem -1rem 0}.home-flow-viewport{padding:1rem 0;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}.home-flow-card{flex-basis:13.5rem;height:20rem}.home-flow-copy strong{font-size:1.5rem}}
+    @media(max-width:1000px){.home-collage.home-flow-gallery{min-height:58vh;margin-right:0}.home-flow-card{flex-basis:15.5rem;height:22.5rem}.home-flow-arrow{width:2.8rem;height:2.8rem}}
+    @media(max-width:700px){.home-collage.home-flow-gallery{min-height:46vh;margin:1rem -1rem 0}.home-flow-viewport{padding:1rem 0;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}.home-flow-card{flex-basis:13.5rem;height:20rem}.home-flow-copy strong{font-size:1.5rem}.home-flow-arrow{width:2.5rem;height:2.5rem;font-size:1.15rem}.home-flow-arrow--prev{left:.35rem}.home-flow-arrow--next{right:.35rem}}
   `;
   document.head.append(style);
 
@@ -91,7 +94,7 @@
   };
 
   host.classList.add('home-flow-gallery');
-  host.setAttribute('aria-label', 'Tất cả bài viết trên Notes from N5. Gallery tự trôi từ phải sang trái; có thể kéo ngang để duyệt và bấm vào từng bài để đọc.');
+  host.setAttribute('aria-label', 'Tất cả bài viết trên Notes from N5. Gallery tự trôi từ phải sang trái; có thể kéo ngang, dùng nút mũi tên và bấm vào từng bài để đọc.');
 
   const viewport = document.createElement('div');
   viewport.className = 'home-flow-viewport';
@@ -101,7 +104,20 @@
   const secondSet = makeSet(true);
   track.append(firstSet, secondSet);
   viewport.append(track);
-  host.replaceChildren(viewport);
+
+  const prevButton = document.createElement('button');
+  prevButton.className = 'home-flow-arrow home-flow-arrow--prev';
+  prevButton.type = 'button';
+  prevButton.setAttribute('aria-label', 'Xem bài trước');
+  prevButton.innerHTML = '<span aria-hidden="true">←</span>';
+
+  const nextButton = document.createElement('button');
+  nextButton.className = 'home-flow-arrow home-flow-arrow--next';
+  nextButton.type = 'button';
+  nextButton.setAttribute('aria-label', 'Xem bài tiếp theo');
+  nextButton.innerHTML = '<span aria-hidden="true">→</span>';
+
+  host.replaceChildren(viewport, prevButton, nextButton);
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const AUTO_SPEED = 18;
@@ -117,22 +133,52 @@
   let suppressClickUntil = 0;
   let resumeAfter = 0;
   let lastFrame = performance.now();
+  let nudgeAnimation = null;
+
+  const normalize = (value) => ((value % setWidth) + setWidth) % setWidth;
 
   const measure = () => {
     setWidth = Math.max(1, firstSet.getBoundingClientRect().width);
-    offset = ((offset % setWidth) + setWidth) % setWidth;
+    offset = normalize(offset);
     track.style.transform = `translate3d(${-offset}px,0,0)`;
   };
 
   const render = () => {
-    if (setWidth > 0) offset = ((offset % setWidth) + setWidth) % setWidth;
+    if (setWidth > 0) offset = normalize(offset);
     track.style.transform = `translate3d(${-offset}px,0,0)`;
+  };
+
+  const cardStep = () => {
+    const card = firstSet.querySelector('.home-flow-card');
+    if (!card) return 280;
+    const styles = getComputedStyle(firstSet);
+    const gap = parseFloat(styles.columnGap || styles.gap || '16') || 16;
+    return card.getBoundingClientRect().width + gap;
+  };
+
+  const nudge = (direction) => {
+    if (nudgeAnimation) cancelAnimationFrame(nudgeAnimation);
+    const from = offset;
+    const distance = cardStep() * direction;
+    const started = performance.now();
+    const duration = 360;
+    resumeAfter = started + duration + 900;
+
+    const animate = (now) => {
+      const t = Math.min(1, (now - started) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      offset = from + distance * eased;
+      render();
+      if (t < 1) nudgeAnimation = requestAnimationFrame(animate);
+      else nudgeAnimation = null;
+    };
+    nudgeAnimation = requestAnimationFrame(animate);
   };
 
   const frame = (now) => {
     const dt = Math.min(50, now - lastFrame);
     lastFrame = now;
-    const paused = dragging || hovered || focused || now < resumeAfter;
+    const paused = dragging || hovered || focused || nudgeAnimation || now < resumeAfter;
     if (!reduceMotion && !paused) {
       offset += AUTO_SPEED * dt / 1000;
       render();
@@ -140,15 +186,22 @@
     requestAnimationFrame(frame);
   };
 
-  viewport.addEventListener('mouseenter', () => { hovered = true; });
-  viewport.addEventListener('mouseleave', () => { hovered = false; });
-  viewport.addEventListener('focusin', () => { focused = true; });
-  viewport.addEventListener('focusout', (event) => {
-    if (!viewport.contains(event.relatedTarget)) focused = false;
+  host.addEventListener('mouseenter', () => { hovered = true; });
+  host.addEventListener('mouseleave', () => { hovered = false; });
+  host.addEventListener('focusin', () => { focused = true; });
+  host.addEventListener('focusout', (event) => {
+    if (!host.contains(event.relatedTarget)) focused = false;
   });
+
+  prevButton.addEventListener('click', () => nudge(-1));
+  nextButton.addEventListener('click', () => nudge(1));
 
   viewport.addEventListener('pointerdown', (event) => {
     if (event.pointerType === 'mouse' && event.button !== 0) return;
+    if (nudgeAnimation) {
+      cancelAnimationFrame(nudgeAnimation);
+      nudgeAnimation = null;
+    }
     dragging = true;
     moved = false;
     activePointerId = event.pointerId;
