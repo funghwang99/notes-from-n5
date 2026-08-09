@@ -187,9 +187,10 @@ const thumbnailMap = {
     position: "center 22%",
   },
   "day-khong-phai-la-ket-thuc.html": {
-    src: "budapest-2006.webp",
-    alt: "Arsenal trong một ký ức Champions League trước Budapest.",
-    position: "center 28%",
+    src: "https://editorial.uefa.com/resources/02a6-20c57f6d10b6-e7dc42fa812d-1000/format/wide1/paris_saint-germain_v_arsenal_fc_-_uefa_champions_league_final_2026.jpeg?imwidth=1200",
+    fallback: "https://commons.wikimedia.org/wiki/Special:Redirect/file/1_kai_havertz_2026_%28cropped%29.jpg?width=1200",
+    alt: "Gabriel thất vọng sau loạt luân lưu chung kết Champions League 2026 tại Budapest.",
+    position: "center 40%",
   },
   "it-is-hope-that-kills-us.html": {
     src: "hope-fans.webp",
@@ -200,6 +201,12 @@ const thumbnailMap = {
 
 Object.entries(thumbnailMap).forEach(([href, config]) => {
   document.querySelectorAll(`a[href*="${href}"] img`).forEach((image) => {
+    if (config.fallback) {
+      image.onerror = () => {
+        image.onerror = null;
+        image.src = config.fallback;
+      };
+    }
     image.src = config.src;
     image.alt = config.alt;
     image.style.objectPosition = config.position;
