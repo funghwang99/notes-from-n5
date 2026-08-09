@@ -121,82 +121,26 @@ const thumbnailMap = {
     alt: "Thierry Henry trong một màn ăn mừng mang tính biểu tượng của Arsenal.",
     position: "center 28%",
   },
-  "the-world-was-late.html": {
-    src: "wright-179.webp",
-    alt: "Ian Wright trong màu áo Arsenal.",
-    position: "center 22%",
-  },
-  "before-the-arms-were-raised.html": {
-    src: "https://www.justarsenal.com/wp-content/uploads/2021/05/Steve-Bould.jpg",
-    alt: "Steve Bould thi đấu cho Arsenal.",
-    position: "center top",
-  },
-  "the-ship-that-still-knew-its-name.html": {
-    src: "adams-2002.webp",
-    alt: "Tony Adams trong màu áo Arsenal.",
-    position: "center 18%",
-  },
-  "the-shape-of-an-eight.html": {
-    src: "cazorla-arsenal.webp",
-    alt: "Santi Cazorla trong màu áo Arsenal.",
-    position: "center 24%",
-  },
-  "the-language-football-forgot.html": {
-    src: "ozil-2015-16.webp",
-    alt: "Mesut Özil trong màu áo Arsenal mùa 2015–16.",
-    position: "center 24%",
-  },
-  "the-last-summer-we-borrowed.html": {
-    src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lionel_Messi_Argentina_v_Egypt_7_July_2026-112.jpg?width=1400",
-    alt: "Lionel Messi trong màu áo Argentina tại World Cup 2026.",
-    position: "center 30%",
-  },
-  "the-man-between-chapters.html": {
-    src: "trossard-arrival.webp",
-    alt: "Leandro Trossard trong những ngày đầu tại Arsenal.",
-    position: "center 22%",
-  },
-  "the-keystone.html": {
-    src: "rice-freekick.webp",
-    alt: "Declan Rice trong màu áo Arsenal.",
-    position: "center 28%",
-  },
-  "the-last-empty-room.html": {
-    src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-086.jpg?width=1400",
-    alt: "Cristiano Ronaldo trong màu áo Portugal tại World Cup 2026.",
-    position: "center 28%",
-  },
-  "the-prince-that-never-became-king.html": {
-    src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Neymar_at_2026_FIFA_World_Cup_by_YantsImages.jpg?width=1400",
-    alt: "Neymar trong màu áo Brazil tại World Cup 2026.",
-    position: "center 24%",
-  },
-  "the-stones-beneath.html": {
-    src: "hale-quartet.webp",
-    alt: "Những cầu thủ trưởng thành từ Hale End.",
-    position: "center 28%",
-  },
-  "until-i-put-on-the-mask.html": {
-    src: "gyokeres-arrival.webp",
-    alt: "Viktor Gyökeres trong những ngày đầu tại Arsenal.",
-    position: "center 24%",
-  },
-  "you-deserve-more.html": {
-    src: "saka-young.webp",
-    alt: "Bukayo Saka thời trẻ tại Arsenal.",
-    position: "center 22%",
-  },
+  "the-world-was-late.html": { src: "wright-179.webp", alt: "Ian Wright trong màu áo Arsenal.", position: "center 22%" },
+  "before-the-arms-were-raised.html": { src: "https://www.justarsenal.com/wp-content/uploads/2021/05/Steve-Bould.jpg", alt: "Steve Bould thi đấu cho Arsenal.", position: "center top" },
+  "the-ship-that-still-knew-its-name.html": { src: "adams-2002.webp", alt: "Tony Adams trong màu áo Arsenal.", position: "center 18%" },
+  "the-shape-of-an-eight.html": { src: "cazorla-arsenal.webp", alt: "Santi Cazorla trong màu áo Arsenal.", position: "center 24%" },
+  "the-language-football-forgot.html": { src: "ozil-2015-16.webp", alt: "Mesut Özil trong màu áo Arsenal mùa 2015–16.", position: "center 24%" },
+  "the-last-summer-we-borrowed.html": { src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lionel_Messi_Argentina_v_Egypt_7_July_2026-112.jpg?width=1400", alt: "Lionel Messi trong màu áo Argentina tại World Cup 2026.", position: "center 30%" },
+  "the-man-between-chapters.html": { src: "trossard-arrival.webp", alt: "Leandro Trossard trong những ngày đầu tại Arsenal.", position: "center 22%" },
+  "the-keystone.html": { src: "rice-freekick.webp", alt: "Declan Rice trong màu áo Arsenal.", position: "center 28%" },
+  "the-last-empty-room.html": { src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-086.jpg?width=1400", alt: "Cristiano Ronaldo trong màu áo Portugal tại World Cup 2026.", position: "center 28%" },
+  "the-prince-that-never-became-king.html": { src: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Neymar_at_2026_FIFA_World_Cup_by_YantsImages.jpg?width=1400", alt: "Neymar trong màu áo Brazil tại World Cup 2026.", position: "center 24%" },
+  "the-stones-beneath.html": { src: "hale-quartet.webp", alt: "Những cầu thủ trưởng thành từ Hale End.", position: "center 28%" },
+  "until-i-put-on-the-mask.html": { src: "gyokeres-arrival.webp", alt: "Viktor Gyökeres trong những ngày đầu tại Arsenal.", position: "center 24%" },
+  "you-deserve-more.html": { src: "saka-young.webp", alt: "Bukayo Saka thời trẻ tại Arsenal.", position: "center 22%" },
   "day-khong-phai-la-ket-thuc.html": {
     src: "https://editorial.uefa.com/resources/02a6-20c57f6d10b6-e7dc42fa812d-1000/format/wide1/paris_saint-germain_v_arsenal_fc_-_uefa_champions_league_final_2026.jpeg?imwidth=1200",
     fallback: "https://commons.wikimedia.org/wiki/Special:Redirect/file/1_kai_havertz_2026_%28cropped%29.jpg?width=1200",
     alt: "Gabriel thất vọng sau loạt luân lưu chung kết Champions League 2026 tại Budapest.",
     position: "center 40%",
   },
-  "it-is-hope-that-kills-us.html": {
-    src: "hope-fans.webp",
-    alt: "Những người hâm mộ Arsenal trên khán đài.",
-    position: "center 30%",
-  },
+  "it-is-hope-that-kills-us.html": { src: "hope-fans.webp", alt: "Những người hâm mộ Arsenal trên khán đài.", position: "center 30%" },
 };
 
 Object.entries(thumbnailMap).forEach(([href, config]) => {
@@ -282,3 +226,43 @@ loadFirstAvailableImage(bouldAwayImages, (source) => {
     firstFigure.style.objectPosition = "center top";
   }
 });
+
+// Publish Before the Waiting Began into the archive and the home-page latest slot.
+const waitingThumbnail = "https://static.independent.co.uk/s3fs-public/thumbnails/image/2013/05/20/01/4-Victor-Valdes-Getty.jpg";
+const archive = document.querySelector(".archive#archive");
+if (archive && !archive.querySelector('a[href="before-the-waiting-began.html"]')) {
+  const firstEntry = archive.querySelector(".archive-entry");
+  const entry = document.createElement("article");
+  entry.className = "archive-entry reveal is-visible";
+  entry.dataset.paths = "mat-mat";
+  entry.innerHTML = `<a class="archive-thumb" href="before-the-waiting-began.html"><img src="${waitingThumbnail}" alt="Thierry Henry bị Víctor Valdés từ chối trong trận chung kết Champions League 2006." style="object-position:center 48%" /></a><div class="archive-entry-copy"><p class="article-meta">Arsenal · Paris 2006</p><h2><a href="before-the-waiting-began.html">Before the Waiting Began</a></h2><p>Paris 2006, khoảnh khắc Arsenal rời một trận chung kết mà chưa ai biết cuộc chờ đợi vừa bắt đầu.</p></div><a class="archive-arrow" href="before-the-waiting-began.html" aria-label="Đọc bài Before the Waiting Began">↗</a>`;
+  if (firstEntry) firstEntry.before(entry);
+
+  const paths = {"hy-vong":"Hy vọng","tuoi-tre":"Tuổi trẻ","mat-mat":"Mất mát","ngoai-anh-den":"Ngoài ánh đèn","di-san":"Di sản","bat-tu":"Bất tử"};
+  const requestedPath = new URLSearchParams(window.location.search).get("path");
+  const activePath = Object.hasOwn(paths, requestedPath) ? requestedPath : "all";
+  document.querySelectorAll(".archive-entry[data-paths]").forEach((item) => {
+    const itemPaths = item.dataset.paths.split(/\s+/).filter(Boolean);
+    item.hidden = activePath !== "all" && !itemPaths.includes(activePath);
+  });
+  const visible = Array.from(document.querySelectorAll(".archive-entry[data-paths]")).filter((item) => !item.hidden).length;
+  const count = document.querySelector("[data-archive-count]");
+  if (count) count.textContent = `${visible} bài viết`;
+}
+
+const homeMainStory = document.querySelector(".home-story-main");
+if (homeMainStory) {
+  homeMainStory.href = "before-the-waiting-began.html";
+  const image = homeMainStory.querySelector("img");
+  const label = homeMainStory.querySelector(".home-story-label");
+  const title = homeMainStory.querySelector("h3");
+  const deck = homeMainStory.querySelector(".home-story-main-copy > p:last-child");
+  if (image) {
+    image.src = waitingThumbnail;
+    image.alt = "Thierry Henry bị Víctor Valdés từ chối trong trận chung kết Champions League 2006.";
+    image.style.objectPosition = "center 48%";
+  }
+  if (label) label.textContent = "Mất mát · Arsenal · Paris 2006";
+  if (title) title.textContent = "Before the Waiting Began";
+  if (deck) deck.textContent = "Một trận thua ở Paris dần trở thành điểm bắt đầu của hai mươi năm chờ đợi.";
+}
