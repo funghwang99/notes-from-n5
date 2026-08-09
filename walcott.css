@@ -1,0 +1,37 @@
+.layout-walcott{--walcott-ink:#171714;--walcott-paper:#f3f0e8;--walcott-red:#b72639;--walcott-blue:#18233e;--walcott-soft:#ddd5c8;background:var(--walcott-paper);color:var(--walcott-ink)}
+.layout-walcott .site-header{background:linear-gradient(180deg,rgba(10,13,20,.82),transparent);border-bottom-color:rgba(255,255,255,.12)}
+.walcott-hero{position:relative;display:grid;min-height:100svh;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);overflow:hidden;background:#10131d;color:#f8f5ed}
+.walcott-hero-photo{min-height:100%;background-image:linear-gradient(0deg,rgba(16,19,29,.5),rgba(16,19,29,.06) 55%),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Arsenal_v_PSV_2007_Theo_Thinking_About_Third_World_Debt_(414115028).jpg?width=1800");background-position:center 24%;background-size:cover}
+.walcott-hero-copy{position:relative;display:flex;flex-direction:column;justify-content:center;padding:8.5rem clamp(2rem,6vw,7rem) 5rem}
+.walcott-hero-copy:before{position:absolute;right:-.05em;bottom:-.2em;color:rgba(255,255,255,.045);font-size:clamp(15rem,32vw,34rem);font-weight:850;letter-spacing:-.12em;line-height:.8;content:"16"}
+.walcott-hero .eyebrow{position:relative;z-index:2;color:#e47c89}
+.walcott-hero h1{position:relative;z-index:2;max-width:9ch;margin:1rem 0 1.5rem;font-family:var(--serif);font-size:clamp(4.5rem,7.5vw,8.5rem);font-weight:520;letter-spacing:-.075em;line-height:.86}
+.walcott-hero-deck{position:relative;z-index:2;max-width:35rem;margin:0;color:#bbb5ac;font-family:var(--serif);font-size:clamp(1.05rem,1.5vw,1.32rem);line-height:1.7}
+.walcott-byline{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:1rem 2rem;margin-top:2.2rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.16);color:#88837b;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+.walcott-body{padding-bottom:7rem}
+.walcott-passage{max-width:52rem;margin:0 auto;padding:clamp(4.5rem,8vw,7.5rem) 1.2rem 0}
+.walcott-passage p{margin:0 0 1.55rem;font-family:var(--serif);font-size:clamp(1.13rem,1.5vw,1.35rem);line-height:1.82}
+.walcott-passage .article-lead{font-size:clamp(1.35rem,2vw,1.8rem);line-height:1.62}
+.walcott-passage .article-lead::first-letter{float:none;margin:0;color:inherit;font-size:inherit;font-weight:inherit}
+.walcott-number{display:grid;max-width:78rem;grid-template-columns:minmax(0,.7fr) minmax(18rem,.3fr);gap:clamp(2rem,7vw,7rem);align-items:end;margin:clamp(5rem,9vw,9rem) auto;padding:clamp(3rem,6vw,5rem) clamp(1.2rem,5vw,5rem);border-top:1px solid #c8c0b5;border-bottom:1px solid #c8c0b5}
+.walcott-number strong{font-size:clamp(7rem,18vw,16rem);font-weight:850;letter-spacing:-.1em;line-height:.7}
+.walcott-number div{padding-bottom:.6rem}.walcott-number span{display:block;color:var(--walcott-red);font-size:.65rem;font-weight:760;letter-spacing:.13em;text-transform:uppercase}.walcott-number p{margin:.8rem 0 0;color:#686159;font-family:var(--serif);font-size:1.15rem;line-height:1.55}
+.walcott-figure{max-width:92rem;margin:clamp(5rem,9vw,9rem) auto;padding:0 clamp(1.2rem,4vw,4rem)}
+.walcott-figure img{display:block;width:100%;max-height:78vh;object-fit:cover;background:#d8d1c5}
+.walcott-figure--portrait{max-width:68rem}.walcott-figure--portrait img{aspect-ratio:4/3;object-position:center 25%}
+.walcott-figure--run img{aspect-ratio:16/9;object-position:center 30%}
+.walcott-figure--mature img{aspect-ratio:16/9;object-position:center 22%}
+.walcott-figure--return{max-width:72rem}.walcott-figure--return img{aspect-ratio:4/3;object-position:center 20%}
+.walcott-break{position:relative;overflow:hidden;margin:clamp(5rem,9vw,9rem) 0;padding:clamp(5rem,10vw,9rem) clamp(1.2rem,7vw,8rem);background:var(--walcott-blue);color:#f8f5ed}
+.walcott-break:after{position:absolute;right:-.08em;bottom:-.4em;color:rgba(255,255,255,.035);font-size:clamp(15rem,35vw,40rem);font-weight:900;letter-spacing:-.12em;line-height:.8;content:"84′"}
+.walcott-break-inner{position:relative;z-index:2;max-width:70rem;margin:0 auto}.walcott-break .eyebrow{color:#db7b87}.walcott-break h2{max-width:13ch;margin:1rem 0;font-family:var(--serif);font-size:clamp(3.4rem,7vw,7.5rem);font-weight:520;letter-spacing:-.07em;line-height:.92}.walcott-break p{max-width:34rem;margin:0;color:#a9abb4;font-family:var(--serif);font-size:1.1rem;line-height:1.7}
+.walcott-score{display:grid;max-width:74rem;grid-template-columns:auto 1fr;gap:clamp(2rem,6vw,6rem);align-items:center;margin:clamp(5rem,9vw,9rem) auto;padding:clamp(3rem,7vw,6rem) 1.2rem}
+.walcott-score strong{color:var(--walcott-red);font-size:clamp(6.5rem,18vw,14rem);font-weight:850;letter-spacing:-.1em;line-height:.72}.walcott-score div{max-width:28rem}.walcott-score span{display:block;font-size:.65rem;font-weight:760;letter-spacing:.13em;text-transform:uppercase}.walcott-score p{margin:.8rem 0 0;color:#6e675f;font-family:var(--serif);font-size:1.15rem;line-height:1.65}
+.walcott-ledger{max-width:86rem;margin:clamp(5rem,9vw,9rem) auto;padding:clamp(3rem,7vw,6rem) clamp(1.2rem,5vw,5rem);background:#171714;color:#f8f5ed}
+.walcott-ledger-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.13)}.walcott-ledger-item{padding:clamp(1.5rem,4vw,3rem);background:#171714}.walcott-ledger strong{display:block;font-size:clamp(3.4rem,7vw,7rem);font-weight:800;letter-spacing:-.08em;line-height:.9}.walcott-ledger span{display:block;margin-top:.8rem;color:#aaa49a;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.walcott-final-image{max-width:92rem;margin:0 auto;padding:0 clamp(1.2rem,4vw,4rem)}.walcott-final-image img{display:block;width:100%;aspect-ratio:16/8.5;object-fit:cover;object-position:center 32%}
+.walcott-ending{max-width:70rem;margin:0 auto;padding:clamp(6rem,10vw,10rem) 1.2rem;text-align:center}.walcott-ending p{margin:0 auto;font-family:var(--serif);font-size:clamp(2.4rem,5vw,5.4rem);font-weight:520;letter-spacing:-.06em;line-height:1.02}.walcott-ending p+p{margin-top:1.4rem;color:var(--walcott-red);font-size:clamp(2.8rem,6vw,6rem)}
+.walcott-credits{max-width:52rem;margin:0 auto;padding:0 1.2rem 5rem;color:#8a837a;font-size:.64rem;line-height:1.7}.walcott-credits a{color:inherit}
+.layout-walcott .article-end{border-top:1px solid #cbc4b9}
+@media(max-width:900px){.walcott-hero{grid-template-columns:1fr}.walcott-hero-photo{min-height:56vh}.walcott-hero-copy{padding:3rem 1.2rem 5rem}.walcott-number{grid-template-columns:1fr}.walcott-score{grid-template-columns:1fr}.walcott-ledger-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.walcott-hero-photo{min-height:48vh;background-position:center 18%}.walcott-hero h1{font-size:clamp(4rem,18vw,6rem)}.walcott-passage{padding-top:4rem}.walcott-figure{padding:0}.walcott-figure img{max-height:none}.walcott-number,.walcott-score{margin:4rem auto}.walcott-break{margin:4rem 0}.walcott-final-image{padding:0}.walcott-ledger{margin:4rem 0}.walcott-ending{padding:5rem 1rem}}
