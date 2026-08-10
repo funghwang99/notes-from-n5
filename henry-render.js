@@ -3,18 +3,28 @@
   const paras = window.HENRY_PARAS || [];
   if (!mount || !paras.length) return;
 
-  const hero = "https://upload.wikimedia.org/wikipedia/commons/b/b5/Thierry_Henry_Statue_2.jpg";
-  const highbury = "https://upload.wikimedia.org/wikipedia/commons/c/cc/The_last_ever_game_at_Highbury.jpg";
-  const henry = "https://upload.wikimedia.org/wikipedia/commons/6/66/Henry_And_Persie_Bonding_%28289633666%29.jpg";
+  const statue = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thierry_Henry_Statue_2.jpg?width=1800";
+  const highbury = "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_last_ever_game_at_Highbury.jpg?width=1600";
+  const henry = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Henry_And_Persie_Bonding_%28289633666%29.jpg?width=1600";
 
   const large = new Set([11,12,14,15,16,21,22,33,34,36,37,40,41,43,44,45,47,48,49]);
   const short = new Set([2,3,5,7,11,12,14,15,16,18,19,21,22,33,34,36,37,40,41,43,44,45,47,48,49]);
   const breaks = new Map([[9,"henry-return"],[24,"henry-kingdom"],[30,"henry-farewell"],[38,"henry-two-bodies"]]);
 
-  const makeFigure = (src, alt, caption, cls) => {
+  const makeFigure = (src, alt, cls) => {
     const figure = document.createElement("figure");
     figure.className = `henry-figure ${cls} reveal`;
-    figure.innerHTML = `<img src="${src}" alt="${alt}" loading="lazy" decoding="async"><figcaption>${caption}</figcaption>`;
+    const image = document.createElement("img");
+    image.src = src;
+    image.alt = alt;
+    image.loading = "lazy";
+    image.decoding = "async";
+    image.referrerPolicy = "no-referrer";
+    image.addEventListener("error", () => {
+      image.remove();
+      figure.classList.add("henry-figure--missing");
+    }, { once: true });
+    figure.append(image);
     return figure;
   };
 
@@ -37,22 +47,19 @@
 
     if (index === 17) section.append(makeFigure(
       henry,
-      "Thierry Henry và Robin van Persie trong màu áo Arsenal tại Highbury năm 2006.",
-      "Thierry Henry tại Arsenal, 2006. Ảnh: Ronnie Macdonald / Wikimedia Commons, CC BY 2.0.",
+      "Thierry Henry và Robin van Persie trong màu áo Arsenal năm 2006.",
       "henry-figure--wide"
     ));
 
     if (index === 30) section.append(makeFigure(
       highbury,
       "Highbury trong trận đấu cuối cùng của Arsenal tại sân vận động ngày 7 tháng 5 năm 2006.",
-      "Trận đấu cuối cùng tại Highbury, 7.5.2006. Ảnh: Mark Hammond / Wikimedia Commons, CC BY 2.0.",
       "henry-figure--highbury"
     ));
 
     if (index === 40) section.append(makeFigure(
-      hero,
+      statue,
       "Bức tượng Thierry Henry bên ngoài Emirates Stadium.",
-      "Bức tượng Thierry Henry bên ngoài Emirates. Ảnh: Ronnie Macdonald / Wikimedia Commons, CC BY 2.0.",
       "henry-figure--statue"
     ));
 
@@ -63,4 +70,9 @@
     else if (short.has(index)) p.className = "henry-line";
     section.append(p);
   });
+
+  const credits = document.createElement("div");
+  credits.className = "henry-credits";
+  credits.innerHTML = "Hình ảnh: Thierry Henry và Robin van Persie năm 2006, trận cuối tại Highbury và tượng Thierry Henry bên ngoài Emirates, qua Wikimedia Commons. Ảnh của wonker, Mark Hammond và Ronnie Macdonald, theo giấy phép ghi trên từng trang tệp gốc.";
+  mount.append(credits);
 })();
