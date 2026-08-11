@@ -266,3 +266,30 @@ if (homeMainStory) {
   if (title) title.textContent = "Before the Waiting Began";
   if (deck) deck.textContent = "Một trận thua ở Paris dần trở thành điểm bắt đầu của hai mươi năm chờ đợi.";
 }
+
+// Keep article-level tag labels aligned with the finalized Notes from N5 taxonomy.
+(() => {
+  const file = window.location.pathname.split("/").pop() || "";
+  const monumentFiles = new Set([
+    "the-second-revolution.html",
+    "the-second-arrow.html",
+    "the-last-summer-we-borrowed.html",
+    "the-last-empty-room.html",
+    "the-prince-that-never-became-king.html",
+  ]);
+  const hopeFiles = new Set([
+    "before-the-waiting-began.html",
+    "the-language-football-forgot.html",
+    "day-khong-phai-la-ket-thuc.html",
+  ]);
+
+  const replaceLabel = (node, from, to) => {
+    if (!node || !node.textContent.toLowerCase().includes(from.toLowerCase())) return;
+    node.textContent = node.textContent.replace(new RegExp(from, "gi"), to);
+  };
+
+  document.querySelectorAll(".eyebrow, .article-meta").forEach((node) => {
+    if (monumentFiles.has(file)) replaceLabel(node, "Di sản", "Tượng Đài");
+    if (hopeFiles.has(file)) replaceLabel(node, "Mất mát", "Hy Vọng");
+  });
+})();
