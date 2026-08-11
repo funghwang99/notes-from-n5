@@ -68,6 +68,7 @@
 .home-path-top{display:flex;justify-content:space-between;gap:1rem;color:#8a8479;font-size:.62rem;font-weight:730;letter-spacing:.12em;text-transform:uppercase}
 .home-path-card:hover .home-path-top{color:#aaa49a}
 .home-path-card h3{position:relative;z-index:2;max-width:9ch;margin:4rem 0 1rem;font-family:var(--serif);font-size:clamp(2.2rem,3.8vw,4.2rem);font-weight:520;letter-spacing:-.06em;line-height:.95}
+.home-path-card:nth-child(3) h3{line-height:.78}
 .home-path-card p{position:relative;z-index:2;max-width:25rem;margin:0;color:#6d685f;font-size:.82rem;line-height:1.65;transition:color 220ms ease}
 .home-path-card:hover p{color:#b9b3a8}
 .home-path-arrow{font-size:1rem}
