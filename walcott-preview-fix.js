@@ -33,12 +33,12 @@
   ];
 
   const taxonomyBySlug = Object.fromEntries(TAXONOMY.map((item) => [item.slug, item]));
-  const legendOutsideArsenal = new Set([
-    "the-second-revolution.html",
-    "the-second-arrow.html",
-    "the-last-summer-we-borrowed.html",
-    "the-last-empty-room.html",
-    "the-prince-that-never-became-king.html",
+  const lingeringLegendLabels = new Map([
+    ["the-second-revolution.html", "Chưa Nguôi · Gheorghe Hagi"],
+    ["the-second-arrow.html", "Chưa Nguôi · Roberto Baggio"],
+    ["the-last-summer-we-borrowed.html", "Chưa Nguôi · Lionel Messi"],
+    ["the-last-empty-room.html", "Chưa Nguôi · Cristiano Ronaldo"],
+    ["the-prince-that-never-became-king.html", "Chưa Nguôi · Neymar"],
   ]);
   const outsideSpotlight = new Set([
     "the-keystone.html",
@@ -59,9 +59,9 @@
     const oldPaths = (entry.dataset.paths || "").split(/\s+/).filter(Boolean);
 
     if (outsideSpotlight.has(file)) return "ngoai-anh-den";
-    if (legendOutsideArsenal.has(file)) return "tuong-dai";
+    if (lingeringLegendLabels.has(file)) return "chua-nguoi";
     if (oldPaths.includes("mat-mat")) return "hy-vong";
-    if (oldPaths.includes("di-san")) return "tuong-dai";
+    if (oldPaths.includes("di-san")) return "chua-nguoi";
     return oldPaths[0] || "";
   };
 
@@ -124,13 +124,17 @@
     });
   };
 
-  const relabelText = (text) => text
-    .replace(/Mất mát/gi, "Hy Vọng")
-    .replace(/Di sản/gi, "Tượng Đài");
+  const relabelText = (text) => text.replace(/Mất mát/gi, "Hy Vọng");
 
   const applyPreviewLabels = () => {
     document.querySelectorAll(".home-story-label, .home-shot-copy > span, .home-flow-meta").forEach((node) => {
       node.textContent = relabelText(node.textContent);
+    });
+
+    lingeringLegendLabels.forEach((label, href) => {
+      document.querySelectorAll(`.home-flow-card[href="${href}"] .home-flow-meta`).forEach((node) => {
+        node.textContent = label;
+      });
     });
 
     document.querySelectorAll('.home-flow-card[href="the-keystone.html"] .home-flow-meta').forEach((node) => {
@@ -228,7 +232,6 @@
   applyPreviewLabels();
   applyArchiveTaxonomy();
 
-  // Re-apply after late gallery/archive mutations without creating a render loop.
   requestAnimationFrame(() => {
     applyHomePathCards();
     applyPreviewLabels();
