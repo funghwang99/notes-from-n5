@@ -270,7 +270,7 @@ if (homeMainStory) {
 // Keep article-level tag labels aligned with the finalized Notes from N5 taxonomy.
 (() => {
   const file = window.location.pathname.split("/").pop() || "";
-  const monumentFiles = new Set([
+  const lingeringFiles = new Set([
     "the-second-revolution.html",
     "the-second-arrow.html",
     "the-last-summer-we-borrowed.html",
@@ -289,7 +289,10 @@ if (homeMainStory) {
   };
 
   document.querySelectorAll(".eyebrow, .article-meta").forEach((node) => {
-    if (monumentFiles.has(file)) replaceLabel(node, "Di sản", "Tượng Đài");
+    if (lingeringFiles.has(file)) {
+      replaceLabel(node, "Di sản", "Chưa Nguôi");
+      replaceLabel(node, "Tượng Đài", "Chưa Nguôi");
+    }
     if (hopeFiles.has(file)) replaceLabel(node, "Mất mát", "Hy Vọng");
   });
 })();
