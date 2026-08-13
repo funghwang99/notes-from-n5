@@ -34,6 +34,7 @@
 
   const taxonomyBySlug = Object.fromEntries(TAXONOMY.map((item) => [item.slug, item]));
   const lingeringLegendLabels = new Map([
+    ["between-him-and-history.html", "Chưa Nguôi · Arjen Robben"],
     ["the-second-revolution.html", "Chưa Nguôi · Gheorghe Hagi"],
     ["the-second-arrow.html", "Chưa Nguôi · Roberto Baggio"],
     ["the-last-summer-we-borrowed.html", "Chưa Nguôi · Lionel Messi"],
@@ -145,7 +146,6 @@
     });
   };
 
-  // Keep the corrected Walcott preview imagery.
   const walcottHref = "the-age-we-never-let-him-leave.html";
   const walcottArchiveImage = "https://commons.wikimedia.org/wiki/Special:Redirect/file/TheoWalcottUnderhill.JPG?width=1200";
 
@@ -161,7 +161,6 @@
     image.style.objectPosition = "center 20%";
   });
 
-  // Keep the newest Hy Vọng essay in the archive, latest slot and gallery.
   const dreamHref = "when-we-were-allowed-to-dream-again.html";
   const dreamImage = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Reiss_Nelson_2015.jpg?width=1400";
   const dreamThumb = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Reiss_Nelson_2015_%28cropped%29.jpg?width=1000";
@@ -177,55 +176,72 @@
     else archive.append(entry);
   }
 
+  const robbenHref = "between-him-and-history.html";
+  const robbenThumb = "https://commons.wikimedia.org/wiki/Special:Redirect/file/FIFA_World_Cup_2010_Final_Netherlands_team.JPG?width=1400";
+  const robbenLatest = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Robben_Kuyt_2.jpg?width=1400";
+
+  if (archive && !archive.querySelector(`a[href="${robbenHref}"]`)) {
+    const firstEntry = archive.querySelector(".archive-entry");
+    const entry = document.createElement("article");
+    entry.className = "archive-entry reveal is-visible";
+    entry.dataset.paths = "chua-nguoi";
+    entry.innerHTML = `<a class="archive-thumb" href="${robbenHref}"><img src="${robbenThumb}" alt="Arjen Robben cùng đội tuyển Hà Lan trước chung kết World Cup 2010." style="object-position:88% 66%" /></a><div class="archive-entry-copy"><p class="article-meta">Hà Lan · Arjen Robben</p><h2><a href="${robbenHref}">Between Him and History</a></h2><p>Bảy mươi sáu năm để đi đến vài giây, rồi giữa Arjen Robben và lịch sử là một bàn chân của Iker Casillas.</p></div><a class="archive-arrow" href="${robbenHref}" aria-label="Đọc bài Between Him and History">↗</a>`;
+    if (firstEntry) firstEntry.before(entry);
+    else archive.append(entry);
+  }
+
   const mainStory = document.querySelector(".home-story-main");
   if (mainStory) {
-    mainStory.href = dreamHref;
+    mainStory.href = robbenHref;
     const image = mainStory.querySelector("img");
     const label = mainStory.querySelector(".home-story-label");
     const title = mainStory.querySelector("h3");
     const deck = mainStory.querySelector(".home-story-main-copy > p:last-child");
     if (image) {
-      image.src = dreamImage;
-      image.alt = "Reiss Nelson trong màu áo Arsenal.";
+      image.src = robbenLatest;
+      image.alt = "Arjen Robben cùng Dirk Kuyt sau World Cup 2010.";
       image.style.objectPosition = "center 28%";
     }
-    if (label) label.textContent = "Hy Vọng · Arsenal · 2022/23";
-    if (title) title.textContent = "When We Were Allowed to Dream Again";
-    if (deck) deck.textContent = "Mùa giải chiếc cúp chưa trở lại, nhưng giấc mơ đã về nhà trước nó.";
+    if (label) label.textContent = "Chưa Nguôi · Hà Lan · Arjen Robben";
+    if (title) title.textContent = "Between Him and History";
+    if (deck) deck.textContent = "Bảy mươi sáu năm để đi đến vài giây ấy, và một bàn chân đứng giữa Hà Lan với lịch sử.";
   }
 
-  const appendDreamCard = (set, duplicate) => {
-    if (!set || set.querySelector(`.home-flow-card[href="${dreamHref}"]`)) return;
+  const appendCard = (set, duplicate, story, mode = "append") => {
+    if (!set || set.querySelector(`.home-flow-card[href="${story.href}"]`)) return;
     const card = document.createElement("a");
     card.className = "home-flow-card";
-    card.href = dreamHref;
+    card.href = story.href;
     card.draggable = false;
     if (duplicate) {
       card.setAttribute("aria-hidden", "true");
       card.tabIndex = -1;
     }
     const image = document.createElement("img");
-    image.src = dreamThumb;
-    image.alt = duplicate ? "" : "Reiss Nelson thời trẻ trong màu áo Arsenal.";
+    image.src = story.image;
+    image.alt = duplicate ? "" : story.alt;
     image.loading = "lazy";
     image.decoding = "async";
     image.draggable = false;
-    image.style.objectPosition = "center 24%";
+    image.style.objectPosition = story.position || "center";
     image.addEventListener("error", () => {
       image.remove();
       card.classList.add("is-image-missing");
     }, { once:true });
     const copy = document.createElement("span");
     copy.className = "home-flow-copy";
-    copy.innerHTML = `<span class="home-flow-meta">Hy Vọng · Arsenal 2022/23</span><strong>When We Were Allowed to Dream Again</strong>`;
+    copy.innerHTML = `<span class="home-flow-meta">${story.label}</span><strong>${story.title}</strong>`;
     card.append(image, copy);
-    set.append(card);
+    if (mode === "prepend") set.prepend(card);
+    else set.append(card);
   };
 
   const gallerySets = document.querySelectorAll(".home-flow-set");
   if (gallerySets.length >= 2) {
-    appendDreamCard(gallerySets[0], false);
-    appendDreamCard(gallerySets[1], true);
+    appendCard(gallerySets[0], false, { href:dreamHref, image:dreamThumb, alt:"Reiss Nelson thời trẻ trong màu áo Arsenal.", position:"center 24%", label:"Hy Vọng · Arsenal 2022/23", title:"When We Were Allowed to Dream Again" });
+    appendCard(gallerySets[1], true, { href:dreamHref, image:dreamThumb, alt:"", position:"center 24%", label:"Hy Vọng · Arsenal 2022/23", title:"When We Were Allowed to Dream Again" });
+    appendCard(gallerySets[0], false, { href:robbenHref, image:robbenThumb, alt:"Arjen Robben cùng Hà Lan trước chung kết World Cup 2010.", position:"88% 66%", label:"Chưa Nguôi · Arjen Robben", title:"Between Him and History" }, "prepend");
+    appendCard(gallerySets[1], true, { href:robbenHref, image:robbenThumb, alt:"", position:"88% 66%", label:"Chưa Nguôi · Arjen Robben", title:"Between Him and History" }, "prepend");
   }
 
   applyHomePathCards();
