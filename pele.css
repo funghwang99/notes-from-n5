@@ -1,68 +1,207 @@
-/* Pelé — The Throne No One Inherited | Tượng Đài */
-.layout-pele{--pele-green:#0d3b2e;--pele-green-deep:#071f18;--pele-gold:#d5ad55;--pele-gold-soft:#ead7a4;--pele-cream:#f2eee3;--pele-ink:#191a17;background:var(--pele-cream);color:var(--pele-ink);overflow-x:clip}
-.layout-pele .reading-progress{background:var(--pele-gold)}
-.layout-pele .site-header{border-bottom-color:rgba(242,238,227,.16)}
-.pele-hero{position:relative;display:grid;min-height:100svh;align-items:end;overflow:hidden;background:var(--pele-green-deep);color:#f7f2e6;isolation:isolate}
-.pele-hero-media{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(5,20,15,.96) 0%,rgba(5,20,15,.78) 40%,rgba(5,20,15,.15) 74%,rgba(5,20,15,.35) 100%),linear-gradient(0deg,rgba(5,20,15,.88) 0%,transparent 52%),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Pele_celebrating_1970.jpg?width=2400");background-position:center 42%;background-size:cover;filter:saturate(.74) contrast(1.06)}
-.pele-hero-copy{position:relative;z-index:3;width:min(100% - 2.6rem,82rem);margin:0 auto;padding:10rem 0 4.8rem}
-.pele-hero .eyebrow{color:var(--pele-gold-soft)}
-.pele-hero h1{max-width:10ch;margin:1rem 0 1.4rem;font-family:var(--serif);font-size:clamp(4rem,8.8vw,9rem);font-weight:470;letter-spacing:-.065em;line-height:.88}
-.pele-deck{max-width:43rem;margin:0;color:#ded7c8;font-family:var(--serif);font-size:clamp(1.12rem,1.55vw,1.4rem);line-height:1.68}
-.pele-hero .article-byline{max-width:47rem;margin-top:2.1rem;border-top-color:rgba(242,238,227,.22);color:#b8b0a1}
-.pele-kingmark{position:absolute;z-index:1;right:-.035em;bottom:-.06em;color:rgba(213,173,85,.12);font-family:var(--serif);font-size:clamp(8rem,24vw,23rem);font-weight:700;letter-spacing:-.08em;line-height:.72;pointer-events:none;text-transform:uppercase}
-.pele-crownline{position:absolute;z-index:3;top:8rem;right:max(1.3rem,calc((100vw - 82rem)/2));display:flex;gap:1rem;align-items:center;color:#dfc57f;font-size:.65rem;font-weight:750;letter-spacing:.16em;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg)}
-.pele-crownline:before{width:1px;height:5rem;background:rgba(223,197,127,.55);content:""}
-.pele-statbar{position:relative;z-index:4;display:grid;width:min(100% - 2.6rem,82rem);grid-template-columns:repeat(3,1fr);margin:0 auto 1.4rem;border-top:1px solid rgba(242,238,227,.22);border-bottom:1px solid rgba(242,238,227,.22)}
-.pele-statbar div{padding:1.1rem 1.2rem;border-right:1px solid rgba(242,238,227,.18)}
-.pele-statbar div:last-child{border-right:0}
-.pele-statbar strong{display:block;color:#f4ead1;font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.8rem);font-weight:500;letter-spacing:-.035em}
-.pele-statbar span{display:block;margin-top:.2rem;color:#9f988c;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-.pele-body{width:min(100% - 2.5rem,84rem);margin:0 auto;padding:clamp(5.5rem,9vw,9rem) 0}
-.pele-copy{width:min(100%,53rem);margin:0 auto}
-.pele-copy>p{margin:0 0 2rem;color:#30312d;font-family:var(--serif);font-size:clamp(1.08rem,1.42vw,1.25rem);line-height:1.95}
-.pele-copy .article-lead{color:#161713;font-size:clamp(1.28rem,1.95vw,1.65rem);line-height:1.82}
-.pele-copy .article-lead:first-letter{float:left;margin:.12em .12em 0 0;color:#9b762c;font-size:4.7em;line-height:.75}
-.pele-era{position:relative;left:50%;width:min(78rem,calc(100vw - 2.5rem));margin:clamp(5rem,9vw,8rem) 0;translate:-50% 0}
-.pele-era--1958{display:grid;grid-template-columns:minmax(9rem,.34fr) minmax(0,1.66fr);gap:1rem;align-items:stretch}
-.pele-age{display:flex;min-height:32rem;flex-direction:column;justify-content:space-between;padding:2rem;background:var(--pele-green-deep);color:#f6f0e4}
-.pele-age span{color:#d8bd77;font-size:.62rem;font-weight:750;letter-spacing:.16em;text-transform:uppercase}
-.pele-age strong{font-family:var(--serif);font-size:clamp(7rem,15vw,13rem);font-weight:520;letter-spacing:-.09em;line-height:.74}
-.pele-age small{max-width:12rem;color:#bcb5a6;font-family:var(--serif);font-size:.96rem;line-height:1.55}
-.pele-era img{display:block;width:100%;height:100%;min-height:32rem;object-fit:cover;background:#0b1712;filter:saturate(.78) contrast(1.04)}
-.pele-era--1958 img{object-position:center 50%}
-.pele-archive-object{position:relative;left:50%;display:grid;width:min(70rem,calc(100vw - 2.5rem));grid-template-columns:minmax(0,1.45fr) minmax(14rem,.55fr);gap:clamp(2rem,6vw,5rem);align-items:center;margin:clamp(5rem,9vw,8rem) 0;padding:clamp(1rem,2vw,1.5rem);border:1px solid rgba(25,26,23,.16);background:#e5dfd1;translate:-50% 0}
-.pele-archive-object img{display:block;width:100%;height:auto;filter:grayscale(.18) sepia(.08) contrast(1.03)}
-.pele-object-label{padding:1rem}
-.pele-object-label span{display:block;color:#8c6b2a;font-size:.6rem;font-weight:760;letter-spacing:.17em;text-transform:uppercase}
-.pele-object-label strong{display:block;margin-top:1rem;font-family:var(--serif);font-size:clamp(2rem,4vw,3.7rem);font-weight:500;letter-spacing:-.05em;line-height:1.02}
-.pele-object-label p{margin:1.2rem 0 0;color:#666159;font-family:var(--serif);font-size:.94rem;line-height:1.7}
-.pele-interlude{position:relative;left:50%;width:100vw;margin:clamp(5rem,9vw,8rem) 0;padding:clamp(5rem,10vw,9rem) max(1.25rem,calc((100vw - 74rem)/2));background:var(--pele-green-deep);color:#f5efe4;translate:-50% 0}
-.pele-interlude-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(1.5rem,5vw,5rem);align-items:center}
-.pele-interlude-year{font-family:var(--serif);font-size:clamp(4.5rem,12vw,10rem);font-weight:500;letter-spacing:-.08em;line-height:.82}
-.pele-interlude-year:last-child{text-align:right}
-.pele-interlude-arrow{color:#caa85c;font-size:clamp(2rem,5vw,4rem)}
-.pele-interlude-copy{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.7rem;padding-top:1.4rem;border-top:1px solid rgba(242,238,227,.2);color:#aaa294;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-.pele-final-grid{position:relative;left:50%;display:grid;width:min(78rem,calc(100vw - 2.5rem));grid-template-columns:minmax(0,1.45fr) minmax(16rem,.55fr);gap:1rem;margin:clamp(5rem,9vw,8rem) 0;translate:-50% 0}
-.pele-final-photo{min-height:34rem;overflow:hidden;background:#102018}
-.pele-final-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.8) contrast(1.05)}
-.pele-signature{display:flex;min-height:34rem;flex-direction:column;justify-content:space-between;padding:2rem;background:#c9a34f;color:#142018}
-.pele-signature span{font-size:.62rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-.pele-signature strong{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,4rem);font-weight:520;letter-spacing:-.05em;line-height:1}
-.pele-signature small{font-family:var(--serif);font-size:.95rem;line-height:1.55}
-.pele-goal-diagram{position:relative;left:50%;display:grid;width:min(64rem,calc(100vw - 2.5rem));grid-template-columns:minmax(0,.75fr) minmax(15rem,.25fr);gap:2rem;align-items:center;margin:clamp(4.5rem,8vw,7rem) 0;padding:2rem;border-top:1px solid rgba(25,26,23,.16);border-bottom:1px solid rgba(25,26,23,.16);translate:-50% 0}
-.pele-goal-diagram img{display:block;width:min(100%,32rem);margin:auto;filter:grayscale(1) contrast(1.12)}
-.pele-goal-diagram div{font-family:var(--serif)}
-.pele-goal-diagram span{display:block;color:#8c6b2a;font-family:var(--sans);font-size:.6rem;font-weight:760;letter-spacing:.16em;text-transform:uppercase}
-.pele-goal-diagram strong{display:block;margin-top:1rem;font-size:clamp(1.8rem,3.2vw,3rem);font-weight:500;letter-spacing:-.04em;line-height:1.08}
-.pele-ending-image{position:relative;left:50%;width:100vw;margin:clamp(6rem,10vw,9rem) 0 0;overflow:hidden;background:#0a0d0b;translate:-50% 0}
-.pele-ending-image img{display:block;width:100%;height:min(82svh,56rem);object-fit:cover;object-position:center 46%;filter:grayscale(1) contrast(1.08) brightness(.8)}
-.pele-ending-image:after{position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,12,9,.72),transparent 45%);content:""}
-.pele-ending{position:relative;left:50%;width:100vw;padding:clamp(5rem,10vw,9rem) max(1.25rem,calc((100vw - 62rem)/2));background:#09140f;color:#f2ecdf;translate:-50% 0}
-.pele-ending p{margin:0;color:#aaa397;font-family:var(--serif);font-size:clamp(1.12rem,1.5vw,1.3rem);line-height:1.85}
-.pele-ending-line{margin-top:clamp(3rem,7vw,5.5rem)!important;color:#f7f0df!important;font-size:clamp(2.5rem,6vw,5.7rem)!important;font-weight:500;letter-spacing:-.06em;line-height:1.02!important}
-.pele-ending-line+.pele-ending-line{margin-top:.3rem!important;color:#d6b765!important}
-.layout-pele .article-end-note{width:min(100%,53rem);margin:clamp(5rem,9vw,8rem) auto 0;padding-top:1.5rem;border-top:1px solid rgba(25,26,23,.14);color:#817b71;font-size:.7rem;line-height:1.65}
-.layout-pele .article-end-note strong{display:block;margin-bottom:.55rem;color:#58544d;font-size:.58rem;font-weight:760;letter-spacing:.14em;text-transform:uppercase}
-.layout-pele .article-end-note p{margin:0}
-.layout-pele .article-end-note a{color:#765d28;text-underline-offset:.14em}
-@media(max-width:800px){.pele-hero-copy{padding-top:9rem}.pele-hero h1{font-size:clamp(3.7rem,16vw,6rem)}.pele-crownline{display:none}.pele-kingmark{font-size:42vw}.pele-statbar{grid-template-columns:1fr}.pele-statbar div{border-right:0;border-bottom:1px solid rgba(242,238,227,.16)}.pele-statbar div:last-child{border-bottom:0}.pele-body{width:min(100% - 2rem,84rem)}.pele-copy>p{font-size:1.08rem;line-height:1.88}.pele-era--1958,.pele-archive-object,.pele-final-grid,.pele-goal-diagram{grid-template-columns:1fr}.pele-age{min-height:18rem}.pele-era img{min-height:24rem}.pele-archive-object{gap:1rem}.pele-object-label{padding:.7rem}.pele-interlude-grid{grid-template-columns:1fr;gap:1.2rem;text-align:center}.pele-interlude-year:last-child{text-align:center}.pele-interlude-arrow{transform:rotate(90deg)}.pele-interlude-copy{grid-template-columns:1fr;text-align:center}.pele-final-photo,.pele-signature{min-height:24rem}.pele-goal-diagram{padding:1.5rem 0}.pele-ending-image img{height:62svh}.pele-ending-line{font-size:clamp(2.3rem,12vw,4rem)!important}}
+/* Pelé — The Throne No One Inherited | Tượng Đài exhibition */
+.layout-pele{--museum-black:#050806;--museum-green:#0b3425;--museum-green-deep:#061d15;--museum-gold:#d6b45b;--museum-gold-pale:#ead9a2;--museum-paper:#eee7d8;--museum-paper-deep:#dcd1bd;--museum-ink:#171914;background:var(--museum-black);color:var(--museum-ink);overflow-x:clip}
+.layout-pele .reading-progress{z-index:80;height:3px;background:var(--museum-gold)}
+.layout-pele .site-header{border-bottom-color:rgba(244,238,224,.16)}
+.layout-pele .site-nav a,.layout-pele .brand{color:#f4eee0}
+
+/* COVER / POSTER */
+.pele-hero{position:relative;display:grid;min-height:100svh;overflow:hidden;background:var(--museum-black);color:#f7f0df;isolation:isolate}
+.pele-hero-media{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(3,7,5,.98) 0%,rgba(3,7,5,.9) 28%,rgba(3,7,5,.38) 57%,rgba(3,7,5,.08) 78%,rgba(3,7,5,.28) 100%),linear-gradient(0deg,rgba(3,7,5,.88) 0%,transparent 45%),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Pele_celebrating_1970.jpg?width=2600");background-position:center 42%;background-size:cover;filter:saturate(.72) contrast(1.08) brightness(.92);transform:scale(1.015)}
+.pele-hero-noise{position:absolute;inset:0;z-index:1;opacity:.16;pointer-events:none;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 3px)}
+.pele-hero-copy{position:relative;z-index:4;align-self:end;width:min(100% - 3rem,88rem);margin:0 auto;padding:11rem 0 8.5rem}
+.pele-hero .eyebrow{margin:0 0 1.4rem;color:var(--museum-gold-pale);font-size:.66rem;letter-spacing:.18em}
+.pele-hero h1{display:grid;width:min(100%,10ch);margin:0;font-family:var(--serif);font-size:clamp(4.5rem,9.6vw,10.5rem);font-weight:470;letter-spacing:-.075em;line-height:.76;text-wrap:balance}
+.pele-hero h1 span{display:block}
+.pele-hero h1 span:nth-child(2){padding-left:.54em;color:var(--museum-gold)}
+.pele-hero h1 span:nth-child(3){padding-left:.12em}
+.pele-deck{max-width:36rem;margin:2.2rem 0 0;color:#c7c0b2;font-family:var(--serif);font-size:clamp(1.05rem,1.45vw,1.3rem);line-height:1.72}
+.pele-hero .article-byline{max-width:40rem;margin-top:1.8rem;border-top:1px solid rgba(244,238,224,.22);color:#918c82}
+.pele-kingmark{position:absolute;z-index:2;right:-.055em;bottom:-.1em;color:rgba(214,180,91,.13);font-family:var(--serif);font-size:clamp(10rem,28vw,30rem);font-weight:700;letter-spacing:-.1em;line-height:.7;pointer-events:none;white-space:nowrap}
+.pele-hero-index{position:absolute;z-index:5;top:8.6rem;right:max(1.5rem,calc((100vw - 88rem)/2));display:grid;justify-items:end;gap:.45rem;color:#d9d2c4;font-size:.56rem;font-weight:760;letter-spacing:.19em;text-transform:uppercase}
+.pele-hero-index strong{color:var(--museum-gold);font-family:var(--serif);font-size:clamp(2rem,3vw,3.4rem);font-weight:500;letter-spacing:-.04em}
+.pele-hero-years{position:absolute;z-index:5;right:max(1.5rem,calc((100vw - 88rem)/2));bottom:3.1rem;display:flex;gap:.6rem}
+.pele-hero-years span{display:grid;width:4.3rem;height:4.3rem;place-items:center;border:1px solid rgba(234,217,162,.38);border-radius:50%;color:#e8dcba;font-family:var(--serif);font-size:.92rem}
+.pele-scroll-cue{position:absolute;z-index:5;left:max(1.5rem,calc((100vw - 88rem)/2));bottom:2.8rem;display:flex;gap:.9rem;align-items:center;color:#8e897f;font-size:.53rem;font-weight:750;letter-spacing:.18em;text-transform:uppercase}
+.pele-scroll-cue i{display:block;width:5rem;height:1px;background:linear-gradient(90deg,var(--museum-gold),transparent)}
+
+/* EXHIBITION FRAME */
+.pele-exhibition{position:relative;background:var(--museum-paper)}
+.pele-exhibit-rail{position:absolute;z-index:12;top:0;left:0;display:flex;width:4.5rem;height:100%;flex-direction:column;align-items:center;padding:7rem 0 3rem;border-right:1px solid rgba(23,25,20,.12);background:rgba(238,231,216,.78);color:#786d59;pointer-events:none}
+.pele-exhibit-rail span,.pele-exhibit-rail strong{writing-mode:vertical-rl;transform:rotate(180deg)}
+.pele-exhibit-rail span{font-size:.5rem;font-weight:760;letter-spacing:.17em}
+.pele-exhibit-rail strong{margin-top:2rem;color:#1d201a;font-family:var(--serif);font-size:2rem;font-weight:500;letter-spacing:.08em}
+.pele-exhibit-rail i{width:1px;flex:1;min-height:6rem;margin:2rem 0;background:linear-gradient(var(--museum-gold),rgba(23,25,20,.1))}
+.pele-room{position:relative;margin-left:4.5rem;padding:clamp(7rem,11vw,12rem) max(1.5rem,calc((100vw - 82rem)/2));overflow:hidden}
+.pele-room-index{position:relative;z-index:2;display:grid;width:min(100%,28rem);gap:.35rem;margin-bottom:clamp(4rem,8vw,8rem)}
+.pele-room-index span,.pele-room-heading span{color:#8c7240;font-size:.58rem;font-weight:800;letter-spacing:.19em;text-transform:uppercase}
+.pele-room-index strong{font-family:var(--serif);font-size:clamp(3rem,6vw,6.3rem);font-weight:500;letter-spacing:-.065em;line-height:.88}
+.pele-room-index small,.pele-room-heading small{margin-top:.5rem;color:#7c756a;font-family:var(--serif);font-size:.92rem;line-height:1.5}
+.pele-room-copy{position:relative;z-index:3;width:min(100%,48rem)}
+.pele-room-copy--right{margin-left:auto}
+.pele-room-copy--left{margin-right:auto}
+.pele-room-copy p{margin:0;color:#292b25;font-family:var(--serif);font-size:clamp(1.08rem,1.38vw,1.23rem);line-height:1.98}
+.pele-room-copy--lead{width:min(100%,58rem);margin-left:auto}
+.pele-room-copy--lead p{color:#161813;font-size:clamp(1.32rem,2.05vw,1.75rem);line-height:1.78}
+.pele-room-copy--lead .article-lead:first-letter{float:left;margin:.09em .12em 0 0;color:#9f782e;font-size:5.4em;line-height:.76}
+
+/* PROLOGUE */
+.pele-room--prologue{min-height:105svh;background:var(--museum-paper);display:grid;align-content:center}
+.pele-prologue-watermark{position:absolute;z-index:0;left:.02em;bottom:-.12em;color:rgba(37,39,32,.055);font-family:var(--serif);font-size:clamp(11rem,34vw,35rem);font-weight:700;letter-spacing:-.11em;line-height:.7;white-space:nowrap;pointer-events:none}
+
+/* ROOM 01 — 1958 */
+.pele-room--1958{padding-top:clamp(8rem,13vw,14rem);padding-bottom:clamp(9rem,14vw,15rem);background:var(--museum-black);color:#f2ecdf}
+.pele-room-heading{position:relative;z-index:2;display:grid;gap:.25rem;margin-bottom:clamp(5rem,10vw,9rem)}
+.pele-room-heading strong{color:#f2ecdf;font-family:var(--serif);font-size:clamp(8rem,24vw,24rem);font-weight:470;letter-spacing:-.09em;line-height:.64}
+.pele-room-heading small{color:#8f897f}
+.pele-room--1958 .pele-room-copy p{color:#cdc7ba}
+.pele-room--1958 .pele-room-copy--right{margin-bottom:clamp(5rem,8vw,8rem)}
+.pele-1958-stage{position:relative;left:50%;width:calc(100vw - 4.5rem);min-height:min(82svh,58rem);margin:0 0 clamp(6rem,10vw,10rem);translate:-50% 0;overflow:hidden;background:#0c100d}
+.pele-1958-photo{position:absolute;inset:0}
+.pele-1958-photo:after{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,6,.82) 0%,rgba(5,8,6,.18) 43%,rgba(5,8,6,.08) 70%,rgba(5,8,6,.58) 100%),linear-gradient(0deg,rgba(5,8,6,.72),transparent 45%);content:""}
+.pele-1958-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(.06) contrast(1.08) brightness(.9)}
+.pele-1958-age{position:absolute;z-index:2;top:50%;left:clamp(1.5rem,6vw,7rem);display:grid;translate:0 -50%}
+.pele-1958-age span,.pele-1958-age small{color:#d7c99d;font-size:.58rem;font-weight:800;letter-spacing:.2em}
+.pele-1958-age strong{color:#fff5dd;font-family:var(--serif);font-size:clamp(11rem,26vw,25rem);font-weight:520;letter-spacing:-.12em;line-height:.68}
+.pele-1958-caption{position:absolute;z-index:2;right:clamp(1.5rem,6vw,7rem);bottom:clamp(1.5rem,5vw,5rem);width:min(34rem,46vw);padding-top:1rem;border-top:1px solid rgba(234,217,162,.5)}
+.pele-1958-caption span{color:var(--museum-gold-pale);font-size:.55rem;font-weight:800;letter-spacing:.18em}
+.pele-1958-caption strong{display:block;margin-top:.7rem;color:#f5efe2;font-family:var(--serif);font-size:clamp(1.5rem,2.7vw,2.8rem);font-weight:500;letter-spacing:-.035em;line-height:1.08}
+
+/* ROOM 02 — SANTOS / ARCHIVE */
+.pele-room--santos{background:var(--museum-gold);color:#12140f}
+.pele-room-heading--dark strong{color:#11130f;font-family:var(--serif);font-size:clamp(4.5rem,10vw,10rem);font-weight:540;letter-spacing:-.08em;line-height:.78}
+.pele-room-heading--dark span{color:#55451f}
+.pele-room-heading--dark small{color:#5d533f}
+.pele-room--santos .pele-room-copy p{color:#25251f}
+.pele-archive-object{position:relative;z-index:3;display:grid;width:min(100%,76rem);grid-template-columns:minmax(0,1.5fr) minmax(16rem,.5fr);gap:clamp(1.5rem,4vw,4rem);align-items:center;margin:clamp(6rem,10vw,10rem) auto;padding:clamp(1.3rem,2.3vw,2rem);background:#171914;box-shadow:0 3rem 7rem rgba(48,36,8,.22);transform:rotate(-.7deg)}
+.pele-archive-photo{position:relative;overflow:hidden;background:#0b0c09}
+.pele-archive-photo:before{position:absolute;z-index:2;inset:.7rem;border:1px solid rgba(238,231,216,.28);content:"";pointer-events:none}
+.pele-archive-photo img{display:block;width:100%;height:auto;filter:grayscale(.35) sepia(.15) contrast(1.1)}
+.pele-archive-stamp{position:absolute;z-index:4;top:-2.2rem;left:-1.6rem;display:grid;width:6.3rem;height:6.3rem;place-items:center;border:1px solid rgba(23,25,20,.46);border-radius:50%;background:var(--museum-gold);color:#171914;font-size:.47rem;font-weight:850;letter-spacing:.16em;text-align:center;transform:rotate(-12deg)}
+.pele-object-label{padding:1rem 1rem 1rem 0;color:#f2ecdf}
+.pele-object-label span{display:block;color:#cbb77d;font-size:.56rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.pele-object-label strong{display:block;margin-top:1.2rem;font-family:var(--serif);font-size:clamp(3rem,6vw,5.8rem);font-weight:500;letter-spacing:-.07em;line-height:.78}
+.pele-object-label p{margin:1.5rem 0 0;color:#aaa394;font-family:var(--serif);font-size:.9rem;line-height:1.65}
+
+/* THRESHOLD */
+.pele-threshold{position:relative;margin-left:4.5rem;padding:clamp(7rem,12vw,13rem) max(1.5rem,calc((100vw - 90rem)/2));overflow:hidden;background:var(--museum-green-deep);color:#f5efdf}
+.pele-threshold:before{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(214,180,91,.09),transparent 52%);content:""}
+.pele-threshold-top,.pele-threshold-copy{position:relative;z-index:2;display:flex;justify-content:space-between;color:#a7a092;font-size:.54rem;font-weight:800;letter-spacing:.19em;text-transform:uppercase}
+.pele-threshold-years{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(1rem,4vw,4rem);align-items:center;margin:clamp(3rem,7vw,6rem) 0}
+.pele-threshold-years strong{font-family:var(--serif);font-size:clamp(6rem,17vw,17rem);font-weight:480;letter-spacing:-.1em;line-height:.72}
+.pele-threshold-years strong:last-child{text-align:right;color:var(--museum-gold)}
+.pele-threshold-years i{color:#d2bd7e;font-family:var(--serif);font-size:clamp(2rem,5vw,5rem);font-style:normal}
+.pele-threshold-copy{padding-top:1.4rem;border-top:1px solid rgba(234,217,162,.25)}
+.pele-threshold-copy span{max-width:27rem}
+.pele-threshold-copy span:last-child{text-align:right}
+
+/* ROOM 03 — 1970 / CORONATION */
+.pele-room--1970{padding-top:clamp(8rem,13vw,14rem);padding-bottom:clamp(9rem,14vw,15rem);background:var(--museum-green);color:#f4eddf}
+.pele-room-heading--gold strong{color:var(--museum-gold);font-family:var(--serif);font-size:clamp(8rem,24vw,24rem);font-weight:500;letter-spacing:-.095em;line-height:.64}
+.pele-room-heading--gold span{color:#d9c890}
+.pele-room-heading--gold small{color:#aaa494}
+.pele-room-copy--light p,.pele-room--1970 .pele-room-copy p{color:#d4cfc2}
+.pele-1970-stage{position:relative;left:50%;width:calc(100vw - 4.5rem);min-height:min(88svh,62rem);margin:clamp(6rem,10vw,10rem) 0;translate:-50% 0;overflow:hidden;background:#081910}
+.pele-1970-photo{position:absolute;inset:0}
+.pele-1970-photo:after{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,22,15,.18),rgba(5,22,15,.02) 58%,rgba(5,22,15,.62)),linear-gradient(0deg,rgba(4,18,12,.74),transparent 48%);content:""}
+.pele-1970-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.75) contrast(1.08) brightness(.9)}
+.pele-1970-mark{position:absolute;z-index:3;top:clamp(2rem,5vw,5rem);left:clamp(1.5rem,6vw,7rem);display:grid;color:#f3ead6}
+.pele-1970-mark span,.pele-1970-mark small{color:#d2c28d;font-size:.56rem;font-weight:800;letter-spacing:.19em}
+.pele-1970-mark strong{font-family:var(--serif);font-size:clamp(10rem,24vw,23rem);font-weight:500;letter-spacing:-.12em;line-height:.68}
+.pele-1970-signature{position:absolute;z-index:3;right:clamp(1.5rem,6vw,7rem);bottom:clamp(1.5rem,5vw,5rem);width:min(34rem,46vw);padding:2rem;background:rgba(238,231,216,.94);color:#161914;backdrop-filter:blur(4px)}
+.pele-1970-signature span{color:#765f2a;font-size:.55rem;font-weight:800;letter-spacing:.18em}
+.pele-1970-signature strong{display:block;margin-top:.7rem;font-family:var(--serif);font-size:clamp(1.8rem,3vw,3.2rem);font-weight:520;letter-spacing:-.05em;line-height:1.02}
+.pele-1970-signature small{display:block;margin-top:1rem;color:#625d53;font-family:var(--serif);font-size:.9rem;line-height:1.55}
+.pele-goal-diagram{position:relative;z-index:3;display:grid;width:min(100%,72rem);grid-template-columns:minmax(11rem,.32fr) minmax(0,.48fr) minmax(12rem,.2fr);gap:clamp(1.5rem,4vw,4rem);align-items:center;margin:clamp(6rem,10vw,10rem) auto;padding:clamp(2rem,4vw,4rem);border:1px solid rgba(234,217,162,.22);background:#061c14}
+.pele-diagram-meta span{display:block;color:var(--museum-gold);font-family:var(--serif);font-size:clamp(4rem,8vw,7rem);letter-spacing:-.07em;line-height:.8}
+.pele-diagram-meta strong{display:block;margin-top:1rem;color:#eee6d5;font-size:.56rem;letter-spacing:.16em}
+.pele-diagram-meta small{display:block;margin-top:.6rem;color:#898477;font-family:var(--serif);font-size:.84rem}
+.pele-goal-diagram img{display:block;width:100%;filter:invert(.9) grayscale(1) contrast(1.2);opacity:.8}
+.pele-goal-diagram>p{margin:0;color:#e6ddc8;font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.7rem);letter-spacing:-.035em;line-height:1.08}
+
+/* EPILOGUE — THE THRONE */
+.pele-room--legacy{padding-top:clamp(8rem,13vw,14rem);padding-bottom:0;background:var(--museum-black);color:#f4eddf}
+.pele-room-index--legacy span{color:#a98b49}
+.pele-room-index--legacy strong{color:#f2ecdf}
+.pele-room-index--legacy small{color:#777269}
+.pele-room--legacy .pele-room-copy p{color:#c7c1b5}
+.pele-legacy-word{position:absolute;z-index:0;top:14rem;right:-.08em;color:rgba(214,180,91,.06);font-family:var(--serif);font-size:clamp(12rem,35vw,36rem);font-weight:700;letter-spacing:-.11em;line-height:.68;pointer-events:none}
+.pele-room--legacy .pele-room-copy--right{margin-bottom:clamp(5rem,9vw,9rem)}
+.pele-ending-image{position:relative;left:50%;width:calc(100vw - 4.5rem);height:min(100svh,68rem);margin:clamp(7rem,12vw,12rem) 0 0;translate:-50% 0;overflow:hidden;background:#0a0c0a}
+.pele-ending-image:after{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,6,4,.25),transparent 45%),linear-gradient(0deg,rgba(4,6,4,.78),transparent 52%);content:""}
+.pele-ending-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:grayscale(1) contrast(1.12) brightness(.78)}
+.pele-ending-photo-mark{position:absolute;z-index:3;left:clamp(1.5rem,6vw,7rem);bottom:clamp(2rem,6vw,6rem);display:grid;color:#f0e9da}
+.pele-ending-photo-mark span,.pele-ending-photo-mark small{font-size:.55rem;font-weight:800;letter-spacing:.19em}
+.pele-ending-photo-mark strong{font-family:var(--serif);font-size:clamp(5rem,12vw,12rem);font-weight:500;letter-spacing:-.085em;line-height:.72}
+.pele-ending{position:relative;left:50%;display:grid;width:calc(100vw - 4.5rem);min-height:95svh;align-content:center;padding:clamp(5rem,10vw,10rem) max(1.5rem,calc((100vw - 76rem)/2));translate:-50% 0;overflow:hidden;background:#030504;color:#f5eedf}
+.pele-ending-kicker{position:relative;z-index:2;margin-bottom:clamp(4rem,8vw,7rem);color:#968e80;font-size:.55rem;font-weight:800;letter-spacing:.2em}
+.pele-ending-line{position:relative;z-index:2;width:min(100%,14ch);margin:0!important;color:#f5eedf!important;font-family:var(--serif)!important;font-size:clamp(3.2rem,7.2vw,7.5rem)!important;font-weight:500!important;letter-spacing:-.07em!important;line-height:.92!important}
+.pele-ending-line+.pele-ending-line{margin-top:1.2rem!important;margin-left:auto!important;color:var(--museum-gold)!important;text-align:right}
+.pele-ending-monogram{position:absolute;z-index:0;right:-.07em;bottom:-.14em;color:rgba(214,180,91,.075);font-family:var(--serif);font-size:clamp(12rem,36vw,38rem);font-weight:700;letter-spacing:-.11em;line-height:.67;white-space:nowrap}
+.layout-pele .article-end-note{margin-left:4.5rem;padding:2rem max(1.5rem,calc((100vw - 70rem)/2)) 4rem;border-top:1px solid rgba(238,231,216,.12);background:#030504;color:#706b62;font-size:.66rem;line-height:1.65}
+.layout-pele .article-end-note strong{display:block;margin-bottom:.55rem;color:#a69d8d;font-size:.53rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+.layout-pele .article-end-note p{max-width:58rem;margin:0}
+.layout-pele .site-footer{background:#030504;color:#f4eee0;border-top-color:rgba(238,231,216,.12)}
+
+/* Reveal motion tuned as museum panels rather than generic article fades */
+.layout-pele .reveal{transform:translateY(2rem);opacity:0;transition:opacity .9s ease,transform 1.05s cubic-bezier(.2,.7,.2,1)}
+.layout-pele .reveal.is-visible{transform:none;opacity:1}
+.pele-1958-stage.reveal,.pele-1970-stage.reveal,.pele-ending-image.reveal{transform:scale(.985);transition:opacity 1s ease,transform 1.25s cubic-bezier(.2,.7,.2,1)}
+.pele-1958-stage.reveal.is-visible,.pele-1970-stage.reveal.is-visible,.pele-ending-image.reveal.is-visible{transform:scale(1)}
+
+@media(max-width:900px){
+  .pele-hero-copy{width:min(100% - 2rem,88rem);padding:9rem 0 7.2rem}
+  .pele-hero h1{font-size:clamp(3.7rem,16vw,7rem);line-height:.79}
+  .pele-hero h1 span:nth-child(2){padding-left:.25em}
+  .pele-hero-index{top:7.4rem;right:1rem}
+  .pele-hero-index span:first-child,.pele-hero-index span:last-child{display:none}
+  .pele-hero-years{right:1rem;bottom:1.5rem}
+  .pele-hero-years span{width:3.2rem;height:3.2rem;font-size:.72rem}
+  .pele-scroll-cue{left:1rem;bottom:2rem}
+  .pele-scroll-cue span{display:none}
+  .pele-exhibit-rail{display:none}
+  .pele-room,.pele-threshold,.layout-pele .article-end-note{margin-left:0}
+  .pele-room{padding-inline:1.25rem}
+  .pele-1958-stage,.pele-1970-stage,.pele-ending-image,.pele-ending{width:100vw}
+  .pele-room-heading strong,.pele-room-heading--gold strong{font-size:clamp(6rem,31vw,12rem)}
+  .pele-room-heading--dark strong{font-size:clamp(4rem,18vw,7rem)}
+  .pele-1958-stage,.pele-1970-stage{min-height:74svh}
+  .pele-1958-age strong,.pele-1970-mark strong{font-size:clamp(9rem,44vw,18rem)}
+  .pele-1958-caption,.pele-1970-signature{right:1.25rem;bottom:1.25rem;width:calc(100% - 2.5rem)}
+  .pele-1958-caption{padding:1.1rem;background:rgba(5,8,6,.72);backdrop-filter:blur(3px)}
+  .pele-archive-object{grid-template-columns:1fr;gap:1rem;margin-inline:.4rem;padding:1rem;transform:rotate(-.35deg)}
+  .pele-archive-stamp{top:-2rem;left:-.4rem}
+  .pele-object-label{padding:1rem}
+  .pele-threshold{padding-inline:1.25rem}
+  .pele-threshold-years{grid-template-columns:1fr;gap:1rem;text-align:center}
+  .pele-threshold-years strong:last-child{text-align:center}
+  .pele-threshold-years i{transform:rotate(90deg)}
+  .pele-threshold-top,.pele-threshold-copy{gap:1rem}
+  .pele-threshold-copy{flex-direction:column}
+  .pele-threshold-copy span:last-child{text-align:left}
+  .pele-goal-diagram{grid-template-columns:1fr;padding:1.5rem}
+  .pele-goal-diagram img{width:min(100%,32rem);margin:auto}
+  .pele-ending-image{height:72svh}
+  .pele-ending{min-height:86svh;padding-inline:1.25rem}
+  .pele-ending-line{font-size:clamp(2.7rem,13vw,5rem)!important}
+  .layout-pele .article-end-note{padding-inline:1.25rem}
+}
+
+@media(max-width:560px){
+  .pele-hero-media{background-position:62% center}
+  .pele-hero-index{display:none}
+  .pele-kingmark{font-size:46vw}
+  .pele-hero-years{gap:.35rem}
+  .pele-room{padding-top:6rem;padding-bottom:6rem}
+  .pele-room-copy p{font-size:1.06rem;line-height:1.9}
+  .pele-room-copy--lead p{font-size:1.24rem;line-height:1.78}
+  .pele-room-index strong{font-size:3.4rem}
+  .pele-1958-stage,.pele-1970-stage{min-height:68svh}
+  .pele-1958-age{top:2rem;left:1rem;translate:0 0}
+  .pele-1958-age strong,.pele-1970-mark strong{font-size:9rem}
+  .pele-1958-caption strong{font-size:1.45rem}
+  .pele-1970-mark{top:1.5rem;left:1rem}
+  .pele-1970-signature{padding:1.35rem}
+  .pele-1970-signature strong{font-size:1.8rem}
+  .pele-ending-photo-mark{left:1rem;bottom:1.5rem}
+  .pele-ending-photo-mark strong{font-size:5rem}
+}
