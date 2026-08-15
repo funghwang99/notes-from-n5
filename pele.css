@@ -1,0 +1,68 @@
+/* Pelé — The Throne No One Inherited | Tượng Đài */
+.layout-pele{--pele-green:#0d3b2e;--pele-green-deep:#071f18;--pele-gold:#d5ad55;--pele-gold-soft:#ead7a4;--pele-cream:#f2eee3;--pele-ink:#191a17;background:var(--pele-cream);color:var(--pele-ink);overflow-x:clip}
+.layout-pele .reading-progress{background:var(--pele-gold)}
+.layout-pele .site-header{border-bottom-color:rgba(242,238,227,.16)}
+.pele-hero{position:relative;display:grid;min-height:100svh;align-items:end;overflow:hidden;background:var(--pele-green-deep);color:#f7f2e6;isolation:isolate}
+.pele-hero-media{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(5,20,15,.96) 0%,rgba(5,20,15,.78) 40%,rgba(5,20,15,.15) 74%,rgba(5,20,15,.35) 100%),linear-gradient(0deg,rgba(5,20,15,.88) 0%,transparent 52%),url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Pele_celebrating_1970.jpg?width=2400");background-position:center 42%;background-size:cover;filter:saturate(.74) contrast(1.06)}
+.pele-hero-copy{position:relative;z-index:3;width:min(100% - 2.6rem,82rem);margin:0 auto;padding:10rem 0 4.8rem}
+.pele-hero .eyebrow{color:var(--pele-gold-soft)}
+.pele-hero h1{max-width:10ch;margin:1rem 0 1.4rem;font-family:var(--serif);font-size:clamp(4rem,8.8vw,9rem);font-weight:470;letter-spacing:-.065em;line-height:.88}
+.pele-deck{max-width:43rem;margin:0;color:#ded7c8;font-family:var(--serif);font-size:clamp(1.12rem,1.55vw,1.4rem);line-height:1.68}
+.pele-hero .article-byline{max-width:47rem;margin-top:2.1rem;border-top-color:rgba(242,238,227,.22);color:#b8b0a1}
+.pele-kingmark{position:absolute;z-index:1;right:-.035em;bottom:-.06em;color:rgba(213,173,85,.12);font-family:var(--serif);font-size:clamp(8rem,24vw,23rem);font-weight:700;letter-spacing:-.08em;line-height:.72;pointer-events:none;text-transform:uppercase}
+.pele-crownline{position:absolute;z-index:3;top:8rem;right:max(1.3rem,calc((100vw - 82rem)/2));display:flex;gap:1rem;align-items:center;color:#dfc57f;font-size:.65rem;font-weight:750;letter-spacing:.16em;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg)}
+.pele-crownline:before{width:1px;height:5rem;background:rgba(223,197,127,.55);content:""}
+.pele-statbar{position:relative;z-index:4;display:grid;width:min(100% - 2.6rem,82rem);grid-template-columns:repeat(3,1fr);margin:0 auto 1.4rem;border-top:1px solid rgba(242,238,227,.22);border-bottom:1px solid rgba(242,238,227,.22)}
+.pele-statbar div{padding:1.1rem 1.2rem;border-right:1px solid rgba(242,238,227,.18)}
+.pele-statbar div:last-child{border-right:0}
+.pele-statbar strong{display:block;color:#f4ead1;font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.8rem);font-weight:500;letter-spacing:-.035em}
+.pele-statbar span{display:block;margin-top:.2rem;color:#9f988c;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.pele-body{width:min(100% - 2.5rem,84rem);margin:0 auto;padding:clamp(5.5rem,9vw,9rem) 0}
+.pele-copy{width:min(100%,53rem);margin:0 auto}
+.pele-copy>p{margin:0 0 2rem;color:#30312d;font-family:var(--serif);font-size:clamp(1.08rem,1.42vw,1.25rem);line-height:1.95}
+.pele-copy .article-lead{color:#161713;font-size:clamp(1.28rem,1.95vw,1.65rem);line-height:1.82}
+.pele-copy .article-lead:first-letter{float:left;margin:.12em .12em 0 0;color:#9b762c;font-size:4.7em;line-height:.75}
+.pele-era{position:relative;left:50%;width:min(78rem,calc(100vw - 2.5rem));margin:clamp(5rem,9vw,8rem) 0;translate:-50% 0}
+.pele-era--1958{display:grid;grid-template-columns:minmax(9rem,.34fr) minmax(0,1.66fr);gap:1rem;align-items:stretch}
+.pele-age{display:flex;min-height:32rem;flex-direction:column;justify-content:space-between;padding:2rem;background:var(--pele-green-deep);color:#f6f0e4}
+.pele-age span{color:#d8bd77;font-size:.62rem;font-weight:750;letter-spacing:.16em;text-transform:uppercase}
+.pele-age strong{font-family:var(--serif);font-size:clamp(7rem,15vw,13rem);font-weight:520;letter-spacing:-.09em;line-height:.74}
+.pele-age small{max-width:12rem;color:#bcb5a6;font-family:var(--serif);font-size:.96rem;line-height:1.55}
+.pele-era img{display:block;width:100%;height:100%;min-height:32rem;object-fit:cover;background:#0b1712;filter:saturate(.78) contrast(1.04)}
+.pele-era--1958 img{object-position:center 50%}
+.pele-archive-object{position:relative;left:50%;display:grid;width:min(70rem,calc(100vw - 2.5rem));grid-template-columns:minmax(0,1.45fr) minmax(14rem,.55fr);gap:clamp(2rem,6vw,5rem);align-items:center;margin:clamp(5rem,9vw,8rem) 0;padding:clamp(1rem,2vw,1.5rem);border:1px solid rgba(25,26,23,.16);background:#e5dfd1;translate:-50% 0}
+.pele-archive-object img{display:block;width:100%;height:auto;filter:grayscale(.18) sepia(.08) contrast(1.03)}
+.pele-object-label{padding:1rem}
+.pele-object-label span{display:block;color:#8c6b2a;font-size:.6rem;font-weight:760;letter-spacing:.17em;text-transform:uppercase}
+.pele-object-label strong{display:block;margin-top:1rem;font-family:var(--serif);font-size:clamp(2rem,4vw,3.7rem);font-weight:500;letter-spacing:-.05em;line-height:1.02}
+.pele-object-label p{margin:1.2rem 0 0;color:#666159;font-family:var(--serif);font-size:.94rem;line-height:1.7}
+.pele-interlude{position:relative;left:50%;width:100vw;margin:clamp(5rem,9vw,8rem) 0;padding:clamp(5rem,10vw,9rem) max(1.25rem,calc((100vw - 74rem)/2));background:var(--pele-green-deep);color:#f5efe4;translate:-50% 0}
+.pele-interlude-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(1.5rem,5vw,5rem);align-items:center}
+.pele-interlude-year{font-family:var(--serif);font-size:clamp(4.5rem,12vw,10rem);font-weight:500;letter-spacing:-.08em;line-height:.82}
+.pele-interlude-year:last-child{text-align:right}
+.pele-interlude-arrow{color:#caa85c;font-size:clamp(2rem,5vw,4rem)}
+.pele-interlude-copy{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.7rem;padding-top:1.4rem;border-top:1px solid rgba(242,238,227,.2);color:#aaa294;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.pele-final-grid{position:relative;left:50%;display:grid;width:min(78rem,calc(100vw - 2.5rem));grid-template-columns:minmax(0,1.45fr) minmax(16rem,.55fr);gap:1rem;margin:clamp(5rem,9vw,8rem) 0;translate:-50% 0}
+.pele-final-photo{min-height:34rem;overflow:hidden;background:#102018}
+.pele-final-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.8) contrast(1.05)}
+.pele-signature{display:flex;min-height:34rem;flex-direction:column;justify-content:space-between;padding:2rem;background:#c9a34f;color:#142018}
+.pele-signature span{font-size:.62rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.pele-signature strong{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,4rem);font-weight:520;letter-spacing:-.05em;line-height:1}
+.pele-signature small{font-family:var(--serif);font-size:.95rem;line-height:1.55}
+.pele-goal-diagram{position:relative;left:50%;display:grid;width:min(64rem,calc(100vw - 2.5rem));grid-template-columns:minmax(0,.75fr) minmax(15rem,.25fr);gap:2rem;align-items:center;margin:clamp(4.5rem,8vw,7rem) 0;padding:2rem;border-top:1px solid rgba(25,26,23,.16);border-bottom:1px solid rgba(25,26,23,.16);translate:-50% 0}
+.pele-goal-diagram img{display:block;width:min(100%,32rem);margin:auto;filter:grayscale(1) contrast(1.12)}
+.pele-goal-diagram div{font-family:var(--serif)}
+.pele-goal-diagram span{display:block;color:#8c6b2a;font-family:var(--sans);font-size:.6rem;font-weight:760;letter-spacing:.16em;text-transform:uppercase}
+.pele-goal-diagram strong{display:block;margin-top:1rem;font-size:clamp(1.8rem,3.2vw,3rem);font-weight:500;letter-spacing:-.04em;line-height:1.08}
+.pele-ending-image{position:relative;left:50%;width:100vw;margin:clamp(6rem,10vw,9rem) 0 0;overflow:hidden;background:#0a0d0b;translate:-50% 0}
+.pele-ending-image img{display:block;width:100%;height:min(82svh,56rem);object-fit:cover;object-position:center 46%;filter:grayscale(1) contrast(1.08) brightness(.8)}
+.pele-ending-image:after{position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,12,9,.72),transparent 45%);content:""}
+.pele-ending{position:relative;left:50%;width:100vw;padding:clamp(5rem,10vw,9rem) max(1.25rem,calc((100vw - 62rem)/2));background:#09140f;color:#f2ecdf;translate:-50% 0}
+.pele-ending p{margin:0;color:#aaa397;font-family:var(--serif);font-size:clamp(1.12rem,1.5vw,1.3rem);line-height:1.85}
+.pele-ending-line{margin-top:clamp(3rem,7vw,5.5rem)!important;color:#f7f0df!important;font-size:clamp(2.5rem,6vw,5.7rem)!important;font-weight:500;letter-spacing:-.06em;line-height:1.02!important}
+.pele-ending-line+.pele-ending-line{margin-top:.3rem!important;color:#d6b765!important}
+.layout-pele .article-end-note{width:min(100%,53rem);margin:clamp(5rem,9vw,8rem) auto 0;padding-top:1.5rem;border-top:1px solid rgba(25,26,23,.14);color:#817b71;font-size:.7rem;line-height:1.65}
+.layout-pele .article-end-note strong{display:block;margin-bottom:.55rem;color:#58544d;font-size:.58rem;font-weight:760;letter-spacing:.14em;text-transform:uppercase}
+.layout-pele .article-end-note p{margin:0}
+.layout-pele .article-end-note a{color:#765d28;text-underline-offset:.14em}
+@media(max-width:800px){.pele-hero-copy{padding-top:9rem}.pele-hero h1{font-size:clamp(3.7rem,16vw,6rem)}.pele-crownline{display:none}.pele-kingmark{font-size:42vw}.pele-statbar{grid-template-columns:1fr}.pele-statbar div{border-right:0;border-bottom:1px solid rgba(242,238,227,.16)}.pele-statbar div:last-child{border-bottom:0}.pele-body{width:min(100% - 2rem,84rem)}.pele-copy>p{font-size:1.08rem;line-height:1.88}.pele-era--1958,.pele-archive-object,.pele-final-grid,.pele-goal-diagram{grid-template-columns:1fr}.pele-age{min-height:18rem}.pele-era img{min-height:24rem}.pele-archive-object{gap:1rem}.pele-object-label{padding:.7rem}.pele-interlude-grid{grid-template-columns:1fr;gap:1.2rem;text-align:center}.pele-interlude-year:last-child{text-align:center}.pele-interlude-arrow{transform:rotate(90deg)}.pele-interlude-copy{grid-template-columns:1fr;text-align:center}.pele-final-photo,.pele-signature{min-height:24rem}.pele-goal-diagram{padding:1.5rem 0}.pele-ending-image img{height:62svh}.pele-ending-line{font-size:clamp(2.3rem,12vw,4rem)!important}}
