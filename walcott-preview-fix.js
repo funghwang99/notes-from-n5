@@ -44,6 +44,7 @@
   const outsideSpotlight = new Set([
     "the-keystone.html",
     "until-i-put-on-the-mask.html",
+    "the-language-football-forgot.html",
   ]);
 
   const fileNameFromHref = (href = "") => href.split("/").pop().split("?")[0].split("#")[0];
@@ -143,6 +144,9 @@
     });
     document.querySelectorAll('.home-flow-card[href="until-i-put-on-the-mask.html"] .home-flow-meta').forEach((node) => {
       node.textContent = "Ngoài Ánh Đèn · Viktor Gyökeres";
+    });
+    document.querySelectorAll('.home-flow-card[href="the-language-football-forgot.html"] .home-flow-meta').forEach((node) => {
+      node.textContent = "Ngoài Ánh Đèn · Mesut Özil";
     });
   };
 
