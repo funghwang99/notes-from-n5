@@ -8,6 +8,24 @@
   const defenders = Array.from(document.querySelectorAll('[data-defender]'));
   const fade = document.querySelector('.garrincha-fade');
 
+  const menuButton = document.querySelector('[data-menu-button]');
+  const navigation = document.getElementById('site-navigation');
+  if (menuButton && navigation) {
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      navigation.classList.toggle('is-open', !isOpen);
+    });
+    navigation.addEventListener('click', (event) => {
+      if (!event.target.closest('a')) return;
+      menuButton.setAttribute('aria-expanded', 'false');
+      navigation.classList.remove('is-open');
+    });
+  }
+
+  const epitaphMeta = document.querySelector('.garrincha-epitaph-small');
+  if (epitaphMeta) epitaphMeta.textContent = 'MANUEL FRANCISCO DOS SANTOS';
+
   const updatePageProgress = () => {
     if (!touchline) return;
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
