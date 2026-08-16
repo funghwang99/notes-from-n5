@@ -46,10 +46,6 @@
     "until-i-put-on-the-mask.html",
     "the-language-football-forgot.html",
   ]);
-  const immortals = new Set([
-    "the-throne-no-one-inherited.html",
-    "remnants-of-ashes.html",
-  ]);
   const arsenalMonuments = new Set([
     "the-move-before-the-move.html",
     "the-crown-we-all-wore.html",
@@ -70,7 +66,6 @@
     const file = fileNameFromHref(link?.getAttribute("href") || "");
     const oldPaths = (entry.dataset.paths || "").split(/\s+/).filter(Boolean);
 
-    if (immortals.has(file)) return "bat-tu";
     if (arsenalMonuments.has(file)) return "tuong-dai";
     if (outsideSpotlight.has(file)) return "ngoai-anh-den";
     if (lingeringLegendLabels.has(file)) return "chua-nguoi";
@@ -160,9 +155,6 @@
     document.querySelectorAll('.home-flow-card[href="the-language-football-forgot.html"] .home-flow-meta').forEach((node) => {
       node.textContent = "Ngoài Ánh Đèn · Mesut Özil";
     });
-    document.querySelectorAll('.home-flow-card[href="the-throne-no-one-inherited.html"] .home-flow-meta').forEach((node) => {
-      node.textContent = "Bất Tử · Pelé";
-    });
     document.querySelectorAll('.home-flow-card[href="the-move-before-the-move.html"] .home-flow-meta').forEach((node) => {
       node.textContent = "Tượng Đài · Dennis Bergkamp";
     });
@@ -221,35 +213,21 @@
     else archive.append(entry);
   }
 
-  const peleHref = "the-throne-no-one-inherited.html";
-  const peleThumb = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pele_con_brasil.jpg?width=1200";
-  const peleLatest = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pel%C3%A9_goal_1958_WC_final.jpg?width=1800";
-
-  if (archive && !archive.querySelector(`a[href="${peleHref}"]`)) {
-    const firstEntry = archive.querySelector(".archive-entry");
-    const entry = document.createElement("article");
-    entry.className = "archive-entry reveal is-visible";
-    entry.dataset.paths = "bat-tu";
-    entry.innerHTML = `<a class="archive-thumb" href="${peleHref}"><img src="${peleThumb}" alt="Pelé trong màu áo Brazil." style="object-position:center 28%" /></a><div class="archive-entry-copy"><p class="article-meta">Brazil · Pelé</p><h2><a href="${peleHref}">The Throne No One Inherited</a></h2><p>Ba World Cup, một danh xưng và chiếc ngai mà bóng đá chưa bao giờ thật sự trao lại cho một người khác.</p></div><a class="archive-arrow" href="${peleHref}" aria-label="Đọc bài The Throne No One Inherited">↗</a>`;
-    if (firstEntry) firstEntry.before(entry);
-    else archive.append(entry);
-  }
-
   const mainStory = document.querySelector(".home-story-main");
   if (mainStory) {
-    mainStory.href = peleHref;
+    mainStory.href = robbenHref;
     const image = mainStory.querySelector("img");
     const label = mainStory.querySelector(".home-story-label");
     const title = mainStory.querySelector("h3");
     const deck = mainStory.querySelector(".home-story-main-copy > p:last-child");
     if (image) {
-      image.src = peleLatest;
-      image.alt = "Pelé ghi bàn trong trận chung kết World Cup 1958.";
-      image.style.objectPosition = "center 50%";
+      image.src = robbenLatest;
+      image.alt = "Arjen Robben cùng Dirk Kuyt sau World Cup 2010.";
+      image.style.objectPosition = "center 28%";
     }
-    if (label) label.textContent = "Bất Tử · Brazil · Pelé";
-    if (title) title.textContent = "The Throne No One Inherited";
-    if (deck) deck.textContent = "Những người vĩ đại tiếp tục xuất hiện. Danh xưng O Rei thì vẫn chưa thật sự thuộc về ai khác.";
+    if (label) label.textContent = "Chưa Nguôi · Hà Lan · Arjen Robben";
+    if (title) title.textContent = "Between Him and History";
+    if (deck) deck.textContent = "Bảy mươi sáu năm để đi đến vài giây ấy, và một bàn chân đứng giữa Hà Lan với lịch sử.";
   }
 
   const appendCard = (set, duplicate, story, mode = "append") => {
@@ -287,8 +265,6 @@
     appendCard(gallerySets[1], true, { href:dreamHref, image:dreamThumb, alt:"", position:"center 24%", label:"Hy Vọng · Arsenal 2022/23", title:"When We Were Allowed to Dream Again" });
     appendCard(gallerySets[0], false, { href:robbenHref, image:robbenThumb, alt:"Arjen Robben cùng Hà Lan trước chung kết World Cup 2010.", position:"88% 66%", label:"Chưa Nguôi · Arjen Robben", title:"Between Him and History" }, "prepend");
     appendCard(gallerySets[1], true, { href:robbenHref, image:robbenThumb, alt:"", position:"88% 66%", label:"Chưa Nguôi · Arjen Robben", title:"Between Him and History" }, "prepend");
-    appendCard(gallerySets[0], false, { href:peleHref, image:peleThumb, alt:"Pelé trong màu áo Brazil.", position:"center 28%", label:"Bất Tử · Pelé", title:"The Throne No One Inherited" }, "prepend");
-    appendCard(gallerySets[1], true, { href:peleHref, image:peleThumb, alt:"", position:"center 28%", label:"Bất Tử · Pelé", title:"The Throne No One Inherited" }, "prepend");
   }
 
   applyHomePathCards();
