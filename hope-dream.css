@@ -4,7 +4,7 @@
 .layout-dream .dream-hero-media{filter:saturate(.55) brightness(.72)}
 .layout-dream .dream-hero-copy{width:min(100% - 3rem,76rem);margin:auto;padding-left:0;padding-right:0}
 .layout-dream .dream-hero h1{max-width:10ch;font-size:clamp(4.2rem,8.2vw,9rem)}
-.layout-dream .dream-body{background:linear-gradient(180deg,#111722 0%,#182137 20%,#ede7dc 44%,#f3eee5 76%,#141b2a 100%);padding-bottom:0}
+.layout-dream .dream-body{background:linear-gradient(180deg,#111722 0%,#182137 32%,#eee8df 32.2%,#f3eee5 76%,#141b2a 76.2%,#141b2a 100%);padding-bottom:0}
 .layout-dream .dream-body>.dream-copy{transition:max-width .55s ease,padding .55s ease}
 .layout-dream .dream-body>.dream-copy:nth-child(1){max-width:34rem;color:#eee9df}
 .layout-dream .dream-body>.dream-copy:nth-child(3){max-width:40rem;color:#eee9df}
@@ -18,7 +18,14 @@
 .layout-dream .dream-shrink-item:nth-child(1){width:100%}.layout-dream .dream-shrink-item:nth-child(2){width:78%}.layout-dream .dream-shrink-item:nth-child(3){width:55%}.layout-dream .dream-shrink-item:nth-child(4){width:34%;background:#22293a;border-color:rgba(238,120,136,.35)!important}
 .layout-dream .dream-shrink-item span{color:#9fa5b2}.layout-dream .dream-shrink-item strong{color:#fff}.layout-dream .dream-shrink-item:last-child strong{color:#ef7788}
 .layout-dream .dream-moment{transition:max-width .5s ease,transform .5s ease}
-.layout-dream .dream-moment--eddie{max-width:70rem}.layout-dream .dream-moment--villa{max-width:78rem}.layout-dream .dream-moment--eddie .dream-moment-media,.layout-dream .dream-moment--villa .dream-moment-media{box-shadow:0 2rem 5rem rgba(3,6,12,.2)}
+.layout-dream .dream-moment--eddie{max-width:70rem}
+.layout-dream .dream-moment--villa{max-width:82rem;grid-template-columns:minmax(20rem,.55fr) minmax(0,1fr);gap:clamp(2.5rem,5vw,5rem);align-items:center}
+.layout-dream .dream-moment--villa .dream-moment-copy{min-width:0;max-width:27rem}
+.layout-dream .dream-moment--villa .dream-moment-copy strong{font-size:clamp(5rem,8.5vw,8.5rem);line-height:.78;letter-spacing:-.09em;white-space:nowrap}
+.layout-dream .dream-moment--villa .dream-moment-copy p{max-width:23rem}
+.layout-dream .dream-moment--eddie .dream-moment-media,.layout-dream .dream-moment--villa .dream-moment-media{box-shadow:0 2rem 5rem rgba(3,6,12,.2)}
+.layout-dream .dream-moment--villa .dream-moment-media{width:100%;aspect-ratio:16/9;min-height:0}
+.layout-dream .dream-moment--villa .dream-moment-media img{width:100%;height:100%;min-height:0;object-fit:cover;object-position:center}
 .layout-dream .dream-habits{background:#101a31;min-height:78svh;display:grid;align-items:center}
 .layout-dream .dream-habits-list{background:transparent;grid-template-columns:repeat(4,1fr);gap:1rem}
 .layout-dream .dream-habits-list div{position:relative;min-height:10rem;display:flex;align-items:flex-end;padding:1.4rem;border:1px solid rgba(255,255,255,.15);background:#121e38;color:#c1c7d2;overflow:hidden}
@@ -26,7 +33,7 @@
 .layout-dream .dream-habits-list b{position:absolute;top:1rem;left:1rem;color:#fff}
 .layout-dream .dream-bournemouth{width:100%;max-width:none;margin:0;padding:clamp(7rem,10vw,10rem) max(1.5rem,calc((100vw - 82rem)/2));background:radial-gradient(circle at 82% 18%,rgba(201,45,66,.3),transparent 28%),#121721;box-shadow:0 0 120px rgba(201,45,66,.12) inset}
 .layout-dream .dream-bournemouth-top{max-width:76rem;margin:0 auto;background:rgba(255,255,255,.15)}
-.layout-dream .dream-bournemouth-step{background:#121721}.layout-dream .dream-bournemouth-step:last-child{transform:scale(1.035);background:#d02d45;box-shadow:0 0 70px rgba(208,45,69,.22)}
+.layout-dream .dream-bournemouth-step{background:#121721}.layout-dream .dream-bournemouth-step:last-child{transform:scale(1.025);background:#d02d45;box-shadow:0 0 70px rgba(208,45,69,.22)}
 .layout-dream .dream-bournemouth-copy{max-width:60rem}
 .layout-dream .dream-reiss{max-width:88rem;min-height:84svh;margin:0 auto;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,4vw,4rem);grid-template-columns:minmax(0,1.15fr) minmax(18rem,.85fr)}
 .layout-dream .dream-reiss img{height:min(68svh,48rem);aspect-ratio:auto;object-position:center;box-shadow:0 2rem 6rem rgba(0,0,0,.18)}
@@ -36,5 +43,6 @@
 .layout-dream .dream-ending p+p{color:#ef667b;text-shadow:0 0 50px rgba(239,102,123,.24)}
 .layout-dream .dream-credits{max-width:56rem;color:#8d8b90;padding-top:2rem}
 .layout-dream .site-footer{background:#0b1019;color:#aaa6a0}
-@media(max-width:900px){.layout-dream .dream-body>.dream-copy:nth-child(1),.layout-dream .dream-body>.dream-copy:nth-child(3),.layout-dream .dream-body>.dream-copy:nth-child(6),.layout-dream .dream-body>.dream-copy:nth-child(8),.layout-dream .dream-body>.dream-copy:nth-child(11){max-width:calc(100% - 2.5rem)}.layout-dream .dream-habits-list{grid-template-columns:repeat(2,1fr)}.layout-dream .dream-reiss{grid-template-columns:1fr;min-height:auto}.layout-dream .dream-reiss img{height:auto}.layout-dream .dream-shrink-item:nth-child(2){width:86%}.layout-dream .dream-shrink-item:nth-child(3){width:68%}.layout-dream .dream-shrink-item:nth-child(4){width:48%}}
-@media(max-width:640px){.layout-dream .dream-body>.dream-copy:nth-child(1),.layout-dream .dream-body>.dream-copy:nth-child(3),.layout-dream .dream-body>.dream-copy:nth-child(6),.layout-dream .dream-body>.dream-copy:nth-child(8),.layout-dream .dream-body>.dream-copy:nth-child(11){max-width:calc(100% - 2rem);width:calc(100% - 2rem);padding-left:0;padding-right:0}.layout-dream .dream-shrink{width:calc(100% - 2rem)}.layout-dream .dream-shrink-item:nth-child(1),.layout-dream .dream-shrink-item:nth-child(2),.layout-dream .dream-shrink-item:nth-child(3),.layout-dream .dream-shrink-item:nth-child(4){width:100%}.layout-dream .dream-habits-list{grid-template-columns:1fr}.layout-dream .dream-bournemouth{padding-left:1rem;padding-right:1rem}.layout-dream .dream-reiss{padding-left:1rem;padding-right:1rem}.layout-dream .dream-ending{width:calc(100% - 2rem);min-height:62svh}}
+@media(max-width:1100px){.layout-dream .dream-moment--villa{grid-template-columns:minmax(17rem,.52fr) minmax(0,1fr);gap:2.5rem}.layout-dream .dream-moment--villa .dream-moment-copy strong{font-size:clamp(4.5rem,8vw,7rem)}}
+@media(max-width:900px){.layout-dream .dream-body>.dream-copy:nth-child(1),.layout-dream .dream-body>.dream-copy:nth-child(3),.layout-dream .dream-body>.dream-copy:nth-child(6),.layout-dream .dream-body>.dream-copy:nth-child(8),.layout-dream .dream-body>.dream-copy:nth-child(11){max-width:calc(100% - 2.5rem)}.layout-dream .dream-habits-list{grid-template-columns:repeat(2,1fr)}.layout-dream .dream-reiss{grid-template-columns:1fr;min-height:auto}.layout-dream .dream-reiss img{height:auto}.layout-dream .dream-shrink-item:nth-child(2){width:86%}.layout-dream .dream-shrink-item:nth-child(3){width:68%}.layout-dream .dream-shrink-item:nth-child(4){width:48%}.layout-dream .dream-moment,.layout-dream .dream-moment--villa{grid-template-columns:1fr;max-width:min(100% - 2.5rem,46rem);gap:2rem}.layout-dream .dream-moment--villa .dream-moment-copy{order:1;max-width:100%}.layout-dream .dream-moment--villa .dream-moment-media{order:2}.layout-dream .dream-moment--villa .dream-moment-copy strong{font-size:clamp(5rem,17vw,8rem)}}
+@media(max-width:640px){.layout-dream .dream-body>.dream-copy:nth-child(1),.layout-dream .dream-body>.dream-copy:nth-child(3),.layout-dream .dream-body>.dream-copy:nth-child(6),.layout-dream .dream-body>.dream-copy:nth-child(8),.layout-dream .dream-body>.dream-copy:nth-child(11){max-width:calc(100% - 2rem);width:calc(100% - 2rem);padding-left:0;padding-right:0}.layout-dream .dream-shrink{width:calc(100% - 2rem)}.layout-dream .dream-shrink-item:nth-child(1),.layout-dream .dream-shrink-item:nth-child(2),.layout-dream .dream-shrink-item:nth-child(3),.layout-dream .dream-shrink-item:nth-child(4){width:100%}.layout-dream .dream-habits-list{grid-template-columns:1fr}.layout-dream .dream-bournemouth{padding-left:1rem;padding-right:1rem}.layout-dream .dream-bournemouth-step:last-child{transform:none}.layout-dream .dream-reiss{padding-left:1rem;padding-right:1rem}.layout-dream .dream-ending{width:calc(100% - 2rem);min-height:62svh}.layout-dream .dream-moment,.layout-dream .dream-moment--villa{max-width:calc(100% - 2rem);padding-left:0;padding-right:0}.layout-dream .dream-moment--villa .dream-moment-copy strong{font-size:clamp(4.7rem,22vw,7rem)}}
