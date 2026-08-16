@@ -1,6 +1,6 @@
 /* Tuổi Trẻ — Theo Walcott: The Age That Wouldn't Move */
 .layout-walcott{--youth-red:#c73449;--youth-night:#10151f;--youth-paper:#f1ede4;--youth-muted:#8b8378;overflow-x:clip;background:var(--youth-paper)}
-.layout-walcott::after{position:fixed;z-index:30;top:50%;right:.8rem;translate:0 -50%;color:rgba(199,52,73,.46);content:"16  ·  17  ·  19  ·  23  ·  25  ·  29  ·  34";font-size:.52rem;font-weight:800;letter-spacing:.2em;writing-mode:vertical-rl;pointer-events:none}
+.layout-walcott::after{display:none}
 .layout-walcott .reading-progress{height:4px;background:linear-gradient(90deg,#c73449 0 36%,#d7a252 36% 62%,#273853 62%)}
 .layout-walcott .walcott-hero{isolation:isolate;background:#0c1119}
 .layout-walcott .walcott-hero-photo{filter:grayscale(.34) contrast(1.08) brightness(.76);transform:scale(1.018)}
@@ -24,10 +24,12 @@
 .layout-walcott .walcott-number div{max-width:27rem;justify-self:end}
 .layout-walcott .walcott-figure{position:relative}
 .layout-walcott .walcott-figure::before{position:absolute;z-index:3;top:1rem;left:max(2rem,calc((100% - 64rem)/2));padding:.4rem .55rem;border:1px solid rgba(255,255,255,.28);background:rgba(12,17,25,.72);color:#f7efe6;content:"A REAL CAREER / AN IMAGINED FINISH LINE";font-size:.5rem;font-weight:800;letter-spacing:.16em}
-.layout-walcott .walcott-break{min-height:84svh;display:grid;align-items:center;margin:0;background:radial-gradient(circle at 76% 28%,rgba(199,52,73,.23),transparent 24rem),#14213a}
-.layout-walcott .walcott-break:before{position:absolute;top:50%;right:8%;left:8%;height:1px;background:rgba(255,255,255,.14);content:""}
-.layout-walcott .walcott-break:after{bottom:-.22em;color:rgba(255,255,255,.045);font-size:clamp(17rem,42vw,44rem)}
-.layout-walcott .walcott-break-inner{width:min(100%,76rem)}
+.layout-walcott .walcott-break{position:relative;display:grid;min-height:76svh;align-items:center;margin:0;padding:clamp(5rem,8vw,8rem) max(1.5rem,calc((100vw - 76rem)/2));overflow:hidden;background:radial-gradient(circle at 78% 34%,rgba(199,52,73,.18),transparent 22rem),#14213a}
+.layout-walcott .walcott-break:before{display:none}
+.layout-walcott .walcott-break:after{right:clamp(1.5rem,5vw,5rem);bottom:clamp(1rem,2vw,2rem);color:rgba(255,255,255,.045);font-size:clamp(11rem,26vw,26rem);line-height:.72;letter-spacing:-.09em;pointer-events:none}
+.layout-walcott .walcott-break-inner{position:relative;z-index:2;width:min(100%,68rem);margin:0}
+.layout-walcott .walcott-break h2{max-width:11ch;font-size:clamp(3.2rem,6.2vw,6.4rem);line-height:.94;text-wrap:balance}
+.layout-walcott .walcott-break p{max-width:32rem;color:#aeb5c1}
 .layout-walcott .walcott-score{position:relative;left:50%;width:100vw;max-width:none;min-height:68svh;margin:0;padding:clamp(6rem,10vw,9rem) max(1.5rem,calc((100vw - 70rem)/2));translate:-50% 0;background:#efe8de}
 .layout-walcott .walcott-score::after{position:absolute;right:max(1.5rem,calc((100vw - 70rem)/2));bottom:2rem;color:#9f978b;content:"THE BODY INTERRUPTS THE STORY";font-size:.53rem;font-weight:800;letter-spacing:.18em}
 .layout-walcott .walcott-ledger{position:relative;left:50%;width:100vw;max-width:none;margin:0;translate:-50% 0;background:#12161e}
@@ -44,6 +46,6 @@
   .layout-walcott .walcott-number strong,.layout-walcott .walcott-score strong{animation:youthAgeIn linear both;animation-timeline:view();animation-range:entry 0 cover 42%}
   @keyframes youthAgeIn{from{opacity:.08;transform:translateX(-8vw);letter-spacing:-.18em}to{opacity:1;transform:none;letter-spacing:-.1em}}
 }
-@media(max-width:900px){.layout-walcott::after{display:none}.layout-walcott .walcott-passage{width:min(calc(100% - 2rem),48rem);padding-left:1rem}.layout-walcott .walcott-passage::before,.layout-walcott .walcott-passage::after{display:none}.layout-walcott .walcott-number{min-height:58svh}.layout-walcott .walcott-number div{justify-self:start}.layout-walcott .walcott-break{min-height:70svh}.layout-walcott .walcott-score{min-height:56svh}.layout-walcott .walcott-figure::before{left:1.5rem}}
-@media(max-width:640px){.layout-walcott .walcott-number,.layout-walcott .walcott-score{padding-left:1rem;padding-right:1rem}.layout-walcott .walcott-number strong{font-size:36vw}.layout-walcott .walcott-break{padding-left:1rem;padding-right:1rem}.layout-walcott .walcott-ending{min-height:66svh;padding:6rem 1rem}.layout-walcott .walcott-credits{padding-left:1rem;padding-right:1rem}.layout-walcott .walcott-figure::before{display:none}}
+@media(max-width:900px){.layout-walcott .walcott-passage{width:min(calc(100% - 2rem),48rem);padding-left:1rem}.layout-walcott .walcott-passage::before,.layout-walcott .walcott-passage::after{display:none}.layout-walcott .walcott-number{min-height:58svh}.layout-walcott .walcott-number div{justify-self:start}.layout-walcott .walcott-break{min-height:64svh;padding-left:1.5rem;padding-right:1.5rem}.layout-walcott .walcott-break:after{right:1rem;bottom:1rem;font-size:clamp(9rem,34vw,18rem)}.layout-walcott .walcott-score{min-height:56svh}.layout-walcott .walcott-figure::before{left:1.5rem}}
+@media(max-width:640px){.layout-walcott .walcott-number,.layout-walcott .walcott-score{padding-left:1rem;padding-right:1rem}.layout-walcott .walcott-number strong{font-size:36vw}.layout-walcott .walcott-break{min-height:58svh;padding:4.5rem 1rem}.layout-walcott .walcott-break h2{font-size:clamp(3rem,14vw,4.7rem)}.layout-walcott .walcott-break:after{font-size:46vw;right:.5rem;bottom:.6rem}.layout-walcott .walcott-ending{min-height:66svh;padding:6rem 1rem}.layout-walcott .walcott-credits{padding-left:1rem;padding-right:1rem}.layout-walcott .walcott-figure::before{display:none}}
 @media(prefers-reduced-motion:reduce){.layout-walcott .walcott-hero-photo{transform:none}}
