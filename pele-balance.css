@@ -1,0 +1,280 @@
+/* Pelé — balance + overflow pass
+   Loaded after pele.css so the exhibition keeps its identity while
+   every reading block stays inside a disciplined safe grid. */
+
+.layout-pele .pele-room-inner{
+  width:min(calc(100% - 6rem),82rem);
+}
+.layout-pele .pele-copy,
+.layout-pele .pele-room-title,
+.layout-pele .pele-room-inner > *,
+.layout-pele .pele-1958-content > *,
+.layout-pele .pele-1970-after > *,
+.layout-pele .pele-archive-card > *{
+  min-width:0;
+  max-width:100%;
+}
+.layout-pele img{max-width:100%}
+
+/* Prologue: keep the title and opening paragraph visually connected. */
+.pele-prologue .pele-room-inner{
+  grid-template-columns:minmax(15rem,.82fr) minmax(0,1.18fr);
+  gap:clamp(3rem,6vw,6.5rem);
+  align-items:center;
+}
+.pele-prologue .pele-copy{max-width:45rem;margin:0}
+
+/* 1958: one deliberate composition instead of three blocks pulled to the edges. */
+.pele-1958{
+  padding:clamp(7rem,9vw,9rem) 0 clamp(8rem,11vw,11rem);
+}
+.pele-1958 .pele-room-inner{
+  display:grid;
+  grid-template-columns:minmax(15rem,.82fr) minmax(0,1.18fr);
+  column-gap:clamp(3rem,7vw,7rem);
+  row-gap:clamp(4rem,7vw,7rem);
+  align-items:start;
+}
+.pele-1958-heading{
+  position:relative;
+  top:auto;
+  align-self:start;
+  max-width:27rem;
+}
+.pele-1958-heading .pele-room-title{
+  font-size:clamp(5.5rem,10vw,10.5rem);
+}
+.pele-1958-content{display:contents}
+.pele-1958-content > .pele-copy:first-child{
+  grid-column:2;
+  grid-row:1;
+  width:100%;
+  max-width:40rem;
+  margin:0;
+  justify-self:start;
+}
+.pele-1958-stage{
+  grid-column:1 / -1;
+  grid-row:2;
+  position:relative;
+  left:auto;
+  width:100%;
+  min-height:min(68svh,48rem);
+  margin:0;
+  translate:none;
+  border:1px solid rgba(201,160,76,.18);
+}
+.pele-1958-stage img{
+  min-height:min(68svh,48rem);
+  object-position:center 46%;
+}
+.pele-1958-age{
+  right:clamp(1.5rem,4vw,4rem);
+  font-size:clamp(10rem,22vw,22rem);
+}
+.pele-1958-note{
+  left:clamp(1.5rem,4vw,4rem);
+  width:min(34rem,48%);
+}
+.pele-1958-content > .pele-copy:last-child{
+  grid-column:2;
+  grid-row:3;
+  width:100%;
+  max-width:40rem;
+  margin:0;
+  justify-self:start;
+}
+
+/* Santos: retain the archival desk feeling without stretching the copy. */
+.pele-santos .pele-room-inner{
+  grid-template-columns:minmax(15rem,.72fr) minmax(0,1.28fr);
+  gap:clamp(3rem,6vw,6.5rem);
+}
+.pele-santos-main{gap:clamp(3rem,5vw,5rem)}
+.pele-santos .pele-copy{max-width:40rem}
+.pele-archive-card{
+  width:100%;
+  max-width:62rem;
+  justify-self:start;
+  grid-template-columns:minmax(0,1.42fr) minmax(14rem,.58fr);
+  transform:rotate(-.22deg);
+}
+
+/* Threshold: keep the caption in the composition instead of pinning it to a corner. */
+.pele-threshold{
+  min-height:auto;
+  padding:clamp(7rem,10vw,10rem) 0;
+}
+.pele-threshold .pele-room-inner{
+  width:min(calc(100% - 6rem),82rem);
+}
+.pele-threshold-copy{
+  position:relative;
+  right:auto;
+  bottom:auto;
+  width:min(calc(100% - 6rem),42rem);
+  max-width:42rem;
+  margin:clamp(2.5rem,5vw,4rem) auto 0;
+  text-align:center;
+}
+
+/* 1970: controlled two-column reading grid and a shorter horizontal plaque. */
+.pele-1970 .pele-room-inner{
+  width:min(calc(100% - 6rem),82rem);
+  gap:clamp(4rem,7vw,7rem);
+}
+.pele-1970-top{
+  grid-template-columns:minmax(15rem,.78fr) minmax(0,1.22fr);
+  gap:clamp(3rem,7vw,7rem);
+  align-items:start;
+}
+.pele-1970-top .pele-copy{
+  width:100%;
+  max-width:42rem;
+  margin:0;
+}
+.pele-coronation{
+  left:auto;
+  width:100%;
+  min-height:min(66svh,49rem);
+  margin:0 auto;
+  translate:none;
+  grid-template-columns:minmax(0,1.35fr) minmax(18rem,.65fr);
+}
+.pele-coronation-data{
+  padding:clamp(2rem,4vw,4rem);
+}
+.pele-1970-after{
+  width:min(100%,76rem);
+  margin:0 auto;
+  grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+  gap:clamp(3rem,6vw,6rem);
+  align-items:center;
+}
+.pele-1970-after .pele-copy{
+  width:100%;
+  max-width:38rem;
+  margin:0;
+}
+.pele-plaque{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(11rem,.72fr);
+  grid-template-rows:auto auto 1fr;
+  column-gap:clamp(1.5rem,3vw,2.5rem);
+  align-items:center;
+  width:100%;
+  padding:clamp(1.5rem,2.5vw,2.3rem);
+}
+.pele-plaque > span,
+.pele-plaque > strong,
+.pele-plaque > em{
+  grid-column:1;
+}
+.pele-plaque strong{
+  margin:.8rem 0 .45rem;
+  font-size:clamp(2rem,3.2vw,3.3rem);
+}
+.pele-plaque img{
+  grid-column:2;
+  grid-row:1 / 4;
+  width:100%;
+  max-width:18rem;
+  margin:0 auto;
+  padding:.8rem;
+}
+
+/* Legacy + epilogue: keep the same safe reading measure. */
+.pele-legacy .pele-room-inner{
+  grid-template-columns:minmax(15rem,.74fr) minmax(0,1.26fr);
+  gap:clamp(3rem,6vw,6.5rem);
+  align-items:start;
+}
+.pele-legacy .pele-copy{max-width:42rem}
+.pele-epilogue-copy{
+  right:max(3rem,calc((100vw - 82rem)/2));
+  width:min(36rem,40vw);
+}
+.pele-credits{
+  padding-left:max(3rem,calc((100vw - 68rem)/2));
+  padding-right:max(3rem,calc((100vw - 68rem)/2));
+}
+
+/* Wide-laptop safety pass: avoid the awkward 'two distant islands' look. */
+@media(max-width:1180px){
+  .layout-pele .pele-room-inner,
+  .pele-threshold .pele-room-inner,
+  .pele-1970 .pele-room-inner{
+    width:min(calc(100% - 4rem),72rem);
+  }
+  .pele-prologue .pele-room-inner,
+  .pele-1958 .pele-room-inner,
+  .pele-santos .pele-room-inner,
+  .pele-1970-top,
+  .pele-legacy .pele-room-inner{
+    column-gap:clamp(2.5rem,5vw,4.5rem);
+  }
+  .pele-1958-content > .pele-copy:first-child,
+  .pele-1958-content > .pele-copy:last-child,
+  .pele-1970-top .pele-copy,
+  .pele-santos .pele-copy,
+  .pele-legacy .pele-copy{
+    max-width:36rem;
+  }
+  .pele-epilogue-copy{right:2rem;width:min(34rem,44vw)}
+}
+
+/* Tablet: stack prose, but keep visual exhibits wide and intentional. */
+@media(max-width:900px){
+  .layout-pele .pele-room-inner,
+  .pele-threshold .pele-room-inner,
+  .pele-1970 .pele-room-inner{
+    width:min(calc(100% - 2.5rem),46rem);
+  }
+  .pele-prologue .pele-room-inner,
+  .pele-1958 .pele-room-inner,
+  .pele-santos .pele-room-inner,
+  .pele-1970-top,
+  .pele-legacy .pele-room-inner{
+    grid-template-columns:1fr;
+  }
+  .pele-1958-content > .pele-copy:first-child,
+  .pele-1958-stage,
+  .pele-1958-content > .pele-copy:last-child{
+    grid-column:1;
+    grid-row:auto;
+  }
+  .pele-1958-heading,
+  .pele-1958-content > .pele-copy:first-child,
+  .pele-1958-content > .pele-copy:last-child,
+  .pele-santos .pele-copy,
+  .pele-1970-top .pele-copy,
+  .pele-legacy .pele-copy{
+    max-width:100%;
+  }
+  .pele-1958-stage{width:100%}
+  .pele-archive-card{max-width:100%;grid-template-columns:1fr}
+  .pele-coronation{grid-template-columns:1fr;min-height:auto}
+  .pele-coronation-photo{min-height:50svh}
+  .pele-1970-after{grid-template-columns:1fr;width:100%}
+  .pele-plaque{grid-template-columns:minmax(0,1fr) minmax(10rem,.6fr)}
+  .pele-epilogue-copy{right:auto;width:min(calc(100% - 2.5rem),40rem)}
+  .pele-threshold-copy{width:min(calc(100% - 2.5rem),36rem)}
+}
+
+/* Mobile: no accidental clipping, no elements touching the viewport edge. */
+@media(max-width:620px){
+  .layout-pele .pele-room-inner,
+  .pele-threshold .pele-room-inner,
+  .pele-1970 .pele-room-inner{
+    width:calc(100% - 2rem);
+  }
+  .pele-1958-stage{min-height:66svh}
+  .pele-1958-stage img{min-height:66svh}
+  .pele-1958-note{width:calc(100% - 2rem);left:1rem}
+  .pele-1958-age{font-size:clamp(9rem,43vw,15rem)}
+  .pele-plaque{grid-template-columns:1fr}
+  .pele-plaque > span,.pele-plaque > strong,.pele-plaque > em,.pele-plaque img{grid-column:1;grid-row:auto}
+  .pele-plaque img{max-width:16rem;margin:1.4rem auto 0}
+  .pele-threshold-copy{width:calc(100% - 2rem)}
+  .pele-credits{padding-left:1rem;padding-right:1rem}
+}
