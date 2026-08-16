@@ -213,6 +213,18 @@
     else archive.append(entry);
   }
 
+  const garrinchaHref = "a-alegria-do-povo.html";
+  const garrinchaThumb = "https://commons.wikimedia.org/wiki/Special:Redirect/file/Garrincha_na_copa_de_1962_%28cropped%29.jpg?width=1200";
+  if (archive && !archive.querySelector(`a[href="${garrinchaHref}"]`)) {
+    const firstEntry = archive.querySelector(".archive-entry");
+    const entry = document.createElement("article");
+    entry.className = "archive-entry reveal is-visible";
+    entry.dataset.paths = "bat-tu";
+    entry.innerHTML = `<a class="archive-thumb" href="${garrinchaHref}"><img src="${garrinchaThumb}" alt="Garrincha tại World Cup 1962." style="object-position:center 38%" /></a><div class="archive-entry-copy"><p class="article-meta">Brazil · Garrincha</p><h2><a href="${garrinchaHref}">A Alegria do Povo</a></h2><p>Bên cánh phải, ông khiến cả khán đài chờ một cú lắc vai. Nhiều năm sau, cả một đất nước vẫn nhớ ông bằng hai chữ Niềm Vui.</p></div><a class="archive-arrow" href="${garrinchaHref}" aria-label="Đọc bài A Alegria do Povo">↗</a>`;
+    if (firstEntry) firstEntry.before(entry);
+    else archive.append(entry);
+  }
+
   const mainStory = document.querySelector(".home-story-main");
   if (mainStory) {
     mainStory.href = robbenHref;
