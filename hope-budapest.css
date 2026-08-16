@@ -1,0 +1,47 @@
+/* Đây không phải là kết thúc — THE ECHO
+   Two finals, twenty years apart. The page moves from mirrored history
+   into a void, then lets the song return. */
+.layout-final{--echo-night:#080c0b;--echo-green:#11211c;--echo-paper:#ece8de;--echo-gold:#c8a15a;--echo-red:#b5253a;background:var(--echo-paper);color:#1c1d1a;overflow-x:clip}
+.layout-final .reading-progress{background:var(--echo-red)}
+.layout-final .site-header{background:linear-gradient(180deg,rgba(4,7,6,.86),transparent);border-bottom-color:rgba(255,255,255,.12)}
+.layout-final .article-hero{position:relative;min-height:100svh;overflow:hidden;background-image:linear-gradient(90deg,rgba(5,8,7,.82) 0%,rgba(5,8,7,.38) 45%,rgba(5,8,7,.38) 55%,rgba(5,8,7,.78) 100%),url("budapest-2006.webp"),url("budapest-final.webp");background-repeat:no-repeat;background-size:100% 100%,50% 100%,50% 100%;background-position:center,left center,right center;color:#f1ede4;isolation:isolate}
+.layout-final .article-hero-media{display:none}
+.layout-final .article-hero:before{position:absolute;z-index:1;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(180deg,transparent 7%,rgba(200,161,90,.82) 24%,rgba(200,161,90,.25) 78%,transparent);box-shadow:0 0 35px rgba(200,161,90,.16);content:""}
+.layout-final .article-hero:after{position:absolute;z-index:2;top:50%;left:50%;width:auto;aspect-ratio:auto;border:0;border-radius:0;transform:translate(-50%,-50%) rotate(-90deg);color:rgba(240,235,225,.62);content:"2006  ·  20 YEARS  ·  2026";font-size:.58rem;font-weight:800;letter-spacing:.22em;white-space:nowrap}
+.layout-final .article-heading{position:relative;z-index:3;display:block;width:min(calc(100% - 4rem),82rem);margin:0 auto;padding:clamp(10rem,20vh,15rem) 0 clamp(5rem,10vw,8rem)}
+.layout-final .article-heading .eyebrow{color:#d7b66f;letter-spacing:.18em}
+.layout-final .article-heading h1{max-width:9ch;margin:1.2rem 0 1.6rem;color:#f4efe6;font-family:var(--serif);font-size:clamp(4.5rem,9vw,9.6rem);font-weight:520;line-height:.82;letter-spacing:-.075em}
+.layout-final .article-heading .article-deck{max-width:39rem;margin:0;color:rgba(244,239,230,.72);font-family:var(--serif);font-size:clamp(1.05rem,1.5vw,1.32rem);line-height:1.68}
+.layout-final .article-heading .article-byline{display:flex;gap:1rem 2rem;flex-wrap:wrap;max-width:44rem;margin-top:2.4rem;padding-top:1rem;border-top:1px solid rgba(244,239,230,.18);color:rgba(244,239,230,.52);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+.layout-final .article-body{position:relative;width:min(calc(100% - 3rem),54rem);margin:0 auto;padding:clamp(6rem,10vw,9rem) 0;border:0;counter-reset:none;color:#22231f}
+.layout-final .article-body>p:not(.chapter-line){counter-increment:none}
+.layout-final .article-body>p:not(.chapter-line):before{content:none;display:none}
+.layout-final .article-body>p{font-family:var(--serif);font-size:clamp(1.12rem,1.45vw,1.3rem);line-height:1.88}
+.layout-final .article-body .article-lead{position:relative;left:50%;width:100vw;margin:0 0 clamp(5rem,9vw,8rem);padding:clamp(7rem,11vw,10rem) max(1.5rem,calc((100vw - 54rem)/2));translate:-50% 0;background:linear-gradient(90deg,#0a0e0c 0 49.9%,#101713 50.1% 100%);color:#ded9cf;font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.75}
+.layout-final .article-body .article-lead:after{position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(200,161,90,.22);content:""}
+.layout-final .story-figure{position:relative;left:50%;width:min(76rem,calc(100vw - 3rem));margin:clamp(5rem,9vw,8rem) 0;translate:-50% 0;background:#090c0b;overflow:hidden}
+.layout-final .story-figure img{display:block;width:100%;max-height:78svh;object-fit:cover;filter:saturate(.58) contrast(1.08)}
+.layout-final .story-figure--left img{aspect-ratio:16/8;object-position:center 45%}
+.layout-final .story-figure--left:after{position:absolute;left:1.25rem;bottom:1.25rem;padding:.5rem .7rem;border:1px solid rgba(255,255,255,.22);background:rgba(6,9,8,.72);color:#e8e3da;content:"PARIS · 2006";font-size:.55rem;font-weight:800;letter-spacing:.16em}
+.layout-final .pull-quote:not(.anthem-quote){position:relative;left:50%;width:100vw;margin:clamp(6rem,10vw,10rem) 0;padding:clamp(7rem,12vw,12rem) 1.5rem;translate:-50% 0;border:0;background:#10201b;color:#f0ece3;text-align:center;overflow:hidden}
+.layout-final .pull-quote:not(.anthem-quote):before{position:absolute;inset:auto 0 -.16em;color:rgba(255,255,255,.035);content:"HISTORY";font-family:var(--serif);font-size:clamp(10rem,28vw,28rem);font-weight:650;letter-spacing:-.08em;line-height:.7}
+.layout-final .pull-quote:not(.anthem-quote)>*{position:relative;z-index:2}
+.layout-final .pull-quote:not(.anthem-quote)>span{color:#d8b76f}
+.layout-final .pull-quote:not(.anthem-quote) blockquote{max-width:18ch;margin:1rem auto;font-family:var(--serif);font-size:clamp(3rem,7vw,7rem);font-style:normal;line-height:.95;letter-spacing:-.05em}
+.layout-final .story-figure--wide{width:100vw;margin-left:0;margin-right:0}
+.layout-final .story-figure--wide img{width:100%;max-height:none;aspect-ratio:16/7;object-position:center 38%;filter:grayscale(.88) contrast(1.14) brightness(.78)}
+.layout-final .chapter-line{position:relative;left:50%;display:grid;width:100vw;min-height:78svh;place-items:center;margin:0;padding:4rem 1.5rem;translate:-50% 0;background:#030505;color:#e9e4da!important;font-family:var(--serif);font-size:clamp(4rem,12vw,12rem)!important;font-style:normal!important;font-weight:520;letter-spacing:-.065em;text-align:center;overflow:hidden}
+.layout-final .chapter-line:before{position:absolute;top:50%;left:50%;width:min(70vw,58rem);height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.11),transparent);content:"";transform:translate(-50%,-50%)}
+.layout-final .chapter-line:after{position:absolute;bottom:2rem;color:#5e625e;content:"AFTER THE WHISTLE";font-family:var(--sans);font-size:.56rem;font-weight:800;letter-spacing:.2em}
+.layout-final .chapter-line~p{color:#282824}
+.layout-final .anthem-quote{position:relative;left:50%;width:100vw;margin:clamp(6rem,11vw,10rem) 0 0;padding:clamp(8rem,13vw,13rem) max(1.5rem,calc((100vw - 62rem)/2));translate:-50% 0;border:0;background:linear-gradient(180deg,#0c1512,#111916);color:#f1ece3;overflow:hidden}
+.layout-final .anthem-quote:before{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 5.5%,rgba(181,37,58,.16) 5.5% 5.62%,transparent 5.62% 9.5%);mask-image:linear-gradient(180deg,transparent,#000 22%,#000 80%,transparent);content:""}
+.layout-final .anthem-quote:after{position:absolute;right:-.03em;bottom:-.08em;color:rgba(255,255,255,.035);content:"NORTH LONDON FOREVER";font-family:var(--serif);font-size:clamp(7rem,17vw,17rem);font-weight:650;letter-spacing:-.07em;line-height:.72;white-space:nowrap}
+.layout-final .anthem-quote>*{position:relative;z-index:2}
+.layout-final .anthem-quote>span{color:#e36b7c}
+.layout-final .anthem-quote blockquote{max-width:24ch;margin:1rem 0 0;font-family:var(--serif);font-size:clamp(2rem,4vw,4rem);font-style:normal;line-height:1.25}
+.layout-final .anthem-quote+ p{position:relative;left:50%;width:100vw;margin:0!important;padding:clamp(7rem,12vw,11rem) 1.5rem;translate:-50% 0;background:#b5253a;color:#fff4eb!important;font-family:var(--serif);font-size:clamp(3rem,7vw,7rem)!important;line-height:1!important;text-align:center}
+.layout-final .article-end{background:#090d0b;color:#aaa69d;border-top:1px solid rgba(255,255,255,.08)}
+.layout-final .site-footer{background:#050706;color:#96938d}
+@media(max-width:900px){.layout-final .article-heading{width:min(calc(100% - 2.5rem),48rem)}.layout-final .article-body{width:min(calc(100% - 2.5rem),48rem)}.layout-final .article-hero:after{display:none}.layout-final .story-figure{width:calc(100vw - 2rem)}.layout-final .story-figure--wide{width:100vw}.layout-final .article-body .article-lead{padding-left:max(1.25rem,calc((100vw - 48rem)/2));padding-right:max(1.25rem,calc((100vw - 48rem)/2))}}
+@media(max-width:640px){.layout-final .article-hero{min-height:92svh;background-image:linear-gradient(0deg,rgba(4,7,6,.85),rgba(4,7,6,.35)),url("budapest-final.webp");background-size:100% 100%,cover;background-position:center,58% center}.layout-final .article-hero:before{display:none}.layout-final .article-heading{width:calc(100% - 2rem);padding-top:8rem;padding-bottom:4rem}.layout-final .article-heading h1{font-size:clamp(3.5rem,16vw,5.7rem)}.layout-final .article-body{width:calc(100% - 2rem);padding-top:4.5rem}.layout-final .article-body .article-lead{padding:5rem 1rem}.layout-final .story-figure{width:calc(100vw - 2rem)}.layout-final .story-figure--left img,.layout-final .story-figure--wide img{aspect-ratio:4/3}.layout-final .pull-quote:not(.anthem-quote){padding:6rem 1rem}.layout-final .chapter-line{min-height:62svh}.layout-final .anthem-quote{padding:6rem 1rem}.layout-final .anthem-quote+ p{padding:6rem 1rem}}
