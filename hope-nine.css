@@ -1,28 +1,28 @@
 /* Nine Years in One Afternoon — 3,283 Days -> One Afternoon */
 .layout-nine{--nine-pressure:#141414;--nine-release:#b32638;--nine-warm:#f1eadf;overflow-x:clip}
-.nine-hero{min-height:100svh;background:#0c0c0b}
-.nine-hero:after{position:absolute;inset:auto 0 0;height:22vh;background:repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 1px,transparent 1px 10px);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);content:"";pointer-events:none}
-.nine-hero-copy{position:relative;z-index:3;width:min(100% - 3rem,74rem);margin:0 auto;padding-left:0;padding-right:0}
-.nine-hero-number{z-index:2;right:50%;bottom:1.5rem;transform:translateX(50%);transform-origin:center;color:rgba(250,246,237,.12)}
+.layout-nine .nine-hero{min-height:100svh;background:#0c0c0b}
+.layout-nine .nine-hero:after{position:absolute;inset:auto 0 0;height:22vh;background:repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 1px,transparent 1px 10px);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);content:"";pointer-events:none}
+.layout-nine .nine-hero-copy{position:relative;z-index:3;width:min(100% - 3rem,74rem);margin:0 auto;padding-left:0;padding-right:0}
+.layout-nine .nine-hero-number{z-index:2;right:50%;bottom:1.5rem;transform:translateX(50%);transform-origin:center;color:rgba(250,246,237,.12)}
 @supports (animation-timeline: scroll()){
-  .nine-hero-number{animation:nineCompress 1s linear both;animation-timeline:scroll(root block);animation-range:0 13vh}
+  .layout-nine .nine-hero-number{animation:nineCompress 1s linear both;animation-timeline:scroll(root block);animation-range:0 13vh}
 }
 @keyframes nineCompress{from{transform:translateX(50%) scaleX(1)}to{transform:translateX(50%) scaleX(.34)}}
-.nine-hero-number span{font-family:var(--serif);font-size:clamp(9rem,25vw,27rem);font-weight:650}
-.nine-article{position:relative;background:linear-gradient(180deg,#dfd9cf 0%,#e9e2d8 30%,#f0e8df 62%,#f5eee7 100%)}
-.nine-article:before{display:grid;min-height:30svh;place-items:center;padding:3rem 1.5rem;background:#11110f;color:#f4efe6;border-block:1px solid rgba(216,170,73,.2);font-family:var(--serif);font-size:clamp(5.5rem,15vw,15rem);font-weight:560;letter-spacing:-.08em;line-height:.75;content:"3,283";background-image:repeating-linear-gradient(90deg,rgba(216,170,73,.16) 0 1px,transparent 1px 8px)}
-.nine-article:after{display:block;margin-top:-3.2rem;padding:0 1.5rem 2.3rem;background:#11110f;color:#d6b15f;content:"2005  →  2014  ·  ONE AFTERNOON";font-size:.56rem;font-weight:850;letter-spacing:.18em;text-align:center}
-.nine-score{position:relative;left:50%;width:min(70rem,calc(100vw - 3rem));translate:-50% 0;padding:clamp(2rem,4vw,3.5rem);background:#090a09;border-block:1px solid rgba(216,170,73,.3)}
-.nine-score span{font-family:var(--sans);font-size:clamp(2.5rem,6vw,5rem);letter-spacing:-.05em}.nine-score strong{font-size:clamp(2rem,5vw,4.4rem)}
-.nine-timeline{position:relative;left:50%;width:min(72rem,calc(100vw - 3rem));translate:-50% 0;padding:3rem 0;background-image:repeating-linear-gradient(90deg,rgba(179,38,56,.12) 0 1px,transparent 1px 18px);border-block-color:rgba(21,21,19,.24)}
-.nine-wembley{max-width:58rem}.nine-comeback{max-width:66rem}
-.nine-minute{position:relative;overflow:hidden}
-.nine-minute>span{position:relative;z-index:2}.nine-minute>p{position:relative;z-index:2}
-.nine-minute--winner{position:relative;left:50%;width:min(84rem,calc(100vw - 2rem));min-height:58svh;translate:-50% 0;display:grid;grid-template-columns:1fr auto;align-content:center;align-items:end;padding:clamp(3rem,7vw,7rem);background:#a91f34;box-shadow:0 2.5rem 6rem rgba(120,20,35,.18)}
-.nine-minute--winner:after{position:absolute;right:2rem;bottom:-.16em;color:rgba(255,255,255,.07);font-family:var(--serif);font-size:clamp(12rem,28vw,28rem);font-weight:700;content:"109′";line-height:.7;pointer-events:none}
-.nine-minute--winner span{font-size:clamp(8rem,20vw,19rem);line-height:.65}.nine-minute--winner p{font-size:clamp(3rem,8vw,7rem)!important;color:#fff}
-.nine-figure--release{width:min(68rem,calc(100vw - 3rem));transform:rotate(-.35deg);box-shadow:0 2.5rem 6rem rgba(21,21,19,.14)}
-.nine-days{position:relative;overflow:hidden}.nine-days:after{position:absolute;right:-.05em;bottom:-.2em;color:rgba(179,38,56,.08);font-family:var(--serif);font-size:clamp(10rem,24vw,22rem);font-weight:700;content:"0";line-height:.7}
-.nine-coda{position:relative;overflow:hidden;background:#0b0b0a;min-height:88svh}.nine-coda:before{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.035);font-family:var(--serif);font-size:clamp(18rem,48vw,48rem);font-weight:700;content:"0";line-height:.65}.nine-coda p{position:relative;z-index:2;color:#fff4e8;font-style:normal}.nine-coda p:before{display:block;margin-bottom:1rem;color:#c34b5d;font-family:var(--sans);font-size:.58rem;font-weight:850;letter-spacing:.2em;content:"3,283 DAYS LATER";text-transform:uppercase}
-@media(max-width:900px){.nine-score,.nine-timeline{width:calc(100vw - 2rem)}.nine-minute--winner{width:calc(100vw - 1rem);min-height:48svh}.nine-minute--winner span{font-size:clamp(7rem,26vw,12rem)}}
-@media(max-width:640px){.nine-hero-number{bottom:1rem}.nine-article:before{font-size:clamp(5rem,22vw,8rem)}.nine-minute--winner{grid-template-columns:1fr;align-items:start}.nine-minute--winner p{text-align:right}}
+.layout-nine .nine-hero-number span{font-family:var(--serif);font-size:clamp(9rem,25vw,27rem);font-weight:650}
+.layout-nine .nine-article{position:relative;background:linear-gradient(180deg,#dfd9cf 0%,#e9e2d8 30%,#f0e8df 62%,#f5eee7 100%)}
+.layout-nine .nine-article:before{display:grid;min-height:30svh;place-items:center;padding:3rem 1.5rem;background:#11110f;color:#f4efe6;border-block:1px solid rgba(216,170,73,.2);font-family:var(--serif);font-size:clamp(5.5rem,15vw,15rem);font-weight:560;letter-spacing:-.08em;line-height:.75;content:"3,283";background-image:repeating-linear-gradient(90deg,rgba(216,170,73,.16) 0 1px,transparent 1px 8px)}
+.layout-nine .nine-article:after{display:block;margin-top:-3.2rem;padding:0 1.5rem 2.3rem;background:#11110f;color:#d6b15f;content:"2005  →  2014  ·  ONE AFTERNOON";font-size:.56rem;font-weight:850;letter-spacing:.18em;text-align:center}
+.layout-nine .nine-score{position:relative;left:50%;width:min(70rem,calc(100vw - 3rem));translate:-50% 0;padding:clamp(2rem,4vw,3.5rem);background:#090a09;border-block:1px solid rgba(216,170,73,.3)}
+.layout-nine .nine-score span{font-family:var(--sans);font-size:clamp(2.5rem,6vw,5rem);letter-spacing:-.05em}.layout-nine .nine-score strong{font-size:clamp(2rem,5vw,4.4rem)}
+.layout-nine .nine-timeline{position:relative;left:50%;width:min(72rem,calc(100vw - 3rem));translate:-50% 0;padding:3rem 0;background-image:repeating-linear-gradient(90deg,rgba(179,38,56,.12) 0 1px,transparent 1px 18px);border-block-color:rgba(21,21,19,.24)}
+.layout-nine .nine-wembley{max-width:58rem}.layout-nine .nine-comeback{max-width:66rem}
+.layout-nine .nine-minute{position:relative;overflow:hidden}
+.layout-nine .nine-minute>span{position:relative;z-index:2}.layout-nine .nine-minute>p{position:relative;z-index:2}
+.layout-nine .nine-minute--winner{position:relative;left:50%;width:min(84rem,calc(100vw - 2rem));min-height:58svh;translate:-50% 0;display:grid;grid-template-columns:1fr auto;align-content:center;align-items:end;padding:clamp(3rem,7vw,7rem);background:#a91f34;box-shadow:0 2.5rem 6rem rgba(120,20,35,.18)}
+.layout-nine .nine-minute--winner:after{position:absolute;right:2rem;bottom:-.16em;color:rgba(255,255,255,.07);font-family:var(--serif);font-size:clamp(12rem,28vw,28rem);font-weight:700;content:"109′";line-height:.7;pointer-events:none}
+.layout-nine .nine-minute--winner span{font-size:clamp(8rem,20vw,19rem);line-height:.65}.layout-nine .nine-minute--winner p{font-size:clamp(3rem,8vw,7rem)!important;color:#fff}
+.layout-nine .nine-figure--release{width:min(68rem,calc(100vw - 3rem));transform:rotate(-.35deg);box-shadow:0 2.5rem 6rem rgba(21,21,19,.14)}
+.layout-nine .nine-days{position:relative;overflow:hidden}.layout-nine .nine-days:after{position:absolute;right:-.05em;bottom:-.2em;color:rgba(179,38,56,.08);font-family:var(--serif);font-size:clamp(10rem,24vw,22rem);font-weight:700;content:"0";line-height:.7}
+.layout-nine .nine-coda{position:relative;overflow:hidden;background:#0b0b0a;min-height:88svh}.layout-nine .nine-coda:before{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.035);font-family:var(--serif);font-size:clamp(18rem,48vw,48rem);font-weight:700;content:"0";line-height:.65}.layout-nine .nine-coda p{position:relative;z-index:2;color:#fff4e8;font-style:normal}.layout-nine .nine-coda p:before{display:block;margin-bottom:1rem;color:#c34b5d;font-family:var(--sans);font-size:.58rem;font-weight:850;letter-spacing:.2em;content:"3,283 DAYS LATER";text-transform:uppercase}
+@media(max-width:900px){.layout-nine .nine-score,.layout-nine .nine-timeline{width:calc(100vw - 2rem)}.layout-nine .nine-minute--winner{width:calc(100vw - 1rem);min-height:48svh}.layout-nine .nine-minute--winner span{font-size:clamp(7rem,26vw,12rem)}}
+@media(max-width:640px){.layout-nine .nine-hero-number{bottom:1rem}.layout-nine .nine-article:before{font-size:clamp(5rem,22vw,8rem)}.layout-nine .nine-minute--winner{grid-template-columns:1fr;align-items:start}.layout-nine .nine-minute--winner p{text-align:right}}
