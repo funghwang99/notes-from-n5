@@ -1,4 +1,10 @@
 (() => {
+  const secondNaplesPanel = document.querySelector('.ashes-city--argentina .ashes-city-media');
+  if (secondNaplesPanel) {
+    secondNaplesPanel.style.backgroundImage = 'url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Maradona_napoli_fotografos.jpg?width=1600")';
+    secondNaplesPanel.style.backgroundPosition = 'center 34%';
+  }
+
   const field = document.querySelector('[data-ash-field]');
   if (!field || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
