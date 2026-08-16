@@ -1,0 +1,37 @@
+/* When We Were Allowed to Dream Again — The Expanding Dream */
+.layout-dream{--dream-copy-width:34rem;--dream-glow:0;background:#111722;color:#ece8df;overflow-x:clip}
+.layout-dream .dream-hero{min-height:100svh;background:#0e1520}
+.layout-dream .dream-hero-media{filter:saturate(.55) brightness(.72)}
+.layout-dream .dream-hero-copy{width:min(100% - 3rem,76rem);margin:auto;padding-left:0;padding-right:0}
+.layout-dream .dream-hero h1{max-width:10ch;font-size:clamp(4.2rem,8.2vw,9rem)}
+.layout-dream .dream-body{background:linear-gradient(180deg,#111722 0%,#182137 20%,#ede7dc 44%,#f3eee5 76%,#141b2a 100%);padding-bottom:0;transition:background 1s ease}
+.dream-copy{max-width:var(--dream-copy-width);color:#eee9df;transition:max-width .15s linear,padding .4s ease}
+.dream-copy p{color:inherit}
+.dream-copy:nth-of-type(n+3){color:#292724}
+.dream-shrink{width:min(100% - 3rem,72rem);max-width:none}
+.dream-shrink-grid{display:flex;flex-direction:column;gap:1rem;border:0;align-items:center}
+.dream-shrink-item{width:100%;border:1px solid rgba(255,255,255,.15)!important;background:#151d2b;color:#ece8df;padding:1.4rem 1.6rem;transition:width .5s ease,background .5s ease}
+.dream-shrink-item:nth-child(1){width:100%}.dream-shrink-item:nth-child(2){width:78%}.dream-shrink-item:nth-child(3){width:55%}.dream-shrink-item:nth-child(4){width:34%;background:#22293a;border-color:rgba(238,120,136,.35)!important}
+.dream-shrink-item span{color:#9fa5b2}.dream-shrink-item strong{color:#fff}.dream-shrink-item:last-child strong{color:#ef7788}
+.dream-moment{transition:max-width .5s ease,transform .5s ease}
+.dream-moment--eddie{max-width:70rem}.dream-moment--villa{max-width:78rem}.dream-moment--eddie .dream-moment-media,.dream-moment--villa .dream-moment-media{box-shadow:0 2rem 5rem rgba(3,6,12,.2)}
+.dream-habits{background:#101a31;min-height:78svh;display:grid;align-items:center}
+.dream-habits-list{background:transparent;grid-template-columns:repeat(4,1fr);gap:1rem}
+.dream-habits-list div{position:relative;min-height:10rem;display:flex;align-items:flex-end;padding:1.4rem;border:1px solid rgba(255,255,255,.15);background:#121e38;color:#c1c7d2;overflow:hidden}
+.dream-habits-list div:before{position:absolute;top:1rem;right:1rem;color:#ef7788;font-family:var(--sans);font-size:.58rem;font-weight:800;letter-spacing:.15em;content:"LIVE"}
+.dream-habits-list b{position:absolute;top:1rem;left:1rem;color:#fff}
+.dream-bournemouth{width:100%;max-width:none;margin:0;padding:clamp(7rem,10vw,10rem) max(1.5rem,calc((100vw - 82rem)/2));background:#121721;transition:background .6s ease,box-shadow .6s ease}
+.layout-dream.dream-is-open .dream-bournemouth{background:#8f1f33;box-shadow:0 0 120px rgba(201,45,66,.24) inset}
+.dream-bournemouth-top{max-width:76rem;margin:0 auto;background:rgba(255,255,255,.15)}
+.dream-bournemouth-step{background:#121721;transition:transform .45s ease,background .45s ease}.layout-dream.dream-is-open .dream-bournemouth-step:last-child{transform:scale(1.04);background:#d02d45}
+.dream-bournemouth-copy{max-width:60rem}
+.dream-reiss{max-width:88rem;min-height:84svh;margin:0 auto;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,4vw,4rem);grid-template-columns:minmax(0,1.15fr) minmax(18rem,.85fr)}
+.dream-reiss img{height:min(68svh,48rem);aspect-ratio:auto;object-position:center;box-shadow:0 2rem 6rem rgba(0,0,0,.18)}
+.dream-reiss blockquote{font-size:clamp(3rem,6vw,6.5rem);line-height:.95;color:#171714}.dream-reiss blockquote em{font-size:1.08em}
+.dream-ending{max-width:var(--dream-copy-width);min-height:76svh;display:grid;align-content:center;margin:0 auto;padding-top:6rem;padding-bottom:6rem;transition:max-width .2s linear;color:#eee8dd}
+.dream-ending p{font-size:clamp(3rem,6vw,6.5rem)}
+.dream-ending p+p{color:#ef667b;text-shadow:0 0 calc(30px + var(--dream-glow)*70px) rgba(239,102,123,.34)}
+.dream-credits{max-width:56rem;color:#8d8b90;padding-top:2rem}
+.layout-dream .site-footer{background:#0b1019;color:#aaa6a0}
+@media(max-width:900px){.dream-habits-list{grid-template-columns:repeat(2,1fr)}.dream-reiss{grid-template-columns:1fr;min-height:auto}.dream-reiss img{height:auto}.dream-shrink-item:nth-child(2){width:86%}.dream-shrink-item:nth-child(3){width:68%}.dream-shrink-item:nth-child(4){width:48%}}
+@media(max-width:640px){.layout-dream{--dream-copy-width:calc(100% - 2rem)}.dream-copy{width:calc(100% - 2rem);padding-left:0;padding-right:0}.dream-shrink{width:calc(100% - 2rem)}.dream-shrink-item:nth-child(1),.dream-shrink-item:nth-child(2),.dream-shrink-item:nth-child(3),.dream-shrink-item:nth-child(4){width:100%}.dream-habits-list{grid-template-columns:1fr}.dream-bournemouth{padding-left:1rem;padding-right:1rem}.dream-reiss{padding-left:1rem;padding-right:1rem}.dream-ending{width:calc(100% - 2rem);min-height:62svh}}
