@@ -2,6 +2,10 @@
    Loaded after pele.css so the exhibition keeps its identity while
    every reading block stays inside a disciplined safe grid. */
 
+/* Taxonomy display: Pelé now belongs to Bất Tử while the exhibition concept remains intact. */
+.pele-cover-topline span:last-child{font-size:0}
+.pele-cover-topline span:last-child::after{content:"Bất Tử · Immortal I";font-size:.55rem}
+
 .layout-pele .pele-room-inner{
   width:min(calc(100% - 6rem),82rem);
 }
