@@ -23,12 +23,12 @@
     {
       slug: "bat-tu",
       label: "Bất Tử",
-      description: "Có những người rời sân từ lâu, nhưng chưa bao giờ thật sự rời Arsenal.",
+      description: "Có những cái tên đã vượt khỏi câu lạc bộ, đất nước và thời đại để trở thành một phần vĩnh viễn của bóng đá.",
     },
     {
       slug: "tuong-dai",
       label: "Tượng Đài",
-      description: "Có những người đi qua bóng đá. Có những người ở lại trong cách bóng đá được nhớ về.",
+      description: "Có những người không chỉ khoác áo Arsenal, mà còn trở thành một phần trong cách câu lạc bộ được nhớ về.",
     },
   ];
 
@@ -46,8 +46,15 @@
     "until-i-put-on-the-mask.html",
     "the-language-football-forgot.html",
   ]);
-  const monuments = new Set([
+  const immortals = new Set([
     "the-throne-no-one-inherited.html",
+    "remnants-of-ashes.html",
+  ]);
+  const arsenalMonuments = new Set([
+    "the-move-before-the-move.html",
+    "the-crown-we-all-wore.html",
+    "the-world-was-late.html",
+    "the-ship-that-still-knew-its-name.html",
   ]);
 
   const fileNameFromHref = (href = "") => href.split("/").pop().split("?")[0].split("#")[0];
@@ -63,7 +70,8 @@
     const file = fileNameFromHref(link?.getAttribute("href") || "");
     const oldPaths = (entry.dataset.paths || "").split(/\s+/).filter(Boolean);
 
-    if (monuments.has(file)) return "tuong-dai";
+    if (immortals.has(file)) return "bat-tu";
+    if (arsenalMonuments.has(file)) return "tuong-dai";
     if (outsideSpotlight.has(file)) return "ngoai-anh-den";
     if (lingeringLegendLabels.has(file)) return "chua-nguoi";
     if (oldPaths.includes("mat-mat")) return "hy-vong";
@@ -153,7 +161,19 @@
       node.textContent = "Ngoài Ánh Đèn · Mesut Özil";
     });
     document.querySelectorAll('.home-flow-card[href="the-throne-no-one-inherited.html"] .home-flow-meta').forEach((node) => {
-      node.textContent = "Tượng Đài · Pelé";
+      node.textContent = "Bất Tử · Pelé";
+    });
+    document.querySelectorAll('.home-flow-card[href="the-move-before-the-move.html"] .home-flow-meta').forEach((node) => {
+      node.textContent = "Tượng Đài · Dennis Bergkamp";
+    });
+    document.querySelectorAll('.home-flow-card[href="the-crown-we-all-wore.html"] .home-flow-meta').forEach((node) => {
+      node.textContent = "Tượng Đài · Thierry Henry";
+    });
+    document.querySelectorAll('.home-flow-card[href="the-world-was-late.html"] .home-flow-meta, .home-shot[href="the-world-was-late.html"] .home-shot-copy > span').forEach((node) => {
+      node.textContent = "Tượng Đài · Ian Wright";
+    });
+    document.querySelectorAll('.home-flow-card[href="the-ship-that-still-knew-its-name.html"] .home-flow-meta, .home-shot[href="the-ship-that-still-knew-its-name.html"] .home-shot-copy > span').forEach((node) => {
+      node.textContent = "Tượng Đài · Tony Adams";
     });
   };
 
@@ -209,7 +229,7 @@
     const firstEntry = archive.querySelector(".archive-entry");
     const entry = document.createElement("article");
     entry.className = "archive-entry reveal is-visible";
-    entry.dataset.paths = "tuong-dai";
+    entry.dataset.paths = "bat-tu";
     entry.innerHTML = `<a class="archive-thumb" href="${peleHref}"><img src="${peleThumb}" alt="Pelé trong màu áo Brazil." style="object-position:center 28%" /></a><div class="archive-entry-copy"><p class="article-meta">Brazil · Pelé</p><h2><a href="${peleHref}">The Throne No One Inherited</a></h2><p>Ba World Cup, một danh xưng và chiếc ngai mà bóng đá chưa bao giờ thật sự trao lại cho một người khác.</p></div><a class="archive-arrow" href="${peleHref}" aria-label="Đọc bài The Throne No One Inherited">↗</a>`;
     if (firstEntry) firstEntry.before(entry);
     else archive.append(entry);
@@ -227,7 +247,7 @@
       image.alt = "Pelé ghi bàn trong trận chung kết World Cup 1958.";
       image.style.objectPosition = "center 50%";
     }
-    if (label) label.textContent = "Tượng Đài · Brazil · Pelé";
+    if (label) label.textContent = "Bất Tử · Brazil · Pelé";
     if (title) title.textContent = "The Throne No One Inherited";
     if (deck) deck.textContent = "Những người vĩ đại tiếp tục xuất hiện. Danh xưng O Rei thì vẫn chưa thật sự thuộc về ai khác.";
   }
@@ -267,8 +287,8 @@
     appendCard(gallerySets[1], true, { href:dreamHref, image:dreamThumb, alt:"", position:"center 24%", label:"Hy Vọng · Arsenal 2022/23", title:"When We Were Allowed to Dream Again" });
     appendCard(gallerySets[0], false, { href:robbenHref, image:robbenThumb, alt:"Arjen Robben cùng Hà Lan trước chung kết World Cup 2010.", position:"88% 66%", label:"Chưa Nguôi · Arjen Robben", title:"Between Him and History" }, "prepend");
     appendCard(gallerySets[1], true, { href:robbenHref, image:robbenThumb, alt:"", position:"88% 66%", label:"Chưa Nguôi · Arjen Robben", title:"Between Him and History" }, "prepend");
-    appendCard(gallerySets[0], false, { href:peleHref, image:peleThumb, alt:"Pelé trong màu áo Brazil.", position:"center 28%", label:"Tượng Đài · Pelé", title:"The Throne No One Inherited" }, "prepend");
-    appendCard(gallerySets[1], true, { href:peleHref, image:peleThumb, alt:"", position:"center 28%", label:"Tượng Đài · Pelé", title:"The Throne No One Inherited" }, "prepend");
+    appendCard(gallerySets[0], false, { href:peleHref, image:peleThumb, alt:"Pelé trong màu áo Brazil.", position:"center 28%", label:"Bất Tử · Pelé", title:"The Throne No One Inherited" }, "prepend");
+    appendCard(gallerySets[1], true, { href:peleHref, image:peleThumb, alt:"", position:"center 28%", label:"Bất Tử · Pelé", title:"The Throne No One Inherited" }, "prepend");
   }
 
   applyHomePathCards();
