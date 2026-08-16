@@ -1,0 +1,47 @@
+/* Tuổi Trẻ — Bukayo Saka: The Letter & The Reply */
+.layout-letter{--letter-paper:#f1eadf;--letter-ink:#25221e;--letter-red:#bd3045;--letter-blue:#283e5b;--letter-line:rgba(37,34,30,.12);overflow-x:clip;background:var(--letter-paper);color:var(--letter-ink)}
+.layout-letter .reading-progress{height:4px;background:linear-gradient(90deg,#7d8790 0 48%,#bd3045 48%)}
+.layout-letter .site-header{background:linear-gradient(180deg,rgba(241,234,223,.98),rgba(241,234,223,.76),transparent);border-bottom-color:rgba(37,34,30,.1);color:#25221e}
+.layout-letter .article-hero{min-height:100svh;background:#ece5da;color:#25221e;isolation:isolate}
+.layout-letter .article-hero::before{position:absolute;z-index:0;top:9rem;left:clamp(1rem,7vw,8rem);color:rgba(37,34,30,.08);content:"16.12.2020";font-family:var(--serif);font-size:clamp(5rem,14vw,14rem);font-weight:520;letter-spacing:-.07em;line-height:.8;pointer-events:none}
+.layout-letter .article-hero::after{position:absolute;z-index:0;right:clamp(1rem,4vw,4rem);bottom:2rem;color:rgba(37,34,30,.42);content:"LETTER 01  /  REPLY PENDING";font-size:.54rem;font-weight:800;letter-spacing:.2em;pointer-events:none}
+.layout-letter .article-hero-media{z-index:-1;inset:4% -5% 0 43%;opacity:.72;filter:grayscale(.1) saturate(.78) contrast(1.02);mask-image:linear-gradient(90deg,transparent,#000 20%,#000)}
+.layout-letter .article-hero-media::after{background:linear-gradient(90deg,rgba(241,234,223,.98),rgba(241,234,223,.2) 44%,transparent 72%),linear-gradient(0deg,rgba(241,234,223,.82),transparent 55%)}
+.layout-letter .article-heading{max-width:74rem}
+.layout-letter .article-heading .eyebrow{color:#bd3045}
+.layout-letter .article-heading h1{max-width:8ch;color:#25221e;font-size:clamp(4.8rem,10vw,10.5rem);line-height:.78}
+.layout-letter .article-deck{max-width:39rem;color:#655e55}
+.layout-letter .article-byline{border-top-color:rgba(37,34,30,.16);color:#81786d}
+.layout-letter .article-body{position:relative;width:min(calc(100% - 3rem),55rem);margin:0 auto;padding:clamp(7rem,11vw,10rem) 0;background:transparent}
+.layout-letter .article-body::before{position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;translate:-50% 0;background:repeating-linear-gradient(180deg,transparent 0 31px,rgba(59,79,101,.075) 31px 32px),linear-gradient(90deg,transparent max(0px,calc(50% - 32rem)),rgba(189,48,69,.13) max(0px,calc(50% - 32rem)) max(0px,calc(50% - 31.9rem)),transparent max(0px,calc(50% - 31.9rem))),#f4eee4;content:""}
+.layout-letter .article-body>p{color:#342f2a;font-family:var(--serif);font-size:clamp(1.12rem,1.45vw,1.3rem);line-height:1.95}
+.layout-letter .article-body .article-lead{font-size:clamp(1.4rem,2vw,1.8rem);line-height:1.75}
+.layout-letter .article-body .article-lead::first-letter{float:none!important;margin:0!important;color:inherit!important;font-size:inherit!important;font-weight:inherit!important}
+.layout-letter .pull-quote{position:relative;width:min(100%,48rem);margin:clamp(5rem,9vw,8rem) auto;padding:clamp(3rem,6vw,5rem);border:1px solid rgba(37,34,30,.16);background:#e6dfd5;box-shadow:0 1.4rem 4rem rgba(50,42,34,.08);transform:rotate(-.45deg)}
+.layout-letter .pull-quote::before{position:absolute;top:1rem;right:1rem;color:#8f877d;content:"OUTBOX / 2020";font-size:.5rem;font-weight:800;letter-spacing:.17em}
+.layout-letter .pull-quote>span{color:#7f746a}
+.layout-letter .pull-quote blockquote{max-width:16ch;margin:1.2rem 0 0;color:#26221f;font-family:var(--serif);font-size:clamp(2.8rem,5.8vw,5.8rem);font-style:normal;line-height:1;letter-spacing:-.05em}
+.layout-letter .pull-quote:nth-of-type(2){margin-left:auto;margin-right:-6vw;background:#bd3045;color:#fff4ef;border-color:#bd3045;box-shadow:0 2rem 5rem rgba(189,48,69,.18);transform:rotate(.55deg)}
+.layout-letter .pull-quote:nth-of-type(2)::before{color:rgba(255,255,255,.6);content:"INBOX / 2026 / REPLY RECEIVED"}
+.layout-letter .pull-quote:nth-of-type(2)>span{color:#ffd2d9}
+.layout-letter .pull-quote:nth-of-type(2) blockquote{color:#fff7f2}
+.layout-letter .story-diptych{position:relative;left:50%;display:grid;width:min(86rem,calc(100vw - 3rem));grid-template-columns:1fr 1fr;gap:1px;margin:clamp(6rem,10vw,9rem) 0;translate:-50% 0;background:#9f968b;box-shadow:0 2rem 6rem rgba(42,35,28,.12)}
+.layout-letter .story-diptych::before{position:absolute;z-index:3;top:50%;left:50%;display:grid;width:7rem;height:7rem;place-items:center;translate:-50% -50%;border-radius:50%;background:#f4eee4;color:#bd3045;content:"2020  →  2026";font-size:.5rem;font-weight:850;letter-spacing:.12em;text-align:center;box-shadow:0 .8rem 2.4rem rgba(0,0,0,.12)}
+.layout-letter .story-diptych .story-figure{margin:0;background:#171714}
+.layout-letter .story-diptych img{display:block;width:100%;height:100%;min-height:34rem;object-fit:cover;filter:saturate(.82) contrast(1.03)}
+.layout-letter .story-diptych .story-figure:first-child img{filter:grayscale(.56) saturate(.52) contrast(1.05)}
+.layout-letter .chapter-line{position:relative;left:50%;display:grid;width:100vw;min-height:84svh;place-items:center;margin:clamp(7rem,11vw,10rem) 0 -10rem;padding:6rem max(1.5rem,calc((100vw - 72rem)/2));translate:-50% 0;background:#bd3045;color:#fff7f2!important;font-family:var(--serif);font-size:clamp(3.2rem,7vw,7.3rem)!important;font-style:normal!important;font-weight:520;line-height:.98!important;letter-spacing:-.055em;text-align:center;overflow:hidden}
+.layout-letter .chapter-line::before{position:absolute;right:-.05em;bottom:-.2em;color:rgba(255,255,255,.065);content:"MORE";font-family:var(--sans);font-size:clamp(12rem,33vw,34rem);font-weight:900;letter-spacing:-.12em;line-height:.72}
+.layout-letter .chapter-line::after{position:absolute;top:2rem;left:50%;translate:-50% 0;color:rgba(255,255,255,.62);content:"REPLY / DELIVERED";font-family:var(--sans);font-size:.54rem;font-weight:800;letter-spacing:.2em}
+.layout-letter .article-body>p:last-of-type{position:relative;left:50%;width:100vw;margin:10rem 0 -10rem!important;padding:clamp(8rem,12vw,11rem) max(1.5rem,calc((100vw - 56rem)/2));translate:-50% 0;background:#25221e;color:#f4eee4!important;font-size:clamp(1.55rem,2.7vw,2.35rem)!important;line-height:1.62!important}
+.layout-letter .article-body>p:last-of-type::before{display:block;margin-bottom:1.5rem;color:#d46c7c;content:"16.12.2020  →  2026";font-family:var(--sans);font-size:.56rem;font-weight:800;letter-spacing:.18em}
+.layout-letter .article-end{background:#171513;color:#a7a099;border-top:0}.layout-letter .article-end a{color:#f1e9df}
+.layout-letter .site-footer{background:#0f0e0d;color:#938d87}
+@supports (animation-timeline:view()){
+  .layout-letter .pull-quote:first-of-type{animation:letterArrive linear both;animation-timeline:view();animation-range:entry 0 cover 34%}
+  .layout-letter .pull-quote:nth-of-type(2){animation:replyArrive linear both;animation-timeline:view();animation-range:entry 0 cover 34%}
+  @keyframes letterArrive{from{opacity:.15;transform:translateX(-7vw) rotate(-2deg)}to{opacity:1;transform:rotate(-.45deg)}}
+  @keyframes replyArrive{from{opacity:.15;transform:translateX(7vw) rotate(2deg)}to{opacity:1;transform:rotate(.55deg)}}
+}
+@media(max-width:900px){.layout-letter .article-hero-media{inset:38% -18% 0 18%;opacity:.5}.layout-letter .article-body{width:min(calc(100% - 2.5rem),50rem)}.layout-letter .pull-quote:nth-of-type(2){margin-right:0}.layout-letter .story-diptych{grid-template-columns:1fr}.layout-letter .story-diptych::before{top:50%;width:6rem;height:6rem}.layout-letter .story-diptych img{min-height:0;aspect-ratio:4/3}}
+@media(max-width:640px){.layout-letter .article-hero{min-height:92svh;padding-left:1rem;padding-right:1rem}.layout-letter .article-heading h1{font-size:clamp(4rem,18vw,6rem)}.layout-letter .article-body{width:calc(100% - 2rem);padding-top:5rem}.layout-letter .pull-quote{padding:2rem 1.2rem}.layout-letter .story-diptych{width:calc(100vw - 2rem)}.layout-letter .story-diptych::before{width:5rem;height:5rem}.layout-letter .chapter-line{min-height:64svh;padding-left:1rem;padding-right:1rem}.layout-letter .article-body>p:last-of-type{padding-left:1rem;padding-right:1rem}}
