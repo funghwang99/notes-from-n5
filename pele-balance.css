@@ -77,12 +77,12 @@
   width:min(34rem,48%);
 }
 .pele-1958-content > .pele-copy:last-child{
-  grid-column:2;
+  grid-column:1 / -1;
   grid-row:3;
   width:100%;
-  max-width:40rem;
+  max-width:44rem;
   margin:0;
-  justify-self:start;
+  justify-self:center;
 }
 
 /* Santos: retain the archival desk feeling without stretching the copy. */
@@ -179,8 +179,10 @@
   grid-row:1 / 4;
   width:100%;
   max-width:18rem;
+  max-height:18rem;
   margin:0 auto;
   padding:.8rem;
+  object-fit:contain;
 }
 
 /* Legacy + epilogue: keep the same safe reading measure. */
@@ -214,12 +216,12 @@
     column-gap:clamp(2.5rem,5vw,4.5rem);
   }
   .pele-1958-content > .pele-copy:first-child,
-  .pele-1958-content > .pele-copy:last-child,
   .pele-1970-top .pele-copy,
   .pele-santos .pele-copy,
   .pele-legacy .pele-copy{
     max-width:36rem;
   }
+  .pele-1958-content > .pele-copy:last-child{max-width:42rem}
   .pele-epilogue-copy{right:2rem;width:min(34rem,44vw)}
 }
 
@@ -274,7 +276,7 @@
   .pele-1958-age{font-size:clamp(9rem,43vw,15rem)}
   .pele-plaque{grid-template-columns:1fr}
   .pele-plaque > span,.pele-plaque > strong,.pele-plaque > em,.pele-plaque img{grid-column:1;grid-row:auto}
-  .pele-plaque img{max-width:16rem;margin:1.4rem auto 0}
+  .pele-plaque img{max-width:16rem;max-height:none;margin:1.4rem auto 0}
   .pele-threshold-copy{width:calc(100% - 2rem)}
   .pele-credits{padding-left:1rem;padding-right:1rem}
 }
