@@ -1,35 +1,33 @@
 /* Before the Waiting Began — The Door That Never Opened Again */
 .layout-waiting{--paris-cold:#e7e4dc;--paris-night:#090b0c;--paris-red:#9f2434;--paris-slit:#e1c064;background:#ece8df}
 .layout-waiting .waiting-hero{grid-template-columns:1fr;background:#080a0b;isolation:isolate}
+.layout-waiting .waiting-hero::before,.layout-waiting .waiting-hero::after{position:absolute;z-index:5;top:0;bottom:0;width:50%;background:linear-gradient(180deg,rgba(4,5,5,.97),rgba(10,11,11,.94));content:"";pointer-events:none;will-change:transform}
+.layout-waiting .waiting-hero::before{left:0;border-right:1px solid rgba(225,192,100,.45)}
+.layout-waiting .waiting-hero::after{right:0;border-left:1px solid rgba(225,192,100,.45)}
+@supports (animation-timeline: scroll()){
+  .layout-waiting .waiting-hero::before{animation:parisDoorLeft 1s linear both;animation-timeline:scroll(root block);animation-range:0 13vh}
+  .layout-waiting .waiting-hero::after{animation:parisDoorRight 1s linear both;animation-timeline:scroll(root block);animation-range:0 13vh}
+}
+@keyframes parisDoorLeft{from{transform:translateX(0)}to{transform:translateX(-43%)}}
+@keyframes parisDoorRight{from{transform:translateX(0)}to{transform:translateX(43%)}}
 .layout-waiting .waiting-hero-copy{z-index:7;width:min(100% - 3rem,78rem);margin:auto;padding-left:0;padding-right:0;justify-content:flex-end;padding-bottom:clamp(5rem,10vw,8rem)}
+.layout-waiting .waiting-hero-copy:before{position:absolute;top:8rem;bottom:4rem;left:50%;width:1px;background:linear-gradient(180deg,transparent,rgba(225,192,100,.95) 35%,rgba(255,255,255,.75) 56%,rgba(225,192,100,.22),transparent);box-shadow:0 0 26px rgba(225,192,100,.25);content:"";pointer-events:none}
 .layout-waiting .waiting-hero-copy h1{max-width:10ch;font-size:clamp(4.5rem,9vw,9.5rem);line-height:.8}
 .layout-waiting .waiting-hero-image{position:absolute;inset:0;min-height:100%;z-index:1;filter:grayscale(.16)}
 .layout-waiting .waiting-hero-image:after{background:linear-gradient(90deg,rgba(8,10,11,.92),rgba(8,10,11,.58) 43%,rgba(8,10,11,.28) 72%),linear-gradient(0deg,rgba(8,10,11,.9),transparent 62%)}
 .layout-waiting .waiting-hero-image img{object-position:61% center}
-.paris-door{position:absolute;inset:0;z-index:5;pointer-events:none;overflow:hidden}
-.paris-door-panel{position:absolute;top:0;bottom:0;width:calc(50% - var(--paris-door-gap,4px));background:linear-gradient(180deg,rgba(4,5,5,.96),rgba(10,11,11,.93));box-shadow:0 0 90px rgba(0,0,0,.5);transition:width .08s linear}
-.paris-door-panel--left{left:0;border-right:1px solid rgba(225,192,100,.22)}
-.paris-door-panel--right{right:0;border-left:1px solid rgba(225,192,100,.22)}
-.paris-door-slit{position:absolute;top:0;bottom:0;left:50%;width:2px;transform:translateX(-50%);background:linear-gradient(180deg,transparent 8%,rgba(225,192,100,.95) 38%,rgba(255,255,255,.8) 55%,rgba(225,192,100,.35) 88%,transparent);box-shadow:0 0 28px rgba(225,192,100,.5)}
-.paris-door-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-90deg);color:rgba(238,233,223,.46);font-size:.55rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;white-space:nowrap}
-.paris-clock{position:fixed;z-index:45;right:1.3rem;top:50%;display:grid;gap:.9rem;transform:translateY(-50%);opacity:0;pointer-events:none;transition:opacity .25s ease}
-.layout-waiting.paris-clock-on .paris-clock{opacity:1}
-.paris-clock span{display:grid;grid-template-columns:2.2rem .5rem;gap:.4rem;align-items:center;justify-content:end;color:#9b968d;font-size:.52rem;font-weight:800;letter-spacing:.12em;text-align:right}
-.paris-clock i{display:block;width:.28rem;height:.28rem;border:1px solid #777269;border-radius:50%;background:#ece8df}
-.paris-clock span.is-active{color:#8f2433}.paris-clock span.is-active i{border-color:#8f2433;background:#8f2433;box-shadow:0 0 0 4px rgba(143,36,51,.1)}
 .layout-waiting .waiting-body{width:min(100% - 3rem,50rem)}
 .layout-waiting .waiting-quote{width:min(76rem,calc(100vw - 4rem));background:#0b0d0e;border-block:1px solid rgba(225,192,100,.28)}
 .layout-waiting .waiting-marker{width:min(68rem,calc(100vw - 4rem))}
 .layout-waiting .waiting-figure{width:min(68rem,calc(100vw - 4rem))}
 .waiting-figure--chance{position:relative;box-shadow:0 2.5rem 7rem rgba(20,20,18,.2)}
 .waiting-figure--chance:before{position:absolute;z-index:3;top:1rem;left:1rem;padding:.45rem .65rem;border:1px solid rgba(255,255,255,.3);background:rgba(8,10,11,.72);color:#efe8da;content:"THE DOOR WAS HERE";font-size:.52rem;font-weight:800;letter-spacing:.18em}
-.layout-waiting .waiting-bridge{position:relative;overflow:hidden;background:#111314;color:#d8d4cb;padding-top:clamp(8rem,13vw,13rem);padding-bottom:clamp(8rem,13vw,13rem)}
+.layout-waiting .waiting-bridge{position:relative;overflow:hidden;background:#111314;color:#d8d4cb;padding-top:clamp(9rem,14vw,14rem);padding-bottom:clamp(8rem,13vw,13rem)}
 .layout-waiting .waiting-bridge:before{position:absolute;inset:0;background:linear-gradient(90deg,transparent 49.85%,rgba(225,192,100,.35) 50%,transparent 50.15%),linear-gradient(110deg,transparent 0 49.8%,rgba(255,255,255,.045) 50%,transparent 50.2%),linear-gradient(70deg,transparent 0 49.8%,rgba(255,255,255,.045) 50%,transparent 50.2%);content:"";pointer-events:none}
+.layout-waiting .waiting-bridge:after{position:absolute;top:3rem;left:50%;width:min(76rem,calc(100% - 3rem));transform:translateX(-50%);color:#77756e;content:"2006   ·   2010   ·   2014   ·   2018   ·   2022   ·   2026";font-size:.56rem;font-weight:800;letter-spacing:.2em;text-align:center;white-space:pre;pointer-events:none}
 .layout-waiting .waiting-bridge p,.layout-waiting .waiting-years{position:relative;z-index:2;color:#c6c1b7}
 .layout-waiting .waiting-years strong{color:#f0e9dc}.layout-waiting .waiting-years span{color:#c6a75f}
-.paris-corridor{position:relative;z-index:2;display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;width:min(72rem,calc(100vw - 4rem));margin:0 auto clamp(5rem,9vw,8rem);padding:1.5rem 0;border-block:1px solid rgba(225,192,100,.18)}
-.paris-corridor span{position:relative;color:#74736e;font-size:.58rem;font-weight:800;letter-spacing:.15em;text-align:center}.paris-corridor span:first-child,.paris-corridor span:last-child{color:#e1c064}.paris-corridor span:after{position:absolute;left:50%;bottom:-1.72rem;width:1px;height:.5rem;background:rgba(225,192,100,.3);content:""}
 .layout-waiting .waiting-final{color:#f0e9dc!important;text-align:center;font-style:normal!important;font-size:clamp(2.3rem,5vw,4.8rem)!important}
 .layout-waiting .article-end-note{color:#8e8981;border-top-color:rgba(255,255,255,.1)}
-@media(max-width:900px){.paris-clock{display:none}.layout-waiting .waiting-hero-copy{width:min(100% - 2rem,46rem);justify-content:flex-end}.paris-door-label{display:none}.paris-corridor{grid-template-columns:repeat(3,1fr);width:calc(100vw - 2rem);row-gap:2rem}.layout-waiting .waiting-body{width:min(100% - 2rem,50rem)}}
-@media(max-width:640px){.paris-door-panel{width:calc(50% - var(--paris-door-gap,2px))}.layout-waiting .waiting-hero-copy h1{font-size:clamp(3.7rem,16vw,6rem)}.layout-waiting .waiting-figure,.layout-waiting .waiting-marker,.layout-waiting .waiting-quote{width:calc(100vw - 2rem)}.paris-corridor{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.layout-waiting .waiting-hero-copy{width:min(100% - 2rem,46rem);justify-content:flex-end}.layout-waiting .waiting-body{width:min(100% - 2rem,50rem)}.layout-waiting .waiting-bridge:after{white-space:normal;line-height:1.8}}
+@media(max-width:640px){.layout-waiting .waiting-hero::before,.layout-waiting .waiting-hero::after{display:none}.layout-waiting .waiting-hero-copy:before{display:none}.layout-waiting .waiting-hero-copy h1{font-size:clamp(3.7rem,16vw,6rem)}.layout-waiting .waiting-figure,.layout-waiting .waiting-marker,.layout-waiting .waiting-quote{width:calc(100vw - 2rem)}}
