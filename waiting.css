@@ -1,4 +1,4 @@
-@import url("hope-paris.css?v=20260816-hope-paris-1");
+@import url("hope-paris.css?v=20260816-hope-paris-2");
 :root{--wait-night:#141514;--wait-ink:#25251f;--wait-paper:#eee9df;--wait-yellow:#d8b34d;--wait-blue:#243f66;--wait-line:rgba(36,37,31,.18)}
 .layout-waiting{background:var(--wait-paper);color:var(--wait-ink);overflow-x:clip}
 .layout-waiting .reading-progress{background:var(--wait-yellow)}
