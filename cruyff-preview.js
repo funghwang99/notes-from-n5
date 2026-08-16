@@ -8,6 +8,13 @@
     title: 'Saint Johan',
   };
 
+  const mainImage = document.querySelector('.home-story-main[href="saint-johan.html"] img');
+  if (mainImage) {
+    mainImage.src = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Johan_Cruijff_maakt_het_eerste_doelpunt%2C_Bestanddeelnr_924-3450.jpg?width=1800';
+    mainImage.alt = 'Johan Cruyff ghi bàn cho Ajax năm 1971.';
+    mainImage.style.objectPosition = 'center 45%';
+  }
+
   const sets = document.querySelectorAll('.home-flow-set');
   if (sets.length < 2) return;
 
