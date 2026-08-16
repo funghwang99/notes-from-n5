@@ -35,7 +35,7 @@
 .layout-dream .dream-bournemouth-top{max-width:76rem;margin:0 auto;background:rgba(255,255,255,.15)}
 .layout-dream .dream-bournemouth-step{background:#121721}.layout-dream .dream-bournemouth-step:last-child{transform:scale(1.025);background:#d02d45;box-shadow:0 0 70px rgba(208,45,69,.22)}
 .layout-dream .dream-bournemouth-copy{max-width:60rem}
-.layout-dream .dream-reiss{max-width:88rem;min-height:84svh;margin:0 auto;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,4vw,4rem);grid-template-columns:minmax(0,1.15fr) minmax(18rem,.85fr)}
+.layout-dream .dream-reiss{max-width:88rem;min-height:84svh;margin:0 auto;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,4vw,4rem);grid-template-columns:minmax(0,1.15fr) minmax(18rem,.85fr);background:#f3eee5;color:#171714;border-block:1px solid rgba(23,23,20,.08)}
 .layout-dream .dream-reiss img{height:min(68svh,48rem);aspect-ratio:auto;object-position:center;box-shadow:0 2rem 6rem rgba(0,0,0,.18)}
 .layout-dream .dream-reiss blockquote{font-size:clamp(3rem,6vw,6.5rem);line-height:.95;color:#171714}.layout-dream .dream-reiss blockquote em{font-size:1.08em}
 .layout-dream .dream-ending{max-width:58rem;min-height:76svh;display:grid;align-content:center;margin:0 auto;padding-top:6rem;padding-bottom:6rem;color:#eee8dd}
