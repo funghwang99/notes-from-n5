@@ -1,4 +1,4 @@
-@import url("hope-nine.css?v=20260816-hope-nine-1");
+@import url("hope-nine.css?v=20260816-hope-nine-2");
 :root{--n-ink:#151513;--n-paper:#f2eee5;--n-red:#b32638;--n-gold:#d8aa49;--n-line:rgba(21,21,19,.16)}
 .layout-nine{background:var(--n-paper);color:var(--n-ink)}
 .layout-nine .reading-progress{background:var(--n-red)}
