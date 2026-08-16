@@ -20,14 +20,16 @@
 .layout-waiting .waiting-quote{width:min(76rem,calc(100vw - 4rem));background:#0b0d0e;border-block:1px solid rgba(225,192,100,.28)}
 .layout-waiting .waiting-marker{width:min(68rem,calc(100vw - 4rem))}
 .layout-waiting .waiting-figure{width:min(68rem,calc(100vw - 4rem))}
-.waiting-figure--chance{position:relative;box-shadow:0 2.5rem 7rem rgba(20,20,18,.2)}
-.waiting-figure--chance:before{position:absolute;z-index:3;top:1rem;left:1rem;padding:.45rem .65rem;border:1px solid rgba(255,255,255,.3);background:rgba(8,10,11,.72);color:#efe8da;content:"THE DOOR WAS HERE";font-size:.52rem;font-weight:800;letter-spacing:.18em}
+.layout-waiting .waiting-figure--chance{position:relative;box-shadow:0 2.5rem 7rem rgba(20,20,18,.2)}
+.layout-waiting .waiting-figure--chance:before{position:absolute;z-index:3;top:1rem;left:1rem;padding:.45rem .65rem;border:1px solid rgba(255,255,255,.3);background:rgba(8,10,11,.72);color:#efe8da;content:"THE DOOR WAS HERE";font-size:.52rem;font-weight:800;letter-spacing:.18em}
 .layout-waiting .waiting-bridge{position:relative;overflow:hidden;background:#111314;color:#d8d4cb;padding-top:clamp(9rem,14vw,14rem);padding-bottom:clamp(8rem,13vw,13rem)}
 .layout-waiting .waiting-bridge:before{position:absolute;inset:0;background:linear-gradient(90deg,transparent 49.85%,rgba(225,192,100,.35) 50%,transparent 50.15%),linear-gradient(110deg,transparent 0 49.8%,rgba(255,255,255,.045) 50%,transparent 50.2%),linear-gradient(70deg,transparent 0 49.8%,rgba(255,255,255,.045) 50%,transparent 50.2%);content:"";pointer-events:none}
 .layout-waiting .waiting-bridge:after{position:absolute;top:3rem;left:50%;width:min(76rem,calc(100% - 3rem));transform:translateX(-50%);color:#77756e;content:"2006   ·   2010   ·   2014   ·   2018   ·   2022   ·   2026";font-size:.56rem;font-weight:800;letter-spacing:.2em;text-align:center;white-space:pre;pointer-events:none}
 .layout-waiting .waiting-bridge p,.layout-waiting .waiting-years{position:relative;z-index:2;color:#c6c1b7}
 .layout-waiting .waiting-years strong{color:#f0e9dc}.layout-waiting .waiting-years span{color:#c6a75f}
-.layout-waiting .waiting-final{color:#f0e9dc!important;text-align:center;font-style:normal!important;font-size:clamp(2.3rem,5vw,4.8rem)!important}
-.layout-waiting .article-end-note{color:#8e8981;border-top-color:rgba(255,255,255,.1)}
+.layout-waiting .waiting-final{position:relative;left:50%;width:100vw;margin:0!important;padding:clamp(7rem,12vw,12rem) 1.5rem!important;translate:-50% 0;background:#0b0d0e;color:#f0e9dc!important;text-align:center;font-style:normal!important;font-size:clamp(2.3rem,5vw,4.8rem)!important;line-height:1.08!important;border-top:1px solid rgba(225,192,100,.2)}
+.layout-waiting .waiting-final:before{display:block;margin:0 auto 2rem;width:1px;height:5rem;background:linear-gradient(180deg,rgba(225,192,100,.05),rgba(225,192,100,.75));content:""}
+.layout-waiting .article-end-note{color:#6f6a62;border-top-color:rgba(36,37,31,.14)}
+.layout-waiting .article-end-note a{color:#3b3934}
 @media(max-width:900px){.layout-waiting .waiting-hero-copy{width:min(100% - 2rem,46rem);justify-content:flex-end}.layout-waiting .waiting-body{width:min(100% - 2rem,50rem)}.layout-waiting .waiting-bridge:after{white-space:normal;line-height:1.8}}
-@media(max-width:640px){.layout-waiting .waiting-hero::before,.layout-waiting .waiting-hero::after{display:none}.layout-waiting .waiting-hero-copy:before{display:none}.layout-waiting .waiting-hero-copy h1{font-size:clamp(3.7rem,16vw,6rem)}.layout-waiting .waiting-figure,.layout-waiting .waiting-marker,.layout-waiting .waiting-quote{width:calc(100vw - 2rem)}}
+@media(max-width:640px){.layout-waiting .waiting-hero::before,.layout-waiting .waiting-hero::after{display:none}.layout-waiting .waiting-hero-copy:before{display:none}.layout-waiting .waiting-hero-copy h1{font-size:clamp(3.7rem,16vw,6rem)}.layout-waiting .waiting-figure,.layout-waiting .waiting-marker,.layout-waiting .waiting-quote{width:calc(100vw - 2rem)}.layout-waiting .waiting-final{width:100vw;padding-left:1rem!important;padding-right:1rem!important}}
