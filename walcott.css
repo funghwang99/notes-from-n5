@@ -1,4 +1,4 @@
-@import url("youth-walcott.css?v=20260816-youth-walcott-1");
+@import url("youth-walcott.css?v=20260816-youth-walcott-2");
 .layout-walcott{--walcott-ink:#171714;--walcott-paper:#f3f0e8;--walcott-red:#b72639;--walcott-blue:#18233e;--walcott-soft:#ddd5c8;background:var(--walcott-paper);color:var(--walcott-ink)}
 .layout-walcott .site-header{background:linear-gradient(180deg,rgba(10,13,20,.82),transparent);border-bottom-color:rgba(255,255,255,.12)}
 .walcott-hero{position:relative;display:grid;min-height:100svh;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);overflow:hidden;background:#10131d;color:#f8f5ed}
