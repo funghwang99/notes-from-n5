@@ -1,3 +1,4 @@
+@import url("hope-dream.css?v=20260816-hope-dream-1");
 .layout-dream{--dream-ink:#181714;--dream-paper:#f4f0e7;--dream-red:#c92d42;--dream-blue:#1d2a47;--dream-gold:#d5a95a;background:var(--dream-paper);color:var(--dream-ink)}
 .layout-dream .site-header{background:linear-gradient(180deg,rgba(15,16,18,.82),transparent);border-bottom-color:rgba(255,255,255,.12)}
 .dream-hero{position:relative;display:grid;min-height:100svh;overflow:hidden;align-items:end;background:#12151b;color:#fff}
