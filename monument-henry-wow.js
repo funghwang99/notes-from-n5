@@ -4,6 +4,7 @@
     if(!mount||!document.querySelector('.henry-two-bodies'))return false;
     if(body.classList.contains('henry-wow'))return true;
     body.classList.add('henry-wow');
+    const eyebrow=document.querySelector('.henry-hero .eyebrow');if(eyebrow)eyebrow.textContent='Tượng Đài · Arsenal · Thierry Henry';
     const hero=document.querySelector('.henry-hero'),opening=document.querySelector('.henry-opening'),ret=document.querySelector('.henry-return'),kingdom=document.querySelector('.henry-kingdom'),farewell=document.querySelector('.henry-farewell'),two=document.querySelector('.henry-two-bodies');
     const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
     const prog=(el)=>{if(!el)return 0;const r=el.getBoundingClientRect();return clamp((innerHeight-r.top)/(r.height+innerHeight));};
