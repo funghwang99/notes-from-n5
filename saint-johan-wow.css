@@ -1,0 +1,448 @@
+:root{
+  --cruyff-electric:#ff7a22;
+  --cruyff-ghost:rgba(242,239,230,.12);
+}
+
+.cruyff-page.cruyff-wow{background:#050504}
+.cruyff-page.cruyff-wow::selection{background:var(--cruyff-orange);color:#0b0b09}
+
+/* Persistent coordinate rail: the article now behaves like one system, not isolated panels. */
+.cruyff-coordinate-rail{
+  position:fixed;
+  z-index:42;
+  top:50%;
+  left:clamp(.55rem,1.3vw,1.35rem);
+  display:grid;
+  gap:.7rem;
+  transform:translateY(-50%);
+  pointer-events:none;
+  mix-blend-mode:difference;
+}
+.cruyff-coordinate-rail::before{
+  position:absolute;
+  top:-1.2rem;
+  bottom:-1.2rem;
+  left:.18rem;
+  width:1px;
+  background:rgba(255,255,255,.22);
+  content:"";
+}
+.cruyff-coordinate-item{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  color:rgba(255,255,255,.38);
+  font-size:.47rem;
+  font-weight:780;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  transition:color .3s ease,transform .3s ease;
+}
+.cruyff-coordinate-item::before{
+  position:relative;
+  z-index:1;
+  width:.38rem;
+  height:.38rem;
+  border:1px solid currentColor;
+  border-radius:50%;
+  background:#000;
+  content:"";
+}
+.cruyff-coordinate-item.is-active{color:#fff;transform:translateX(.22rem)}
+.cruyff-coordinate-item.is-active::before{background:var(--cruyff-orange);border-color:var(--cruyff-orange);box-shadow:0 0 0 .24rem rgba(238,107,32,.16)}
+
+/* HERO — movement is now spatial, not decorative. */
+.cruyff-wow .cruyff-hero{min-height:112svh;background:#050504}
+.cruyff-wow .cruyff-hero::before{
+  position:absolute;
+  z-index:0;
+  inset:0;
+  background:linear-gradient(115deg,rgba(238,107,32,.13),transparent 25%,transparent 72%,rgba(238,107,32,.06));
+  content:"";
+  pointer-events:none;
+}
+.cruyff-wow .cruyff-hero-media{clip-path:polygon(20% 0,100% 0,100% 100%,0 100%)}
+.cruyff-wow .cruyff-hero-media img{
+  opacity:.9;
+  transform:scale(calc(1.055 + var(--hero-p,0)*.055)) translate3d(calc(var(--hero-p,0)*-2.5vw),calc(var(--hero-p,0)*2vh),0);
+  filter:grayscale(1) contrast(1.18) brightness(.82);
+}
+.cruyff-wow .cruyff-hero-grid{
+  opacity:.32;
+  background-size:clamp(3rem,5.8vw,6.4rem) clamp(3rem,5.8vw,6.4rem);
+}
+.cruyff-wow .cruyff-hero-fourteen{
+  top:4vh;
+  left:-.09em;
+  font-size:clamp(23rem,50vw,54rem);
+  -webkit-text-stroke:1px rgba(242,239,230,.21);
+  transform:translate3d(calc(var(--hero-p,0)*-3vw),calc(var(--hero-p,0)*5vh),0);
+}
+.cruyff-wow .cruyff-hero-copy{padding-bottom:clamp(5rem,11vh,9rem)}
+.cruyff-wow .cruyff-hero-copy h1{
+  font-size:clamp(6rem,15vw,14.5rem);
+  text-shadow:0 1.1rem 4rem rgba(0,0,0,.32);
+}
+.cruyff-wow .cruyff-hero-copy h1 em{filter:drop-shadow(0 0 2rem rgba(238,107,32,.12))}
+.cruyff-hero-hud{
+  position:absolute;
+  z-index:3;
+  top:7.2rem;
+  right:clamp(1.3rem,4vw,4rem);
+  display:grid;
+  width:min(20rem,34vw);
+  grid-template-columns:1fr auto;
+  gap:.55rem 1rem;
+  padding:1rem 0;
+  border-top:1px solid rgba(242,239,230,.25);
+  border-bottom:1px solid rgba(242,239,230,.12);
+  color:rgba(242,239,230,.58);
+  font-size:.51rem;
+  font-weight:760;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.cruyff-hero-hud b{color:var(--cruyff-orange);font-weight:820}
+.cruyff-hero-vector{
+  position:absolute;
+  z-index:2;
+  top:0;
+  left:46%;
+  width:1px;
+  height:100%;
+  background:linear-gradient(transparent,rgba(238,107,32,.7) 18%,rgba(238,107,32,.15) 70%,transparent);
+  transform:rotate(12deg) translateX(calc(var(--hero-p,0)*8vw));
+  transform-origin:top;
+  opacity:.68;
+}
+.cruyff-hero-vector::before,.cruyff-hero-vector::after{
+  position:absolute;
+  left:50%;
+  width:.5rem;
+  height:.5rem;
+  border:1px solid var(--cruyff-orange);
+  border-radius:50%;
+  background:#050504;
+  content:"";
+  transform:translate(-50%,-50%);
+}
+.cruyff-hero-vector::before{top:28%}.cruyff-hero-vector::after{top:68%}
+
+/* THE FOURTEENTH MINUTE — sixty seconds now physically surround 14:00. */
+.cruyff-wow .cruyff-pause{min-height:126svh;background:#020202}
+.cruyff-wow .cruyff-pause::after{
+  position:absolute;
+  z-index:0;
+  right:-.05em;
+  bottom:-.14em;
+  color:rgba(255,255,255,.025);
+  font:850 clamp(13rem,38vw,40rem)/.72 var(--sans);
+  letter-spacing:-.13em;
+  content:"14";
+  pointer-events:none;
+}
+.cruyff-wow .cruyff-pause-clock{z-index:3;filter:drop-shadow(0 0 3rem rgba(238,107,32,.08))}
+.cruyff-applause-ring{
+  position:absolute;
+  z-index:1;
+  top:50%;
+  left:28%;
+  width:min(48vw,38rem);
+  aspect-ratio:1;
+  border:1px solid rgba(242,239,230,.08);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.cruyff-applause-ring i{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:1px;
+  height:clamp(.65rem,1.3vw,1rem);
+  background:rgba(242,239,230,.18);
+  transform:translate(-50%,-50%) rotate(var(--tick)) translateY(calc(min(24vw,19rem)*-1));
+  transform-origin:center calc(min(24vw,19rem) + 50%);
+  transition:background .3s ease,box-shadow .3s ease;
+}
+.cruyff-pause.is-active .cruyff-applause-ring i{
+  animation:cruyff-applause 1.2s ease both;
+  animation-delay:calc(var(--i)*12ms);
+}
+@keyframes cruyff-applause{
+  0%{background:rgba(242,239,230,.12);box-shadow:none}
+  48%{background:var(--cruyff-orange);box-shadow:0 0 .8rem rgba(238,107,32,.65)}
+  100%{background:rgba(242,239,230,.22);box-shadow:none}
+}
+.cruyff-pause-caption{
+  position:absolute;
+  z-index:3;
+  left:clamp(1.3rem,7vw,7rem);
+  bottom:3rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  color:rgba(242,239,230,.42);
+  font-size:.5rem;
+  font-weight:760;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.cruyff-pause-caption::before{width:3rem;height:1px;background:var(--cruyff-orange);content:""}
+.cruyff-wow .cruyff-pause.is-active .cruyff-pause-copy{transform:translateX(0);opacity:1}
+
+/* AJAX — the pitch stays; positions refuse to. */
+.cruyff-wow .cruyff-field-section{
+  display:block;
+  min-height:230svh;
+  padding:0 clamp(1.3rem,5vw,5rem);
+  background:#0b2d22;
+}
+.cruyff-wow .cruyff-field{
+  position:sticky;
+  z-index:0;
+  top:7svh;
+  inset:auto;
+  width:100%;
+  height:86svh;
+  margin:0;
+  border-color:rgba(242,239,230,.36);
+  background:
+    radial-gradient(circle at calc(42% + var(--field-p,0)*12%) calc(43% + var(--field-p,0)*8%),rgba(238,107,32,.18),transparent 15rem),
+    linear-gradient(90deg,rgba(255,255,255,.015),transparent);
+  box-shadow:inset 0 0 9rem rgba(0,0,0,.22);
+}
+.cruyff-wow .cruyff-field::after{right:33.333%}
+.cruyff-field-route-copy{
+  position:absolute;
+  z-index:1;
+  top:12%;
+  right:3%;
+  display:grid;
+  justify-items:end;
+  color:rgba(242,239,230,.09);
+  font:850 clamp(4rem,10vw,10rem)/.75 var(--sans);
+  letter-spacing:-.09em;
+  text-align:right;
+  text-transform:uppercase;
+  pointer-events:none;
+}
+.cruyff-field-route-copy span:nth-child(2){color:rgba(238,107,32,.16);transform:translateX(-6vw)}
+.cruyff-field-route-copy span:nth-child(3){transform:translateX(-2vw)}
+.cruyff-wow .cruyff-field-copy{
+  position:absolute;
+  z-index:5;
+  top:24svh;
+  left:clamp(2.1rem,7vw,7rem);
+  width:min(44rem,48vw);
+  background:rgba(5,19,14,.88);
+  box-shadow:0 2rem 7rem rgba(0,0,0,.28);
+}
+.cruyff-wow .cruyff-field-photo{
+  position:absolute;
+  z-index:4;
+  right:clamp(2rem,6vw,6rem);
+  bottom:10svh;
+  width:min(34rem,36vw);
+  transform:rotate(2deg);
+  box-shadow:0 2rem 7rem rgba(0,0,0,.3);
+}
+.cruyff-wow .cruyff-node{box-shadow:0 0 0 .42rem rgba(242,239,230,.08),0 0 1.4rem rgba(242,239,230,.08)}
+.cruyff-wow .cruyff-node--14{
+  width:3.2rem;
+  height:3.2rem;
+  box-shadow:0 0 0 .6rem rgba(238,107,32,.1),0 0 3rem rgba(238,107,32,.22);
+}
+
+/* 1974 — a hard orange rupture. */
+.cruyff-wow .cruyff-seventy-four{min-height:140svh;isolation:isolate}
+.cruyff-wow .cruyff-seventy-four::before{
+  position:absolute;
+  z-index:0;
+  top:0;
+  right:-18%;
+  width:55%;
+  height:100%;
+  background:#11100d;
+  content:"";
+  transform:skewX(-10deg) translateX(calc(var(--seventy-four-p,0)*8%));
+  transform-origin:top;
+}
+.cruyff-wow .cruyff-74-number{font-size:clamp(25rem,58vw,60rem);color:rgba(20,17,13,.09)}
+.cruyff-74-score{
+  position:absolute;
+  z-index:4;
+  top:clamp(6rem,10vh,8rem);
+  right:clamp(1.4rem,5vw,5rem);
+  display:grid;
+  grid-template-columns:auto auto auto;
+  align-items:baseline;
+  gap:.65rem;
+  color:#f3ede1;
+  font-size:.58rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.cruyff-74-score b{color:var(--cruyff-orange);font:850 clamp(2.8rem,6vw,5.8rem)/.8 var(--sans);letter-spacing:-.11em}
+.cruyff-wow .cruyff-74-photo{transform:translateY(calc((var(--seventy-four-p,0) - .5)*5vh)) rotate(-1.5deg)}
+
+/* BARCELONA — player becomes coach, coach becomes an idea. */
+.cruyff-wow .cruyff-barcelona{min-height:165svh;background:#090909}
+.cruyff-barca-axis{
+  position:absolute;
+  z-index:4;
+  top:5.5rem;
+  right:clamp(1.3rem,6vw,6rem);
+  left:clamp(1.3rem,6vw,6rem);
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  align-items:center;
+  color:rgba(242,239,230,.42);
+  font-size:.53rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.cruyff-barca-axis::before{
+  position:absolute;
+  top:50%;
+  right:0;
+  left:0;
+  height:1px;
+  background:rgba(242,239,230,.15);
+  content:"";
+}
+.cruyff-barca-axis::after{
+  position:absolute;
+  top:50%;
+  left:0;
+  width:calc(var(--barca-p,0)*100%);
+  height:1px;
+  background:linear-gradient(90deg,var(--cruyff-blue),var(--cruyff-orange));
+  box-shadow:0 0 1.4rem rgba(238,107,32,.24);
+  content:"";
+}
+.cruyff-barca-axis span{position:relative;z-index:1;width:max-content;padding:.35rem .55rem;background:#090909;border:1px solid rgba(242,239,230,.14)}
+.cruyff-barca-axis span:nth-child(2){justify-self:center}.cruyff-barca-axis span:nth-child(3){justify-self:end;color:var(--cruyff-orange)}
+.cruyff-wow .cruyff-barca-stripes{opacity:calc(.08 + var(--barca-p,0)*.16)}
+.cruyff-wow .cruyff-barca-photo{transform:scale(calc(.96 + var(--barca-p,0)*.06)) rotate(calc((var(--barca-p,0) - .5)*1.2deg))}
+
+/* AFTER — ideas continue moving after the feet stop. */
+.cruyff-wow .cruyff-after-word{transform:translateX(calc((var(--after-p,0) - .5)*var(--after-dir,1)*11vw))}
+.cruyff-wow .cruyff-after-word--one{--after-dir:1}.cruyff-wow .cruyff-after-word--two{--after-dir:-1}.cruyff-wow .cruyff-after-word--three{--after-dir:1}
+.cruyff-wow .cruyff-after-copy{box-shadow:0 2rem 6rem rgba(31,28,21,.12)}
+
+/* SAINT JOHAN — the page is literally cut into football before and after. */
+.cruyff-wow .cruyff-saint{min-height:150svh;background:#050504}
+.cruyff-boundary{
+  position:absolute;
+  z-index:1;
+  inset:0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  pointer-events:none;
+}
+.cruyff-boundary::after{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:50%;
+  width:1px;
+  background:linear-gradient(transparent,var(--cruyff-orange) 18%,var(--cruyff-orange) 82%,transparent);
+  box-shadow:0 0 2rem rgba(238,107,32,.32);
+  content:"";
+  transform:translateX(calc((var(--saint-p,0) - .5)*12vw));
+}
+.cruyff-boundary span{
+  display:grid;
+  place-items:center;
+  color:rgba(242,239,230,.05);
+  font:850 clamp(6rem,16vw,17rem)/.72 var(--sans);
+  letter-spacing:-.09em;
+  writing-mode:vertical-rl;
+  text-transform:uppercase;
+}
+.cruyff-boundary span:first-child{transform:rotate(180deg)}
+.cruyff-boundary span:last-child{color:rgba(238,107,32,.08)}
+.cruyff-wow .cruyff-saint-halo{
+  width:min(72vw,58rem);
+  border-color:rgba(238,107,32,.5);
+  box-shadow:0 0 0 5rem rgba(238,107,32,.018),0 0 0 12rem rgba(238,107,32,.012),0 0 7rem rgba(238,107,32,.08);
+  transform:translate(-50%,-50%) scale(calc(.88 + var(--saint-p,0)*.18));
+}
+.cruyff-wow .cruyff-saint-copy{max-width:58rem;background:rgba(5,5,4,.82);backdrop-filter:blur(8px)}
+.cruyff-thesis{
+  display:block;
+  margin-top:2.4rem;
+  padding:2rem 0 0;
+  border-top:1px solid rgba(238,107,32,.55);
+  color:#fff;
+  font-size:clamp(1.45rem,2.5vw,2.35rem);
+  line-height:1.42;
+  letter-spacing:-.035em;
+}
+
+/* FINAL 14:00 — the whole system empties out. */
+.cruyff-wow .cruyff-pause--closing{min-height:155svh;background:#000}
+.cruyff-wow .cruyff-pause--closing::before{background:radial-gradient(circle at 28% 50%,rgba(238,107,32,.1),transparent 19%)}
+.cruyff-wow .cruyff-pause--closing .cruyff-pause-clock{font-size:clamp(11rem,30vw,30rem)}
+.cruyff-wow .cruyff-final-line{
+  margin-top:3rem!important;
+  padding-top:2.5rem;
+  font-size:clamp(1.35rem,2vw,1.8rem)!important;
+  line-height:1.6!important;
+}
+.cruyff-wow .cruyff-final-line strong{font-size:1.1em;text-shadow:0 0 2rem rgba(238,107,32,.25)}
+.cruyff-silence{
+  position:absolute;
+  z-index:1;
+  inset:0;
+  background:#000;
+  opacity:calc(var(--closing-p,0)*.33);
+  pointer-events:none;
+}
+
+@media(max-width:980px){
+  .cruyff-coordinate-rail{display:none}
+  .cruyff-hero-hud{top:auto;right:1.2rem;bottom:1.2rem;width:min(22rem,66vw)}
+  .cruyff-hero-vector{left:66%}
+  .cruyff-applause-ring{left:50%;width:min(75vw,34rem);opacity:.55}
+  .cruyff-wow .cruyff-field-section{min-height:auto;padding:7rem 1.2rem}
+  .cruyff-wow .cruyff-field{position:absolute;top:2rem;right:1rem;bottom:2rem;left:1rem;width:auto;height:auto;opacity:.52}
+  .cruyff-field-route-copy{top:4rem;right:1rem;font-size:clamp(3rem,13vw,7rem)}
+  .cruyff-wow .cruyff-field-copy{position:relative;top:auto;left:auto;width:100%;margin:0 0 3rem}
+  .cruyff-wow .cruyff-field-photo{position:relative;right:auto;bottom:auto;width:min(36rem,88vw);margin-left:auto}
+  .cruyff-barca-axis{top:2.5rem}
+  .cruyff-boundary span{font-size:clamp(4rem,22vw,9rem)}
+}
+
+@media(max-width:650px){
+  .cruyff-wow .cruyff-hero{min-height:108svh}
+  .cruyff-wow .cruyff-hero-media{clip-path:none;opacity:.58}
+  .cruyff-wow .cruyff-hero-copy h1{font-size:clamp(5rem,25vw,7.6rem)}
+  .cruyff-hero-hud{display:none}
+  .cruyff-hero-vector{opacity:.4}
+  .cruyff-applause-ring{width:82vw}
+  .cruyff-pause-caption{left:1.2rem;bottom:1.4rem}
+  .cruyff-wow .cruyff-field-section{padding:6rem 1.2rem}
+  .cruyff-field-route-copy{opacity:.65}
+  .cruyff-wow .cruyff-field-copy{padding:1.35rem;background:rgba(5,19,14,.93)}
+  .cruyff-wow .cruyff-field-photo{width:100%;transform:none}
+  .cruyff-barca-axis{right:1rem;left:1rem;font-size:.43rem}
+  .cruyff-boundary{grid-template-columns:.8fr 1.2fr}
+  .cruyff-wow .cruyff-saint-copy{padding:1.35rem}
+  .cruyff-thesis{font-size:1.35rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .cruyff-applause-ring i{animation:none!important}
+  .cruyff-wow .cruyff-hero-media img,
+  .cruyff-wow .cruyff-hero-fourteen,
+  .cruyff-wow .cruyff-74-photo,
+  .cruyff-wow .cruyff-barca-photo,
+  .cruyff-wow .cruyff-after-word,
+  .cruyff-wow .cruyff-saint-halo,
+  .cruyff-boundary::after{transform:none!important}
+}
