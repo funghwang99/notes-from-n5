@@ -1,5 +1,6 @@
 (() => {
   const body=document.body;if(!body.classList.contains('layout-theseus')||body.classList.contains('adams-wow'))return;body.classList.add('adams-wow');
+  const eyebrow=document.querySelector('.article-hero .eyebrow');if(eyebrow)eyebrow.textContent='Tượng Đài · Arsenal · Tony Adams';
   const hero=document.querySelector('.article-hero'),prologue=document.querySelector('.theseus-prologue'),steel=document.querySelector('.theseus-section--steel'),wind=document.querySelector('.theseus-section--new-wind'),below=document.querySelector('.theseus-section--below-deck'),turn=document.querySelector('.theseus-section--turn'),name=document.querySelector('.theseus-section--name');
   const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const prog=(el)=>{if(!el)return 0;const r=el.getBoundingClientRect();return clamp((innerHeight-r.top)/(r.height+innerHeight));};
