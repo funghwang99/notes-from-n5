@@ -1,0 +1,20 @@
+(() => {
+  const boot = () => {
+    const body = document.body;
+    const root = document.querySelector('[data-bergkamp-article]');
+    if (!root || !document.querySelector('.bergkamp-coda')) return false;
+    if (body.classList.contains('bergkamp-wow')) return true;
+    body.classList.add('bergkamp-wow');
+    const hero=document.querySelector('.bergkamp-hero'),match=document.querySelector('.bergkamp-match'),touches=document.querySelector('.bergkamp-three-touches'),method=document.querySelector('.bergkamp-method'),coda=document.querySelector('.bergkamp-coda');
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+    const prog=(el)=>{if(!el)return 0;const r=el.getBoundingClientRect();return clamp((innerHeight-r.top)/(r.height+innerHeight));};
+    if(hero){const hud=document.createElement('div');hud.className='bergkamp-frame-minus';hud.setAttribute('aria-hidden','true');hud.innerHTML='<span>FRAME</span><strong>-00.8s</strong><span>DECISION</span><strong>LOCKED</strong><span>TOUCH</span><strong>PENDING</strong>';const ghost=document.createElement('div');ghost.className='bergkamp-future-ghost';ghost.setAttribute('aria-hidden','true');ghost.textContent='10';hero.append(hud,ghost);}
+    const rail=document.createElement('aside');rail.className='bergkamp-future-rail';rail.setAttribute('aria-hidden','true');[['BEFORE','.bergkamp-opening'],['DECIDE','.bergkamp-match'],['TOUCH','.bergkamp-three-touches'],['SEE','.bergkamp-method'],['ARSENAL','.bergkamp-arsenal'],['LEGACY','.bergkamp-legacy'],['ENDGAME','.bergkamp-coda']].forEach(([label,selector])=>{const s=document.createElement('span');s.textContent=label;s.dataset.target=selector;rail.append(s);const t=document.querySelector(selector);if(t&&'IntersectionObserver'in window)new IntersectionObserver(([e])=>{if(e.isIntersecting)[...rail.children].forEach(x=>x.classList.toggle('is-active',x===s));},{rootMargin:'-38% 0px -38% 0px'}).observe(t);});body.append(rail);
+    if(match){const board=document.createElement('div');board.className='bergkamp-prevision';board.setAttribute('aria-hidden','true');board.innerHTML='<span class="bk-route"></span><span class="bk-ball"></span><span class="bk-dennis">10</span><span class="bk-defender">D</span><div class="bk-decision"><span><b>01</b> SEE</span><span><b>02</b> DECIDE</span><span><b>03</b> TOUCH</span></div>';match.prepend(board);}
+    if(method){const c=document.createElement('div');c.className='bergkamp-pass-corridors';c.setAttribute('aria-hidden','true');c.innerHTML='<i></i><i></i><i></i>';method.prepend(c);}
+    if(coda){const b=document.createElement('div');b.className='bergkamp-final-board';b.setAttribute('aria-hidden','true');for(let i=0;i<64;i++)b.append(document.createElement('i'));coda.prepend(b);}
+    let ticking=false;const update=()=>{ticking=false;const hp=prog(hero),mp=prog(match),tp=prog(touches),cp=prog(coda);hero?.style.setProperty('--bk-hero-p',hp.toFixed(3));match?.style.setProperty('--bk-match-p',mp.toFixed(3));touches?.style.setProperty('--bk-touches-p',tp.toFixed(3));coda?.style.setProperty('--bk-coda-p',cp.toFixed(3));if(!reduce&&match){const d=match.querySelector('.bk-dennis'),b=match.querySelector('.bk-ball'),f=match.querySelector('.bk-defender');if(d){d.style.left=`${42+Math.sin(mp*Math.PI)*17}%`;d.style.top=`${50-Math.sin(mp*Math.PI*1.2)*12}%`;}if(b){b.style.left=`${27+mp*40}%`;b.style.top=`${50-Math.sin(mp*Math.PI)*15}%`;}if(f)f.style.transform=`translate(-50%,-50%) rotate(${mp*48}deg)`;}};const req=()=>{if(ticking)return;ticking=true;requestAnimationFrame(update);};update();addEventListener('scroll',req,{passive:true});addEventListener('resize',req);return true;
+  };
+  if(boot())return;const obs=new MutationObserver(()=>{if(boot())obs.disconnect();});obs.observe(document.documentElement,{childList:true,subtree:true});setTimeout(()=>obs.disconnect(),8000);
+})();
