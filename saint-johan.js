@@ -2,16 +2,31 @@
   const body = document.body;
   body.classList.add('cruyff-wow');
 
+  const compatibilityStyle = document.createElement('style');
+  compatibilityStyle.textContent = `
+    .cruyff-applause-ring i{position:absolute;inset:0;width:auto;height:auto;background:none;transform:rotate(var(--tick));transform-origin:center center}
+    .cruyff-applause-ring i::before{position:absolute;top:-.5rem;left:50%;width:1px;height:1rem;background:rgba(242,239,230,.18);content:"";transform:translateX(-50%)}
+    .cruyff-pause.is-active .cruyff-applause-ring i{animation:none}
+    .cruyff-pause.is-active .cruyff-applause-ring i::before{animation:cruyff-applause 1.2s ease both;animation-delay:calc(var(--i) * 12ms)}
+  `;
+  document.head.append(compatibilityStyle);
+
   const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clockState = document.querySelector('[data-cruyff-clock-state]');
   const pauses = Array.from(document.querySelectorAll('[data-cruyff-pause]'));
   const fieldSection = document.querySelector('[data-motion-field]');
   const hero = document.querySelector('.cruyff-hero');
+  const heroImage = document.querySelector('.cruyff-hero-media img');
+  const heroFourteen = document.querySelector('.cruyff-hero-fourteen');
   const seventyFour = document.querySelector('.cruyff-seventy-four');
+  const seventyFourPhoto = document.querySelector('.cruyff-74-photo');
   const barcelona = document.querySelector('.cruyff-barcelona');
+  const barcaPhoto = document.querySelector('.cruyff-barca-photo');
   const after = document.querySelector('.cruyff-after');
+  const afterWords = Array.from(document.querySelectorAll('.cruyff-after-word'));
   const saint = document.querySelector('.cruyff-saint');
+  const saintHalo = document.querySelector('.cruyff-saint-halo');
   const closing = document.querySelector('.cruyff-pause--closing');
 
   const sectionProgress = (section) => {
@@ -60,13 +75,15 @@
 
     if ('IntersectionObserver' in window) {
       const items = Array.from(rail.children);
-      const targets = points.map(([, selector]) => document.querySelector(selector)).filter(Boolean);
-      const observer = new IntersectionObserver((entries) => {
-        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-        items.forEach((item) => item.classList.toggle('is-active', item.dataset.target === `.${visible.target.classList[0]}` || visible.target.matches(item.dataset.target)));
-      }, { rootMargin: '-28% 0px -28% 0px', threshold: [0.05, 0.25, 0.5] });
-      targets.forEach((target) => observer.observe(target));
+      points.forEach(([, selector]) => {
+        const target = document.querySelector(selector);
+        if (!target) return;
+        const observer = new IntersectionObserver(([entry]) => {
+          if (!entry.isIntersecting) return;
+          items.forEach((item) => item.classList.toggle('is-active', item.dataset.target === selector));
+        }, { rootMargin: '-38% 0px -38% 0px', threshold: 0 });
+        observer.observe(target);
+      });
     }
   };
 
@@ -138,13 +155,11 @@
     const text = paragraph.textContent;
     const index = text.indexOf(target);
     if (index < 0) return;
-    const before = text.slice(0, index);
-    const afterText = text.slice(index + target.length);
-    paragraph.textContent = before;
+    paragraph.textContent = text.slice(0, index);
     const thesis = document.createElement('span');
     thesis.className = 'cruyff-thesis';
     thesis.textContent = target;
-    paragraph.append(thesis, document.createTextNode(afterText));
+    paragraph.append(thesis, document.createTextNode(text.slice(index + target.length)));
   };
 
   addHeroSystem();
@@ -154,6 +169,8 @@
   addSeventyFourScore();
   addBarcelonaAxis();
   enhanceSaintThesis();
+
+  const boundaryLine = saint?.querySelector('.cruyff-boundary');
 
   const setPauseState = (active) => {
     body.classList.toggle('is-fourteen', active);
@@ -182,7 +199,6 @@
   let ticking = false;
   const update = () => {
     ticking = false;
-
     const heroP = sectionProgress(hero);
     const fieldP = sectionProgress(fieldSection);
     const p74 = sectionProgress(seventyFour);
@@ -199,7 +215,23 @@
     if (saint) saint.style.setProperty('--saint-p', saintP.toFixed(3));
     if (closing) closing.style.setProperty('--closing-p', closingP.toFixed(3));
 
-    if (!reduceMotion && fieldSection) {
+    if (!reduceMotion) {
+      if (heroImage) heroImage.style.transform = `scale(${1.055 + heroP * .055}) translate3d(${-heroP * 2.5}vw,${heroP * 2}vh,0)`;
+      if (heroFourteen) heroFourteen.style.transform = `translate3d(${-heroP * 3}vw,${heroP * 5}vh,0)`;
+      if (seventyFourPhoto) seventyFourPhoto.style.transform = `translateY(${(p74 - .5) * 5}vh) rotate(-1.5deg)`;
+      if (barcaPhoto) barcaPhoto.style.transform = `scale(${.96 + barcaP * .06}) rotate(${(barcaP - .5) * 1.2}deg)`;
+      afterWords.forEach((word, index) => {
+        const direction = index === 1 ? -1 : 1;
+        word.style.transform = `translateX(${(afterP - .5) * direction * 11}vw)`;
+      });
+      if (saintHalo) saintHalo.style.transform = `translate(-50%,-50%) scale(${.88 + saintP * .18})`;
+      if (boundaryLine) {
+        const seam = boundaryLine;
+        seam.style.setProperty('--seam-shift', `${(saintP - .5) * 12}vw`);
+      }
+    }
+
+    if (fieldSection && !reduceMotion) {
       fieldSection.querySelectorAll('.cruyff-node').forEach((node, index) => {
         const dx = Number(node.dataset.dx || 0);
         const dy = Number(node.dataset.dy || 0);
@@ -209,7 +241,7 @@
         const x = dx * (local - .44) + Math.sin(phase * 2.1 + index) * 28;
         const y = dy * Math.sin(phase) + Math.cos(phase * 1.7 + index) * 18;
         const rotation = Math.sin(phase + index) * 12;
-        node.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotation}deg)`;
+        node.style.transform = `translate3d(${x}px,${y}px,0) rotate(${rotation}deg)`;
         node.style.opacity = String(.42 + local * .58);
       });
     }
