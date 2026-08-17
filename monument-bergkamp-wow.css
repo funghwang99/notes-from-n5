@@ -1,0 +1,48 @@
+:root{--bk-ink:#0a0b0d;--bk-paper:#f1eee6;--bk-gold:#d7a84d;--bk-blue:#6aa6c8;--bk-red:#cc4b42}
+.layout-bergkamp.bergkamp-wow{background:var(--bk-ink);color:var(--bk-paper);overflow-x:hidden}
+.layout-bergkamp.bergkamp-wow .reading-progress{background:var(--bk-gold)}
+.bergkamp-future-rail{position:fixed;z-index:45;top:50%;right:clamp(.6rem,1.5vw,1.5rem);display:grid;gap:.65rem;transform:translateY(-50%);pointer-events:none;mix-blend-mode:difference}
+.bergkamp-future-rail span{display:flex;align-items:center;justify-content:flex-end;gap:.5rem;color:rgba(255,255,255,.34);font-size:.48rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;transition:.3s ease}
+.bergkamp-future-rail span::after{width:.45rem;height:.45rem;border:1px solid currentColor;border-radius:50%;content:""}
+.bergkamp-future-rail span.is-active{color:#fff;transform:translateX(-.25rem)}
+.bergkamp-future-rail span.is-active::after{background:var(--bk-gold);border-color:var(--bk-gold);box-shadow:0 0 0 .25rem rgba(215,168,77,.14)}
+.bergkamp-wow .bergkamp-hero{min-height:112svh;position:relative;overflow:hidden;isolation:isolate}
+.bergkamp-wow .bergkamp-hero::before{position:absolute;inset:0;background:linear-gradient(115deg,#0a0b0d 0%,rgba(10,11,13,.83) 45%,rgba(10,11,13,.08) 100%);content:"";z-index:-1}
+.bergkamp-wow .bergkamp-board{opacity:.22;transform:perspective(1000px) rotateX(62deg) translateY(calc(var(--bk-hero-p,0)*5vh));transform-origin:center bottom}
+.bergkamp-wow .bergkamp-hero-copy{position:relative;z-index:3}
+.bergkamp-wow .bergkamp-hero-copy h1{font-size:clamp(4.8rem,12vw,11.8rem);line-height:.78;letter-spacing:-.075em}
+.bergkamp-frame-minus{position:absolute;z-index:4;top:8rem;right:clamp(1rem,4vw,4rem);display:grid;width:min(23rem,38vw);grid-template-columns:auto 1fr;gap:.65rem 1rem;padding:1.1rem 0;border-top:1px solid rgba(241,238,230,.28);border-bottom:1px solid rgba(241,238,230,.12);font-size:.52rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:rgba(241,238,230,.5)}
+.bergkamp-frame-minus strong{color:var(--bk-gold);font-weight:800}
+.bergkamp-future-ghost{position:absolute;z-index:2;right:8vw;bottom:10vh;color:transparent;font:800 clamp(8rem,22vw,23rem)/.7 var(--sans);letter-spacing:-.12em;-webkit-text-stroke:1px rgba(215,168,77,.18);transform:translate3d(calc(var(--bk-hero-p,0)*-4vw),calc(var(--bk-hero-p,0)*-3vh),0);pointer-events:none}
+.bergkamp-wow .bergkamp-opening{position:relative;min-height:105svh;padding-top:12vh}
+.bergkamp-wow .bergkamp-opening::before{position:absolute;top:8vh;left:50%;width:1px;height:78%;background:linear-gradient(var(--bk-gold),rgba(215,168,77,0));content:"";opacity:.28}
+.bergkamp-wow .bergkamp-opening::after{position:absolute;top:12vh;left:calc(50% + 1.2rem);color:rgba(241,238,230,.25);font:800 clamp(5rem,14vw,14rem)/.8 var(--sans);letter-spacing:-.09em;content:"-00.8s";pointer-events:none}
+.bergkamp-wow .bergkamp-match{position:relative;min-height:210svh;padding-top:10vh;background:linear-gradient(#111318,#0a0b0d)}
+.bergkamp-prevision{position:sticky;top:7svh;height:86svh;margin:0 max(1rem,4vw);border:1px solid rgba(241,238,230,.16);overflow:hidden;background:radial-gradient(circle at 50% 50%,rgba(215,168,77,.08),transparent 28%),#0b0d10}
+.bergkamp-prevision::before{position:absolute;inset:8%;border:1px solid rgba(241,238,230,.08);content:""}
+.bergkamp-prevision .bk-defender,.bergkamp-prevision .bk-ball,.bergkamp-prevision .bk-dennis{position:absolute;display:grid;place-items:center;border-radius:50%;transform:translate(-50%,-50%)}
+.bergkamp-prevision .bk-defender{top:50%;left:50%;width:3rem;height:3rem;background:#d9d9d4;color:#111;font-size:.55rem;font-weight:850}
+.bergkamp-prevision .bk-ball{top:50%;left:27%;width:1rem;height:1rem;background:var(--bk-paper);box-shadow:0 0 0 .4rem rgba(241,238,230,.07)}
+.bergkamp-prevision .bk-dennis{top:50%;left:42%;width:3.2rem;height:3.2rem;background:var(--bk-gold);color:#111;font-size:.7rem;font-weight:900}
+.bergkamp-prevision .bk-route{position:absolute;top:50%;left:27%;width:50%;height:1px;background:linear-gradient(90deg,var(--bk-blue),var(--bk-gold),var(--bk-red));transform-origin:left center;transform:rotate(calc(-17deg + var(--bk-match-p,0)*34deg));box-shadow:0 0 1.2rem rgba(215,168,77,.25)}
+.bergkamp-prevision .bk-route::after{position:absolute;right:0;top:50%;width:.5rem;height:.5rem;border-top:1px solid var(--bk-red);border-right:1px solid var(--bk-red);content:"";transform:translateY(-50%) rotate(45deg)}
+.bergkamp-prevision .bk-decision{position:absolute;left:7%;bottom:8%;display:flex;gap:1.3rem;color:rgba(241,238,230,.35);font-size:.54rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.bergkamp-prevision .bk-decision b{color:var(--bk-gold)}
+.bergkamp-wow .bergkamp-match>.bergkamp-section-label,.bergkamp-wow .bergkamp-match>p,.bergkamp-wow .bergkamp-match>.bergkamp-quote,.bergkamp-wow .bergkamp-match>.bergkamp-figure{position:relative;z-index:3;width:min(48rem,84vw);margin-left:auto;margin-right:7vw;background:rgba(10,11,13,.83);backdrop-filter:blur(10px)}
+.bergkamp-wow .bergkamp-three-touches{position:relative;background:#ece8de;color:#101114;overflow:hidden}
+.bergkamp-wow .touch-diagram{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:4rem calc(50% - 50vw);width:100vw;border-top:1px solid rgba(15,16,18,.18);border-bottom:1px solid rgba(15,16,18,.18)}
+.bergkamp-wow .touch-diagram>div{min-height:58svh;padding:clamp(2rem,5vw,5rem);display:flex;flex-direction:column;justify-content:flex-end;border-right:1px solid rgba(15,16,18,.14);background:linear-gradient(180deg,transparent,rgba(215,168,77,.08));transform:translateY(calc((.5 - var(--bk-touches-p,0))*var(--offset,0)*10vh))}
+.bergkamp-wow .touch-diagram>div:nth-child(1){--offset:-1}.bergkamp-wow .touch-diagram>div:nth-child(2){--offset:1}.bergkamp-wow .touch-diagram>div:nth-child(3){--offset:-.55}
+.bergkamp-wow .touch-diagram span{font-size:clamp(5rem,12vw,12rem);line-height:.75;color:rgba(15,16,18,.08);font-weight:900;letter-spacing:-.1em}
+.bergkamp-wow .bergkamp-method{position:relative;overflow:hidden;background:#14161a}
+.bergkamp-pass-corridors{position:absolute;inset:0;pointer-events:none;opacity:.65}
+.bergkamp-pass-corridors i{position:absolute;left:-10vw;width:120vw;height:1px;background:linear-gradient(90deg,transparent,rgba(106,166,200,.1),var(--bk-blue),rgba(106,166,200,.1),transparent);transform-origin:center}
+.bergkamp-pass-corridors i:nth-child(1){top:22%;transform:rotate(7deg)}.bergkamp-pass-corridors i:nth-child(2){top:46%;transform:rotate(-5deg)}.bergkamp-pass-corridors i:nth-child(3){top:71%;transform:rotate(11deg)}
+.bergkamp-wow .bergkamp-legacy{position:relative;background:#0d0e11}
+.bergkamp-wow .bergkamp-legacy::before{position:absolute;inset:0;color:rgba(241,238,230,.025);font:900 clamp(10rem,30vw,32rem)/.75 var(--sans);letter-spacing:-.12em;content:"SEE / BEFORE";white-space:pre;pointer-events:none}
+.bergkamp-wow .bergkamp-coda{position:relative;min-height:115svh;display:grid;align-content:center;overflow:hidden;background:#050607}
+.bergkamp-wow .bergkamp-checkmate{width:100%;margin:6rem 0 0;transform:scale(calc(.82 + var(--bk-coda-p,0)*.18));transform-origin:center}
+.bergkamp-final-board{position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);opacity:.11;pointer-events:none}
+.bergkamp-final-board i:nth-child(odd){background:rgba(241,238,230,.22)}
+@media(max-width:850px){.bergkamp-future-rail,.bergkamp-frame-minus{display:none}.bergkamp-wow .bergkamp-match{min-height:auto;padding-bottom:6rem}.bergkamp-prevision{position:relative;top:auto;height:65svh;margin:2rem 1rem}.bergkamp-wow .bergkamp-match>.bergkamp-section-label,.bergkamp-wow .bergkamp-match>p,.bergkamp-wow .bergkamp-match>.bergkamp-quote,.bergkamp-wow .bergkamp-match>.bergkamp-figure{width:auto;margin-left:1.2rem;margin-right:1.2rem}.bergkamp-wow .touch-diagram{grid-template-columns:1fr;margin-left:calc(50% - 50vw)}.bergkamp-wow .touch-diagram>div{min-height:34svh}}
+@media(prefers-reduced-motion:reduce){.bergkamp-wow *{scroll-behavior:auto!important}.bergkamp-wow .touch-diagram>div,.bergkamp-future-ghost{transform:none!important}}
