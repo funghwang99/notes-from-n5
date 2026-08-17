@@ -1,5 +1,6 @@
 (() => {
   const body=document.body;if(!body.classList.contains('layout-wright')||body.classList.contains('wright-wow'))return;body.classList.add('wright-wow');
+  const eyebrow=document.querySelector('.article-hero .eyebrow');if(eyebrow)eyebrow.textContent='Tượng Đài · Arsenal · Ian Wright';
   const hero=document.querySelector('.article-hero'),opening=document.querySelector('.wright-opening'),distance=document.querySelector('.wright-passage--distance'),arsenal=document.querySelector('.wright-passage--arsenal'),seen=document.querySelector('.wright-passage--seen'),coda=document.querySelector('.wright-coda');
   const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const prog=(el)=>{if(!el)return 0;const r=el.getBoundingClientRect();return clamp((innerHeight-r.top)/(r.height+innerHeight));};
