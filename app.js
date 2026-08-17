@@ -1,23 +1,16 @@
 (() => {
-  const loadMonumentExperience = () => {
-    const map = [
-      ['layout-bergkamp', 'monument-bergkamp-wow.js'],
-      ['layout-henry', 'monument-henry-wow.js'],
-      ['layout-wright', 'monument-wright-wow.js'],
-      ['layout-theseus', 'monument-adams-wow.js'],
-    ];
-    const match = map.find(([className]) => document.body.classList.contains(className));
-    if (!match) return;
+  const loadRetirementCleanup = () => {
+    if (!document.querySelector('.archive#archive, .home-collage')) return;
     const script = document.createElement('script');
-    script.src = `${match[1]}?v=20260818-monuments-2`;
+    script.src = 'retire-tuong-dai.js?v=20260818-retire-tuong-dai-2';
     script.defer = true;
     document.head.append(script);
   };
 
   const base = document.createElement('script');
-  base.src = 'app-base.js?v=20260818-monuments-2';
+  base.src = 'app-base.js?v=20260818-retire-tuong-dai-2';
   base.async = false;
-  base.addEventListener('load', loadMonumentExperience, { once:true });
-  base.addEventListener('error', loadMonumentExperience, { once:true });
+  base.addEventListener('load', loadRetirementCleanup, { once:true });
+  base.addEventListener('error', loadRetirementCleanup, { once:true });
   document.head.append(base);
 })();

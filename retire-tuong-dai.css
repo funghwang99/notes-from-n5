@@ -1,0 +1,11 @@
+/* Tượng Đài remains as a taxonomy lane, but its four retired articles are hidden immediately. */
+.archive-entry:has(a[href="the-move-before-the-move.html"]),
+.archive-entry:has(a[href="the-crown-we-all-wore.html"]),
+.archive-entry:has(a[href="the-world-was-late.html"]),
+.archive-entry:has(a[href="the-ship-that-still-knew-its-name.html"]),
+a.home-flow-card[href="the-move-before-the-move.html"],
+a.home-flow-card[href="the-crown-we-all-wore.html"],
+a.home-flow-card[href="the-world-was-late.html"],
+a.home-flow-card[href="the-ship-that-still-knew-its-name.html"],
+a.home-shot[href="the-world-was-late.html"],
+a.home-shot[href="the-ship-that-still-knew-its-name.html"]{display:none!important}
