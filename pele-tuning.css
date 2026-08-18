@@ -1,0 +1,62 @@
+/* O Rei tuning pass — replay motion, Santos pacing, unique Azteca pause */
+
+/* SANTOS — finish the headline before the sticky sequence runs out */
+@media (min-width:901px){.pele-signal-v3 .pele-world-wall{height:185svh}}
+.pele-signal-v3 .pele-world-wall-title{right:5vw;left:5vw;width:auto;max-width:90rem;overflow:visible;font-size:inherit;line-height:1;text-wrap:balance}
+.pele-world-line{display:block;will-change:transform,opacity;opacity:var(--line-opacity,0);transform:translate3d(var(--line-x,0),var(--line-y,0),0);transition:none}
+.pele-world-line--one{color:#d6d2c8;font:900 clamp(2.7rem,6.2vw,6.8rem)/.86 var(--sans);letter-spacing:-.065em}
+.pele-world-line--two,.pele-world-line--three{color:var(--s-gold);font:900 clamp(3rem,6.5vw,7rem)/.84 var(--sans);letter-spacing:-.07em}
+.pele-world-line--three{max-width:max-content}
+.pele-signal-v3 .pele-world-wall-photo{transform:translate(-50%,-42%) scale(var(--world-photo-scale,.9)) rotate(var(--world-photo-rotate,0deg));will-change:transform}
+.pele-signal-v3 .pele-poster{will-change:transform,opacity;opacity:var(--poster-opacity,1)}
+
+/* MEXICO REPLAYS — real motion inside each sticky room */
+.pele-signal-v3 .pele-relic-visual{isolation:isolate;background:radial-gradient(circle at 50% 50%,rgba(229,189,62,.05),transparent 54%),#020302}
+.pele-signal-v3 .pele-relic--mazur .pele-relic-visual{background:radial-gradient(circle at 48% 54%,rgba(35,102,68,.15),transparent 58%),#040a06}
+.pele-replay-svg{position:absolute;z-index:1;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.pele-replay-svg path{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:var(--path-offset,1)}
+.pele-replay-svg .path-main{stroke:rgba(229,189,62,.78);stroke-width:1.5}
+.pele-replay-svg .path-ghost{stroke:rgba(245,239,223,.28);stroke-width:1;stroke-dasharray:.035 .055}
+.pele-replay-svg .path-man{stroke:rgba(245,239,223,.45);stroke-width:1.2}
+.pele-replay-impact{position:absolute;z-index:4;width:3.8rem;height:3.8rem;border:1px solid rgba(229,189,62,.5);border-radius:50%;opacity:var(--impact-opacity,0);transform:translate(-50%,-50%) scale(var(--impact-scale,.55));box-shadow:0 0 0 .65rem rgba(229,189,62,.035),0 0 2.5rem rgba(229,189,62,.12);pointer-events:none}
+.pele-replay-impact:before,.pele-replay-impact:after{position:absolute;top:50%;left:50%;background:rgba(229,189,62,.6);content:"";transform:translate(-50%,-50%)}
+.pele-replay-impact:before{width:5rem;height:1px}.pele-replay-impact:after{width:1px;height:5rem}
+.pele-save-hand{position:absolute;z-index:4;width:4.6rem;height:.6rem;border-radius:999px;background:linear-gradient(90deg,rgba(245,239,223,.12),rgba(245,239,223,.72));opacity:var(--hand-opacity,0);transform:translate(-50%,-50%) rotate(-31deg) scaleX(var(--hand-scale,.7));transform-origin:right center;pointer-events:none}
+.pele-no-touch{position:absolute;z-index:5;padding:.45rem .6rem;border:1px solid rgba(229,189,62,.5);background:rgba(2,4,2,.8);color:var(--s-gold);font:900 .49rem/1 var(--sans);letter-spacing:.18em;opacity:var(--no-touch-opacity,0);transform:translate(-50%,-50%) scale(var(--no-touch-scale,.88));pointer-events:none}
+.pele-keeper-dot{position:absolute;z-index:4;width:2.15rem;height:2.15rem;border:1px solid rgba(245,239,223,.38);border-radius:50%;background:rgba(2,4,2,.72);opacity:var(--keeper-opacity,.7);transform:translate3d(var(--keeper-x,0),var(--keeper-y,0),0);pointer-events:none}
+.pele-keeper-dot:after{position:absolute;inset:50% auto auto 50%;width:.45rem;height:.45rem;border-radius:50%;background:rgba(245,239,223,.72);content:"";transform:translate(-50%,-50%)}
+.pele-signal-v3 .pele-relic--banks .pele-relic-ball{right:auto!important;top:0!important;left:0!important;transform:translate3d(var(--save-x,0),var(--save-y,0),0) scale(var(--save-scale,1))!important;will-change:transform}
+.pele-signal-v3 .pele-relic--mazur .pele-run-ball{top:0!important;bottom:auto!important;left:0!important;transform:translate3d(var(--maz-ball-x,0),var(--maz-ball-y,0),0) scale(var(--maz-ball-scale,1))!important;will-change:transform}
+.pele-signal-v3 .pele-relic--mazur .pele-run-man{top:0!important;bottom:auto!important;left:0!important;transform:translate3d(var(--maz-man-x,0),var(--maz-man-y,0),0)!important;will-change:transform}
+.pele-signal-v3 .pele-relic-number{transform:translate3d(0,var(--relic-number-y,0),0);will-change:transform}
+
+/* AZTECA — remove the Beckenbauer-like pass diagram */
+.pele-signal-v3 .pele-final-pass{display:none!important}
+.pele-pause-act{position:relative;z-index:4;height:155svh;margin:7rem 0 5rem;background:#080a06;color:#f5efdf;box-shadow:0 4rem 9rem rgba(15,20,11,.24);overflow:clip}
+.pele-pause-sticky{position:sticky;top:0;display:grid;height:100svh;grid-template-rows:auto 1fr auto;overflow:hidden;padding:clamp(5rem,8vw,7rem) clamp(1.5rem,7vw,7rem);background:radial-gradient(circle at 72% 38%,rgba(229,189,62,.12),transparent 28%),#080a06}
+.pele-pause-sticky:before{position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.024) 0 1px,transparent 1px 4px);content:"";opacity:.35;pointer-events:none}
+.pele-pause-top{position:relative;z-index:3;display:flex;justify-content:space-between;gap:1rem;color:#8f9187;font:850 .55rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.pele-pause-top strong{color:var(--s-gold)}
+.pele-pause-center{position:relative;z-index:3;display:grid;align-content:center;justify-items:start;max-width:78rem}
+.pele-pause-clock{margin:0 0 1.2rem;color:rgba(245,239,223,.14);font:900 clamp(5rem,15vw,16rem)/.62 var(--sans);letter-spacing:-.085em;transform:translate3d(var(--pause-clock-x,0),0,0);white-space:nowrap}
+.pele-pause-title{margin:0;color:#f5efdf;font:500 clamp(4rem,9.7vw,10rem)/.88 var(--serif);letter-spacing:-.065em;transform:translate3d(0,var(--pause-title-y,0),0);opacity:var(--pause-title-opacity,1)}
+.pele-pause-title span{display:block;color:var(--s-gold)}
+.pele-pause-note{max-width:36rem;margin:1.7rem 0 0;color:#cfc8ba;font:500 clamp(1.05rem,1.45vw,1.3rem)/1.65 var(--serif);opacity:var(--pause-note-opacity,.6)}
+.pele-pause-steps{position:relative;z-index:3;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;color:#73756d;font:850 .56rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.pele-pause-step{padding-top:.8rem;border-top:1px solid rgba(245,239,223,.15);transition:none}
+.pele-pause-step.is-active{border-top-color:var(--s-gold);color:var(--s-gold)}
+.pele-pause-shutter{position:absolute;z-index:2;top:0;bottom:0;left:0;width:var(--pause-sweep,0%);background:linear-gradient(90deg,rgba(35,102,68,.5),rgba(229,189,62,.1));mix-blend-mode:screen;opacity:.38;pointer-events:none}
+.pele-pause-play{position:absolute;z-index:4;right:6vw;bottom:15vh;padding:.6rem .75rem;border:1px solid rgba(229,189,62,.5);color:var(--s-gold);font:900 .56rem/1 var(--sans);letter-spacing:.19em;opacity:var(--pause-play,0);transform:translateY(var(--pause-play-y,1rem));text-transform:uppercase}
+
+@media(max-width:900px){
+  .pele-signal-v3 .pele-world-wall-title{right:1.3rem;left:1.3rem}.pele-world-line--one{font-size:clamp(2.35rem,10vw,4.5rem)}.pele-world-line--two,.pele-world-line--three{font-size:clamp(2.55rem,11vw,5rem)}
+  .pele-replay-impact{width:2.9rem;height:2.9rem}.pele-save-hand{width:3.6rem}
+  .pele-pause-act{height:145svh}.pele-pause-sticky{padding:5.5rem 1.4rem 3rem}.pele-pause-top{font-size:.48rem}.pele-pause-clock{font-size:clamp(4rem,20vw,8rem)}.pele-pause-title{font-size:clamp(3.4rem,15vw,6rem)}
+}
+@media(max-width:620px){
+  .pele-signal-v3 .pele-world-wall{height:170svh}.pele-world-line--one{font-size:clamp(2rem,11vw,3.6rem)}.pele-world-line--two,.pele-world-line--three{font-size:clamp(2.2rem,12vw,4rem)}
+  .pele-pause-steps{gap:.55rem;font-size:.48rem}.pele-pause-note{max-width:25rem}.pele-pause-play{right:1.4rem;bottom:12vh}
+}
+@media(prefers-reduced-motion:reduce){
+  .pele-world-line,.pele-signal-v3 .pele-poster,.pele-signal-v3 .pele-relic-number,.pele-pause-clock,.pele-pause-title{opacity:1!important;transform:none!important}.pele-replay-svg path{stroke-dashoffset:0!important}.pele-replay-impact,.pele-save-hand,.pele-no-touch{opacity:.65!important}.pele-pause-shutter{width:100%!important;opacity:.12}.pele-pause-play{opacity:1!important;transform:none!important}
+}
