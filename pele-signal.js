@@ -1,164 +1,297 @@
 (() => {
   const root = document.querySelector('.pele-page');
   if (!root) return;
-  root.classList.add('pele-signal-mode');
+
+  root.classList.remove('pele-signal-mode');
+  root.classList.add('pele-signal-v3');
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
-  const localProgress = (el) => {
+  const sectionProgress = (el) => {
     if (!el) return 0;
     const rect = el.getBoundingClientRect();
-    return clamp((window.innerHeight - rect.top) / (window.innerHeight + rect.height));
+    const travel = Math.max(1, rect.height - window.innerHeight);
+    return clamp(-rect.top / travel);
   };
 
+  /* fixed broadcast bug */
   const ui = document.createElement('aside');
   ui.className = 'pele-broadcast-ui';
   ui.setAttribute('aria-hidden', 'true');
-  ui.innerHTML = '<div class="pele-broadcast-top"><span>N5 WORLD FEED</span><span>CH 10</span></div><div class="pele-broadcast-state">SEARCHING</div><div class="pele-broadcast-bottom"><span>PELÉ</span><span>O REI</span></div>';
+  ui.innerHTML = `
+    <div class="pele-broadcast-top"><span>N5 WORLD FEED</span><span>CH 10</span></div>
+    <div class="pele-broadcast-state">SEARCHING</div>
+    <div class="pele-broadcast-bottom"><span>PELÉ</span><span>O REI</span></div>`;
   document.body.append(ui);
   const uiState = ui.querySelector('.pele-broadcast-state');
 
+  /* HERO — turn the existing portrait into the signal being acquired */
   const hero = document.querySelector('.pele-hero');
-  if (hero) {
+  const heroPortrait = hero?.querySelector('.pele-hero-portrait');
+  const heroCopy = hero?.querySelector('.pele-hero-copy');
+  const heroIndex = hero?.querySelector('.pele-hero-index');
+  let tunerDot = null;
+
+  if (hero && heroPortrait) {
+    const stage = document.createElement('div');
+    stage.className = 'pele-acquire-stage';
+    const screen = document.createElement('div');
+    screen.className = 'pele-acquire-screen';
+    screen.innerHTML = `
+      <div class="pele-acquire-static" aria-hidden="true"></div>
+      <div class="pele-acquire-tear" aria-hidden="true"></div>
+      <div class="pele-acquire-meta" aria-hidden="true"><span>WORLD FEED · 1958</span><strong>SEARCHING</strong></div>
+      <div class="pele-acquire-search" aria-hidden="true"><span>SEARCHING FOR SIGNAL</span><b>A face the world will remember.</b><i></i></div>
+      <div class="pele-lock-burst" aria-hidden="true"></div>
+      <div class="pele-lock-title" aria-hidden="true"><span>O</span><strong>REI</strong></div>`;
+    stage.append(screen);
+    hero.prepend(stage);
+    screen.prepend(heroPortrait);
+    if (heroCopy) screen.append(heroCopy);
+    if (heroIndex) screen.append(heroIndex);
+
     const tuner = document.createElement('div');
     tuner.className = 'pele-tuner';
     tuner.setAttribute('aria-hidden', 'true');
-    tuner.innerHTML = '<div class="pele-tuner-track"><span class="pele-tuner-dot"></span></div><div class="pele-tuner-copy"><span>SEARCH</span><span>SIGNAL</span><span>LOCK</span></div>';
-    hero.append(tuner);
+    tuner.innerHTML = '<div class="pele-tuner-track"><span class="pele-tuner-dot"></span></div><div class="pele-tuner-copy"><span>SEARCH</span><span>LOCK</span><span>RECEIVE</span></div>';
+    stage.append(tuner);
+    tunerDot = tuner.querySelector('.pele-tuner-dot');
   }
-  const tunerDot = document.querySelector('.pele-tuner-dot');
 
-  const namingStage = document.querySelector('.pele-naming-stage');
+  /* STOCKHOLM — explicit lock moment */
+  const namingStage = document.querySelector('[data-naming-stage]');
   if (namingStage && !namingStage.querySelector('.pele-signal-lock')) {
     const lock = document.createElement('div');
     lock.className = 'pele-signal-lock';
-    lock.textContent = 'SIGNAL ACQUIRED · 1958';
+    lock.textContent = 'SIGNAL ACQUIRED';
     namingStage.append(lock);
   }
 
+  /* SANTOS — not a map, a wall of public anticipation */
   const travel = document.querySelector('.pele-travel');
-  let transmissionMap = null;
-  if (travel && !travel.querySelector('.pele-transmission-map')) {
-    transmissionMap = document.createElement('div');
-    transmissionMap.className = 'pele-transmission-map reveal is-visible';
-    transmissionMap.setAttribute('aria-hidden', 'true');
-    transmissionMap.innerHTML = [
-      '<div class="pele-signal-origin">10<small>SANTOS / BRAZIL</small></div>',
-      '<div class="pele-signal-node pele-signal-node--europe"><span>EUROPE</span><small>SIGNAL RECEIVED</small></div>',
-      '<div class="pele-signal-node pele-signal-node--africa"><span>AFRICA</span><small>SIGNAL RECEIVED</small></div>',
-      '<div class="pele-signal-node pele-signal-node--south"><span>SOUTH AMERICA</span><small>SIGNAL RECEIVED</small></div>',
-      '<i class="pele-beam pele-beam--europe"></i><i class="pele-beam pele-beam--africa"></i><i class="pele-beam pele-beam--south"></i>'
-    ].join('');
-    const photo = travel.querySelector('.pele-travel-photo');
-    if (photo) photo.before(transmissionMap); else travel.append(transmissionMap);
-  } else transmissionMap = travel?.querySelector('.pele-transmission-map') || null;
+  const travelPhoto = travel?.querySelector('.pele-travel-photo img');
+  let worldWall = null;
+  let posters = [];
+  if (travel) {
+    worldWall = document.createElement('div');
+    worldWall.className = 'pele-world-wall';
+    const photoSrc = travelPhoto?.src || 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pel%C3%A9%201960.jpg?width=1600';
+    worldWall.innerHTML = `
+      <div class="pele-world-wall-sticky">
+        <div class="pele-world-wall-title"><small>SANTOS · THE WORLD</small>BEFORE THE WHISTLE,<strong>THEY WERE ALREADY WAITING.</strong></div>
+        <figure class="pele-world-wall-photo"><img src="${photoSrc}" alt="" /></figure>
+        <div class="pele-poster pele-poster--1"><small>WORLD FEED</small><strong>EUROPE</strong><em>PELÉ · O REI</em></div>
+        <div class="pele-poster pele-poster--2"><small>SANTOS FC</small><strong>SOUTH AMERICA</strong><em>NUMBER 10</em></div>
+        <div class="pele-poster pele-poster--3"><small>WORLD FEED</small><strong>AFRICA</strong><em>PELÉ · O REI</em></div>
+        <div class="pele-poster pele-poster--4"><small>SANTOS</small><strong>COPA LIBERTADORES</strong><em>CHAMPION</em></div>
+        <div class="pele-poster pele-poster--5"><small>SANTOS</small><strong>INTERCONTINENTAL CUP</strong><em>THE NAME TRAVELS</em></div>
+        <div class="pele-poster pele-poster--6"><small>BEFORE KICK-OFF</small><strong>CROWD · EXPECTATION</strong><em>EVENT</em></div>
+        <div class="pele-world-marquee" aria-hidden="true"><span>PELÉ</span><span>O REI</span><span>PELÉ</span><span>O REI</span></div>
+        <div class="pele-world-counter"><span>KNOWN BEFORE ARRIVAL</span><strong>O REI</strong><span>ONE NAME · MANY STANDS</span></div>
+      </div>`;
+    travel.append(worldWall);
+    posters = Array.from(worldWall.querySelectorAll('.pele-poster'));
+  }
 
+  /* BODY INTERRUPTION */
   const bodySection = document.querySelector('.pele-body');
-  if (bodySection && !bodySection.querySelector('.pele-interference')) {
+  if (bodySection) {
     const interference = document.createElement('div');
     interference.className = 'pele-interference';
     interference.setAttribute('aria-hidden', 'true');
     interference.innerHTML = '<i></i><i></i><i></i><i></i>';
     bodySection.prepend(interference);
     const error = document.createElement('div');
-    error.className = 'pele-signal-error reveal is-visible';
-    error.innerHTML = '1962 / 1966 &nbsp;·&nbsp; <strong>SIGNAL INTERRUPTED</strong> &nbsp;·&nbsp; O REI STILL ON AIR';
-    const divider = bodySection.querySelector('.pele-body-divider');
-    if (divider) divider.before(error); else bodySection.append(error);
+    error.className = 'pele-signal-error';
+    error.innerHTML = '1962 · 1966 &nbsp; <strong>SIGNAL INTERRUPTED</strong> &nbsp; THE NAME SURVIVES THE BODY';
+    bodySection.querySelector('.pele-copy')?.after(error);
   }
-  const interferenceBars = Array.from(document.querySelectorAll('.pele-interference i'));
 
+  /* MEXICO — two full-screen archive rooms */
   const mexico = document.querySelector('.pele-mexico');
-  if (mexico && !mexico.querySelector('.pele-mexico-lock')) {
+  const relics = Array.from(document.querySelectorAll('.pele-relic'));
+  if (mexico) {
     const lock = document.createElement('div');
-    lock.className = 'pele-mexico-lock reveal is-visible';
-    lock.innerHTML = '<span>MEXICO · 1970</span><strong>SIGNAL LOCKED</strong><span>WORLD CUP · FINAL TRANSMISSION</span>';
-    const title = mexico.querySelector('.pele-section-title');
-    if (title) title.before(lock); else mexico.prepend(lock);
+    lock.className = 'pele-mexico-lock';
+    lock.innerHTML = '<span>MEXICO · 1970</span><strong>ARCHIVE PRESERVED</strong><span>TWO MOMENTS · ZERO GOALS</span>';
+    mexico.querySelector('.pele-section-title')?.before(lock);
   }
 
-  document.querySelectorAll('.pele-relic').forEach((relic, index) => {
-    if (relic.querySelector('.pele-replay-bar')) return;
-    const bar = document.createElement('div');
-    bar.className = 'pele-replay-bar';
-    bar.innerHTML = `<span>REPLAY ${String(index + 1).padStart(2, '0')}</span><strong>NO GOAL</strong><span>MEMORY RETAINED</span>`;
-    const visual = relic.querySelector('.pele-relic-goal, .pele-relic-run');
-    if (visual) visual.before(bar); else relic.append(bar);
+  relics.forEach((relic, index) => {
+    const graphic = relic.querySelector(index === 0 ? '.pele-relic-goal' : '.pele-relic-run');
+    const copy = relic.querySelector('.pele-relic-copy');
+    if (graphic) {
+      const visual = document.createElement('div');
+      visual.className = 'pele-relic-visual';
+      graphic.before(visual);
+      visual.append(graphic);
+    }
+    if (copy && !copy.querySelector('.pele-replay-bar')) {
+      const bar = document.createElement('div');
+      bar.className = 'pele-replay-bar';
+      bar.innerHTML = index === 0
+        ? '<span>REPLAY 01</span><strong>NO GOAL</strong><span>MEMORY: PRESERVED</span>'
+        : '<span>REPLAY 02</span><strong>NO GOAL</strong><span>MEMORY: PRESERVED</span>';
+      copy.append(bar);
+    }
   });
 
+  /* AZTECA — live color feed */
   const azteca = document.querySelector('.pele-azteca');
-  if (azteca && !azteca.querySelector('.pele-live-tag')) {
+  if (azteca) {
     const live = document.createElement('div');
-    live.className = 'pele-live-tag reveal is-visible';
-    live.innerHTML = '<span>LIVE</span> AZTECA · FINAL FEED · BRAZIL 4–1 ITALY';
-    const title = azteca.querySelector('.pele-section-title');
-    if (title) title.before(live); else azteca.prepend(live);
+    live.className = 'pele-live-bug';
+    live.textContent = 'LIVE · AZTECA';
+    azteca.append(live);
   }
 
-  const lastName = document.querySelector('.pele-last-name');
-  let powerLine = null;
-  if (lastName) {
-    lastName.dataset.text = 'O REI';
-    if (!lastName.querySelector('.pele-afterimage-label')) {
-      const label = document.createElement('span');
-      label.className = 'pele-afterimage-label';
-      label.textContent = 'PICTURE GONE · NAME REMAINS';
-      lastName.append(label);
-    }
-    powerLine = document.createElement('i');
-    powerLine.className = 'pele-power-line';
-    powerLine.setAttribute('aria-hidden', 'true');
-    lastName.append(powerLine);
+  /* ENDING — power down the picture, leave the name */
+  const remains = document.querySelector('.pele-remains');
+  let afterimage = null;
+  if (remains) {
+    afterimage = document.createElement('div');
+    afterimage.className = 'pele-afterimage';
+    afterimage.innerHTML = `
+      <div class="pele-afterimage-sticky">
+        <div class="pele-memory-ticks"><span>STOCKHOLM · 1958</span><span>SANTOS</span><span>MEXICO · 1970</span><span>29.12.2022</span></div>
+        <div class="pele-power-line" aria-hidden="true"></div>
+        <div class="pele-after-name" aria-label="O Rei"><span>O</span><strong>REI</strong></div>
+        <div class="pele-after-caption">PICTURE GONE · NAME REMAINS</div>
+      </div>`;
+    remains.querySelector('.pele-last-name')?.before(afterimage);
   }
 
-  const stateMap = [
-    { selector: '.pele-hero', state: 'SEARCHING' },
-    { selector: '.pele-birth', state: 'ACQUIRED' },
-    { selector: '.pele-travel', state: 'TRANSMITTING' },
-    { selector: '.pele-body', state: 'INTERRUPTED' },
-    { selector: '.pele-mexico', state: 'LOCKED' },
-    { selector: '.pele-azteca', state: 'LIVE' },
-    { selector: '.pele-remains', state: 'AFTERIMAGE' },
-  ].map((item) => ({ ...item, el: document.querySelector(item.selector) })).filter((item) => item.el);
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      const item = stateMap.find((candidate) => candidate.el === visible.target);
-      if (item && uiState) uiState.textContent = item.state;
-    }, { rootMargin: '-24% 0px -58% 0px', threshold: [0, .12, .3, .55] });
-    stateMap.forEach((item) => observer.observe(item.el));
-  }
+  const setBroadcastState = (value) => {
+    if (uiState) uiState.textContent = value;
+  };
 
   const update = () => {
-    const doc = document.documentElement;
-    const max = Math.max(1, doc.scrollHeight - window.innerHeight);
-    const page = clamp(window.scrollY / max);
-    if (tunerDot) tunerDot.style.top = `${8 + page * 84}%`;
+    if (hero) {
+      const p = reduceMotion ? 1 : sectionProgress(hero);
+      const screen = hero.querySelector('.pele-acquire-screen');
+      const portrait = hero.querySelector('.pele-hero-portrait img');
+      const metaStrong = hero.querySelector('.pele-acquire-meta strong');
+      const staticLayer = hero.querySelector('.pele-acquire-static');
+      const search = hero.querySelector('.pele-acquire-search');
+      const lock = hero.querySelector('.pele-lock-title');
+      const copy = hero.querySelector('.pele-hero-copy');
+      const index = hero.querySelector('.pele-hero-index');
 
-    if (transmissionMap && !reduceMotion) {
-      const p = localProgress(transmissionMap);
-      transmissionMap.style.setProperty('--scan', `${-120 + p * 240}%`);
+      const staticOpacity = reduceMotion ? 0 : clamp(1 - p * 2.25);
+      const lockOpacity = reduceMotion ? 1 : clamp((p - .28) / .2);
+      const copyOpacity = reduceMotion ? 1 : clamp((p - .58) / .2);
+      if (staticLayer) staticLayer.style.setProperty('--hero-static', String(staticOpacity));
+      if (screen) {
+        screen.style.setProperty('--hero-static', String(staticOpacity));
+        screen.style.setProperty('--hero-scan', `${-110 + p * 260}%`);
+        screen.style.setProperty('--hero-tear', `${Math.sin(p * 27) * (1 - p) * 28}px`);
+        screen.style.setProperty('--hero-tear-top', `${23 + ((p * 137) % 51)}%`);
+      }
+      if (portrait) {
+        portrait.style.setProperty('--hero-brightness', String(.25 + p * .7));
+        portrait.style.setProperty('--hero-scale', String(1.105 - p * .065));
+        portrait.style.setProperty('--hero-x', `${Math.sin(p * 19) * (1 - p) * 5}px`);
+        portrait.style.setProperty('--hero-y', `${Math.cos(p * 17) * (1 - p) * 3}px`);
+      }
+      if (search) {
+        search.style.setProperty('--hero-search', String(clamp(1 - p * 2.15)));
+        search.style.setProperty('--hero-tune', `${-120 + p * 500}%`);
+      }
+      if (lock) {
+        lock.style.setProperty('--hero-lock', String(lockOpacity));
+        lock.style.setProperty('--hero-lock-y', `${(1 - lockOpacity) * 44}px`);
+      }
+      if (copy) {
+        copy.style.setProperty('--hero-copy', String(copyOpacity));
+        copy.style.setProperty('--hero-copy-y', `${(1 - copyOpacity) * 30}px`);
+      }
+      if (index) index.style.setProperty('--hero-copy', String(copyOpacity));
+      if (tunerDot) tunerDot.style.setProperty('--tuner', `${8 + p * 84}%`);
+      if (metaStrong) metaStrong.textContent = p < .3 ? 'SEARCHING' : p < .55 ? 'SIGNAL FOUND' : 'SIGNAL LOCKED';
     }
 
-    if (interferenceBars.length && !reduceMotion) {
-      const p = localProgress(bodySection);
-      interferenceBars.forEach((bar, index) => {
-        const dir = index % 2 ? -1 : 1;
-        bar.style.setProperty('--tear', `${dir * (p - .5) * (70 + index * 22)}px`);
+    if (worldWall) {
+      const p = reduceMotion ? .72 : sectionProgress(worldWall);
+      const sticky = worldWall.querySelector('.pele-world-wall-sticky');
+      const photo = worldWall.querySelector('.pele-world-wall-photo');
+      const marquee = worldWall.querySelector('.pele-world-marquee');
+      if (photo) photo.style.setProperty('--world-photo-scale', String(.78 + p * .2));
+      if (marquee) marquee.style.setProperty('--world-marquee', `${-14 + p * 28}%`);
+      if (sticky) sticky.style.setProperty('--world-p', String(p));
+      const vectors = [
+        [-260,-80,-7],[230,-120,6],[-250,140,5],[260,130,-5],[-300,15,-4],[300,-10,4]
+      ];
+      posters.forEach((poster, i) => {
+        const [dx,dy,rot] = vectors[i];
+        const settle = 1 - clamp(p * 1.4);
+        const drift = (p - .55) * 22;
+        poster.style.setProperty('--poster-x', `${dx * settle + (i % 2 ? drift : -drift)}px`);
+        poster.style.setProperty('--poster-y', `${dy * settle}px`);
+        poster.style.setProperty('--poster-r', `${rot * settle}deg`);
       });
     }
 
-    if (lastName) {
-      const p = localProgress(lastName);
-      if (powerLine) powerLine.style.width = `${Math.max(0, 92 - p * 110)}%`;
-      const strong = lastName.querySelector('strong');
-      if (strong) strong.style.opacity = String(.18 + p * .82);
+    if (bodySection && !reduceMotion) {
+      const p = sectionProgress(bodySection);
+      bodySection.querySelectorAll('.pele-interference i').forEach((bar, i) => {
+        bar.style.setProperty('--tear', `${Math.sin((p * 15) + i * 1.7) * 8}vw`);
+      });
+    }
+
+    relics.forEach((relic, index) => {
+      if (reduceMotion) return;
+      const rect = relic.getBoundingClientRect();
+      const p = clamp((window.innerHeight - rect.top) / window.innerHeight);
+      if (index === 0) {
+        relic.style.setProperty('--ball-x', `${(p - .5) * -30}px`);
+        relic.style.setProperty('--ball-y', `${(p - .5) * 22}px`);
+      } else {
+        relic.style.setProperty('--ball-x', `${(p - .5) * 42}px`);
+        relic.style.setProperty('--man-x', `${(p - .5) * 58}px`);
+        relic.style.setProperty('--man-y', `${(p - .5) * -24}px`);
+      }
+    });
+
+    if (afterimage) {
+      const p = reduceMotion ? 1 : sectionProgress(afterimage);
+      const sticky = afterimage.querySelector('.pele-afterimage-sticky');
+      if (sticky) {
+        const fade = (start, span=.16) => String(1 - .92 * clamp((p - start) / span));
+        sticky.style.setProperty('--mem1', fade(.05));
+        sticky.style.setProperty('--mem2', fade(.19));
+        sticky.style.setProperty('--mem3', fade(.33));
+        sticky.style.setProperty('--mem4', fade(.47));
+        sticky.style.setProperty('--power-width', `${Math.max(.4, 74 * (1 - clamp((p - .16) / .52)))}vw`);
+        sticky.style.setProperty('--power-dot', String(Math.max(.04, 1 - clamp((p - .48) / .22))));
+        const name = reduceMotion ? 1 : clamp((p - .57) / .24);
+        sticky.style.setProperty('--after-name', String(.02 + name * .94));
+        sticky.style.setProperty('--after-scale', String(.86 + name * .14));
+        sticky.style.setProperty('--after-glow', `${name * 42}px`);
+        sticky.style.setProperty('--after-caption', String(clamp((p - .78) / .14) * .68));
+        sticky.style.setProperty('--after-scan', String(.34 * (1 - p)));
+      }
     }
   };
 
+  const stateMap = new Map([
+    [document.querySelector('.pele-hero'), 'SEARCHING'],
+    [document.querySelector('.pele-birth'), 'SIGNAL ACQUIRED'],
+    [document.querySelector('.pele-travel'), 'WORLD FEED'],
+    [document.querySelector('.pele-body'), 'SIGNAL INTERRUPTED'],
+    [document.querySelector('.pele-mexico'), 'ARCHIVE PRESERVED'],
+    [document.querySelector('.pele-azteca'), 'LIVE FEED'],
+    [document.querySelector('.pele-remains'), 'PICTURE GONE'],
+  ].filter(([node]) => node));
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setBroadcastState(stateMap.get(visible.target) || 'O REI');
+    }, { rootMargin:'-28% 0px -48% 0px', threshold:[0,.12,.35,.6] });
+    stateMap.forEach((_, node) => observer.observe(node));
+  }
+
   update();
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
+  window.addEventListener('scroll', update, { passive:true });
+  window.addEventListener('resize', update, { passive:true });
 })();
