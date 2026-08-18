@@ -1,0 +1,109 @@
+:root{--pele-black:#090b08;--pele-ink:#f3eddf;--pele-muted:#a9a28f;--pele-gold:#d7ae3d;--pele-green:#315c45;--pele-paper:#e8dfc9;--pele-line:rgba(243,237,223,.16)}
+.pele-page{background:var(--pele-black);color:var(--pele-ink)}
+.pele-page .site-header{border-bottom-color:rgba(243,237,223,.12);background:linear-gradient(180deg,rgba(9,11,8,.96),rgba(9,11,8,.7));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.pele-page .brand,.pele-page .site-nav a,.pele-page .menu-button{color:var(--pele-ink)}
+.pele-page .brand-mark{border-color:rgba(243,237,223,.38)}
+.pele-page .reading-progress{background:var(--pele-gold)}
+.pele-name-state{position:fixed;z-index:18;top:50%;left:1rem;display:flex;flex-direction:column;gap:.55rem;pointer-events:none;transform:translateY(-50%)}
+.pele-name-state span{color:rgba(243,237,223,.22);font:800 .54rem/1 var(--sans);letter-spacing:.18em;writing-mode:vertical-rl;transform:rotate(180deg);transition:color 220ms ease,transform 220ms ease}
+.pele-name-state span.is-active{color:var(--pele-gold);transform:rotate(180deg) translateX(-.22rem)}
+.pele-hero{position:relative;display:grid;min-height:100svh;grid-template-columns:minmax(0,.86fr) minmax(22rem,1fr);align-items:end;gap:clamp(2rem,5vw,6rem);overflow:hidden;padding:clamp(8rem,12vw,11rem) clamp(2rem,8vw,9rem) clamp(5rem,8vw,8rem)}
+.pele-hero-noise{position:absolute;inset:0;background:radial-gradient(circle at 72% 34%,rgba(215,174,61,.16),transparent 29%),radial-gradient(circle at 17% 82%,rgba(49,92,69,.14),transparent 28%);pointer-events:none}
+.pele-hero-noise:after{position:absolute;inset:0;background-image:linear-gradient(rgba(243,237,223,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(243,237,223,.035) 1px,transparent 1px);background-size:5vw 5vw;mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.55) 65%,transparent);content:""}
+.pele-hero-name{position:absolute;top:10%;right:-1.5vw;display:flex;flex-direction:column;align-items:flex-end;color:rgba(243,237,223,.045);font-family:var(--serif);font-weight:700;letter-spacing:-.09em;line-height:.72;pointer-events:none}
+.pele-hero-name span{font-size:clamp(7rem,17vw,17rem)}
+.pele-hero-name strong{font-size:clamp(10rem,22vw,23rem);font-weight:700}
+.pele-hero-copy{position:relative;z-index:3;max-width:47rem;padding-left:clamp(0rem,2vw,2rem)}
+.pele-hero-copy .eyebrow{color:#d3ccba}
+.pele-kicker{margin:1.2rem 0;color:var(--pele-gold);font:800 .67rem/1 var(--sans);letter-spacing:.22em}
+.pele-hero h1{margin:.2rem 0 0;font-family:var(--serif);font-size:clamp(7rem,15vw,15rem);font-weight:500;letter-spacing:-.09em;line-height:.75}
+.pele-deck{max-width:38rem;margin:2.4rem 0 1.6rem;color:#d8d0bd;font-family:var(--serif);font-size:clamp(1.3rem,1.85vw,1.72rem);line-height:1.42}
+.pele-page .article-byline{border-top-color:rgba(243,237,223,.24);color:#aba38f}
+.pele-hero-portrait{position:relative;z-index:2;align-self:center;justify-self:end;width:min(34vw,33rem);margin:1.5rem 0 0}
+.pele-hero-portrait:before{position:absolute;z-index:-1;inset:-1rem 1rem 1rem -1rem;border:1px solid rgba(215,174,61,.32);content:""}
+.pele-hero-portrait img{display:block;width:100%;aspect-ratio:.76;object-fit:cover;object-position:center 18%;filter:grayscale(.15) sepia(.08) contrast(1.04)}
+.pele-hero-index{position:absolute;right:8vw;bottom:2rem;left:8vw;display:flex;align-items:center;gap:1rem;color:rgba(243,237,223,.35);font:800 .56rem/1 var(--sans);letter-spacing:.18em}
+.pele-hero-index i{height:1px;flex:1;background:rgba(243,237,223,.15)}
+.pele-article{position:relative;overflow:hidden}
+.pele-section-title{position:relative;z-index:3;width:min(100% - 3rem,70rem);margin:0 auto 4rem}
+.pele-section-title p,.pele-label{margin:0 0 .8rem;color:var(--pele-gold);font:800 .64rem/1 var(--sans);letter-spacing:.19em;text-transform:uppercase}
+.pele-section-title h2{max-width:60rem;margin:0;font-family:var(--serif);font-size:clamp(4rem,8.5vw,8.5rem);font-weight:500;letter-spacing:-.07em;line-height:.88}
+.pele-section-title--light h2,.pele-copy--light p{color:#181a15}
+.pele-section-title--light p{color:#765f1e}
+.pele-copy{position:relative;z-index:3;width:min(100% - 3rem,46rem);margin-inline:auto}
+.pele-copy p{margin:0 0 1.55rem;color:#dcd5c6;font-family:var(--serif);font-size:clamp(1.16rem,1.45vw,1.34rem);line-height:1.74}
+.pele-copy .article-lead{font-size:clamp(1.45rem,2vw,1.9rem);line-height:1.56}
+.pele-birth{position:relative;padding:clamp(8rem,12vw,13rem) 0;background:#10120e}
+.pele-birth:before{position:absolute;top:0;right:0;width:42vw;height:100%;background:linear-gradient(90deg,transparent,rgba(215,174,61,.05));content:""}
+.pele-birth-name{margin:3rem 0!important;color:var(--pele-gold)!important;font-size:clamp(2rem,4vw,3.7rem)!important;line-height:1.05!important}
+.pele-naming-stage{position:relative;width:min(100% - 3rem,76rem);min-height:66rem;margin:7rem auto 0;overflow:hidden;border:1px solid rgba(243,237,223,.12);background:#080a07}
+.pele-naming-stage:before{position:absolute;inset:0;background-image:linear-gradient(rgba(243,237,223,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(243,237,223,.035) 1px,transparent 1px);background-size:64px 64px;content:""}
+.pele-naming-age,.pele-naming-year,.pele-naming-stage>strong{position:absolute;z-index:2;font-family:var(--serif);letter-spacing:-.08em;line-height:.8}
+.pele-naming-age{top:3rem;left:3rem;color:rgba(243,237,223,.18);font-size:clamp(9rem,18vw,18rem)}
+.pele-naming-year{top:20%;right:2rem;color:transparent;font-size:clamp(8rem,17vw,17rem);-webkit-text-stroke:1px rgba(243,237,223,.18)}
+.pele-naming-stage>strong{right:2rem;bottom:2rem;color:rgba(215,174,61,.9);font-size:clamp(7rem,18vw,19rem)}
+.pele-birth-photo{position:absolute;z-index:1;right:10%;bottom:10%;width:min(61%,45rem);margin:0;box-shadow:0 2rem 6rem rgba(0,0,0,.38)}
+.pele-birth-photo img{display:block;width:100%;height:auto;filter:grayscale(1) contrast(1.08)}
+.pele-travel{position:relative;padding:clamp(8rem,12vw,13rem) 0;background:var(--pele-paper);color:#171913}
+.pele-travel-sky{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.pele-travel-sky i{position:absolute;width:.35rem;height:.35rem;border-radius:50%;background:rgba(49,92,69,.45);box-shadow:0 0 0 .45rem rgba(49,92,69,.05)}
+.pele-travel-sky i:nth-child(1){top:10%;left:12%}.pele-travel-sky i:nth-child(2){top:23%;left:78%}.pele-travel-sky i:nth-child(3){top:38%;left:24%}.pele-travel-sky i:nth-child(4){top:51%;left:88%}.pele-travel-sky i:nth-child(5){top:67%;left:16%}.pele-travel-sky i:nth-child(6){top:76%;left:63%}.pele-travel-sky i:nth-child(7){top:84%;left:36%}.pele-travel-sky i:nth-child(8){top:92%;left:82%}
+.pele-copy--light p{color:#292c23}
+.pele-orbit{position:relative;z-index:2;width:min(86vw,58rem);aspect-ratio:1;margin:7rem auto;display:grid;place-items:center}
+.pele-orbit-core{position:relative;z-index:5;display:grid;width:12rem;height:12rem;place-items:center;border-radius:50%;background:#11130f;color:var(--pele-ink);box-shadow:0 1.5rem 4rem rgba(19,23,16,.17)}
+.pele-orbit-core span{font:800 .68rem/1 var(--sans);letter-spacing:.18em}.pele-orbit-core strong{font-family:var(--serif);font-size:2.7rem;letter-spacing:-.05em}
+.pele-orbit-ring{position:absolute;display:flex;align-items:center;justify-content:space-around;border:1px solid rgba(49,92,69,.22);border-radius:50%;color:#53604c;font:800 .57rem/1 var(--sans);letter-spacing:.14em;transition:transform 80ms linear}
+.pele-orbit-ring span{padding:.45rem;background:var(--pele-paper)}
+.pele-orbit-ring--one{inset:15%}.pele-orbit-ring--two{inset:4%}.pele-orbit-ring--three{inset:-8%}
+.pele-travel-photo{position:relative;z-index:2;width:min(100% - 3rem,62rem);margin:2rem auto 0;padding:.7rem;border:1px solid rgba(20,24,17,.18)}
+.pele-travel-photo img{display:block;width:100%;height:auto;filter:grayscale(.75) contrast(1.05)}
+.pele-body{position:relative;padding:clamp(9rem,14vw,15rem) 0;background:#11110f;overflow:hidden}
+.pele-body-name{position:absolute;top:17%;left:-2vw;color:rgba(243,237,223,.035);font-family:var(--serif);font-size:clamp(11rem,30vw,31rem);font-weight:700;letter-spacing:-.1em;white-space:nowrap;text-decoration-line:line-through;text-decoration-color:rgba(215,174,61,.18);text-decoration-thickness:2px}
+.pele-turn-line{margin-top:4rem!important;color:#f1eadb!important;font-size:clamp(1.65rem,2.7vw,2.6rem)!important;line-height:1.25!important}
+.pele-body-divider{position:relative;z-index:2;display:flex;width:min(100% - 3rem,56rem);align-items:center;gap:1rem;margin:6rem auto 0;color:#898274;font:800 .6rem/1 var(--sans);letter-spacing:.2em}
+.pele-body-divider i{height:1px;flex:1;background:linear-gradient(90deg,var(--pele-gold),rgba(243,237,223,.08))}
+.pele-mexico{position:relative;padding:clamp(9rem,13vw,15rem) 0;background:#070806}
+.pele-mexico-sun{position:absolute;top:4rem;right:-4vw;color:rgba(215,174,61,.055);font-family:var(--serif);font-size:clamp(16rem,38vw,40rem);font-weight:700;letter-spacing:-.1em;line-height:.7}
+.pele-section-title--mexico h2{max-width:70rem;color:#f1ead9;font-size:clamp(4rem,8vw,8rem)}
+.pele-copy--mexico{margin-bottom:5rem}
+.pele-relics{position:relative;z-index:3;display:grid;width:min(100% - 3rem,76rem);grid-template-columns:1fr 1fr;gap:1.2rem;margin:5rem auto}
+.pele-relic{position:relative;min-height:46rem;padding:2rem;border:1px solid rgba(243,237,223,.16);background:linear-gradient(180deg,rgba(243,237,223,.035),transparent 28%);overflow:hidden}
+.pele-relic-number{color:rgba(243,237,223,.16);font-family:var(--serif);font-size:clamp(5rem,9vw,9rem);line-height:.8;letter-spacing:-.07em}
+.pele-relic-status{position:absolute;top:1.6rem;right:1.6rem;padding:.5rem .7rem;border:1px solid rgba(215,174,61,.55);color:var(--pele-gold);font:800 .58rem/1 var(--sans);letter-spacing:.17em}
+.pele-relic-goal{position:relative;height:16rem;margin:3rem 0;border:1px solid rgba(243,237,223,.18);border-bottom-width:3px}
+.pele-relic-goal i{position:absolute;left:0;right:0;height:1px;background:rgba(243,237,223,.09)}.pele-relic-goal i:nth-of-type(1){top:25%}.pele-relic-goal i:nth-of-type(2){top:50%}.pele-relic-goal i:nth-of-type(3){top:75%}
+.pele-relic-ball{position:absolute;z-index:2;right:15%;top:16%;width:1rem;height:1rem;border-radius:50%;background:var(--pele-gold);box-shadow:0 0 0 .6rem rgba(215,174,61,.08)}
+.pele-relic-run{position:relative;height:16rem;margin:3rem 0;border-bottom:1px solid rgba(243,237,223,.18)}
+.pele-relic-run:after{position:absolute;right:5%;bottom:0;width:27%;height:62%;border:1px solid rgba(243,237,223,.16);border-bottom:0;content:""}
+.pele-run-ball,.pele-run-man{position:absolute;bottom:28%;display:grid;place-items:center;width:1.1rem;height:1.1rem;border-radius:50%}.pele-run-ball{left:70%;background:var(--pele-gold)}.pele-run-man{left:28%;width:2.2rem;height:2.2rem;border:1px solid rgba(243,237,223,.45);color:#d8d1c1;font:800 .55rem/1 var(--sans)}
+.pele-relic-run i{position:absolute;bottom:31%;left:32%;width:38%;height:1px;background:linear-gradient(90deg,rgba(243,237,223,.35),transparent);transform:rotate(-12deg);transform-origin:left}
+.pele-relic-copy h3{margin:.5rem 0 1rem;font-family:var(--serif);font-size:clamp(2.5rem,4vw,4.4rem);font-weight:500;letter-spacing:-.055em;line-height:.92}
+.pele-relic-copy p:not(.pele-label){color:#cfc8b8;font-family:var(--serif);font-size:1.08rem;line-height:1.68}
+.pele-non-goal-thesis{position:relative;z-index:3;display:grid;width:min(100% - 3rem,76rem);grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;margin:8rem auto;padding:4rem 0;border-block:1px solid rgba(243,237,223,.16)}
+.pele-non-goal-thesis span{color:var(--pele-gold);font:800 .58rem/1 var(--sans);letter-spacing:.2em;white-space:nowrap}
+.pele-non-goal-thesis strong{color:#f4eddd;font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,4.8rem);font-weight:450;letter-spacing:-.05em;line-height:1.07;text-align:center}
+.pele-azteca{position:relative;padding:clamp(9rem,13vw,15rem) 0;background:#d2bf66;color:#151813;overflow:hidden}
+.pele-azteca:before{position:absolute;inset:0;background:radial-gradient(circle at 80% 28%,rgba(255,255,255,.32),transparent 32%),linear-gradient(120deg,rgba(49,92,69,.13),transparent 55%);content:""}
+.pele-azteca-score{position:absolute;top:4%;right:-1vw;display:flex;align-items:baseline;gap:1rem;color:rgba(21,24,19,.09);font-family:var(--sans);font-weight:800}.pele-azteca-score span{font-size:clamp(3rem,7vw,7rem)}.pele-azteca-score strong{font-size:clamp(8rem,18vw,18rem);letter-spacing:-.08em}.pele-azteca-score i{font-size:clamp(4rem,8vw,8rem);font-style:normal}
+.pele-azteca .pele-section-title--light p{color:#5c501d}.pele-azteca .pele-section-title--light h2{color:#151813}
+.pele-azteca .pele-copy--light p{color:#20241c}
+.pele-score-line{margin:3rem 0!important;color:#11140f!important;font-size:clamp(4rem,8vw,7rem)!important;line-height:.8!important}
+.pele-final-pass{position:relative;z-index:3;width:min(100% - 3rem,70rem);height:17rem;margin:7rem auto;border-block:1px solid rgba(21,24,19,.25)}
+.pele-pass-start,.pele-pass-end{position:absolute;top:50%;display:grid;width:3.5rem;height:3.5rem;place-items:center;border:1px solid rgba(21,24,19,.42);border-radius:50%;font:800 .68rem/1 var(--sans);transform:translateY(-50%)}.pele-pass-start{left:7%}.pele-pass-end{right:7%}
+.pele-pass-line{position:absolute;top:50%;right:12%;left:12%;height:1px;background:rgba(21,24,19,.32)}
+.pele-pass-ball{position:absolute;z-index:2;top:50%;left:14%;width:1.1rem;height:1.1rem;border-radius:50%;background:#11140f;transform:translate(-50%,-50%);transition:left 70ms linear}
+.pele-final-pass small{position:absolute;bottom:1.2rem;left:50%;color:rgba(21,24,19,.66);font:800 .59rem/1 var(--sans);letter-spacing:.18em;transform:translateX(-50%)}
+.pele-azteca-photo{position:relative;z-index:2;width:min(100% - 3rem,66rem);margin:1rem auto 0;padding:.7rem;border:1px solid rgba(21,24,19,.25)}
+.pele-azteca-photo img{display:block;width:100%;height:auto;filter:grayscale(.75) sepia(.12) contrast(1.05)}
+.pele-remains{position:relative;display:grid;min-height:125vh;place-items:center;padding:clamp(10rem,15vw,16rem) 0;background:#080906;overflow:hidden}
+.pele-remains-film{position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);opacity:.18;filter:grayscale(1)}
+.pele-remains-film i{border-right:1px solid rgba(243,237,223,.12);background:linear-gradient(180deg,transparent,rgba(243,237,223,.03),transparent)}
+.pele-copy--remains{z-index:3;margin-bottom:18rem}
+.pele-copy--remains p{color:#d4cdbc}
+.pele-last-name{position:absolute;right:0;bottom:5rem;left:0;display:flex;align-items:baseline;justify-content:center;gap:1.5rem;color:#f4eddd;font-family:var(--serif);letter-spacing:-.08em;line-height:.72;text-align:center}.pele-last-name span{font-size:clamp(8rem,18vw,18rem)}.pele-last-name strong{color:var(--pele-gold);font-size:clamp(11rem,24vw,25rem);font-weight:600}
+.pele-notes{background:#080906;color:#777165;border-top:1px solid rgba(243,237,223,.11)}
+.pele-footer{background:#050604;color:#918a7b;border-top-color:rgba(243,237,223,.1)}
+.pele-footer .brand{color:var(--pele-ink)}
+@media(max-width:1080px){.pele-name-state{display:none}.pele-hero{grid-template-columns:1fr .72fr;padding-inline:clamp(1.5rem,5vw,4rem)}.pele-hero-portrait{width:min(35vw,27rem)}.pele-hero-index{right:4vw;left:4vw}}
+@media(max-width:760px){.pele-hero{min-height:auto;grid-template-columns:1fr;gap:3rem;padding:8.5rem 1.2rem 4.5rem}.pele-hero-copy{padding-left:0}.pele-hero h1{font-size:clamp(7rem,31vw,10rem)}.pele-hero-name{top:8%;right:-5vw}.pele-hero-portrait{width:min(82vw,27rem);justify-self:center}.pele-hero-index{display:none}.pele-section-title,.pele-copy,.pele-travel-photo,.pele-naming-stage,.pele-relics,.pele-non-goal-thesis,.pele-final-pass,.pele-azteca-photo{width:calc(100% - 2.4rem)}.pele-section-title h2{font-size:clamp(3.6rem,16vw,6rem)}.pele-naming-stage{min-height:44rem}.pele-birth-photo{right:5%;bottom:17%;width:76%}.pele-naming-age{top:2rem;left:1.2rem}.pele-naming-year{top:25%;right:1rem}.pele-naming-stage>strong{right:1rem;bottom:1rem}.pele-orbit{width:90vw;margin:5rem auto}.pele-orbit-core{width:9rem;height:9rem}.pele-orbit-ring{font-size:.48rem}.pele-relics{grid-template-columns:1fr}.pele-relic{min-height:0}.pele-non-goal-thesis{grid-template-columns:1fr;gap:1.5rem;text-align:center}.pele-non-goal-thesis strong{order:-1}.pele-azteca-score{top:8%}.pele-final-pass{height:13rem}.pele-last-name{bottom:4rem;gap:.6rem}.pele-copy--remains{margin-bottom:14rem}.pele-remains{min-height:115vh}}
+@media(prefers-reduced-motion:reduce){.pele-orbit-ring,.pele-pass-ball,.pele-name-state span{transition:none}}
