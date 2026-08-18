@@ -13,8 +13,14 @@
   const orbitRings = orbit ? Array.from(orbit.querySelectorAll('.pele-orbit-ring')) : [];
   const pass = document.querySelector('[data-final-pass]');
   const passBall = pass?.querySelector('.pele-pass-ball');
+  const passEnd = pass?.querySelector('.pele-pass-end');
   const relics = Array.from(document.querySelectorAll('[data-relic]'));
+  const relicLabels = Array.from(document.querySelectorAll('.pele-relic .pele-label'));
   const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
+
+  if (passEnd) passEnd.textContent = 'CA';
+  if (relicLabels[0]) relicLabels[0].textContent = 'Brazil × England';
+  if (relicLabels[1]) relicLabels[1].textContent = 'Brazil × Uruguay';
 
   const setState = (value) => states.forEach((node) => node.classList.toggle('is-active', node.dataset.nameState === value));
   const localProgress = (el) => {
