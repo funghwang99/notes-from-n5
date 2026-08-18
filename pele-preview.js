@@ -1,4 +1,7 @@
 (() => {
+  if (window.__N5_PELE_PREVIEW__) return;
+  window.__N5_PELE_PREVIEW__ = true;
+
   const href = 'o-rei.html';
   const portrait = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pele%20con%20brasil.jpg?width=1200';
   const stockholm = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pele%20v%20sweden%201958.jpg?width=1600';
