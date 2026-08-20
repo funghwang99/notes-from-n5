@@ -13,8 +13,13 @@
     const travel = Math.max(1, rect.height - window.innerHeight);
     return clamp(-rect.top / travel);
   };
+  const nearViewport = (el, margin = 0.65) => {
+    if (!el) return false;
+    const rect = el.getBoundingClientRect();
+    const pad = window.innerHeight * margin;
+    return rect.bottom >= -pad && rect.top <= window.innerHeight + pad;
+  };
 
-  /* fixed broadcast bug */
   const ui = document.createElement('aside');
   ui.className = 'pele-broadcast-ui';
   ui.setAttribute('aria-hidden', 'true');
@@ -23,16 +28,14 @@
     <div class="pele-broadcast-state">SEARCHING</div>
     <div class="pele-broadcast-bottom"><span>PELÉ</span><span>O REI</span></div>`;
   document.body.append(ui);
-  const uiState = ui.querySelector('.pele-broadcast-state');
 
-  /* HERO — turn the existing portrait into the signal being acquired */
   const hero = document.querySelector('.pele-hero');
   const heroPortrait = hero?.querySelector('.pele-hero-portrait');
   const heroCopy = hero?.querySelector('.pele-hero-copy');
   const heroIndex = hero?.querySelector('.pele-hero-index');
   let tunerDot = null;
 
-  if (hero && heroPortrait) {
+  if (hero && heroPortrait && !hero.querySelector('.pele-acquire-stage')) {
     const stage = document.createElement('div');
     stage.className = 'pele-acquire-stage';
     const screen = document.createElement('div');
@@ -58,7 +61,6 @@
     tunerDot = tuner.querySelector('.pele-tuner-dot');
   }
 
-  /* STOCKHOLM — explicit lock moment */
   const namingStage = document.querySelector('[data-naming-stage]');
   if (namingStage && !namingStage.querySelector('.pele-signal-lock')) {
     const lock = document.createElement('div');
@@ -67,19 +69,16 @@
     namingStage.append(lock);
   }
 
-  /* SANTOS — not a map, a wall of public anticipation */
   const travel = document.querySelector('.pele-travel');
   const travelPhoto = travel?.querySelector('.pele-travel-photo img');
-  let worldWall = null;
-  let posters = [];
-  if (travel) {
-    worldWall = document.createElement('div');
+  if (travel && !travel.querySelector('.pele-world-wall')) {
+    const worldWall = document.createElement('div');
     worldWall.className = 'pele-world-wall';
     const photoSrc = travelPhoto?.src || 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pel%C3%A9%201960.jpg?width=1600';
     worldWall.innerHTML = `
       <div class="pele-world-wall-sticky">
         <div class="pele-world-wall-title"><small>SANTOS · THE WORLD</small>BEFORE THE WHISTLE,<strong>THEY WERE ALREADY WAITING.</strong></div>
-        <figure class="pele-world-wall-photo"><img src="${photoSrc}" alt="" /></figure>
+        <figure class="pele-world-wall-photo"><img src="${photoSrc}" alt="" loading="lazy" decoding="async" /></figure>
         <div class="pele-poster pele-poster--1"><small>WORLD FEED</small><strong>EUROPE</strong><em>PELÉ · O REI</em></div>
         <div class="pele-poster pele-poster--2"><small>SANTOS FC</small><strong>SOUTH AMERICA</strong><em>NUMBER 10</em></div>
         <div class="pele-poster pele-poster--3"><small>WORLD FEED</small><strong>AFRICA</strong><em>PELÉ · O REI</em></div>
@@ -90,12 +89,10 @@
         <div class="pele-world-counter"><span>KNOWN BEFORE ARRIVAL</span><strong>O REI</strong><span>ONE NAME · MANY STANDS</span></div>
       </div>`;
     travel.append(worldWall);
-    posters = Array.from(worldWall.querySelectorAll('.pele-poster'));
   }
 
-  /* BODY INTERRUPTION */
   const bodySection = document.querySelector('.pele-body');
-  if (bodySection) {
+  if (bodySection && !bodySection.querySelector('.pele-interference')) {
     const interference = document.createElement('div');
     interference.className = 'pele-interference';
     interference.setAttribute('aria-hidden', 'true');
@@ -107,10 +104,9 @@
     bodySection.querySelector('.pele-copy')?.after(error);
   }
 
-  /* MEXICO — two full-screen archive rooms */
   const mexico = document.querySelector('.pele-mexico');
   const relics = Array.from(document.querySelectorAll('.pele-relic'));
-  if (mexico) {
+  if (mexico && !mexico.querySelector('.pele-mexico-lock')) {
     const lock = document.createElement('div');
     lock.className = 'pele-mexico-lock';
     lock.innerHTML = '<span>MEXICO · 1970</span><strong>ARCHIVE PRESERVED</strong><span>TWO MOMENTS · ZERO GOALS</span>';
@@ -120,7 +116,7 @@
   relics.forEach((relic, index) => {
     const graphic = relic.querySelector(index === 0 ? '.pele-relic-goal' : '.pele-relic-run');
     const copy = relic.querySelector('.pele-relic-copy');
-    if (graphic) {
+    if (graphic && !graphic.closest('.pele-relic-visual')) {
       const visual = document.createElement('div');
       visual.className = 'pele-relic-visual';
       graphic.before(visual);
@@ -136,19 +132,17 @@
     }
   });
 
-  /* AZTECA — live color feed */
   const azteca = document.querySelector('.pele-azteca');
-  if (azteca) {
+  if (azteca && !azteca.querySelector('.pele-live-bug')) {
     const live = document.createElement('div');
     live.className = 'pele-live-bug';
     live.textContent = 'LIVE · AZTECA';
     azteca.append(live);
   }
 
-  /* ENDING — power down the picture, leave the name */
   const remains = document.querySelector('.pele-remains');
-  let afterimage = null;
-  if (remains) {
+  let afterimage = remains?.querySelector('.pele-afterimage') || null;
+  if (remains && !afterimage) {
     afterimage = document.createElement('div');
     afterimage.className = 'pele-afterimage';
     afterimage.innerHTML = `
@@ -161,137 +155,93 @@
     remains.querySelector('.pele-last-name')?.before(afterimage);
   }
 
-  const setBroadcastState = (value) => {
-    if (uiState) uiState.textContent = value;
+  const updateHero = () => {
+    if (!hero || !nearViewport(hero, .35)) return;
+    const p = reduceMotion ? 1 : sectionProgress(hero);
+    const screen = hero.querySelector('.pele-acquire-screen');
+    const portrait = hero.querySelector('.pele-hero-portrait img');
+    const metaStrong = hero.querySelector('.pele-acquire-meta strong');
+    const staticLayer = hero.querySelector('.pele-acquire-static');
+    const search = hero.querySelector('.pele-acquire-search');
+    const lock = hero.querySelector('.pele-lock-title');
+    const copy = hero.querySelector('.pele-hero-copy');
+    const index = hero.querySelector('.pele-hero-index');
+    const staticOpacity = reduceMotion ? 0 : clamp(1 - p * 2.25);
+    const lockOpacity = reduceMotion ? 1 : clamp((p - .28) / .2);
+    const copyOpacity = reduceMotion ? 1 : clamp((p - .58) / .2);
+
+    if (staticLayer) staticLayer.style.setProperty('--hero-static', String(staticOpacity));
+    if (screen) {
+      screen.style.setProperty('--hero-static', String(staticOpacity));
+      screen.style.setProperty('--hero-scan', `${-110 + p * 260}%`);
+      screen.style.setProperty('--hero-tear', `${Math.sin(p * 27) * (1 - p) * 18}px`);
+      screen.style.setProperty('--hero-tear-top', `${23 + ((p * 137) % 51)}%`);
+    }
+    if (portrait) {
+      portrait.style.setProperty('--hero-scale', String(1.095 - p * .055));
+      portrait.style.setProperty('--hero-x', `${Math.sin(p * 19) * (1 - p) * 3}px`);
+      portrait.style.setProperty('--hero-y', `${Math.cos(p * 17) * (1 - p) * 2}px`);
+    }
+    if (search) {
+      search.style.setProperty('--hero-search', String(clamp(1 - p * 2.15)));
+      search.style.setProperty('--hero-tune', `${-120 + p * 500}%`);
+    }
+    if (lock) {
+      lock.style.setProperty('--hero-lock', String(lockOpacity));
+      lock.style.setProperty('--hero-lock-y', `${(1 - lockOpacity) * 44}px`);
+    }
+    if (copy) {
+      copy.style.setProperty('--hero-copy', String(copyOpacity));
+      copy.style.setProperty('--hero-copy-y', `${(1 - copyOpacity) * 30}px`);
+    }
+    if (index) index.style.setProperty('--hero-copy', String(copyOpacity));
+    if (tunerDot) tunerDot.style.setProperty('--tuner', `${8 + p * 84}%`);
+    if (metaStrong) metaStrong.textContent = p < .3 ? 'SEARCHING' : p < .55 ? 'SIGNAL FOUND' : 'SIGNAL LOCKED';
   };
 
-  const update = () => {
-    if (hero) {
-      const p = reduceMotion ? 1 : sectionProgress(hero);
-      const screen = hero.querySelector('.pele-acquire-screen');
-      const portrait = hero.querySelector('.pele-hero-portrait img');
-      const metaStrong = hero.querySelector('.pele-acquire-meta strong');
-      const staticLayer = hero.querySelector('.pele-acquire-static');
-      const search = hero.querySelector('.pele-acquire-search');
-      const lock = hero.querySelector('.pele-lock-title');
-      const copy = hero.querySelector('.pele-hero-copy');
-      const index = hero.querySelector('.pele-hero-index');
-
-      const staticOpacity = reduceMotion ? 0 : clamp(1 - p * 2.25);
-      const lockOpacity = reduceMotion ? 1 : clamp((p - .28) / .2);
-      const copyOpacity = reduceMotion ? 1 : clamp((p - .58) / .2);
-      if (staticLayer) staticLayer.style.setProperty('--hero-static', String(staticOpacity));
-      if (screen) {
-        screen.style.setProperty('--hero-static', String(staticOpacity));
-        screen.style.setProperty('--hero-scan', `${-110 + p * 260}%`);
-        screen.style.setProperty('--hero-tear', `${Math.sin(p * 27) * (1 - p) * 28}px`);
-        screen.style.setProperty('--hero-tear-top', `${23 + ((p * 137) % 51)}%`);
-      }
-      if (portrait) {
-        portrait.style.setProperty('--hero-brightness', String(.25 + p * .7));
-        portrait.style.setProperty('--hero-scale', String(1.105 - p * .065));
-        portrait.style.setProperty('--hero-x', `${Math.sin(p * 19) * (1 - p) * 5}px`);
-        portrait.style.setProperty('--hero-y', `${Math.cos(p * 17) * (1 - p) * 3}px`);
-      }
-      if (search) {
-        search.style.setProperty('--hero-search', String(clamp(1 - p * 2.15)));
-        search.style.setProperty('--hero-tune', `${-120 + p * 500}%`);
-      }
-      if (lock) {
-        lock.style.setProperty('--hero-lock', String(lockOpacity));
-        lock.style.setProperty('--hero-lock-y', `${(1 - lockOpacity) * 44}px`);
-      }
-      if (copy) {
-        copy.style.setProperty('--hero-copy', String(copyOpacity));
-        copy.style.setProperty('--hero-copy-y', `${(1 - copyOpacity) * 30}px`);
-      }
-      if (index) index.style.setProperty('--hero-copy', String(copyOpacity));
-      if (tunerDot) tunerDot.style.setProperty('--tuner', `${8 + p * 84}%`);
-      if (metaStrong) metaStrong.textContent = p < .3 ? 'SEARCHING' : p < .55 ? 'SIGNAL FOUND' : 'SIGNAL LOCKED';
-    }
-
-    if (worldWall) {
-      const p = reduceMotion ? .72 : sectionProgress(worldWall);
-      const sticky = worldWall.querySelector('.pele-world-wall-sticky');
-      const photo = worldWall.querySelector('.pele-world-wall-photo');
-      const marquee = worldWall.querySelector('.pele-world-marquee');
-      if (photo) photo.style.setProperty('--world-photo-scale', String(.78 + p * .2));
-      if (marquee) marquee.style.setProperty('--world-marquee', `${-14 + p * 28}%`);
-      if (sticky) sticky.style.setProperty('--world-p', String(p));
-      const vectors = [
-        [-260,-80,-7],[230,-120,6],[-250,140,5],[260,130,-5],[-300,15,-4],[300,-10,4]
-      ];
-      posters.forEach((poster, i) => {
-        const [dx,dy,rot] = vectors[i];
-        const settle = 1 - clamp(p * 1.4);
-        const drift = (p - .55) * 22;
-        poster.style.setProperty('--poster-x', `${dx * settle + (i % 2 ? drift : -drift)}px`);
-        poster.style.setProperty('--poster-y', `${dy * settle}px`);
-        poster.style.setProperty('--poster-r', `${rot * settle}deg`);
-      });
-    }
-
-    if (bodySection && !reduceMotion) {
-      const p = sectionProgress(bodySection);
-      bodySection.querySelectorAll('.pele-interference i').forEach((bar, i) => {
-        bar.style.setProperty('--tear', `${Math.sin((p * 15) + i * 1.7) * 8}vw`);
-      });
-    }
-
-    relics.forEach((relic, index) => {
-      if (reduceMotion) return;
-      const rect = relic.getBoundingClientRect();
-      const p = clamp((window.innerHeight - rect.top) / window.innerHeight);
-      if (index === 0) {
-        relic.style.setProperty('--ball-x', `${(p - .5) * -30}px`);
-        relic.style.setProperty('--ball-y', `${(p - .5) * 22}px`);
-      } else {
-        relic.style.setProperty('--ball-x', `${(p - .5) * 42}px`);
-        relic.style.setProperty('--man-x', `${(p - .5) * 58}px`);
-        relic.style.setProperty('--man-y', `${(p - .5) * -24}px`);
-      }
+  const updateBody = () => {
+    if (!bodySection || reduceMotion || !nearViewport(bodySection, .35)) return;
+    const p = sectionProgress(bodySection);
+    bodySection.querySelectorAll('.pele-interference i').forEach((bar, i) => {
+      bar.style.setProperty('--tear', `${Math.sin((p * 15) + i * 1.7) * 6}vw`);
     });
-
-    if (afterimage) {
-      const p = reduceMotion ? 1 : sectionProgress(afterimage);
-      const sticky = afterimage.querySelector('.pele-afterimage-sticky');
-      if (sticky) {
-        const fade = (start, span=.16) => String(1 - .92 * clamp((p - start) / span));
-        sticky.style.setProperty('--mem1', fade(.05));
-        sticky.style.setProperty('--mem2', fade(.19));
-        sticky.style.setProperty('--mem3', fade(.33));
-        sticky.style.setProperty('--mem4', fade(.47));
-        sticky.style.setProperty('--power-width', `${Math.max(.4, 74 * (1 - clamp((p - .16) / .52)))}vw`);
-        sticky.style.setProperty('--power-dot', String(Math.max(.04, 1 - clamp((p - .48) / .22))));
-        const name = reduceMotion ? 1 : clamp((p - .57) / .24);
-        sticky.style.setProperty('--after-name', String(.02 + name * .94));
-        sticky.style.setProperty('--after-scale', String(.86 + name * .14));
-        sticky.style.setProperty('--after-glow', `${name * 42}px`);
-        sticky.style.setProperty('--after-caption', String(clamp((p - .78) / .14) * .68));
-        sticky.style.setProperty('--after-scan', String(.34 * (1 - p)));
-      }
-    }
   };
 
-  const stateMap = new Map([
-    [document.querySelector('.pele-hero'), 'SEARCHING'],
-    [document.querySelector('.pele-birth'), 'SIGNAL ACQUIRED'],
-    [document.querySelector('.pele-travel'), 'WORLD FEED'],
-    [document.querySelector('.pele-body'), 'SIGNAL INTERRUPTED'],
-    [document.querySelector('.pele-mexico'), 'ARCHIVE PRESERVED'],
-    [document.querySelector('.pele-azteca'), 'LIVE FEED'],
-    [document.querySelector('.pele-remains'), 'PICTURE GONE'],
-  ].filter(([node]) => node));
+  const updateAfterimage = () => {
+    if (!afterimage || !nearViewport(afterimage, .35)) return;
+    const p = reduceMotion ? 1 : sectionProgress(afterimage);
+    const sticky = afterimage.querySelector('.pele-afterimage-sticky');
+    if (!sticky) return;
+    const fade = (start, span=.16) => String(1 - .92 * clamp((p - start) / span));
+    sticky.style.setProperty('--mem1', fade(.05));
+    sticky.style.setProperty('--mem2', fade(.19));
+    sticky.style.setProperty('--mem3', fade(.33));
+    sticky.style.setProperty('--mem4', fade(.47));
+    sticky.style.setProperty('--power-width', `${Math.max(.4, 74 * (1 - clamp((p - .16) / .52)))}vw`);
+    sticky.style.setProperty('--power-dot', String(Math.max(.04, 1 - clamp((p - .48) / .22))));
+    const name = reduceMotion ? 1 : clamp((p - .57) / .24);
+    sticky.style.setProperty('--after-name', String(.02 + name * .94));
+    sticky.style.setProperty('--after-scale', String(.86 + name * .14));
+    sticky.style.setProperty('--after-glow', `${name * 34}px`);
+    sticky.style.setProperty('--after-caption', String(clamp((p - .78) / .14) * .68));
+    sticky.style.setProperty('--after-scan', String(.28 * (1 - p)));
+  };
 
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries.filter((entry) => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) setBroadcastState(stateMap.get(visible.target) || 'O REI');
-    }, { rootMargin:'-28% 0px -48% 0px', threshold:[0,.12,.35,.6] });
-    stateMap.forEach((_, node) => observer.observe(node));
-  }
+  let raf = 0;
+  const render = () => {
+    raf = 0;
+    if (document.hidden) return;
+    updateHero();
+    updateBody();
+    updateAfterimage();
+  };
+  const schedule = () => {
+    if (raf || document.hidden) return;
+    raf = requestAnimationFrame(render);
+  };
 
-  update();
-  window.addEventListener('scroll', update, { passive:true });
-  window.addEventListener('resize', update, { passive:true });
+  schedule();
+  window.addEventListener('scroll', schedule, { passive:true });
+  window.addEventListener('resize', schedule, { passive:true });
+  document.addEventListener('visibilitychange', schedule);
 })();
