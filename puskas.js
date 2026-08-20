@@ -21,8 +21,7 @@
   const afterlife = document.querySelector('.puskas-afterlife');
   const notes = document.querySelector('.puskas-notes');
 
-  // The 2009 → EVERY SEASON sequence is the last frame of the article.
-  // Keep credits before it, then let the reader leave on the name PUSKÁS.
+  // Keep the 2009 → EVERY SEASON sequence as the final visual frame.
   if (afterlife && notes && notes.nextElementSibling !== afterlife) {
     notes.after(afterlife);
   }
@@ -123,12 +122,17 @@
   const renderAfterlife = () => {
     if (!afterlife || !near(afterlife)) return;
     const p = reduceMotion ? 1 : stageProgress(afterlife);
-    const lines = ease(map(p, .08, .66));
-    const name = ease(map(p, .38, .78));
-    afterlife.style.setProperty('--pk-after-line', String(.04 + .96 * lines));
-    afterlife.style.setProperty('--pk-name-opacity', String(.1 + .9 * name));
-    afterlife.style.setProperty('--pk-name-scale', String(.88 + .12 * name));
-    afterlife.style.setProperty('--pk-after-caption', String(.12 + .88 * ease(map(p, .62, .88))));
+
+    // Final frame: begin almost invisible, then reveal continuously with scroll.
+    // Reach full clarity before the section ends so the name can hold on screen.
+    const lines = ease(map(p, .01, .66));
+    const name = ease(map(p, .025, .72));
+    const caption = ease(map(p, .56, .84));
+
+    afterlife.style.setProperty('--pk-after-line', String(.015 + .985 * lines));
+    afterlife.style.setProperty('--pk-name-opacity', String(.025 + .975 * name));
+    afterlife.style.setProperty('--pk-name-scale', String(.84 + .16 * name));
+    afterlife.style.setProperty('--pk-after-caption', String(.04 + .96 * caption));
   };
 
   let raf = 0;
