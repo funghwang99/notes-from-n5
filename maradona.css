@@ -1,0 +1,179 @@
+:root{
+  --m-night:#05070a;
+  --m-ink:#0c1016;
+  --m-paper:#f4efe5;
+  --m-blue:#1689c8;
+  --m-blue-deep:#075681;
+  --m-celeste:#74c9ec;
+  --m-gold:#e6bc4d;
+  --m-red:#d44435;
+  --m-line:rgba(244,239,229,.18);
+}
+
+.maradona-page{background:var(--m-night);color:var(--m-paper)}
+.maradona-page .site-header{border-bottom-color:rgba(244,239,229,.12);background:rgba(5,7,10,.92);color:var(--m-paper)}
+.maradona-page .site-nav a,.maradona-page .brand{color:inherit}
+.maradona-page .menu-button{color:inherit}
+.maradona-page .reading-progress{background:linear-gradient(90deg,var(--m-blue),var(--m-gold),var(--m-celeste))}
+.maradona-article{overflow:clip;background:var(--m-night)}
+.maradona-copy{width:min(100% - 3rem,47rem);margin:0 auto;color:#d8d3ca;font:500 clamp(1.06rem,1.35vw,1.22rem)/1.82 var(--serif)}
+.maradona-copy p{margin:0 0 1.8rem}
+.maradona-copy .article-lead{color:var(--m-paper);font-size:clamp(1.15rem,1.55vw,1.35rem)}
+.maradona-turn-line{color:var(--m-gold)!important;font-size:clamp(1.45rem,2.4vw,2.3rem)!important;line-height:1.35!important}
+.maradona-section-head{width:min(100% - 3rem,72rem);margin:0 auto 4rem;padding-top:clamp(6rem,12vw,10rem)}
+.maradona-section-head p,.maradona-kicker{margin:0 0 1rem;color:var(--m-gold);font:850 .68rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.maradona-section-head h2{max-width:12ch;margin:0;font:500 clamp(4rem,9vw,9rem)/.86 var(--serif);letter-spacing:-.065em}
+.maradona-world{position:relative;padding-bottom:clamp(6rem,12vw,11rem)}
+.maradona-world-mark{position:absolute;top:5rem;right:-.04em;color:rgba(255,255,255,.035);font:900 clamp(7rem,18vw,19rem)/.75 var(--sans);letter-spacing:-.075em;pointer-events:none;writing-mode:vertical-rl;transform:rotate(180deg)}
+
+/* HERO — a true diptych, not a poster */
+.maradona-hero{position:relative;min-height:100svh;overflow:hidden;background:#030405;color:#fff;isolation:isolate}
+.maradona-hero-half{position:absolute;inset:0;width:50%;overflow:hidden}
+.maradona-hero-half img{width:100%;height:100%;object-fit:cover;opacity:.72;transform:scale(1.035);animation:maradona-image-in 1.4s cubic-bezier(.2,.75,.15,1) both}
+.maradona-hero-half:after{position:absolute;inset:0;content:"";pointer-events:none}
+.maradona-hero-half>span{position:absolute;z-index:3;top:7rem;color:rgba(255,255,255,.72);font:850 .56rem/1 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.maradona-hero-half--napoli{left:0;background:#06476e;clip-path:polygon(0 0,var(--hero-left,50%) 0,var(--hero-left,50%) 100%,0 100%);width:100%}
+.maradona-hero-half--napoli img{object-position:center 42%}
+.maradona-hero-half--napoli:after{background:linear-gradient(90deg,rgba(4,65,102,.18),rgba(3,7,10,.18) 48%,rgba(3,7,10,.94) 100%),linear-gradient(0deg,rgba(3,7,10,.9),transparent 50%)}
+.maradona-hero-half--napoli>span{left:4vw}
+.maradona-hero-half--argentina{right:0;background:#88d2ee;clip-path:polygon(var(--hero-left,50%) 0,100% 0,100% 100%,var(--hero-left,50%) 100%);width:100%}
+.maradona-hero-half--argentina img{object-position:center 44%}
+.maradona-hero-half--argentina:after{background:linear-gradient(90deg,rgba(3,7,10,.92),rgba(3,7,10,.16) 52%,rgba(105,197,232,.12)),linear-gradient(0deg,rgba(3,7,10,.88),transparent 54%)}
+.maradona-hero-half--argentina>span{right:4vw}
+.maradona-hero-seam{position:absolute;z-index:4;top:0;bottom:0;left:var(--hero-left,50%);width:1px;background:rgba(230,188,77,.76);box-shadow:0 0 36px rgba(230,188,77,.25);transform:translateX(-50%)}
+.maradona-hero-seam i{position:absolute;top:16%;left:50%;width:.55rem;height:.55rem;border-radius:50%;background:var(--m-gold);box-shadow:0 0 0 .6rem rgba(230,188,77,.08),0 0 26px rgba(230,188,77,.6);transform:translateX(-50%);animation:maradona-seam-pulse 2.2s ease-in-out infinite}
+.maradona-hero-seam span{position:absolute;top:50%;left:50%;padding:.65rem .48rem;background:#05070a;color:var(--m-gold);font:900 .5rem/1 var(--sans);letter-spacing:.18em;transform:translate(-50%,-50%) rotate(-90deg)}
+.maradona-hero-words{position:absolute;z-index:3;inset:auto 4vw 3.5rem;display:grid;grid-template-columns:1fr 1fr;column-gap:4rem;pointer-events:none}
+.maradona-hero-words span{color:rgba(255,255,255,.45);font:850 .55rem/1 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.maradona-hero-words strong{margin-top:.35rem;color:rgba(255,255,255,.13);font:900 clamp(3rem,6vw,7rem)/.8 var(--sans);letter-spacing:-.07em}
+.maradona-hero-copy{position:relative;z-index:6;display:grid;align-content:center;width:min(100% - 3rem,49rem);min-height:100svh;margin:0 auto;text-align:center;pointer-events:none}
+.maradona-hero-copy .eyebrow{color:#fff}
+.maradona-hero-copy h1{margin:.4rem 0 1rem;color:#fff;font:500 clamp(5.2rem,13vw,13rem)/.7 var(--serif);letter-spacing:-.075em;text-shadow:0 8px 60px rgba(0,0,0,.5)}
+.maradona-hero-copy h1 em{display:block;color:var(--m-gold);font-style:italic}
+.maradona-deck{max-width:40rem;margin:.9rem auto 1.5rem;color:#ddd7cd;font:500 clamp(1.08rem,1.7vw,1.35rem)/1.6 var(--serif)}
+.maradona-hero-copy .article-byline{justify-content:center;color:#d9d2c7}
+.maradona-hero-bottom{position:absolute;z-index:6;right:3vw;bottom:1rem;left:3vw;display:flex;justify-content:space-between;color:rgba(255,255,255,.48);font:800 .49rem/1 var(--sans);letter-spacing:.18em}
+@keyframes maradona-image-in{from{opacity:0;transform:scale(1.1)}to{opacity:.72;transform:scale(1.035)}}
+@keyframes maradona-seam-pulse{50%{opacity:.38;transform:translateX(-50%) scale(.68)}}
+
+/* NAPLES */
+.maradona-world--napoli{background:linear-gradient(180deg,#06131d 0%,#072238 48%,#061018 100%)}
+.maradona-world--napoli .maradona-section-head h2{color:#e9f5fb}
+.maradona-arrival{position:relative;width:min(100% - 3rem,78rem);min-height:72svh;margin:7rem auto;overflow:hidden;border:1px solid rgba(116,201,236,.22);background:#071019;box-shadow:0 3rem 7rem rgba(0,0,0,.28)}
+.maradona-arrival figure{position:absolute;inset:0;margin:0}
+.maradona-arrival img{width:100%;height:100%;object-fit:cover;object-position:center 43%;opacity:.7}
+.maradona-arrival:after{position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,13,22,.14),rgba(2,13,22,.84) 66%,#06111b 100%),linear-gradient(0deg,rgba(2,13,22,.8),transparent 50%);content:""}
+.maradona-arrival-copy{position:absolute;z-index:2;right:clamp(1.5rem,5vw,5rem);bottom:clamp(1.5rem,6vw,5rem);display:grid;justify-items:end;text-align:right}
+.maradona-arrival-copy span{color:#bcdbea;font:900 clamp(2.2rem,5vw,5.8rem)/.85 var(--sans);letter-spacing:-.06em}
+.maradona-arrival-copy strong{color:var(--m-gold);font:900 clamp(3rem,7vw,7.6rem)/.8 var(--sans);letter-spacing:-.07em}
+.maradona-arrival-copy small{margin-top:1rem;color:#93a7b0;font:800 .58rem/1 var(--sans);letter-spacing:.2em}
+.maradona-blue-years{position:relative;display:grid;width:min(100% - 3rem,78rem);grid-template-columns:repeat(3,1fr);margin:8rem auto;overflow:hidden;border-top:1px solid rgba(116,201,236,.22);border-bottom:1px solid rgba(116,201,236,.22)}
+.maradona-banner{position:relative;z-index:2;min-height:27rem;padding:2rem;border-right:1px solid rgba(116,201,236,.2);background:linear-gradient(180deg,rgba(10,63,97,.88),rgba(5,24,39,.84));transition:transform .35s ease}
+.maradona-banner:nth-child(2){transform:translateY(2.4rem)}
+.maradona-banner:nth-child(3){transform:translateY(4.8rem)}
+.maradona-banner span{display:block;color:#85d2f2;font:850 .62rem/1 var(--sans);letter-spacing:.18em}
+.maradona-banner strong{display:block;margin-top:auto;padding-top:10rem;color:#fff;font:900 clamp(2.1rem,4vw,4.7rem)/.88 var(--sans);letter-spacing:-.06em}
+.maradona-banner small{display:block;margin-top:.55rem;color:var(--m-gold);font:850 .56rem/1 var(--sans);letter-spacing:.2em}
+.maradona-blue-years figure{grid-column:1/-1;height:min(62vw,38rem);margin:0;overflow:hidden}
+.maradona-blue-years img{width:100%;height:100%;object-fit:cover;object-position:center 44%}
+.maradona-exit{position:relative;width:min(100% - 3rem,72rem);min-height:28rem;margin:7rem auto;padding:3rem;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#05080a}
+.maradona-exit>div{display:grid;position:relative;z-index:2}
+.maradona-exit span{color:#777f84;font:900 clamp(4rem,10vw,10rem)/.8 var(--sans);letter-spacing:-.08em}
+.maradona-exit strong{color:#fff;font:900 clamp(2.5rem,6vw,6.4rem)/.86 var(--sans);letter-spacing:-.065em}
+.maradona-exit small{margin-top:.6rem;color:var(--m-red);font:900 .65rem/1 var(--sans);letter-spacing:.22em}
+.maradona-exit>i{position:absolute;top:0;right:23%;bottom:0;width:1px;background:rgba(255,255,255,.16);box-shadow:0 0 0 18vw rgba(0,0,0,.08)}
+.maradona-exit>p{position:absolute;right:2rem;bottom:2rem;max-width:18rem;color:#8f9699;font:500 1rem/1.5 var(--serif);text-align:right}
+
+/* THE SWITCH */
+.maradona-switch{position:relative;display:grid;min-height:75svh;grid-template-columns:1fr 1fr;overflow:hidden;background:#05070a}
+.maradona-switch>div{display:grid;align-content:center;padding:clamp(2rem,7vw,7rem)}
+.maradona-switch-left{justify-items:end;background:#06243a;text-align:right}
+.maradona-switch-right{background:#dff4fb;color:#082133}
+.maradona-switch span{font:850 .61rem/1 var(--sans);letter-spacing:.22em}
+.maradona-switch strong{display:block;margin-top:.5rem;font:900 clamp(4rem,10vw,10rem)/.8 var(--sans);letter-spacing:-.075em}
+.maradona-switch-left strong{color:#84d7f6}.maradona-switch-right strong{color:#1284bb}
+.maradona-switch-seam{position:absolute;z-index:3;top:0;bottom:0;left:50%;width:1px!important;padding:0!important;background:var(--m-gold)}
+.maradona-switch-seam i{position:absolute;top:50%;left:50%;width:1.2rem;height:1.2rem;border-radius:50%;background:var(--m-gold);transform:translate(-50%,-50%)}
+
+/* ARGENTINA */
+.maradona-world--argentina{background:linear-gradient(180deg,#eaf7fb 0%,#bfe8f6 23%,#f5f1e6 58%,#0a1117 100%);color:#0b2130}
+.maradona-world--argentina .maradona-world-mark{color:rgba(7,64,95,.045)}
+.maradona-world--argentina .maradona-section-head h2{color:#0a2738}
+.maradona-world--argentina .maradona-section-head p{color:#096d9f}
+.maradona-world--argentina .maradona-copy{color:#263d49}
+.maradona-world--argentina .maradona-copy .article-lead{color:#0c2534}
+.maradona-world--argentina .maradona-turn-line{color:#0b6694!important}
+
+/* 51 / 55 — the central Maradona set-piece */
+.maradona-four-minutes{position:relative;height:220svh;margin:8rem 0;background:#05080b;color:#fff}
+.maradona-four-sticky{position:sticky;top:0;height:100svh;overflow:hidden;background:#05080b}
+.maradona-four-top{position:absolute;z-index:8;top:6.4rem;right:3vw;left:3vw;display:flex;justify-content:space-between;color:#81909a;font:850 .55rem/1 var(--sans);letter-spacing:.2em}
+.maradona-four-top strong{color:var(--m-gold)}
+.maradona-goal{position:absolute;top:0;bottom:0;width:50%;overflow:hidden}
+.maradona-goal--hand{left:0;background:radial-gradient(circle at 67% 38%,rgba(230,188,77,.1),transparent 28%),#071019}
+.maradona-goal--feet{right:0;background:radial-gradient(circle at 45% 62%,rgba(116,201,236,.12),transparent 28%),#09141b;border-left:1px solid rgba(230,188,77,.28)}
+.maradona-minute{position:absolute;z-index:2;top:19%;left:8%;color:rgba(255,255,255,.08);font:900 clamp(9rem,22vw,25rem)/.7 var(--sans);letter-spacing:-.09em}
+.maradona-goal>small{position:absolute;z-index:6;bottom:9%;left:8%;color:#e9eef0;font:900 clamp(2rem,4vw,4.6rem)/.85 var(--sans);letter-spacing:-.055em}
+.maradona-goal--hand>small{color:var(--m-gold)}
+.maradona-hand-frame{position:absolute;right:10%;bottom:24%;width:42%;height:42%;border-right:2px solid rgba(255,255,255,.38);border-top:2px solid rgba(255,255,255,.38)}
+.maradona-hand-frame i{position:absolute;background:rgba(255,255,255,.2)}
+.maradona-hand-frame i:nth-child(1){left:0;right:0;top:34%;height:1px}.maradona-hand-frame i:nth-child(2){left:0;right:0;top:67%;height:1px}.maradona-hand-frame i:nth-child(3){top:0;bottom:0;left:50%;width:1px}
+.maradona-hand-ball{position:absolute;z-index:5;top:var(--hand-y,64%);left:var(--hand-x,25%);width:1.45rem;height:1.45rem;border-radius:50%;background:var(--m-gold);box-shadow:0 0 0 .65rem rgba(230,188,77,.07),0 0 2.4rem rgba(230,188,77,.42);transform:translate(-50%,-50%)}
+.maradona-dribble{position:absolute;z-index:3;inset:18% 7% 18% 7%;width:86%;height:64%;overflow:visible}
+.maradona-dribble path{fill:none;stroke:var(--m-celeste);stroke-width:1.55;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:var(--dribble-offset,1)}
+.maradona-dribble-ball{position:absolute;z-index:5;top:var(--dribble-y,78%);left:var(--dribble-x,8%);width:1.45rem;height:1.45rem;border-radius:50%;background:#fff;box-shadow:0 0 2rem rgba(116,201,236,.6);transform:translate(-50%,-50%)}
+.maradona-defender{position:absolute;width:2.25rem;height:2.25rem;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:#101b22}.maradona-defender:after{position:absolute;inset:50% auto auto 50%;width:.38rem;height:.38rem;border-radius:50%;background:#65727a;content:"";transform:translate(-50%,-50%)}
+.maradona-defender.d1{left:22%;top:62%}.maradona-defender.d2{left:36%;top:42%}.maradona-defender.d3{left:51%;top:56%}.maradona-defender.d4{left:67%;top:36%}.maradona-defender.d5{left:80%;top:23%}
+.maradona-four-center{position:absolute;z-index:10;top:50%;left:50%;display:grid;width:min(30rem,42vw);padding:1rem 1.2rem;border:1px solid rgba(230,188,77,.34);background:rgba(4,8,11,.92);text-align:center;transform:translate(-50%,-50%) scale(var(--four-center-scale,.92));opacity:var(--four-center-opacity,.25)}
+.maradona-four-center span{color:#8e979c;font:850 .53rem/1 var(--sans);letter-spacing:.2em}.maradona-four-center strong{margin:.45rem 0;color:#fff;font:900 clamp(2rem,4vw,4.5rem)/.85 var(--sans);letter-spacing:-.06em}
+
+.maradona-two-finals{display:grid;width:min(100% - 3rem,78rem);grid-template-columns:1fr 1fr;margin:8rem auto;box-shadow:0 2.5rem 7rem rgba(0,0,0,.18)}
+.maradona-final{position:relative;min-height:72svh;margin:0;overflow:hidden}
+.maradona-final img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.maradona-final:after{position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,7,9,.86),transparent 58%);content:""}
+.maradona-final figcaption{position:absolute;z-index:3;right:2rem;bottom:2rem;left:2rem;display:grid}
+.maradona-final figcaption span,.maradona-final figcaption small{font:850 .56rem/1 var(--sans);letter-spacing:.2em}.maradona-final figcaption strong{font:900 clamp(4rem,8vw,9rem)/.8 var(--sans);letter-spacing:-.08em}
+.maradona-final--86 figcaption{color:#fff}.maradona-final--86 figcaption small{color:var(--m-gold)}
+.maradona-final--90{background:#090b0d;color:#fff}
+.maradona-final--90:after{background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.7))}
+.maradona-rome-noise{position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.035) 0 1px,transparent 1px 5px),radial-gradient(circle at 60% 36%,rgba(255,255,255,.11),transparent 24%);opacity:.75}
+.maradona-final--90 figcaption small{color:#d95547}.maradona-final--90 p{position:absolute;z-index:3;right:2rem;bottom:2rem;left:2rem;margin:0;color:#92989b;font:500 1rem/1.5 var(--serif);transform:translateY(-10rem)}
+.maradona-world--argentina .maradona-exit{color:#fff;background:#071018}
+
+/* convergence */
+.maradona-convergence{position:relative;display:grid;min-height:120svh;grid-template-columns:1fr 1fr;overflow:hidden;background:#05070a;color:#fff}
+.maradona-convergence-half{display:grid;min-height:120svh;align-content:center;padding:clamp(2rem,7vw,7rem)}
+.maradona-convergence-half--napoli{justify-items:end;background:linear-gradient(180deg,#062b43,#04111c);text-align:right}
+.maradona-convergence-half--argentina{background:linear-gradient(180deg,#dff6ff,#93d6ef);color:#06253a}
+.maradona-convergence-half span{font:850 .6rem/1 var(--sans);letter-spacing:.22em}.maradona-convergence-half strong{font:900 clamp(4rem,10vw,10rem)/.78 var(--sans);letter-spacing:-.075em}.maradona-convergence-half small{margin-top:.75rem;font:800 .54rem/1 var(--sans);letter-spacing:.18em;opacity:.55}
+.maradona-convergence-seam{position:absolute;z-index:3;top:0;bottom:0;left:50%;width:1px;background:var(--m-gold);transform:scaleY(var(--converge-line,1));transform-origin:center}
+.maradona-convergence-copy{position:absolute;z-index:5;top:50%;left:50%;width:min(100% - 3rem,42rem);padding:2rem;border:1px solid rgba(230,188,77,.35);background:rgba(5,7,10,.94);color:#eee8dd;text-align:center;transform:translate(-50%,-50%);opacity:var(--converge-copy,.12)}
+.maradona-convergence-copy p{margin:.75rem 0;font:500 clamp(1.12rem,1.6vw,1.35rem)/1.6 var(--serif)}
+
+.maradona-last{position:relative;display:grid;min-height:100svh;place-content:center;overflow:hidden;background:#030405;color:#fff;text-align:center}
+.maradona-last-noise{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(230,188,77,.08),transparent 25%),repeating-linear-gradient(180deg,rgba(255,255,255,.02) 0 1px,transparent 1px 5px);opacity:.7}
+.maradona-last>span,.maradona-last>small{position:relative;z-index:2;color:#777d80;font:850 .58rem/1 var(--sans);letter-spacing:.22em}
+.maradona-last>strong{position:relative;z-index:2;margin:.7rem 0;color:var(--m-gold);font:900 clamp(6rem,18vw,18rem)/.7 var(--sans);letter-spacing:-.085em;text-shadow:0 0 4rem rgba(230,188,77,.12)}
+.maradona-notes{background:#030405;color:#888f92}.maradona-notes a{color:#c7c0b2}.maradona-footer{background:#030405;color:#aaa39a;border-top-color:rgba(255,255,255,.08)}
+
+@media(max-width:900px){
+  .maradona-hero-words{display:none}.maradona-hero-copy{width:min(100% - 2rem,39rem)}.maradona-hero-copy h1{font-size:clamp(4.4rem,18vw,8.5rem)}
+  .maradona-section-head,.maradona-copy{width:min(100% - 2rem,47rem)}
+  .maradona-arrival,.maradona-blue-years,.maradona-two-finals,.maradona-exit{width:min(100% - 2rem,72rem)}
+  .maradona-blue-years{grid-template-columns:1fr}.maradona-banner{min-height:15rem;border-right:0;border-bottom:1px solid rgba(116,201,236,.15)}.maradona-banner:nth-child(2),.maradona-banner:nth-child(3){transform:none}.maradona-banner strong{padding-top:5rem}
+  .maradona-four-top{top:5.8rem;font-size:.46rem}.maradona-four-center{width:46vw}.maradona-minute{top:24%}.maradona-goal>small{bottom:8%;font-size:clamp(1.4rem,5vw,2.8rem)}
+  .maradona-two-finals{grid-template-columns:1fr}.maradona-final{min-height:62svh}
+}
+@media(max-width:620px){
+  .maradona-hero-half--napoli img{object-position:46% center}.maradona-hero-half--argentina img{object-position:57% center}.maradona-hero-seam span{display:none}.maradona-hero-bottom{font-size:.4rem}
+  .maradona-kicker{font-size:.52rem}.maradona-deck{font-size:1rem}.maradona-section-head h2{font-size:clamp(3.3rem,16vw,5.8rem)}
+  .maradona-arrival{min-height:72svh}.maradona-arrival:after{background:linear-gradient(0deg,rgba(2,13,22,.94),rgba(2,13,22,.1) 70%)}.maradona-arrival-copy{right:1.1rem;bottom:1.4rem;left:1.1rem;justify-items:start;text-align:left}.maradona-arrival-copy strong{font-size:clamp(2.7rem,14vw,5rem)}
+  .maradona-switch{min-height:58svh}.maradona-switch>div{padding:1.25rem}.maradona-switch strong{font-size:clamp(2.7rem,13vw,5rem)}
+  .maradona-four-minutes{height:190svh}.maradona-goal--hand{width:100%;height:50%;bottom:auto}.maradona-goal--feet{top:50%;width:100%;height:50%;border-top:1px solid rgba(230,188,77,.28);border-left:0}.maradona-minute{top:22%;font-size:clamp(6rem,31vw,10rem)}.maradona-goal>small{bottom:8%;left:5%}.maradona-four-top{right:1rem;left:1rem}.maradona-four-top span:last-child{display:none}.maradona-four-center{width:min(18rem,78vw)}.maradona-hand-frame{right:8%;bottom:14%;height:50%}.maradona-dribble{inset:9% 6%;width:88%;height:82%}
+  .maradona-exit{min-height:25rem;padding:1.3rem}.maradona-exit>i{right:12%}.maradona-exit>p{right:1.2rem;bottom:1.2rem;max-width:14rem;font-size:.88rem}
+  .maradona-convergence{min-height:110svh}.maradona-convergence-half{min-height:110svh;padding:1.2rem}.maradona-convergence-half strong{font-size:clamp(2.8rem,13vw,5.2rem)}.maradona-convergence-half small{display:none}.maradona-convergence-copy{width:calc(100% - 2rem);padding:1.25rem}
+  .maradona-last>strong{font-size:clamp(5rem,24vw,9rem)}
+}
+@media(prefers-reduced-motion:reduce){
+  .maradona-hero-half img,.maradona-hero-seam i{animation:none!important}.maradona-hand-ball,.maradona-dribble-ball,.maradona-convergence-copy{transition:none!important}
+}
