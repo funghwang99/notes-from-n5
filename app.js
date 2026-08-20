@@ -1,6 +1,6 @@
 (() => {
   const core = document.createElement('script');
-  core.src = 'app-core.js?v=20260820-nad-1';
+  core.src = 'app-core.js?v=20260820-nad-2';
   core.async = false;
   document.head.append(core);
 
@@ -25,4 +25,14 @@
   experience.src = 'ngoai-anh-den-wow.js?v=20260820-nad-1';
   experience.async = false;
   document.head.append(experience);
+
+  const tuningStyle = document.createElement('link');
+  tuningStyle.rel = 'stylesheet';
+  tuningStyle.href = 'ngoai-anh-den-tuning.css?v=20260820-nad-2';
+  document.head.append(tuningStyle);
+
+  const tuning = document.createElement('script');
+  tuning.src = 'ngoai-anh-den-tuning.js?v=20260820-nad-2';
+  tuning.async = false;
+  document.head.append(tuning);
 })();

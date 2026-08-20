@@ -1,0 +1,81 @@
+/* Screenshot tuning — Rice + Gyokeres, 2026-08-20 */
+
+/* DECLAN RICE — clean hero composition, no overlapping legacy geometry */
+.layout-keystone.nad-wow .article-hero::before,
+.layout-keystone.nad-wow .article-hero-media::before,
+.layout-keystone.nad-wow .article-hero-media::after,
+.layout-keystone.nad-wow .article-heading::before,
+.layout-keystone.nad-wow .article-heading::after{display:none!important}
+.layout-keystone.nad-wow .article-hero{min-height:100svh;background:#102630}
+.layout-keystone.nad-wow .article-hero-media{inset:0!important;transform:none!important;background-position:76% center!important;background-size:cover!important;opacity:.68!important}
+.layout-keystone.nad-wow .article-hero:after{background:linear-gradient(90deg,rgba(9,25,33,.97) 0%,rgba(9,25,33,.9) 42%,rgba(9,25,33,.48) 66%,rgba(9,25,33,.14) 100%)!important}
+.layout-keystone.nad-wow .article-heading{position:relative!important;inset:auto!important;display:grid!important;align-content:center!important;width:min(57rem,72vw)!important;max-width:none!important;min-height:100svh!important;margin:0!important;padding:7rem 0 4rem clamp(2rem,7vw,7rem)!important;border:0!important;background:none!important;box-shadow:none!important;text-align:left!important}
+.layout-keystone.nad-wow .article-heading .eyebrow{margin-bottom:1.15rem!important}
+.layout-keystone.nad-wow .article-heading h1{max-width:6.2ch!important;margin:0 0 1.5rem!important;font-size:clamp(5rem,10vw,9rem)!important;line-height:.82!important;letter-spacing:-.07em!important}
+.layout-keystone.nad-wow .article-heading .article-deck{max-width:39rem!important;margin:0 0 2.2rem!important;font-size:clamp(1.08rem,1.7vw,1.35rem)!important;line-height:1.65!important}
+.layout-keystone.nad-wow .article-heading .article-byline{width:min(100%,38rem)!important;margin-top:0!important}
+.layout-keystone.nad-wow .nad-rice-hero{top:50%!important;right:5vw!important;width:clamp(7rem,12vw,10.5rem)!important;border-color:rgba(214,193,130,.34)!important;opacity:.8!important}
+.layout-keystone.nad-wow .nad-rice-hero strong{font-size:clamp(4rem,7vw,7rem)!important;color:rgba(224,207,153,.22)!important}
+
+/* RICE — cleaner 11 / 10 / 7 shape, keep 4 visibly at the base of everything */
+.layout-keystone.nad-wow .nad-rice-plane{top:21%!important;height:62vh!important;width:min(76vw,68rem)!important}
+.layout-keystone.nad-wow .nad-rice-node{width:clamp(4.7rem,7vw,6.4rem)!important;color:#d0c9b6!important;border-color:rgba(255,255,255,.11)!important;background:rgba(17,18,15,.58)!important;font-size:.62rem!important}
+.layout-keystone.nad-wow .nad-rice-node--left{left:8%!important;top:19%!important}
+.layout-keystone.nad-wow .nad-rice-node--ten{left:50%!important;top:4%!important}
+.layout-keystone.nad-wow .nad-rice-node--right{right:8%!important;top:19%!important}
+.layout-keystone.nad-wow .nad-rice-node--back{left:50%!important;bottom:1.5%!important}
+.layout-keystone.nad-wow .nad-rice-four{top:51%!important;width:clamp(7.5rem,12vw,10rem)!important}
+.layout-keystone.nad-wow .nad-rice-four small{bottom:1rem!important;color:#a89e7d!important}
+.layout-keystone.nad-wow .nad-rice-vector{top:51%!important;width:31%!important}
+
+/* GYOKERES HERO — let the real celebration image carry the mask, remove abstract circles */
+.layout-mask.nad-wow .article-hero::before,
+.layout-mask.nad-wow .article-hero-media::before,
+.layout-mask.nad-wow .article-hero-media::after{display:none!important}
+.layout-mask.nad-wow .article-hero{min-height:100svh;background:#0d0d0b}
+.layout-mask.nad-wow .article-hero-media{inset:0!important;transform:none!important;background-position:center 39%!important;background-size:cover!important;filter:none!important;opacity:1!important}
+.layout-mask.nad-wow .article-hero:after{background:linear-gradient(180deg,rgba(8,8,7,.24) 0%,rgba(8,8,7,.2) 35%,rgba(8,8,7,.58) 72%,rgba(8,8,7,.9) 100%),linear-gradient(90deg,rgba(8,8,7,.34),transparent 28%,transparent 72%,rgba(8,8,7,.26))!important}
+.layout-mask.nad-wow .nad-mask-hero{display:none!important}
+.layout-mask.nad-wow .article-heading{position:relative!important;z-index:8!important;width:min(100% - 3rem,66rem)!important;min-height:100svh!important;margin:0 auto!important;padding:8rem 0 4.5rem!important;display:grid!important;align-content:center!important;text-align:center!important;background:none!important;border:0!important;box-shadow:none!important}
+.layout-mask.nad-wow .article-heading h1{margin:.5rem auto 1.4rem!important;max-width:10ch!important;font-size:clamp(5rem,10.5vw,10rem)!important;line-height:.82!important;letter-spacing:-.07em!important;text-shadow:0 .3rem 2rem rgba(0,0,0,.48)!important}
+.layout-mask.nad-wow .article-heading .article-deck{max-width:47rem!important;margin:0 auto 2rem!important;font-size:clamp(1.08rem,1.65vw,1.35rem)!important;line-height:1.65!important}
+.layout-mask.nad-wow .article-heading .article-byline{justify-content:center!important}
+
+/* THE RITUAL — people, not abstract icons. Each figure has a head, torso and two forearms across the mouth. */
+.layout-mask.nad-wow .nad-mask-sticky{background:radial-gradient(ellipse at 50% 48%,rgba(211,66,55,.11),transparent 34%),linear-gradient(180deg,#0b0b09,#0e0d0a 68%,#090907)!important}
+.layout-mask.nad-wow .nad-mask-crowd{inset:15% 4% 16%!important;grid-template-columns:repeat(10,1fr)!important;gap:clamp(.55rem,1.3vw,1.3rem)!important;align-content:center!important}
+.layout-mask.nad-wow .nad-mask-person{width:min(100%,5.6rem)!important;justify-self:center!important;aspect-ratio:.78!important;border:0!important;border-radius:42% 42% 34% 34%!important;background:radial-gradient(circle at 50% 29%,#2a2924 0 21%,transparent 22%),linear-gradient(180deg,transparent 0 45%,#23221e 46% 100%)!important;box-shadow:none!important;opacity:var(--mask-ripple,.07)!important;transform:scale(var(--mask-ripple-scale,.74)) translateY(var(--mask-ripple-y,8px))!important;transform-origin:center 55%!important}
+.layout-mask.nad-wow .nad-mask-person:before,
+.layout-mask.nad-wow .nad-mask-person:after{top:31%!important;width:59%!important;height:10%!important;background:#b5aa98!important;border-radius:999px!important;box-shadow:0 0 0 1px rgba(255,255,255,.025)!important}
+.layout-mask.nad-wow .nad-mask-person:before{left:5%!important;right:auto!important;transform:rotate(13deg)!important;transform-origin:right center!important}
+.layout-mask.nad-wow .nad-mask-person:after{right:5%!important;left:auto!important;transform:rotate(-13deg)!important;transform-origin:left center!important}
+.layout-mask.nad-wow .nad-mask-face{top:48%!important;width:clamp(8rem,13vw,11rem)!important;height:clamp(11rem,18vw,15rem)!important;aspect-ratio:auto!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;transform:translate(-50%,-50%) scale(var(--mask-main,.9))!important}
+.layout-mask.nad-wow .nad-mask-face:before{position:absolute;top:2%;left:50%;width:52%;aspect-ratio:.82;border-radius:46% 46% 42% 42%;background:#d7d0c4;content:"";transform:translateX(-50%);opacity:.94}
+.layout-mask.nad-wow .nad-mask-face:after{position:absolute;right:13%;bottom:0;left:13%;height:51%;border-radius:42% 42% 12% 12%;background:#f1eee6;content:"";opacity:.94}
+.layout-mask.nad-wow .nad-mask-face strong{z-index:3;position:absolute;right:0;bottom:8%;left:0;color:#161512!important;font-size:clamp(2rem,4vw,3.8rem)!important;text-align:center!important}
+.layout-mask.nad-wow .nad-mask-face i{z-index:4;top:30%!important;width:58%!important;height:.72rem!important;background:#8f8170!important;opacity:1!important}
+.layout-mask.nad-wow .nad-mask-face i:first-of-type{left:4%!important;transform:rotate(13deg)!important;transform-origin:right center!important}
+.layout-mask.nad-wow .nad-mask-face i:last-of-type{right:4%!important;transform:rotate(-13deg)!important;transform-origin:left center!important}
+.layout-mask.nad-wow .nad-mask-thesis{right:4vw!important;bottom:5%!important;left:4vw!important;display:grid!important;justify-items:center!important;gap:.7rem!important;text-align:center!important}
+.layout-mask.nad-wow .nad-mask-thesis strong{max-width:none!important;font-size:clamp(2rem,4vw,4.8rem)!important;line-height:.9!important;text-align:center!important;letter-spacing:-.055em!important}
+.layout-mask.nad-wow .nad-mask-thesis span{color:#9b9184!important}
+
+@media(max-width:1000px){
+  .layout-keystone.nad-wow .article-heading{width:68vw!important;padding-left:2.2rem!important}
+  .layout-keystone.nad-wow .article-heading h1{font-size:clamp(4.5rem,12vw,7.2rem)!important}
+  .layout-keystone.nad-wow .nad-rice-hero{right:1.5rem!important;top:28%!important;width:7rem!important}
+  .layout-mask.nad-wow .article-heading{width:min(100% - 2rem,55rem)!important}
+  .layout-mask.nad-wow .article-heading h1{font-size:clamp(4.6rem,12vw,7.8rem)!important}
+}
+@media(max-width:700px){
+  .layout-keystone.nad-wow .article-heading{width:100%!important;padding:7rem 1.25rem 3rem!important}
+  .layout-keystone.nad-wow .article-heading h1{font-size:clamp(4.1rem,18vw,6.2rem)!important}
+  .layout-keystone.nad-wow .nad-rice-hero{display:none!important}
+  .layout-keystone.nad-wow .nad-rice-plane{width:94vw!important;height:54vh!important}
+  .layout-keystone.nad-wow .nad-rice-node{width:3.8rem!important;font-size:.5rem!important}
+  .layout-mask.nad-wow .article-heading{padding:7rem 1rem 3rem!important}
+  .layout-mask.nad-wow .article-heading h1{font-size:clamp(4rem,18vw,6.6rem)!important}
+  .layout-mask.nad-wow .nad-mask-crowd{grid-template-columns:repeat(6,1fr)!important;inset:17% 3% 18%!important}
+  .layout-mask.nad-wow .nad-mask-person{width:min(100%,4.5rem)!important}
+  .layout-mask.nad-wow .nad-mask-thesis strong{font-size:clamp(1.8rem,9vw,3.2rem)!important}
+}
