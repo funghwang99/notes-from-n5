@@ -39,7 +39,7 @@
     .home-flow-set{display:flex;gap:1rem;padding-right:1rem;align-items:center}
     .home-flow-card{position:relative;display:block;flex:0 0 clamp(16rem,18vw,19rem);height:clamp(23rem,49vh,28rem);overflow:hidden;background:linear-gradient(145deg,#2a2824,#141412);color:#f8f5ed;text-decoration:none;box-shadow:0 18px 42px rgba(0,0,0,.26);transition:transform 180ms ease,box-shadow 180ms ease;contain:layout paint style}
     .home-flow-card:hover,.home-flow-card:focus-visible{z-index:3;transform:translateY(-.3rem);box-shadow:0 24px 52px rgba(0,0,0,.34);outline:none}
-    .home-flow-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;transition:transform 360ms ease}
+    .home-flow-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;transition:transform 360ms ease;background:#1d1c19}
     .home-flow-card:hover img,.home-flow-card:focus-visible img{transform:scale(1.025)}
     .home-flow-card:after{position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,8,7,.92) 0%,rgba(8,8,7,.46) 34%,rgba(8,8,7,.05) 72%);content:"";pointer-events:none}
     .home-flow-card.is-image-missing:before{position:absolute;right:-.3rem;bottom:-1rem;color:rgba(248,245,237,.07);font-size:8rem;font-weight:850;letter-spacing:-.12em;content:"N5"}
@@ -66,9 +66,8 @@
     }
 
     const image = document.createElement('img');
-    image.src = story.image;
+    image.dataset.src = story.image;
     image.alt = duplicate ? '' : story.alt;
-    image.loading = 'lazy';
     image.decoding = 'async';
     image.fetchPriority = 'low';
     image.draggable = false;
@@ -124,6 +123,25 @@
 
   host.replaceChildren(viewport, prevButton, nextButton);
 
+  const galleryImages = Array.from(track.querySelectorAll('img[data-src]'));
+  const loadImage = (image) => {
+    if (!image?.dataset.src) return;
+    image.src = image.dataset.src;
+    delete image.dataset.src;
+  };
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        loadImage(entry.target);
+        imageObserver.unobserve(entry.target);
+      });
+    }, { root:null, rootMargin:'250px 900px', threshold:0.01 });
+    galleryImages.forEach((image) => imageObserver.observe(image));
+  } else {
+    galleryImages.forEach(loadImage);
+  }
+
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const AUTO_SPEED = 18;
   let setWidth = 1;
@@ -137,10 +155,10 @@
   let activePointerId = null;
   let moved = false;
   let suppressClickUntil = 0;
-  let resumeAfter = 0;
   let lastFrame = performance.now();
   let autoFrame = 0;
   let nudgeAnimation = 0;
+  let resumeTimer = 0;
 
   const normalize = (value) => ((value % setWidth) + setWidth) % setWidth;
   const render = () => {
@@ -153,28 +171,32 @@
     render();
   };
 
-  const shouldAutoRun = () => galleryVisible && !document.hidden && !reduceMotion;
+  const shouldAutoRun = () => galleryVisible && !document.hidden && !reduceMotion && !dragging && !hovered && !focused && !nudgeAnimation;
   const stopAuto = () => {
     if (!autoFrame) return;
     cancelAnimationFrame(autoFrame);
     autoFrame = 0;
-  };
-  const startAuto = () => {
-    if (!shouldAutoRun() || autoFrame) return;
-    lastFrame = performance.now();
-    autoFrame = requestAnimationFrame(frame);
   };
   const frame = (now) => {
     autoFrame = 0;
     if (!shouldAutoRun()) return;
     const dt = Math.min(42, now - lastFrame);
     lastFrame = now;
-    const paused = dragging || hovered || focused || nudgeAnimation || now < resumeAfter;
-    if (!paused) {
-      offset += AUTO_SPEED * dt / 1000;
-      render();
-    }
+    offset += AUTO_SPEED * dt / 1000;
+    render();
     autoFrame = requestAnimationFrame(frame);
+  };
+  const startAuto = () => {
+    if (!shouldAutoRun() || autoFrame) return;
+    lastFrame = performance.now();
+    autoFrame = requestAnimationFrame(frame);
+  };
+  const scheduleResume = (delay = 650) => {
+    if (resumeTimer) clearTimeout(resumeTimer);
+    resumeTimer = window.setTimeout(() => {
+      resumeTimer = 0;
+      startAuto();
+    }, delay);
   };
 
   const cardStep = () => {
@@ -187,12 +209,12 @@
 
   const nudge = (direction) => {
     if (nudgeAnimation) cancelAnimationFrame(nudgeAnimation);
+    if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = 0; }
     stopAuto();
     const from = offset;
     const distance = cardStep() * direction;
     const started = performance.now();
     const duration = 320;
-    resumeAfter = started + duration + 700;
     const animate = (now) => {
       const t = Math.min(1, (now - started) / duration);
       const eased = 1 - Math.pow(1 - t, 3);
@@ -201,7 +223,7 @@
       if (t < 1) nudgeAnimation = requestAnimationFrame(animate);
       else {
         nudgeAnimation = 0;
-        startAuto();
+        scheduleResume(650);
       }
     };
     nudgeAnimation = requestAnimationFrame(animate);
@@ -226,11 +248,11 @@
     else startAuto();
   });
 
-  host.addEventListener('mouseenter', () => { hovered = true; });
-  host.addEventListener('mouseleave', () => { hovered = false; });
-  host.addEventListener('focusin', () => { focused = true; });
+  host.addEventListener('mouseenter', () => { hovered = true; stopAuto(); });
+  host.addEventListener('mouseleave', () => { hovered = false; startAuto(); });
+  host.addEventListener('focusin', () => { focused = true; stopAuto(); });
   host.addEventListener('focusout', (event) => {
-    if (!host.contains(event.relatedTarget)) focused = false;
+    if (!host.contains(event.relatedTarget)) { focused = false; startAuto(); }
   });
 
   prevButton.addEventListener('click', () => nudge(-1));
@@ -242,13 +264,13 @@
       cancelAnimationFrame(nudgeAnimation);
       nudgeAnimation = 0;
     }
+    if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = 0; }
     stopAuto();
     dragging = true;
     moved = false;
     activePointerId = event.pointerId;
     startX = event.clientX;
     startOffset = offset;
-    resumeAfter = Infinity;
     host.classList.add('is-dragging');
     viewport.setPointerCapture(event.pointerId);
   });
@@ -269,8 +291,7 @@
     if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
     activePointerId = null;
     if (moved) suppressClickUntil = performance.now() + 420;
-    resumeAfter = performance.now() + 700;
-    startAuto();
+    scheduleResume(650);
   };
 
   viewport.addEventListener('pointerup', endDrag);
