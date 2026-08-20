@@ -1,8 +1,16 @@
 (() => {
   const core = document.createElement('script');
-  core.src = 'app-core.js?v=20260820-nad-2';
+  core.src = 'app-core.js?v=20260820-puskas-1';
   core.async = false;
   document.head.append(core);
+
+  if (document.querySelector('.archive#archive') && !window.__N5_PUSKAS_PREVIEW_LOADER__) {
+    window.__N5_PUSKAS_PREVIEW_LOADER__ = true;
+    const preview = document.createElement('script');
+    preview.src = 'puskas-preview.js?v=20260820-puskas-1';
+    preview.async = false;
+    document.head.append(preview);
+  }
 
   const outsideLightLayouts = [
     'layout-bould',
