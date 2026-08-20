@@ -1,0 +1,41 @@
+/* CHƯA NGUÔI — hero identities */
+.cn-wow .article-hero,.cn-wow .robben-hero,.cn-wow .hagi-hero{position:relative;overflow:hidden;isolation:isolate}
+.cn-wow .article-heading,.cn-wow .robben-hero-copy,.cn-wow .hagi-hero-copy{position:relative;z-index:6}
+
+/* ROBBEN — everything narrows to the gap */
+.layout-robben.cn-wow .robben-hero:before{position:absolute;z-index:4;right:5vw;left:5vw;top:62%;height:1px;background:linear-gradient(90deg,transparent 0 8%,rgba(244,123,55,.7) 8% 78%,rgba(255,255,255,.12) 78% 100%);content:"";box-shadow:0 0 1.5rem rgba(244,123,55,.12)}
+.layout-robben.cn-wow .robben-hero:after{position:absolute;z-index:4;right:9%;top:calc(62% - .8rem);width:5.6rem;height:1.6rem;border-radius:100% 12% 65% 20%;background:rgba(244,239,229,.42);content:"";transform:rotate(-12deg)}
+.layout-robben.cn-wow .robben-hero-copy{max-width:58rem}.layout-robben.cn-wow .robben-deck{color:#c7c1b8}
+
+/* HAGI — the hero is already a doorway */
+.layout-hagi.cn-wow .hagi-hero:before{position:absolute;z-index:3;top:14%;right:7%;bottom:9%;width:min(39vw,31rem);border:1px solid rgba(255,255,255,.16);border-left:5px solid #1d4a9b;border-top-color:#f0cf32;border-right:5px solid #ba2d31;content:"";box-shadow:inset 0 0 5rem rgba(11,18,36,.35)}
+.layout-hagi.cn-wow .hagi-hero:after{position:absolute;z-index:3;right:8%;bottom:10%;color:rgba(244,210,58,.16);content:"1989 → 1994";font:900 clamp(3rem,8vw,8rem)/.8 var(--sans);letter-spacing:-.06em}
+.layout-hagi.cn-wow .hagi-94{z-index:4;color:rgba(244,210,58,.14)!important}
+
+/* BAGGIO — the first arrow is frozen above the target */
+.layout-baggio.cn-wow .baggio-hero:before{position:absolute;z-index:4;left:3%;top:68%;width:68%;height:2px;background:linear-gradient(90deg,transparent,#e4bc65);content:"";transform:rotate(-12deg);transform-origin:left center;box-shadow:0 0 1rem rgba(228,188,101,.18)}
+.layout-baggio.cn-wow .baggio-hero:after{position:absolute;z-index:4;right:8%;top:18%;color:rgba(255,255,255,.055);content:"↑";font:900 clamp(12rem,28vw,27rem)/1 var(--sans);transform:rotate(11deg)}
+.layout-baggio.cn-wow .baggio-target{opacity:.42}
+
+/* MESSI — a summer with a return date */
+.layout-summer.cn-wow .article-hero:before{position:absolute;z-index:3;right:8%;top:14%;width:clamp(7rem,13vw,12rem);aspect-ratio:1;border-radius:50%;background:rgba(244,208,119,.2);box-shadow:0 0 7rem rgba(244,208,119,.13);content:""}
+.layout-summer.cn-wow .article-hero:after{position:absolute;z-index:5;right:5vw;bottom:8%;padding:.8rem 1rem;border:1px solid rgba(255,255,255,.38);color:rgba(255,255,255,.72);content:"BORROWED TIME · RETURN AT FINAL WHISTLE";font:850 .52rem/1 var(--sans);letter-spacing:.17em;transform:rotate(-3deg)}
+.layout-summer.cn-wow .article-heading{max-width:76rem}
+
+/* RONALDO — the unlit door is visible from the first screen */
+.layout-monument.cn-wow .article-hero:before{position:absolute;z-index:3;right:9%;top:19%;width:clamp(8rem,15vw,14rem);height:clamp(16rem,29vw,27rem);border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.58);content:"";box-shadow:0 0 0 1rem rgba(0,0,0,.08),inset 0 0 4rem rgba(255,255,255,.02)}
+.layout-monument.cn-wow .article-hero:after{position:absolute;z-index:4;right:9%;top:calc(19% + clamp(16rem,29vw,27rem) + 1.2rem);width:clamp(8rem,15vw,14rem);color:rgba(255,255,255,.55);content:"WORLD CUP · EMPTY";font:850 .52rem/1 var(--sans);letter-spacing:.18em;text-align:center}
+
+/* NEYMAR — heat on the horizon, not a literal crown */
+.layout-prince.cn-wow .article-hero:before{position:absolute;z-index:3;right:-8%;bottom:18%;left:-8%;height:32%;background:repeating-radial-gradient(ellipse at 50% 100%,rgba(244,215,100,.11) 0 1px,transparent 2px 17px);content:"";filter:blur(.4px);mask-image:linear-gradient(180deg,transparent,#000)}
+.layout-prince.cn-wow .article-hero:after{position:absolute;z-index:4;right:5vw;top:19%;color:rgba(245,227,154,.48);content:"THE ENDING →";font:850 .56rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.layout-prince.cn-wow .article-heading{max-width:78rem}
+
+@media(max-width:700px){
+  .layout-robben.cn-wow .robben-hero:after{right:5%;width:4rem}
+  .layout-hagi.cn-wow .hagi-hero:before{right:-6%;width:58vw;opacity:.55}.layout-hagi.cn-wow .hagi-hero:after{right:1rem;font-size:17vw}
+  .layout-baggio.cn-wow .baggio-hero:after{right:-8%;font-size:44vw}
+  .layout-summer.cn-wow .article-hero:after{right:1rem;left:1rem;bottom:5%;text-align:center}
+  .layout-monument.cn-wow .article-hero:before{right:-4%;opacity:.5}.layout-monument.cn-wow .article-hero:after{display:none}
+  .layout-prince.cn-wow .article-hero:after{right:1rem;top:15%}
+}
