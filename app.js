@@ -1,6 +1,6 @@
 (() => {
   const core = document.createElement('script');
-  core.src = 'app-core.js?v=20260820-perf-1';
+  core.src = 'app-core.js?v=20260820-maradona-1';
   core.async = false;
   document.head.append(core);
 })();
