@@ -3,6 +3,7 @@
   if (!host) return;
 
   const stories = [
+    { href:'el-pibe-de-oro.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Maradona%20cup%20azteca.jpg?width=1000', label:'Bất Tử · Diego Maradona', title:'El Pibe de Oro', alt:'Diego Maradona nâng World Cup tại Azteca năm 1986.', position:'center 42%' },
     { href:'o-rei.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pele%20con%20brasil.jpg?width=1000', label:'Bất Tử · Pelé', title:'O Rei', alt:'Pelé trong màu áo Brazil.', position:'center 22%' },
     { href:'der-kaiser.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Franz%20Beckenbauer%20%281975%29.jpg?width=1000', label:'Bất Tử · Franz Beckenbauer', title:'Der Kaiser', alt:'Franz Beckenbauer năm 1975.', position:'center 24%' },
     { href:'a-alegria-do-povo.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Garrincha_na_copa_de_1962_%28cropped%29.jpg?width=1000', label:'Bất Tử · Garrincha', title:'A Alegria do Povo', alt:'Garrincha tại World Cup 1962.', position:'center 38%' },
