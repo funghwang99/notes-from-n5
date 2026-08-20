@@ -19,15 +19,15 @@
   const archiveImages = {
     hagi: {
       href: 'the-second-revolution.html',
-      src: 'https://cdn.plus.fifa.com/images/public/cms/b6/88/f4/86/b688f486-ef82-463c-aa85-73bf545c32fd.jpg?height=900&width=1600',
-      alt: 'Gheorghe Hagi đi bóng trước Argentina tại World Cup 1994.',
-      position: 'center 47%',
+      src: 'https://images.weserv.nl/?url=www.planetworldcup.com/CUPS/1994/wc94_012.jpg&w=1200&h=800&fit=cover&output=webp',
+      alt: 'Gheorghe Hagi giữa các cầu thủ Argentina tại World Cup 1994.',
+      position: 'center 44%',
     },
     baggio: {
       href: 'the-second-arrow.html',
-      src: 'https://cdn.plus.fifa.com/images/public/cms/72/e1/1a/d5/72e11ad5-759e-43ed-af99-c1d448ee3639.jpg?width=1600',
-      alt: 'Roberto Baggio đi bóng trước Nigeria tại World Cup 1994.',
-      position: 'center 43%',
+      src: 'https://images.weserv.nl/?url=www.sportphotogallery.com/content/images/cmsfiles/product/25733/26055-zoom.jpg&w=1200&h=800&fit=cover&output=webp',
+      alt: 'Roberto Baggio thi đấu trước Nigeria tại World Cup 1994.',
+      position: 'center 42%',
     },
   };
 
