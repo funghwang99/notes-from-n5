@@ -5,20 +5,22 @@
   const story = {
     href: 'szaguldo-ornagy.html',
     image: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Puskas%201954.png?width=900',
+    archiveImage: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Puskas%20Hidegkuti%201954.png?width=1200',
     alt: 'Ferenc Puskás năm 1954.',
+    archiveAlt: 'Ferenc Puskás cùng Nándor Hidegkuti năm 1954.',
     label: 'Bất Tử · Ferenc Puskás',
     meta: 'Hungary · Ferenc Puskás',
     title: 'Száguldó Őrnagy',
     deck: 'Từ Kispest tới Wembley và Bern, rồi qua một đường đứt của lịch sử để xuất hiện lại ở Madrid, Glasgow và trong chính cái tên bóng đá dành cho những bàn thắng đẹp nhất.',
     position: 'center 24%',
-    archivePosition: '52% 38%',
+    archivePosition: 'center center',
   };
 
   const fixArchiveThumbs = (archive) => {
     const puskas = archive.querySelector(`a[href="${story.href}"] img`);
     if (puskas) {
-      puskas.src = story.image;
-      puskas.alt = story.alt;
+      puskas.src = story.archiveImage;
+      puskas.alt = story.archiveAlt;
       puskas.style.objectPosition = story.archivePosition;
     }
 
@@ -43,7 +45,7 @@
       entry = document.createElement('article');
       entry.className = 'archive-entry reveal is-visible';
       entry.dataset.paths = 'bat-tu';
-      entry.innerHTML = `<a class="archive-thumb" href="${story.href}"><img src="${story.image}" alt="${story.alt}" style="object-position:${story.archivePosition}" /></a><div class="archive-entry-copy"><p class="article-meta">${story.meta}</p><h2><a href="${story.href}">${story.title}</a></h2><p>${story.deck}</p></div><a class="archive-arrow" href="${story.href}" aria-label="Đọc bài ${story.title}">↗</a>`;
+      entry.innerHTML = `<a class="archive-thumb" href="${story.href}"><img src="${story.archiveImage}" alt="${story.archiveAlt}" style="object-position:${story.archivePosition}" /></a><div class="archive-entry-copy"><p class="article-meta">${story.meta}</p><h2><a href="${story.href}">${story.title}</a></h2><p>${story.deck}</p></div><a class="archive-arrow" href="${story.href}" aria-label="Đọc bài ${story.title}">↗</a>`;
       const first = archive.querySelector('.archive-entry');
       if (first) first.before(entry); else archive.append(entry);
     }
