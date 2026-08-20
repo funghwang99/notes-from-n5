@@ -19,6 +19,13 @@
   const reentry = document.querySelector('.puskas-reentry');
   const glasgow = document.querySelector('[data-puskas-glasgow]');
   const afterlife = document.querySelector('.puskas-afterlife');
+  const ending = document.querySelector('.puskas-ending');
+
+  // The 2009 → EVERY SEASON visual is the article's final image, not an interlude.
+  // Move it after the written ending so the last thing the reader sees is the name.
+  if (afterlife && ending && ending.nextElementSibling !== afterlife) {
+    ending.after(afterlife);
+  }
 
   const pathData = [];
   const setupPath = (root, pathSelector, ballSelector, cssX, cssY) => {
