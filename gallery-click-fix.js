@@ -1,4 +1,12 @@
 (() => {
+  if (!window.__N5_PUSKAS_HOME_LOADER__) {
+    window.__N5_PUSKAS_HOME_LOADER__ = true;
+    const preview = document.createElement('script');
+    preview.src = 'puskas-preview.js?v=20260820-puskas-1';
+    preview.async = false;
+    document.head.append(preview);
+  }
+
   const setup = () => {
     const viewport = document.querySelector('.home-flow-viewport');
     if (!viewport || viewport.dataset.clickFixReady === 'true') return;
@@ -33,9 +41,6 @@
       pressedCard = null;
       pointerId = null;
       if (!wasClick) return;
-
-      // Pointer capture used by the draggable gallery can redirect the browser's
-      // native click to the viewport. Navigate explicitly for a true click/tap.
       window.location.assign(card.href);
     };
 
