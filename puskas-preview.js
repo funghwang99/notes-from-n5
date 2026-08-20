@@ -11,17 +11,44 @@
     title: 'Száguldó Őrnagy',
     deck: 'Từ Kispest tới Wembley và Bern, rồi qua một đường đứt của lịch sử để xuất hiện lại ở Madrid, Glasgow và trong chính cái tên bóng đá dành cho những bàn thắng đẹp nhất.',
     position: 'center 24%',
+    archivePosition: '52% 38%',
+  };
+
+  const fixArchiveThumbs = (archive) => {
+    const puskas = archive.querySelector(`a[href="${story.href}"] img`);
+    if (puskas) {
+      puskas.src = story.image;
+      puskas.alt = story.alt;
+      puskas.style.objectPosition = story.archivePosition;
+    }
+
+    const hagi = archive.querySelector('a[href="the-second-revolution.html"] img');
+    if (hagi) {
+      hagi.src = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gheorghe%20Hagi.JPG?width=900';
+      hagi.alt = 'Gheorghe Hagi.';
+      hagi.style.objectPosition = 'center 24%';
+      hagi.addEventListener('error', () => {
+        hagi.src = 'https://www.lequipe.fr/_medias/img-photo-jpg/en-1994-lors-de-la-coupe-du-monde-aux-etats-unis-le-point-d-orgue-de-la-carriere-de-gheorghe-hagi-an/1500000002249855/33%3A38%2C1975%3A1341-828-556-75/2e383.jpg';
+        hagi.style.objectPosition = 'center 28%';
+      }, { once:true });
+    }
   };
 
   const updateArchive = () => {
     const archive = document.querySelector('.archive#archive');
-    if (!archive || archive.querySelector(`a[href="${story.href}"]`)) return;
-    const entry = document.createElement('article');
-    entry.className = 'archive-entry reveal is-visible';
-    entry.dataset.paths = 'bat-tu';
-    entry.innerHTML = `<a class="archive-thumb" href="${story.href}"><img src="${story.image}" alt="${story.alt}" style="object-position:${story.position}" /></a><div class="archive-entry-copy"><p class="article-meta">${story.meta}</p><h2><a href="${story.href}">${story.title}</a></h2><p>${story.deck}</p></div><a class="archive-arrow" href="${story.href}" aria-label="Đọc bài ${story.title}">↗</a>`;
-    const first = archive.querySelector('.archive-entry');
-    if (first) first.before(entry); else archive.append(entry);
+    if (!archive) return;
+
+    let entry = archive.querySelector(`.archive-entry a[href="${story.href}"]`)?.closest('.archive-entry');
+    if (!entry) {
+      entry = document.createElement('article');
+      entry.className = 'archive-entry reveal is-visible';
+      entry.dataset.paths = 'bat-tu';
+      entry.innerHTML = `<a class="archive-thumb" href="${story.href}"><img src="${story.image}" alt="${story.alt}" style="object-position:${story.archivePosition}" /></a><div class="archive-entry-copy"><p class="article-meta">${story.meta}</p><h2><a href="${story.href}">${story.title}</a></h2><p>${story.deck}</p></div><a class="archive-arrow" href="${story.href}" aria-label="Đọc bài ${story.title}">↗</a>`;
+      const first = archive.querySelector('.archive-entry');
+      if (first) first.before(entry); else archive.append(entry);
+    }
+
+    fixArchiveThumbs(archive);
 
     const knownPaths = new Set(['hy-vong','tuoi-tre','ngoai-anh-den','chua-nguoi','bat-tu','tuong-dai']);
     const requested = new URLSearchParams(window.location.search).get('path');
