@@ -16,6 +16,29 @@
     archivePosition: 'center center',
   };
 
+  const archiveImages = {
+    hagi: {
+      href: 'the-second-revolution.html',
+      src: 'https://cdn.plus.fifa.com/images/public/cms/b6/88/f4/86/b688f486-ef82-463c-aa85-73bf545c32fd.jpg?height=900&width=1600',
+      alt: 'Gheorghe Hagi đi bóng trước Argentina tại World Cup 1994.',
+      position: 'center 47%',
+    },
+    baggio: {
+      href: 'the-second-arrow.html',
+      src: 'https://cdn.plus.fifa.com/images/public/cms/72/e1/1a/d5/72e11ad5-759e-43ed-af99-c1d448ee3639.jpg?width=1600',
+      alt: 'Roberto Baggio đi bóng trước Nigeria tại World Cup 1994.',
+      position: 'center 43%',
+    },
+  };
+
+  const setArchiveImage = (archive, data) => {
+    const image = archive.querySelector(`a[href="${data.href}"] img`);
+    if (!image) return;
+    image.src = data.src;
+    image.alt = data.alt;
+    image.style.objectPosition = data.position;
+  };
+
   const fixArchiveThumbs = (archive) => {
     const puskas = archive.querySelector(`a[href="${story.href}"] img`);
     if (puskas) {
@@ -23,17 +46,8 @@
       puskas.alt = story.archiveAlt;
       puskas.style.objectPosition = story.archivePosition;
     }
-
-    const hagi = archive.querySelector('a[href="the-second-revolution.html"] img');
-    if (hagi) {
-      hagi.src = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gheorghe%20Hagi.JPG?width=900';
-      hagi.alt = 'Gheorghe Hagi.';
-      hagi.style.objectPosition = 'center 24%';
-      hagi.addEventListener('error', () => {
-        hagi.src = 'https://www.lequipe.fr/_medias/img-photo-jpg/en-1994-lors-de-la-coupe-du-monde-aux-etats-unis-le-point-d-orgue-de-la-carriere-de-gheorghe-hagi-an/1500000002249855/33%3A38%2C1975%3A1341-828-556-75/2e383.jpg';
-        hagi.style.objectPosition = 'center 28%';
-      }, { once:true });
-    }
+    setArchiveImage(archive, archiveImages.hagi);
+    setArchiveImage(archive, archiveImages.baggio);
   };
 
   const updateArchive = () => {
