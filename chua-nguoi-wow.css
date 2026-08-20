@@ -1,0 +1,79 @@
+/* CHƯA NGUÔI — six different memories, six different visual grammars */
+:root{--cn-ink:#f3eee5;--cn-dim:#948d84;--cn-red:#c8483b;--cn-gold:#ddb85e}
+.cn-wow .cn-signature{position:relative;margin:0 calc(50% - 50vw);height:180svh;overflow:clip;background:#090908;color:var(--cn-ink);isolation:isolate}
+.cn-wow .cn-signature-sticky{position:sticky;top:0;height:100svh;overflow:hidden}
+.cn-wow .cn-signature-top{position:absolute;z-index:8;top:5.8rem;right:4vw;left:4vw;display:flex;justify-content:space-between;gap:1rem;color:#8d867e;font:850 .52rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.cn-wow .cn-signature-top b{color:var(--cn-gold);font-weight:850}
+.cn-wow .cn-signature-thesis{position:absolute;z-index:9;right:4vw;bottom:5.5%;left:4vw;margin:0;color:#8f8880;font:500 clamp(.98rem,1.35vw,1.16rem)/1.62 var(--serif)}
+.cn-wow .cn-signature-thesis strong{display:block;margin-bottom:.55rem;color:#f2ece2;font:900 clamp(2.1rem,4.8vw,4.8rem)/.9 var(--sans);letter-spacing:-.055em;text-transform:uppercase}
+
+/* ROBBEN — THE GAP: seventy-six years collapse into one save */
+.layout-robben.cn-wow .robben-hero{background:#0a1015!important}
+.layout-robben.cn-wow .robben-62{color:rgba(242,104,38,.12)!important}
+.layout-robben.cn-wow .cn-robben-gap{height:200svh;background:linear-gradient(180deg,#071018,#090b0e)}
+.cn-robben-gap .cn-gap-years{position:absolute;top:18%;left:50%;color:rgba(255,255,255,.055);font:900 clamp(7rem,19vw,20rem)/.72 var(--sans);letter-spacing:-.075em;transform:translateX(-50%)}
+.cn-robben-gap .cn-gap-line{position:absolute;z-index:3;top:53%;right:7%;left:7%;height:1px;background:rgba(255,255,255,.11)}
+.cn-robben-gap .cn-gap-line:before{position:absolute;left:0;top:50%;width:calc(var(--cn-gap-travel,.06)*100%);height:2px;background:#f47b37;box-shadow:0 0 1.2rem rgba(244,123,55,.35);content:"";transform:translateY(-50%)}
+.cn-robben-gap .cn-gap-ball{position:absolute;z-index:5;left:calc(7% + var(--cn-gap-ball,.06)*86%);top:53%;width:1rem;height:1rem;border-radius:50%;background:#f47b37;box-shadow:0 0 0 .45rem rgba(244,123,55,.08),0 0 1.4rem rgba(244,123,55,.45);transform:translate(-50%,-50%)}
+.cn-robben-gap .cn-gap-foot{position:absolute;z-index:6;right:calc(7% + (1 - var(--cn-gap-block,.0))*9%);top:calc(53% - 1.2rem);width:clamp(5.8rem,10vw,9rem);height:2.2rem;border-radius:100% 10% 65% 20%;background:#ded8cc;box-shadow:0 0 1.8rem rgba(255,255,255,.08);transform:rotate(-13deg) scale(var(--cn-gap-block,.35));transform-origin:right center;opacity:var(--cn-gap-block,.05)}
+.cn-robben-gap .cn-gap-mark{position:absolute;z-index:5;top:58%;display:grid;gap:.35rem;color:#79736d;font:800 .5rem/1 var(--sans);letter-spacing:.16em}.cn-robben-gap .cn-gap-mark strong{color:#eee8df;font-size:.7rem}.cn-robben-gap .cn-gap-mark--a{left:7%}.cn-robben-gap .cn-gap-mark--b{left:50%;transform:translateX(-50%);text-align:center}.cn-robben-gap .cn-gap-mark--c{right:7%;text-align:right}
+.cn-robben-gap .cn-gap-final{position:absolute;z-index:7;top:34%;left:50%;color:#f2ede5;font:900 clamp(3.6rem,9vw,9rem)/.82 var(--sans);letter-spacing:-.065em;text-align:center;text-transform:uppercase;transform:translate(-50%,calc((1 - var(--cn-gap-block,.0))*2rem));opacity:var(--cn-gap-block,.0)}
+.cn-robben-gap .cn-gap-final small{display:block;margin-top:1rem;color:#f47b37;font:850 .6rem/1 var(--sans);letter-spacing:.22em}
+
+/* HAGI — THE DOOR: a country discovers the opening */
+.layout-hagi.cn-wow .hagi-hero{background:#10182e!important}
+.layout-hagi.cn-wow .cn-hagi-door{height:210svh;background:#0d1427}
+.cn-hagi-door .cn-door-sky{position:absolute;inset:0;background:radial-gradient(circle at 50% 48%,rgba(244,206,52,.1),transparent 26%),linear-gradient(180deg,#0d1427,#11182b)}
+.cn-hagi-door .cn-door-frame{position:absolute;z-index:3;top:15%;bottom:12%;left:50%;width:min(62vw,43rem);border:1px solid rgba(255,255,255,.16);transform:translateX(-50%);perspective:1200px}
+.cn-hagi-door .cn-door-panel{position:absolute;top:0;bottom:0;width:50%;display:grid;place-items:center;overflow:hidden;backface-visibility:hidden;transition:none}
+.cn-hagi-door .cn-door-panel:before{position:absolute;inset:0;background:linear-gradient(90deg,#123f86 0 33.333%,#f1cf2e 33.333% 66.666%,#b72c2f 66.666%);content:"";opacity:.86}
+.cn-hagi-door .cn-door-panel--left{left:0;transform-origin:left center;transform:rotateY(calc(var(--cn-door-open,.0)*-82deg))}
+.cn-hagi-door .cn-door-panel--right{right:0;transform-origin:right center;transform:rotateY(calc(var(--cn-door-open,.0)*82deg))}
+.cn-hagi-door .cn-door-panel span{position:relative;z-index:2;color:#111;mix-blend-mode:multiply;font:900 clamp(5rem,12vw,10rem)/1 var(--sans);letter-spacing:-.08em;opacity:.68}
+.cn-hagi-door .cn-door-beyond{position:absolute;z-index:1;inset:0;display:grid;place-items:center;text-align:center}.cn-hagi-door .cn-door-beyond strong{color:#f4d23a;font:900 clamp(4.6rem,12vw,11rem)/.78 var(--sans);letter-spacing:-.075em}.cn-hagi-door .cn-door-beyond span{display:block;margin-top:1.5rem;color:#a9b4c8;font:850 .62rem/1 var(--sans);letter-spacing:.21em}
+.cn-hagi-door .cn-door-step{position:absolute;z-index:5;left:50%;bottom:15%;width:min(74vw,52rem);height:1px;background:linear-gradient(90deg,transparent,#f4d23a,transparent);transform:translateX(-50%) scaleX(var(--cn-door-step,.08))}
+
+/* BAGGIO — THE LOOP: one miss, infinite replays */
+.layout-baggio.cn-wow .cn-baggio-loop{height:210svh;background:radial-gradient(circle at 50% 46%,rgba(100,123,174,.09),transparent 34%),#0a0e16}
+.cn-baggio-loop .cn-loop-target{position:absolute;z-index:2;top:50%;left:50%;width:min(52vw,31rem);aspect-ratio:1;border:1px solid rgba(255,255,255,.1);border-radius:50%;transform:translate(-50%,-50%)}
+.cn-baggio-loop .cn-loop-target:before,.cn-baggio-loop .cn-loop-target:after{position:absolute;border:1px solid rgba(255,255,255,.08);border-radius:50%;content:""}.cn-baggio-loop .cn-loop-target:before{inset:14%}.cn-baggio-loop .cn-loop-target:after{inset:31%}
+.cn-baggio-loop .cn-loop-first{position:absolute;z-index:4;left:8%;top:58%;width:calc(var(--cn-arrow-one,.03)*60%);height:2px;background:linear-gradient(90deg,#d1cbc0,#e3b85e);transform:rotate(-13deg);transform-origin:left center}.cn-baggio-loop .cn-loop-first:after{position:absolute;right:-.4rem;top:50%;width:.8rem;height:.8rem;border-top:2px solid #e3b85e;border-right:2px solid #e3b85e;content:"";transform:translateY(-50%) rotate(45deg)}
+.cn-baggio-loop .cn-loop-over{position:absolute;z-index:4;left:69%;top:31%;color:#e3b85e;font:900 clamp(2.8rem,6vw,6rem)/.85 var(--sans);letter-spacing:-.05em;opacity:var(--cn-arrow-over,.0);transform:translateY(calc((1 - var(--cn-arrow-over,.0))*2rem))}
+.cn-baggio-loop .cn-loop-second{position:absolute;z-index:3;top:50%;left:50%;width:min(70vw,44rem);aspect-ratio:1;border:2px solid transparent;border-top-color:rgba(198,72,59,.78);border-right-color:rgba(198,72,59,.32);border-radius:50%;transform:translate(-50%,-50%) rotate(calc(var(--cn-loop-turn,.0)*720deg)) scale(calc(.82 + var(--cn-loop-turn,.0)*.18));opacity:calc(.12 + var(--cn-loop-turn,.0)*.88)}
+.cn-baggio-loop .cn-loop-second:after{position:absolute;right:5%;top:13%;width:.9rem;height:.9rem;border-radius:50%;background:#c6483b;box-shadow:0 0 1.5rem rgba(198,72,59,.5);content:""}
+.cn-baggio-loop .cn-loop-copy{position:absolute;z-index:6;left:6vw;bottom:7%;max-width:42rem}.cn-baggio-loop .cn-loop-copy span{color:#86817a;font:850 .55rem/1 var(--sans);letter-spacing:.2em}.cn-baggio-loop .cn-loop-copy strong{display:block;margin-top:.8rem;color:#f1ece4;font:900 clamp(2.7rem,5.5vw,5.4rem)/.88 var(--sans);letter-spacing:-.055em;text-transform:uppercase}.cn-baggio-loop .cn-loop-copy em{color:#c6483b;font-style:normal}
+
+/* MESSI — BORROWED TIME: the light keeps moving toward the final whistle */
+.layout-summer.cn-wow .cn-messi-time{height:210svh;background:linear-gradient(180deg,#8cc7dc 0%,#d9d7c4 42%,#9d6b55 72%,#171714 100%)}
+.cn-messi-time .cn-time-horizon{position:absolute;z-index:2;right:0;bottom:26%;left:0;height:1px;background:rgba(255,255,255,.46)}
+.cn-messi-time .cn-time-sun{position:absolute;z-index:3;left:50%;top:calc(18% + var(--cn-sunset,.0)*53%);width:clamp(6rem,12vw,11rem);aspect-ratio:1;border-radius:50%;background:#f4d476;box-shadow:0 0 5rem rgba(244,212,118,.22);transform:translateX(-50%) scale(calc(1 - var(--cn-sunset,.0)*.16));opacity:calc(1 - var(--cn-sunset,.0)*.28)}
+.cn-messi-time .cn-time-word{position:absolute;z-index:4;top:44%;left:50%;color:rgba(255,255,255,.9);font:900 clamp(5rem,15vw,15rem)/.7 var(--sans);letter-spacing:-.08em;text-transform:uppercase;transform:translate(-50%,-50%);opacity:calc(.18 + var(--cn-sunset,.0)*.45)}
+.cn-messi-time .cn-time-stamp{position:absolute;z-index:5;top:24%;left:6vw;display:grid;gap:.5rem;padding:1rem 1.2rem;border:1px solid rgba(255,255,255,.45);color:#fff;font:850 .56rem/1 var(--sans);letter-spacing:.19em;transform:rotate(-5deg)}.cn-messi-time .cn-time-stamp strong{font-size:1.1rem;letter-spacing:.08em}.cn-messi-time .cn-time-due{position:absolute;z-index:5;right:6vw;bottom:19%;text-align:right;color:#e8e1d7}.cn-messi-time .cn-time-due span{display:block;color:#b8afa5;font:850 .54rem/1 var(--sans);letter-spacing:.2em}.cn-messi-time .cn-time-due strong{display:block;margin-top:.6rem;font:900 clamp(2.6rem,6vw,5.8rem)/.86 var(--sans);letter-spacing:-.055em}
+
+/* RONALDO — THE EMPTY ROOM: everything lit except one door */
+.layout-monument.cn-wow .cn-ronaldo-room{height:220svh;background:#080909}
+.cn-ronaldo-room .cn-room-corridor{position:absolute;inset:0;perspective:900px;overflow:hidden;background:radial-gradient(circle at 50% 36%,rgba(255,255,255,.06),transparent 23%),linear-gradient(180deg,#111313,#060707)}
+.cn-ronaldo-room .cn-room-floor{position:absolute;right:8%;bottom:0;left:8%;height:57%;background:repeating-linear-gradient(90deg,transparent 0 12%,rgba(255,255,255,.05) 12.2% 12.4%),linear-gradient(180deg,transparent,rgba(255,255,255,.035));clip-path:polygon(38% 0,62% 0,100% 100%,0 100%)}
+.cn-ronaldo-room .cn-room-door{position:absolute;top:24%;width:clamp(6rem,10vw,9rem);height:clamp(12rem,22vw,20rem);border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));box-shadow:inset 0 0 3rem rgba(255,255,255,.025);transform:translateY(calc((1 - var(--cn-room-walk,.0))*2rem)) scale(calc(.78 + var(--cn-room-walk,.0)*.22));opacity:calc(.25 + var(--cn-room-walk,.0)*.75)}.cn-ronaldo-room .cn-room-door span{position:absolute;left:50%;bottom:-2rem;color:#807b74;font:850 .5rem/1 var(--sans);letter-spacing:.18em;white-space:nowrap;transform:translateX(-50%)}
+.cn-ronaldo-room .d1{left:9%}.cn-ronaldo-room .d2{left:27%}.cn-ronaldo-room .d3{right:27%}.cn-ronaldo-room .d4{right:9%}.cn-ronaldo-room .cn-room-door:not(.empty):after{position:absolute;inset:10%;background:radial-gradient(circle at 50% 38%,rgba(224,193,109,.36),transparent 38%),rgba(224,193,109,.08);content:"";opacity:var(--cn-room-light,.15)}
+.cn-ronaldo-room .cn-room-empty{position:absolute;z-index:5;top:17%;left:50%;width:clamp(8rem,14vw,13rem);height:clamp(17rem,30vw,27rem);border:1px solid rgba(255,255,255,.16);background:#010101;box-shadow:0 0 0 999px rgba(0,0,0,calc(var(--cn-room-dark,.0)*.18));transform:translateX(-50%) scale(calc(.82 + var(--cn-room-walk,.0)*.18))}.cn-ronaldo-room .cn-room-empty:before{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(109,151,112,.08),transparent 42%);content:""}.cn-ronaldo-room .cn-room-empty strong{position:absolute;right:0;bottom:-2.4rem;left:0;color:#f1ece3;font:900 clamp(1rem,1.8vw,1.5rem)/1 var(--sans);letter-spacing:.12em;text-align:center}.cn-ronaldo-room .cn-room-number{position:absolute;z-index:4;top:47%;left:50%;color:rgba(255,255,255,.045);font:900 clamp(12rem,30vw,30rem)/.65 var(--sans);letter-spacing:-.08em;transform:translate(-50%,-50%)}
+
+/* NEYMAR — THE MIRAGE: the ending is always one horizon farther away */
+.layout-prince.cn-wow .cn-neymar-mirage{height:220svh;background:linear-gradient(180deg,#133720 0%,#315828 35%,#b99035 78%,#17140d 100%)}
+.cn-neymar-mirage .cn-mirage-field{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 10%,transparent 10% 20%);opacity:.7}
+.cn-neymar-mirage .cn-mirage-horizon{position:absolute;right:0;left:0;top:51%;height:1px;background:rgba(247,220,102,.38)}
+.cn-neymar-mirage .cn-mirage-palace{position:absolute;z-index:3;left:50%;top:51%;width:clamp(8rem,18vw,17rem);height:clamp(10rem,24vw,23rem);border:1px solid rgba(247,220,102,.72);background:linear-gradient(180deg,rgba(247,220,102,.2),rgba(247,220,102,.03));clip-path:polygon(15% 100%,15% 44%,29% 44%,29% 25%,42% 25%,50% 5%,58% 25%,71% 25%,71% 44%,85% 44%,85% 100%);filter:blur(calc((1 - var(--cn-mirage-focus,.0))*4px));transform:translate(-50%,-50%) translateY(calc((1 - var(--cn-mirage-focus,.0))*1.6rem)) scale(calc(.55 + var(--cn-mirage-scale,.0)*.45));opacity:calc(.12 + var(--cn-mirage-focus,.0)*.72)}
+.cn-neymar-mirage .cn-mirage-path{position:absolute;z-index:2;left:50%;bottom:0;width:2px;height:49%;background:linear-gradient(180deg,rgba(247,220,102,.46),transparent);transform:translateX(-50%) scaleY(var(--cn-mirage-path,.05));transform-origin:top}
+.cn-neymar-mirage .cn-mirage-word{position:absolute;z-index:5;left:50%;top:25%;color:#f5e79f;font:900 clamp(3.8rem,9vw,9rem)/.82 var(--sans);letter-spacing:-.06em;text-align:center;text-transform:uppercase;transform:translateX(-50%);opacity:var(--cn-mirage-word,.14)}.cn-neymar-mirage .cn-mirage-word small{display:block;margin-top:1rem;color:#d0b968;font:850 .56rem/1 var(--sans);letter-spacing:.22em}
+.cn-neymar-mirage .cn-mirage-end{position:absolute;z-index:6;right:5vw;bottom:7%;left:5vw;color:#f2ece2;text-align:center;opacity:var(--cn-mirage-end,.0);transform:translateY(calc((1 - var(--cn-mirage-end,.0))*2rem))}.cn-neymar-mirage .cn-mirage-end span{color:#d2c4a2;font:850 .56rem/1 var(--sans);letter-spacing:.2em}.cn-neymar-mirage .cn-mirage-end strong{display:block;margin-top:.75rem;font:900 clamp(2.6rem,6.5vw,6.3rem)/.86 var(--sans);letter-spacing:-.06em;text-transform:uppercase}
+
+@media(max-width:700px){
+  .cn-wow .cn-signature{height:165svh}.cn-wow .cn-signature-top{top:5rem;right:1rem;left:1rem}.cn-wow .cn-signature-top span:last-child{display:none}.cn-wow .cn-signature-thesis{right:1.25rem;left:1.25rem}
+  .cn-robben-gap .cn-gap-years{font-size:28vw}.cn-robben-gap .cn-gap-final{font-size:13vw}.cn-robben-gap .cn-gap-mark--b{display:none}
+  .cn-hagi-door .cn-door-frame{width:80vw;top:18%;bottom:15%}.cn-hagi-door .cn-door-panel span{font-size:18vw}
+  .cn-baggio-loop .cn-loop-target{width:72vw}.cn-baggio-loop .cn-loop-second{width:88vw}.cn-baggio-loop .cn-loop-copy{left:1.25rem;right:1.25rem}
+  .cn-messi-time .cn-time-word{font-size:21vw}.cn-messi-time .cn-time-stamp{left:1.25rem}.cn-messi-time .cn-time-due{right:1.25rem}
+  .cn-ronaldo-room .d1,.cn-ronaldo-room .d4{display:none}.cn-ronaldo-room .d2{left:7%}.cn-ronaldo-room .d3{right:7%}.cn-ronaldo-room .cn-room-empty{width:30vw;height:48vw}.cn-ronaldo-room .cn-room-number{font-size:46vw}
+  .cn-neymar-mirage .cn-mirage-palace{width:32vw;height:44vw}.cn-neymar-mirage .cn-mirage-word{font-size:13vw;width:92%}
+}
+@media(prefers-reduced-motion:reduce){.cn-wow .cn-signature{height:auto;min-height:100svh}.cn-wow .cn-signature-sticky{position:relative}.cn-hagi-door .cn-door-panel--left{transform:rotateY(-78deg)}.cn-hagi-door .cn-door-panel--right{transform:rotateY(78deg)}.cn-robben-gap .cn-gap-foot,.cn-neymar-mirage .cn-mirage-end{opacity:1}.cn-baggio-loop .cn-loop-second{opacity:.75}.cn-messi-time .cn-time-sun{top:68%}}
