@@ -3,6 +3,7 @@
   if (!root) return;
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
   const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
   const map = (v, a, b) => clamp((v - a) / Math.max(.0001, b - a));
   const ease = (t) => 1 - Math.pow(1 - clamp(t), 3);
@@ -11,6 +12,9 @@
   const hero = document.querySelector('.maradona-hero');
   const four = document.querySelector('[data-four-minutes]');
   const handBall = four?.querySelector('.maradona-hand-ball');
+  const handPhoto = four?.querySelector('.maradona-goal--hand .maradona-goal-photo');
+  const feetPhoto = four?.querySelector('.maradona-goal--feet .maradona-goal-photo');
+  const fourClock = four?.querySelector('[data-four-clock]');
   const dribbleBall = four?.querySelector('.maradona-dribble-ball');
   const dribblePath = four?.querySelector('.maradona-dribble path');
   const fourCenter = four?.querySelector('.maradona-four-center');
@@ -18,6 +22,7 @@
   const convergenceCopy = convergence?.querySelector('.maradona-convergence-copy');
   const tracked = [hero, four, convergence].filter(Boolean);
   const visible = new Set();
+  let pointerSplit = null;
 
   const progress = (el) => {
     if (!el) return 0;
@@ -39,7 +44,15 @@
   }
 
   const updateHero = () => {
-    if (!hero || reduceMotion) return;
+    if (!hero) return;
+    if (pointerSplit !== null && !reduceMotion) {
+      hero.style.setProperty('--hero-left', `${pointerSplit}%`);
+      return;
+    }
+    if (reduceMotion) {
+      hero.style.setProperty('--hero-left', '50%');
+      return;
+    }
     const rect = hero.getBoundingClientRect();
     const p = clamp((0 - rect.top) / Math.max(1, hero.offsetHeight));
     const split = 50 + Math.sin(p * Math.PI) * 2.4;
@@ -58,6 +71,9 @@
       handBall.style.setProperty('--hand-y', `${handY}%`);
     }
 
+    const handFade = 1 - ease(map(p, .42, .62));
+    if (handPhoto) handPhoto.style.setProperty('--goal-photo', String(.08 + handP * handFade * .3));
+
     const dribbleP = ease(map(p, .42, .9));
     const samples = [
       [8,78],[20,67],[31,51],[43,46],[53,31],[65,35],[74,51],[84,43],[94,23]
@@ -72,6 +88,15 @@
       dribbleBall.style.setProperty('--dribble-y', `${mix(a[1], b[1], local)}%`);
     }
     if (dribblePath) dribblePath.style.setProperty('--dribble-offset', String(1 - dribbleP));
+    if (feetPhoto) feetPhoto.style.setProperty('--goal-photo', String(.07 + ease(map(p, .38, .72)) * .28));
+
+    if (fourClock) {
+      const clockP = ease(map(p, .26, .72));
+      const remaining = Math.max(0, Math.round((1 - clockP) * 240));
+      const minutes = String(Math.floor(remaining / 60)).padStart(2, '0');
+      const seconds = String(remaining % 60).padStart(2, '0');
+      fourClock.textContent = `${minutes}:${seconds}`;
+    }
 
     if (fourCenter) {
       const enter = ease(map(p, .3, .5));
@@ -103,6 +128,20 @@
     if (raf) return;
     raf = requestAnimationFrame(update);
   };
+
+  if (hero && finePointer && !reduceMotion) {
+    hero.addEventListener('pointermove', (event) => {
+      const rect = hero.getBoundingClientRect();
+      pointerSplit = clamp(((event.clientX - rect.left) / Math.max(1, rect.width)) * 100, 26, 74);
+      hero.classList.add('is-pointer-active');
+      schedule();
+    }, { passive:true });
+    hero.addEventListener('pointerleave', () => {
+      pointerSplit = null;
+      hero.classList.remove('is-pointer-active');
+      schedule();
+    }, { passive:true });
+  }
 
   schedule();
   window.addEventListener('scroll', schedule, { passive:true });
