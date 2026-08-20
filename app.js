@@ -62,6 +62,11 @@
     style.href = 'chua-nguoi-wow.css?v=20260820-cn-1';
     document.head.append(style);
 
+    const tuning = document.createElement('link');
+    tuning.rel = 'stylesheet';
+    tuning.href = 'chua-nguoi-tuning.css?v=20260820-cn-1';
+    document.head.append(tuning);
+
     const experience = document.createElement('script');
     experience.src = 'chua-nguoi-wow.js?v=20260820-cn-1';
     experience.async = false;
