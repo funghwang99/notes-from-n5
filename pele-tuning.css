@@ -45,8 +45,15 @@
 .pele-pause-steps{position:relative;z-index:3;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;color:#73756d;font:850 .56rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
 .pele-pause-step{padding-top:.8rem;border-top:1px solid rgba(245,239,223,.15);transition:none}
 .pele-pause-step.is-active{border-top-color:var(--s-gold);color:var(--s-gold)}
-.pele-pause-shutter{position:absolute;z-index:2;top:0;bottom:0;left:0;width:var(--pause-sweep,0%);background:linear-gradient(90deg,rgba(35,102,68,.5),rgba(229,189,62,.1));mix-blend-mode:screen;opacity:.38;pointer-events:none}
+.pele-pause-shutter{position:absolute;z-index:2;top:0;bottom:0;left:0;width:var(--pause-sweep,0%);background:linear-gradient(90deg,rgba(35,102,68,.34),rgba(229,189,62,.08));opacity:.42;pointer-events:none}
 .pele-pause-play{position:absolute;z-index:4;right:6vw;bottom:15vh;padding:.6rem .75rem;border:1px solid rgba(229,189,62,.5);color:var(--s-gold);font:900 .56rem/1 var(--sans);letter-spacing:.19em;opacity:var(--pause-play,0);transform:translateY(var(--pause-play-y,1rem));text-transform:uppercase}
+
+/* PERFORMANCE — keep the broadcast look without expensive live blur/filter repainting */
+.pele-signal-v3 .site-header,.pele-broadcast-ui{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.pele-broadcast-ui{background:rgba(2,3,2,.96)!important}
+.pele-signal-v3 .pele-hero-portrait img{filter:grayscale(1) contrast(1.16) brightness(.78)!important}
+.pele-signal-v3 .pele-world-wall-photo,.pele-signal-v3 .pele-poster{will-change:auto}
+.pele-pause-act,.pele-relic-visual,.pele-afterimage-sticky{contain:paint}
 
 @media(max-width:900px){
   .pele-signal-v3 .pele-world-wall-title{right:1.3rem;left:1.3rem}.pele-world-line--one{font-size:clamp(2.35rem,10vw,4.5rem)}.pele-world-line--two,.pele-world-line--three{font-size:clamp(2.55rem,11vw,5rem)}
