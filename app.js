@@ -7,7 +7,7 @@
   if (document.querySelector('.archive#archive') && !window.__N5_PUSKAS_PREVIEW_LOADER__) {
     window.__N5_PUSKAS_PREVIEW_LOADER__ = true;
     const preview = document.createElement('script');
-    preview.src = 'puskas-preview.js?v=20260820-archive-fix-1';
+    preview.src = 'puskas-preview.js?v=20260820-archive-fix-3';
     preview.async = false;
     document.head.append(preview);
   }
@@ -67,9 +67,19 @@
     tuning.href = 'chua-nguoi-tuning.css?v=20260820-cn-1';
     document.head.append(tuning);
 
+    const fixStyle = document.createElement('link');
+    fixStyle.rel = 'stylesheet';
+    fixStyle.href = 'chua-nguoi-fix.css?v=20260820-cn-fix-1';
+    document.head.append(fixStyle);
+
     const experience = document.createElement('script');
     experience.src = 'chua-nguoi-wow.js?v=20260820-cn-1';
     experience.async = false;
     document.head.append(experience);
+
+    const fix = document.createElement('script');
+    fix.src = 'chua-nguoi-fix.js?v=20260820-cn-fix-1';
+    fix.async = false;
+    document.head.append(fix);
   }
 })();
