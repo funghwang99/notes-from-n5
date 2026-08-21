@@ -25,8 +25,8 @@
     },
     baggio: {
       href: 'the-second-arrow.html',
-      src: 'https://images.weserv.nl/?url=www.sportphotogallery.com/content/images/cmsfiles/product/25733/26055-zoom.jpg&w=1200&h=800&fit=cover&output=webp',
-      alt: 'Roberto Baggio thi đấu trước Nigeria tại World Cup 1994.',
+      src: 'baggio-1994-archive.jpg',
+      alt: 'Roberto Baggio tại World Cup 1994.',
       position: 'center 42%',
     },
   };
