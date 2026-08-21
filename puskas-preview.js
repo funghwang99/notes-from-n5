@@ -2,139 +2,40 @@
   if (window.__N5_PUSKAS_PREVIEW__) return;
   window.__N5_PUSKAS_PREVIEW__ = true;
 
-  const story = {
-    href: 'szaguldo-ornagy.html',
-    image: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Puskas%201954.png?width=900',
-    archiveImage: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Puskas%20Hidegkuti%201954.png?width=1200',
-    alt: 'Ferenc Puskás năm 1954.',
-    archiveAlt: 'Ferenc Puskás cùng Nándor Hidegkuti năm 1954.',
-    label: 'Bất Tử · Ferenc Puskás',
-    meta: 'Hungary · Ferenc Puskás',
-    title: 'Száguldó Őrnagy',
-    deck: 'Từ Kispest tới Wembley và Bern, rồi qua một đường đứt của lịch sử để xuất hiện lại ở Madrid, Glasgow và trong chính cái tên bóng đá dành cho những bàn thắng đẹp nhất.',
-    position: 'center 24%',
-    archivePosition: 'center center',
-  };
+  const BAGGIO_IMAGE = 'data:image/jpeg;base64,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';
 
-  const archiveImages = {
-    hagi: {
-      href: 'the-second-revolution.html',
-      src: 'https://images.weserv.nl/?url=www.planetworldcup.com/CUPS/1994/wc94_012.jpg&w=1200&h=800&fit=cover&output=webp',
-      alt: 'Gheorghe Hagi giữa các cầu thủ Argentina tại World Cup 1994.',
-      position: 'center 44%',
-    },
-    baggio: {
-      href: 'the-second-arrow.html',
-      src: 'baggio-1994-archive.jpg?v=20260822-baggio-binary-1',
-      alt: 'Roberto Baggio tại World Cup 1994.',
-      position: 'center 42%',
-    },
-  };
-
-  const setArchiveImage = (archive, data) => {
-    const image = archive.querySelector(`a[href="${data.href}"] img`);
+  const setImage = (href, src, alt, position) => {
+    const image = document.querySelector(`.archive#archive a[href="${href}"] img`);
     if (!image) return;
-    image.src = data.src;
-    image.alt = data.alt;
-    image.style.objectPosition = data.position;
+    image.src = src;
+    image.alt = alt;
+    image.style.objectPosition = position;
   };
 
-  const fixArchiveThumbs = (archive) => {
-    const puskas = archive.querySelector(`a[href="${story.href}"] img`);
-    if (puskas) {
-      puskas.src = story.archiveImage;
-      puskas.alt = story.archiveAlt;
-      puskas.style.objectPosition = story.archivePosition;
-    }
-    setArchiveImage(archive, archiveImages.hagi);
-    setArchiveImage(archive, archiveImages.baggio);
-  };
-
-  const updateArchive = () => {
+  const run = () => {
     const archive = document.querySelector('.archive#archive');
     if (!archive) return;
 
-    let entry = archive.querySelector(`.archive-entry a[href="${story.href}"]`)?.closest('.archive-entry');
-    if (!entry) {
-      entry = document.createElement('article');
-      entry.className = 'archive-entry reveal is-visible';
-      entry.dataset.paths = 'bat-tu';
-      entry.innerHTML = `<a class="archive-thumb" href="${story.href}"><img src="${story.archiveImage}" alt="${story.archiveAlt}" style="object-position:${story.archivePosition}" /></a><div class="archive-entry-copy"><p class="article-meta">${story.meta}</p><h2><a href="${story.href}">${story.title}</a></h2><p>${story.deck}</p></div><a class="archive-arrow" href="${story.href}" aria-label="Đọc bài ${story.title}">↗</a>`;
-      const first = archive.querySelector('.archive-entry');
-      if (first) first.before(entry); else archive.append(entry);
-    }
-
-    fixArchiveThumbs(archive);
-
-    const knownPaths = new Set(['hy-vong','tuoi-tre','ngoai-anh-den','chua-nguoi','bat-tu','tuong-dai']);
-    const requested = new URLSearchParams(window.location.search).get('path');
-    const active = knownPaths.has(requested) ? requested : 'all';
-    const entries = [...archive.querySelectorAll('.archive-entry[data-paths]')];
-    entries.forEach((item) => {
-      const paths = item.dataset.paths.split(/\s+/).filter(Boolean);
-      item.hidden = active !== 'all' && !paths.includes(active);
-    });
-    const count = archive.querySelector('[data-archive-count]');
-    if (count) count.textContent = `${entries.filter((item) => !item.hidden).length} bài viết`;
+    setImage(
+      'szaguldo-ornagy.html',
+      'https://commons.wikimedia.org/wiki/Special:Redirect/file/Puskas%20Hidegkuti%201954.png?width=1200',
+      'Ferenc Puskás cùng Nándor Hidegkuti năm 1954.',
+      'center center'
+    );
+    setImage(
+      'the-second-revolution.html',
+      'https://images.weserv.nl/?url=www.planetworldcup.com/CUPS/1994/wc94_012.jpg&w=1200&h=800&fit=cover&output=webp',
+      'Gheorghe Hagi giữa các cầu thủ Argentina tại World Cup 1994.',
+      'center 44%'
+    );
+    setImage(
+      'the-second-arrow.html',
+      BAGGIO_IMAGE,
+      'Roberto Baggio tại World Cup 1994.',
+      'center 42%'
+    );
   };
 
-  const setCard = (card, data) => {
-    if (!card || !data) return;
-    card.href = data.href;
-    const image = card.querySelector('img');
-    const label = card.querySelector('.home-story-label');
-    const title = card.querySelector('h3');
-    if (image) { image.src = data.image; image.alt = data.alt; image.style.objectPosition = data.position; }
-    if (label) label.textContent = data.label;
-    if (title) title.textContent = data.title;
-  };
-
-  const updateHome = () => {
-    const main = document.querySelector('.home-story-main');
-    if (main) {
-      main.href = story.href;
-      const image = main.querySelector('img');
-      const label = main.querySelector('.home-story-label');
-      const title = main.querySelector('h3');
-      const deck = main.querySelector('.home-story-main-copy > p:last-child');
-      if (image) { image.src = story.image; image.alt = story.alt; image.style.objectPosition = story.position; }
-      if (label) label.textContent = story.label;
-      if (title) title.textContent = story.title;
-      if (deck) deck.textContent = story.deck;
-    }
-
-    const sides = [...document.querySelectorAll('.home-story-small')];
-    const sideStories = [
-      { href:'el-pibe-de-oro.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Maradona%20cup%20azteca.jpg?width=1000', alt:'Diego Maradona nâng World Cup tại Azteca năm 1986.', label:'Bất Tử · Diego Maradona', title:'El Pibe de Oro', position:'center 42%' },
-      { href:'o-rei.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pele%20con%20brasil.jpg?width=1000', alt:'Pelé trong màu áo Brazil.', label:'Bất Tử · Pelé', title:'O Rei', position:'center 22%' },
-    ];
-    sides.slice(0,2).forEach((card, i) => setCard(card, sideStories[i]));
-
-    document.querySelectorAll('.home-flow-set').forEach((set) => {
-      if (set.querySelector(`a[href="${story.href}"]`)) return;
-      const duplicate = set.getAttribute('aria-hidden') === 'true';
-      const card = document.createElement('a');
-      card.className = 'home-flow-card';
-      card.href = story.href;
-      card.draggable = false;
-      if (duplicate) { card.setAttribute('aria-hidden','true'); card.tabIndex = -1; }
-      const image = document.createElement('img');
-      image.src = story.image;
-      image.alt = duplicate ? '' : story.alt;
-      image.decoding = 'async';
-      image.fetchPriority = 'low';
-      image.draggable = false;
-      image.style.objectPosition = story.position;
-      image.addEventListener('error', () => { image.remove(); card.classList.add('is-image-missing'); }, { once:true });
-      const copy = document.createElement('span');
-      copy.className = 'home-flow-copy';
-      copy.innerHTML = `<span class="home-flow-meta">${story.label}</span><strong>${story.title}</strong>`;
-      card.append(image, copy);
-      set.prepend(card);
-    });
-  };
-
-  const run = () => { updateArchive(); updateHome(); };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, { once:true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, { once: true });
   else run();
 })();
