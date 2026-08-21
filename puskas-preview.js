@@ -25,7 +25,7 @@
     },
     baggio: {
       href: 'the-second-arrow.html',
-      src: 'baggio-1994-archive.jpg',
+      src: 'https://raw.githubusercontent.com/funghwang99/notes-from-n5/main/baggio-1994-archive.jpg',
       alt: 'Roberto Baggio tại World Cup 1994.',
       position: 'center 42%',
     },
