@@ -2,6 +2,17 @@
   if (window.__N5_DI_STEFANO_V2__) return;
   window.__N5_DI_STEFANO_V2__ = true;
 
+  const whole = document.querySelector('.ds2-whole-pitch');
+  const roleCopy = document.querySelector('.ds2-copy--after-field');
+  const vault = document.querySelector('.ds2-vault');
+  if (whole && roleCopy && vault) {
+    vault.before(roleCopy, whole);
+    const pitchIndex = whole.querySelector('.ds2-pitch-header span');
+    const europeIndex = document.querySelector('.ds2-five-head > span');
+    if (pitchIndex) pitchIndex.textContent = '03 · NO FIXED ROLE';
+    if (europeIndex) europeIndex.textContent = '02 · EUROPE';
+  }
+
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clamp = (n, a = 0, b = 1) => Math.min(b, Math.max(a, n));
   const progress = (el, start = .92, end = -.12) => {
@@ -20,13 +31,11 @@
   };
 
   const hero = document.querySelector('.ds2-hero');
-  const whole = document.querySelector('.ds2-whole-pitch');
   const fieldZones = [...document.querySelectorAll('.ds2-field-zone')];
   const birth = document.querySelector('.ds2-birth');
   const five = document.querySelector('.ds2-five');
   const pillars = [...document.querySelectorAll('.ds2-pillar')];
   const meters = [...document.querySelectorAll('.ds2-five-meter span')];
-  const vault = document.querySelector('.ds2-vault');
   const ending = document.querySelector('.ds2-ending');
   const roles = [...document.querySelectorAll('.ds2-ending-role')];
 
