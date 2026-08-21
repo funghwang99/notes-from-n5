@@ -10,10 +10,11 @@
   const applyImage = (link, src, alt, position) => {
     const img = link?.querySelector('img');
     if (!img) return;
-    if (img.src !== src) img.src = src;
-    img.dataset.src = src;
-    if (alt && !link.closest('[aria-hidden="true"]')) img.alt = alt;
-    img.style.objectPosition = position;
+    const current = img.getAttribute('src') || '';
+    if (current !== src) img.setAttribute('src', src);
+    if (img.dataset.src !== src) img.dataset.src = src;
+    if (alt && !link.closest('[aria-hidden="true"]') && img.alt !== alt) img.alt = alt;
+    if (img.style.objectPosition !== position) img.style.objectPosition = position;
   };
 
   const fix = () => {
@@ -26,28 +27,7 @@
     });
   };
 
-  let queued = false;
-  const queueFix = () => {
-    if (queued) return;
-    queued = true;
-    requestAnimationFrame(() => {
-      queued = false;
-      fix();
-    });
-  };
-
   fix();
   requestAnimationFrame(fix);
-
-  const target = document.querySelector('.home-page main') || document.body;
-  if (!target) return;
-  const observer = new MutationObserver(queueFix);
-  observer.observe(target, {
-    subtree: true,
-    childList: true,
-    attributes: true,
-    attributeFilter: ['href', 'src', 'style'],
-  });
-
   window.addEventListener('load', fix, { once: true });
 })();
