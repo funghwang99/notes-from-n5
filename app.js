@@ -7,7 +7,7 @@
   if (document.querySelector('.archive#archive') && !window.__N5_PUSKAS_PREVIEW_LOADER__) {
     window.__N5_PUSKAS_PREVIEW_LOADER__ = true;
     const preview = document.createElement('script');
-    preview.src = 'puskas-preview.js?v=20260822-baggio-binary-1';
+    preview.src = 'puskas-preview.js?v=20260822-baggio-inline-1';
     preview.async = false;
     document.head.append(preview);
   }
