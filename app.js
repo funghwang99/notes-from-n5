@@ -12,6 +12,14 @@
     document.head.append(preview);
   }
 
+  if (document.querySelector('.archive#archive') && !window.__N5_DI_STEFANO_PREVIEW_LOADER__) {
+    window.__N5_DI_STEFANO_PREVIEW_LOADER__ = true;
+    const preview = document.createElement('script');
+    preview.src = 'di-stefano-preview.js?v=20260821-distefano-1';
+    preview.async = false;
+    document.head.append(preview);
+  }
+
   const outsideLightLayouts = [
     'layout-bould',
     'layout-eight',
