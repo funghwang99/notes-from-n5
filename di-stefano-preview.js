@@ -1,16 +1,16 @@
 (() => {
-  if (window.__N5_DI_STEFANO_PREVIEW__) return;
-  window.__N5_DI_STEFANO_PREVIEW__ = true;
+  if (window.__N5_LATEST_BAT_TU_PREVIEW__) return;
+  window.__N5_LATEST_BAT_TU_PREVIEW__ = true;
 
   const story = {
-    href: 'la-saeta-rubia.html',
-    image: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Di%20stefano%20real%20madrid%20cf%20%28cropped%29.png?width=1200',
-    alt: 'Alfredo Di Stéfano trong màu áo Real Madrid năm 1959.',
-    label: 'Bất Tử · Alfredo Di Stéfano',
-    meta: 'Argentina · Alfredo Di Stéfano',
-    title: 'La Saeta Rubia',
-    deck: 'Trước khi Real Madrid có một lịch sử ở châu Âu, Alfredo Di Stéfano đã có mặt trong từng trang đầu tiên của nó.',
-    position: 'center 24%',
+    href: 'chernyi-pauk.html',
+    image: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Lev%20Yashin%20vs%20Cor%20van%20der%20Gijp%201960.jpg?width=1200',
+    alt: 'Lev Yashin trong khung thành năm 1960.',
+    label: 'Bất Tử · Lev Yashin',
+    meta: 'Soviet Union · Lev Yashin',
+    title: 'Чёрный Паук',
+    deck: 'Người đứng ở vị trí cuối cùng trên sân, nhưng dành cả sự nghiệp để chứng minh rằng khung thành chưa bao giờ là giới hạn của mình.',
+    position: 'center 45%',
   };
 
   const updateArchive = () => {
@@ -25,6 +25,8 @@
       const first = archive.querySelector('.archive-entry');
       if (first) first.before(entry); else archive.append(entry);
     }
+    const first = archive.querySelector('.archive-entry');
+    if (entry && first !== entry) archive.insertBefore(entry, first);
 
     const requested = new URLSearchParams(location.search).get('path');
     const active = ['hy-vong','tuoi-tre','ngoai-anh-den','chua-nguoi','bat-tu','tuong-dai'].includes(requested) ? requested : 'all';
@@ -63,10 +65,8 @@
     }
 
     const side = [...document.querySelectorAll('.home-story-small')];
-    const puskas = {href:'szaguldo-ornagy.html',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Puskas%201954.png?width=1000',alt:'Ferenc Puskás năm 1954.',label:'Bất Tử · Ferenc Puskás',title:'Száguldó Őrnagy',position:'center 24%'};
-    const maradona = {href:'el-pibe-de-oro.html',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Maradona%20cup%20azteca.jpg?width=1000',alt:'Diego Maradona nâng World Cup tại Azteca năm 1986.',label:'Bất Tử · Diego Maradona',title:'El Pibe de Oro',position:'center 42%'};
-    setSmall(side[0], puskas);
-    setSmall(side[1], maradona);
+    setSmall(side[0], {href:'la-saeta-rubia.html',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Di%20stefano%20real%20madrid%20cf%20%28cropped%29.png?width=1000',alt:'Alfredo Di Stéfano trong màu áo Real Madrid.',label:'Bất Tử · Alfredo Di Stéfano',title:'La Saeta Rubia',position:'center 24%'});
+    setSmall(side[1], {href:'szaguldo-ornagy.html',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Puskas%201954.png?width=1000',alt:'Ferenc Puskás năm 1954.',label:'Bất Tử · Ferenc Puskás',title:'Száguldó Őrnagy',position:'center 24%'});
 
     document.querySelectorAll('.home-flow-set').forEach((set) => {
       if (set.querySelector(`a[href="${story.href}"]`)) return;
