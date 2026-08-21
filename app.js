@@ -7,7 +7,7 @@
   if (document.querySelector('.archive#archive') && !window.__N5_PUSKAS_PREVIEW_LOADER__) {
     window.__N5_PUSKAS_PREVIEW_LOADER__ = true;
     const preview = document.createElement('script');
-    preview.src = 'puskas-preview.js?v=20260820-archive-fix-4';
+    preview.src = 'puskas-preview.js?v=20260821-archive-fix-5';
     preview.async = false;
     document.head.append(preview);
   }
