@@ -2,6 +2,13 @@
   if (window.__N5_DI_STEFANO__) return;
   window.__N5_DI_STEFANO__ = true;
 
+  const birthEra = document.querySelector('.ds-birth-top span:last-child');
+  const glasgowEra = document.querySelector('.ds-glasgow-meta span:last-child');
+  const everywhereMark = document.querySelector('.ds-everywhere-center strong');
+  if (birthEra) birthEra.textContent = 'EUROPE · FIRST SEASON';
+  if (glasgowEra) glasgowEra.textContent = 'FINAL 05';
+  if (everywhereMark) everywhereMark.textContent = 'EVERYWHERE';
+
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clamp = (n, a = 0, b = 1) => Math.min(b, Math.max(a, n));
   const progress = (el, start = .9, end = -.1) => {
