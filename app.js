@@ -7,9 +7,17 @@
   if (document.querySelector('.archive#archive') && !window.__N5_PUSKAS_PREVIEW_LOADER__) {
     window.__N5_PUSKAS_PREVIEW_LOADER__ = true;
     const preview = document.createElement('script');
-    preview.src = 'puskas-preview.js?v=20260822-baggio-inline-1';
+    preview.src = 'puskas-preview.js?v=20260822-baggio-commons-1';
     preview.async = false;
     document.head.append(preview);
+  }
+
+  if (document.querySelector('.archive#archive') && !window.__N5_BAGGIO_ARCHIVE_FIX_LOADER__) {
+    window.__N5_BAGGIO_ARCHIVE_FIX_LOADER__ = true;
+    const baggioFix = document.createElement('script');
+    baggioFix.src = 'baggio-archive-fix.js?v=20260822-commons-1';
+    baggioFix.async = false;
+    document.head.append(baggioFix);
   }
 
   if (document.querySelector('.archive#archive') && !window.__N5_DI_STEFANO_PREVIEW_LOADER__) {
