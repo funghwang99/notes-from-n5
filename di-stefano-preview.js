@@ -13,6 +13,15 @@
     position: 'center 18%',
   };
 
+  const puskas = {
+    href: 'szaguldo-ornagy.html',
+    image: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Puskas%20Hidegkuti%201954.png?width=1400',
+    alt: 'Ferenc Puskás cùng Nándor Hidegkuti năm 1954.',
+    label: 'Bất Tử · Ferenc Puskás',
+    title: 'Száguldó Őrnagy',
+    position: 'center center',
+  };
+
   const updateArchive = () => {
     const archive = document.querySelector('.archive#archive');
     if (!archive) return;
@@ -52,14 +61,24 @@
     const img = card.querySelector('img');
     const label = card.querySelector('.home-story-label');
     const title = card.querySelector('h3');
-    if (img) { img.src = data.image; img.alt = data.alt; img.style.objectPosition = data.position; }
+    if (img) {
+      img.src = data.image;
+      img.dataset.src = data.image;
+      img.alt = data.alt;
+      img.style.objectPosition = data.position;
+    }
     if (label) label.textContent = data.label;
     if (title) title.textContent = data.title;
   };
 
-  const fixPuskasCrop = () => {
-    document.querySelectorAll('a[href="szaguldo-ornagy.html"] img').forEach((img) => {
-      img.style.objectPosition = 'center 10%';
+  const fixPuskas = () => {
+    document.querySelectorAll(`a[href="${puskas.href}"]`).forEach((link) => {
+      const img = link.querySelector('img');
+      if (!img) return;
+      img.src = puskas.image;
+      img.dataset.src = puskas.image;
+      if (!link.closest('[aria-hidden="true"]')) img.alt = puskas.alt;
+      img.style.objectPosition = puskas.position;
     });
   };
 
@@ -71,15 +90,27 @@
       const label = main.querySelector('.home-story-label');
       const title = main.querySelector('h3');
       const deck = main.querySelector('.home-story-main-copy > p:last-child');
-      if (img) { img.src = story.image; img.alt = story.alt; img.style.objectPosition = story.position; }
+      if (img) {
+        img.src = story.image;
+        img.dataset.src = story.image;
+        img.alt = story.alt;
+        img.style.objectPosition = story.position;
+      }
       if (label) label.textContent = story.label;
       if (title) title.textContent = story.title;
       if (deck) deck.textContent = story.deck;
     }
 
     const side = [...document.querySelectorAll('.home-story-small')];
-    setSmall(side[0], {href:'la-saeta-rubia.html',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Di%20stefano%20real%20madrid%20cf%20%28cropped%29.png?width=1000',alt:'Alfredo Di Stéfano trong màu áo Real Madrid.',label:'Bất Tử · Alfredo Di Stéfano',title:'La Saeta Rubia',position:'center 24%'});
-    setSmall(side[1], {href:'szaguldo-ornagy.html',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Puskas%201954.png?width=1000',alt:'Ferenc Puskás năm 1954.',label:'Bất Tử · Ferenc Puskás',title:'Száguldó Őrnagy',position:'center 10%'});
+    setSmall(side[0], {
+      href:'la-saeta-rubia.html',
+      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Di%20stefano%20real%20madrid%20cf%20%28cropped%29.png?width=1000',
+      alt:'Alfredo Di Stéfano trong màu áo Real Madrid.',
+      label:'Bất Tử · Alfredo Di Stéfano',
+      title:'La Saeta Rubia',
+      position:'center 24%'
+    });
+    setSmall(side[1], puskas);
 
     document.querySelectorAll('.home-flow-set').forEach((set) => {
       let card = set.querySelector(`a[href="${story.href}"]`);
@@ -91,30 +122,31 @@
           image.alt = set.getAttribute('aria-hidden') === 'true' ? '' : story.alt;
           image.style.objectPosition = story.position;
         }
-        return;
+      } else {
+        const duplicate = set.getAttribute('aria-hidden') === 'true';
+        card = document.createElement('a');
+        card.className = 'home-flow-card';
+        card.href = story.href;
+        card.draggable = false;
+        if (duplicate) { card.setAttribute('aria-hidden','true'); card.tabIndex = -1; }
+        const image = document.createElement('img');
+        image.src = story.image;
+        image.dataset.src = story.image;
+        image.alt = duplicate ? '' : story.alt;
+        image.decoding = 'async';
+        image.fetchPriority = 'low';
+        image.draggable = false;
+        image.style.objectPosition = story.position;
+        image.addEventListener('error', () => { image.remove(); card.classList.add('is-image-missing'); }, { once:true });
+        const copy = document.createElement('span');
+        copy.className = 'home-flow-copy';
+        copy.innerHTML = `<span class="home-flow-meta">${story.label}</span><strong>${story.title}</strong>`;
+        card.append(image, copy);
+        set.prepend(card);
       }
-      const duplicate = set.getAttribute('aria-hidden') === 'true';
-      card = document.createElement('a');
-      card.className = 'home-flow-card';
-      card.href = story.href;
-      card.draggable = false;
-      if (duplicate) { card.setAttribute('aria-hidden','true'); card.tabIndex = -1; }
-      const image = document.createElement('img');
-      image.src = story.image;
-      image.alt = duplicate ? '' : story.alt;
-      image.decoding = 'async';
-      image.fetchPriority = 'low';
-      image.draggable = false;
-      image.style.objectPosition = story.position;
-      image.addEventListener('error', () => { image.remove(); card.classList.add('is-image-missing'); }, { once:true });
-      const copy = document.createElement('span');
-      copy.className = 'home-flow-copy';
-      copy.innerHTML = `<span class="home-flow-meta">${story.label}</span><strong>${story.title}</strong>`;
-      card.append(image, copy);
-      set.prepend(card);
     });
 
-    fixPuskasCrop();
+    fixPuskas();
   };
 
   const run = () => { updateArchive(); updateHome(); };
