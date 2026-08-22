@@ -5,6 +5,13 @@
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  if (!document.querySelector('link[href^="muller-wow.css"]')) {
+    const wow = document.createElement('link');
+    wow.rel = 'stylesheet';
+    wow.href = 'muller-wow.css?v=20260822-bomber-wow-1';
+    document.head.append(wow);
+  }
+
   const buildArchiveAction = () => {
     const mexico = document.querySelector('.bomber-mexico');
     const tenGrid = mexico?.querySelector('.bomber-ten-grid');
@@ -22,6 +29,34 @@
   };
   buildArchiveAction();
 
+  const buildSignature = () => {
+    if (!document.querySelector('.bomber-focus')) {
+      const focus = document.createElement('div');
+      focus.className = 'bomber-focus';
+      focus.setAttribute('aria-hidden', 'true');
+      focus.innerHTML = '<span class="bomber-focus-frame"></span><span class="bomber-focus-target"></span><span class="bomber-focus-label"><span>SPACE</span><strong>SHRINKS</strong></span>';
+      page.prepend(focus);
+    }
+
+    if (!document.querySelector('.bomber-scene-word')) {
+      const word = document.createElement('div');
+      word.className = 'bomber-scene-word';
+      word.setAttribute('aria-hidden', 'true');
+      word.innerHTML = '<span data-bomber-word="outside">DISTANCE</span><span data-bomber-word="build">ARRIVAL</span><span data-bomber-word="box">5.5M</span><span data-bomber-word="ten">KNOWN</span><span data-bomber-word="final">43′</span><span data-bomber-word="numbers">MÜLLERN</span><span data-bomber-word="goal">GOAL</span>';
+      page.append(word);
+    }
+
+    const moment = document.querySelector('[data-bomber-43]');
+    if (moment && !document.querySelector('.bomber-reaction-strip')) {
+      const strip = document.createElement('div');
+      strip.className = 'bomber-reaction-strip';
+      strip.setAttribute('aria-hidden', 'true');
+      strip.innerHTML = '<span>BALL CHANGES PATH</span><span>NO RESET</span><span>ONE TURN</span><span>FINISH</span>';
+      moment.insertAdjacentElement('afterend', strip);
+    }
+  };
+  buildSignature();
+
   const rail = document.querySelector('[data-bomber-distance]');
   const updateRail = () => {
     if (!rail) return;
@@ -31,6 +66,23 @@
   updateRail();
   addEventListener('scroll', updateRail, { passive:true });
   addEventListener('resize', updateRail, { passive:true });
+
+  const updateFocus = () => {
+    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const progress = Math.min(1, Math.max(0, scrollY / max));
+    root.style.setProperty('--bomber-focus-scale', (1 - progress * .62).toFixed(3));
+    root.style.setProperty('--bomber-focus-alpha', (.12 + progress * .16).toFixed(3));
+  };
+  updateFocus();
+  addEventListener('scroll', updateFocus, { passive:true });
+  addEventListener('resize', updateFocus, { passive:true });
+
+  if (!reduced) {
+    addEventListener('pointermove', (event) => {
+      root.style.setProperty('--bomber-cursor-x', `${(event.clientX / innerWidth) * 100}%`);
+      root.style.setProperty('--bomber-cursor-y', `${(event.clientY / innerHeight) * 100}%`);
+    }, { passive:true });
+  }
 
   const heroPhoto = document.querySelector('.bomber-hero-photo');
   if (heroPhoto && !reduced) {
@@ -50,10 +102,9 @@
     const rect = boxSection.getBoundingClientRect();
     const total = rect.height + innerHeight;
     const progress = Math.min(1, Math.max(0, (innerHeight - rect.top) / total));
-    const x = 18 + progress * 40;
-    const y = 24 + progress * 56;
-    ball.style.left = `${x}%`;
-    ball.style.top = `${y}%`;
+    ball.style.left = `${18 + progress * 40}%`;
+    ball.style.top = `${24 + progress * 56}%`;
+    root.style.setProperty('--bomber-pulse', Math.min(1, Math.max(0, (progress - .6) / .4)).toFixed(2));
   };
   updateBall();
   addEventListener('scroll', updateBall, { passive:true });
@@ -66,6 +117,19 @@
       if (active) root.dataset.bomberScene = active.target.dataset.bomberScene || '';
     }, { rootMargin:'-26% 0px -44%', threshold:[.14,.38,.7] });
     sceneSections.forEach(section => sceneObserver.observe(section));
+  }
+
+  const tenGrid = document.querySelector('.bomber-ten-grid');
+  if (tenGrid) {
+    if ('IntersectionObserver' in window) {
+      const tenObserver = new IntersectionObserver((entries) => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          tenGrid.classList.add('is-fired');
+          tenObserver.disconnect();
+        }
+      }, { threshold:.4 });
+      tenObserver.observe(tenGrid);
+    } else tenGrid.classList.add('is-fired');
   }
 
   const moment = document.querySelector('[data-bomber-43]');
@@ -86,7 +150,13 @@
       setTimeout(() => {
         frame.classList.add('is-active');
         if (tick) tick.textContent = String(index + 1).padStart(2,'0');
-        if (index === frames.length - 1) setTimeout(() => moment.classList.add('is-goal'), 260);
+        if (index === frames.length - 1) {
+          setTimeout(() => {
+            moment.classList.add('is-goal');
+            root.style.setProperty('--bomber-pulse','1');
+            setTimeout(() => root.style.setProperty('--bomber-pulse','.15'), 520);
+          }, 260);
+        }
       }, index * 720);
     });
   };
@@ -100,4 +170,77 @@
     }, { threshold:.42 });
     observer.observe(moment);
   } else play43();
+
+  const numberItems = [...document.querySelectorAll('.bomber-number-wall article')];
+  const animateCount = (article) => {
+    if (article.dataset.counted) return;
+    article.dataset.counted = 'true';
+    const strong = article.querySelector('strong');
+    if (!strong) return;
+    const target = Number(strong.textContent.trim());
+    if (!Number.isFinite(target) || reduced) {
+      article.classList.add('is-counted');
+      return;
+    }
+    const duration = 900;
+    const start = performance.now();
+    const draw = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      strong.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
+      if (t < 1) requestAnimationFrame(draw);
+      else {
+        strong.textContent = String(target);
+        article.classList.add('is-counted');
+      }
+    };
+    requestAnimationFrame(draw);
+  };
+
+  if ('IntersectionObserver' in window) {
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        animateCount(entry.target);
+        countObserver.unobserve(entry.target);
+      });
+    }, { threshold:.55 });
+    numberItems.forEach(item => countObserver.observe(item));
+  } else numberItems.forEach(animateCount);
+
+  const verb = document.querySelector('.bomber-verb');
+  if (verb && 'IntersectionObserver' in window) {
+    const verbObserver = new IntersectionObserver((entries) => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        verb.classList.add('is-defined');
+        verbObserver.disconnect();
+      }
+    }, { threshold:.5 });
+    verbObserver.observe(verb);
+  } else verb?.classList.add('is-defined');
+
+  const finish = document.querySelector('.bomber-finish');
+  const goalmouth = document.querySelector('.bomber-goalmouth');
+  const finalLine = document.querySelector('.bomber-final-line');
+  if (finish && goalmouth && !reduced) {
+    finish.addEventListener('pointermove', (event) => {
+      const rect = finish.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - .5;
+      const y = (event.clientY - rect.top) / rect.height - .5;
+      goalmouth.style.transform = `translateX(-50%) perspective(700px) rotateY(${x * 2.5}deg) rotateX(${y * -2}deg)`;
+    });
+    finish.addEventListener('pointerleave', () => { goalmouth.style.transform = ''; });
+  }
+
+  if (finish && 'IntersectionObserver' in window) {
+    let hit = false;
+    const finishObserver = new IntersectionObserver((entries) => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      finalLine?.classList.add('is-arrived');
+      if (!hit && goalmouth) {
+        hit = true;
+        goalmouth.classList.add('is-net-hit');
+      }
+    }, { threshold:.36 });
+    finishObserver.observe(finish);
+  }
 })();
