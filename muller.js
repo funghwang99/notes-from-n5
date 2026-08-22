@@ -5,6 +5,23 @@
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  const buildArchiveAction = () => {
+    const mexico = document.querySelector('.bomber-mexico');
+    const tenGrid = mexico?.querySelector('.bomber-ten-grid');
+    if (!mexico || !tenGrid || mexico.querySelector('.bomber-action-archive')) return;
+
+    const style = document.createElement('style');
+    style.textContent = '.bomber-action-archive{position:relative;width:min(1120px,calc(100% - 3rem));height:min(62vw,42rem);margin:0 auto 5rem;overflow:hidden}.bomber-action-archive img{width:100%;height:100%;object-fit:cover;object-position:center 36%;filter:grayscale(1) contrast(1.14) brightness(.76);transform:scale(1.015)}.bomber-action-archive:after{position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,11,10,.15),transparent 46%,rgba(211,30,44,.09)),linear-gradient(0deg,rgba(12,11,10,.62),transparent 42%);content:""}.bomber-action-archive figcaption{position:absolute;z-index:2;right:1rem;bottom:1rem;color:#d6cec3;font-size:.54rem;letter-spacing:.11em;text-transform:uppercase}@media(max-width:700px){.bomber-action-archive{height:68svh}}';
+    document.head.append(style);
+
+    const figure = document.createElement('figure');
+    figure.className = 'bomber-action-archive reveal';
+    figure.innerHTML = '<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sparta%20tegen%20Bayern%20M%C3%BCnchen%201-3%20Muller%20%28midden%29%20spring%20hoger%20dan%20Eykenbroek%20en%20%2C%20Bestanddeelnr%20924-0809.jpg?width=1800" alt="Gerd Müller tranh chấp trên không cho Bayern Munich năm 1970." loading="lazy" decoding="async" /><figcaption>Rotterdam · 09.12.1970 · Nationaal Archief / Anefo</figcaption>';
+    tenGrid.insertAdjacentElement('afterend', figure);
+    requestAnimationFrame(() => figure.classList.add('is-visible'));
+  };
+  buildArchiveAction();
+
   const rail = document.querySelector('[data-bomber-distance]');
   const updateRail = () => {
     if (!rail) return;
