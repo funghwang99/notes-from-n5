@@ -4,6 +4,18 @@
   core.async = false;
   document.head.append(core);
 
+  if (document.body?.classList.contains('layout-baggio')) {
+    const BAGGIO_WC94_IMAGE = 'https://retrosoccerkits.com/cdn/shop/files/IMG_9105.jpg?v=1683804239&width=1946';
+    const image = document.querySelector('.baggio-figure--hero img');
+    if (image) {
+      image.src = BAGGIO_WC94_IMAGE;
+      image.alt = 'Roberto Baggio trong màu áo sân nhà của Italy tại World Cup 1994.';
+      image.style.objectPosition = 'center 28%';
+      const caption = image.closest('figure')?.querySelector('figcaption');
+      if (caption) caption.textContent = 'Roberto Baggio trong màu áo Italy tại World Cup 1994.';
+    }
+  }
+
   if (document.querySelector('.archive#archive') && !window.__N5_PUSKAS_PREVIEW_LOADER__) {
     window.__N5_PUSKAS_PREVIEW_LOADER__ = true;
     const preview = document.createElement('script');
@@ -15,7 +27,7 @@
   if (document.querySelector('.archive#archive') && !window.__N5_BAGGIO_ARCHIVE_FIX_LOADER__) {
     window.__N5_BAGGIO_ARCHIVE_FIX_LOADER__ = true;
     const baggioFix = document.createElement('script');
-    baggioFix.src = 'baggio-archive-fix.js?v=20260822-commons-1';
+    baggioFix.src = 'baggio-archive-fix.js?v=20260822-wc94-1';
     baggioFix.async = false;
     document.head.append(baggioFix);
   }
