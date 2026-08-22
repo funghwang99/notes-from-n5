@@ -2,6 +2,10 @@
   const page = document.querySelector('.eusebio-page');
   if (!page) return;
 
+  const structuralFix = document.createElement('style');
+  structuralFix.textContent = '.pantera-opening.pantera-copy{width:100%;max-width:none;margin:0;font-family:inherit;font-size:inherit;line-height:inherit}.pantera-opening>.article-lead{width:min(760px,calc(100% - 3rem));margin:0 auto;font-family:var(--serif)}';
+  document.head.append(structuralFix);
+
   const rail = document.querySelector('[data-pantera-rail]');
   const updateRail = () => {
     if (!rail) return;
