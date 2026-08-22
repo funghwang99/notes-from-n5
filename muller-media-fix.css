@@ -1,9 +1,10 @@
 /* Der Bomber — image refresh + müllern alignment fix */
 
-/* Hero now uses a match-action photograph; keep Müller readable in the tall crop. */
+/* Close-up identity image: keep Müller’s face dominant in the hero crop. */
 .muller-page .bomber-hero-photo img{
-  object-position:center 35%!important;
-  filter:grayscale(1) contrast(1.16) brightness(.76)!important;
+  object-position:center 18%!important;
+  filter:grayscale(.35) contrast(1.1) brightness(.82)!important;
+  transform:scale(1.12)!important;
 }
 
 /* Keep the shrinking-space motif out of the dictionary moment. */
@@ -108,7 +109,10 @@ html[data-bomber-scene="numbers"] .bomber-scene-word{
 }
 
 @media(max-width:700px){
-  .muller-page .bomber-hero-photo img{object-position:center 38%!important}
+  .muller-page .bomber-hero-photo img{
+    object-position:center 16%!important;
+    transform:scale(1.08)!important;
+  }
   .bomber-final-action{height:68svh;margin:3rem auto 2.5rem}
   .bomber-final-action img{object-position:center 50%}
   .bomber-verb strong{font-size:clamp(3.7rem,18vw,6rem)!important}
