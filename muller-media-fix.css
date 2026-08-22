@@ -1,0 +1,116 @@
+/* Der Bomber — image refresh + müllern alignment fix */
+
+/* Hero now uses a match-action photograph; keep Müller readable in the tall crop. */
+.muller-page .bomber-hero-photo img{
+  object-position:center 35%!important;
+  filter:grayscale(1) contrast(1.16) brightness(.76)!important;
+}
+
+/* Keep the shrinking-space motif out of the dictionary moment. */
+html[data-bomber-scene="numbers"] .bomber-focus{
+  opacity:0!important;
+  visibility:hidden!important;
+}
+html[data-bomber-scene="numbers"] .bomber-scene-word{
+  opacity:.08!important;
+}
+.bomber-numbers{
+  position:relative;
+  z-index:20;
+}
+.bomber-numbers .bomber-number-wall,
+.bomber-numbers .bomber-verb{
+  position:relative;
+  z-index:22;
+}
+
+/* The animated definition underline used to cut through the giant word. */
+.bomber-verb{
+  overflow:visible!important;
+}
+.bomber-verb strong{
+  display:block;
+  padding-bottom:.18em;
+  line-height:.82!important;
+}
+.bomber-verb strong:after{
+  position:static!important;
+  display:block!important;
+  right:auto!important;
+  bottom:auto!important;
+  height:3px!important;
+  margin-top:.28rem;
+  transform:none!important;
+}
+.bomber-verb.is-defined strong:after{
+  width:100%!important;
+}
+
+/* World Cup 1974 match image inserted immediately before the 43rd-minute sequence. */
+.bomber-final-action{
+  position:relative;
+  z-index:2;
+  width:min(1120px,calc(100% - 3rem));
+  height:min(62vw,42rem);
+  margin:4.5rem auto 3.5rem;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  background:#090807;
+}
+.bomber-final-action img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 46%;
+  filter:grayscale(1) contrast(1.13) brightness(.79);
+  transform:scale(1.018);
+}
+.bomber-final-action:before{
+  position:absolute;
+  z-index:1;
+  inset:0;
+  background:
+    linear-gradient(0deg,rgba(12,11,10,.72),transparent 40%),
+    linear-gradient(90deg,rgba(12,11,10,.15),transparent 48%,rgba(211,30,44,.12));
+  content:"";
+  pointer-events:none;
+}
+.bomber-final-action:after{
+  position:absolute;
+  z-index:2;
+  top:1rem;
+  left:1rem;
+  padding:.48rem .6rem;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(12,11,10,.72);
+  color:#f0ece3;
+  font:850 .5rem/1 var(--sans);
+  letter-spacing:.14em;
+  content:"MATCH FRAME · 07.07.1974";
+}
+.bomber-final-action figcaption{
+  position:absolute;
+  z-index:3;
+  right:1rem;
+  bottom:1rem;
+  color:#d7cfc4;
+  font-size:.54rem;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+
+/* Give all football photographs a slightly more tactile archive feel. */
+.bomber-hero-photo,
+.bomber-action-archive,
+.bomber-final-action,
+.bomber-cup{
+  box-shadow:0 24px 70px rgba(0,0,0,.18);
+}
+
+@media(max-width:700px){
+  .muller-page .bomber-hero-photo img{object-position:center 38%!important}
+  .bomber-final-action{height:68svh;margin:3rem auto 2.5rem}
+  .bomber-final-action img{object-position:center 50%}
+  .bomber-verb strong{font-size:clamp(3.7rem,18vw,6rem)!important}
+  .bomber-verb strong:after{margin-top:.55rem}
+}
