@@ -18,9 +18,9 @@
     },
     {
       href:'der-bomber.html',
-      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Sparta%20tegen%20Bayern%20M%C3%BCnchen%201-3%20Muller%20%28midden%29%20spring%20hoger%20dan%20Eykenbroek%20en%20%2C%20Bestanddeelnr%20924-0809.jpg?width=1200',
-      alt:'Gerd Müller bật cao tranh chấp cho Bayern Munich trước Sparta Rotterdam năm 1970.',
-      position:'center 43%',
+      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gerd%20M%C3%BCller%20c1973%20%28cropped%29.jpg?width=900',
+      alt:'Cận cảnh Gerd Müller vào khoảng năm 1973.',
+      position:'center 18%',
       meta:'Bất Tử · Gerd Müller',
       title:'Der Bomber'
     }
