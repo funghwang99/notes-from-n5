@@ -19,7 +19,7 @@
     const entry = document.createElement('article');
     entry.className = 'archive-entry reveal';
     entry.dataset.paths = 'bat-tu';
-    entry.innerHTML = '<a class="archive-thumb" href="der-bomber.html"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Beckenbauer%2C%20M%C3%BCller%2C%20Lattek%20%28Muller%20cropped%29.jpg?width=1000" alt="Gerd Müller năm 1973." style="object-position:center 30%" /></a><div class="archive-entry-copy"><p class="article-meta">Germany · Gerd Müller</p><h2><a href="der-bomber.html">Der Bomber</a></h2><p>Không cần một cú nã đại bác. Chỉ cần vài mét, một khoảnh khắc và một nhịp phản ứng ngắn hơn tất cả.</p></div><a class="archive-arrow" href="der-bomber.html" aria-label="Đọc bài Der Bomber">↗</a>';
+    entry.innerHTML = '<a class="archive-thumb" href="der-bomber.html"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sparta%20tegen%20Bayern%20M%C3%BCnchen%201-3%20Muller%20%28midden%29%20spring%20hoger%20dan%20Eykenbroek%20en%20%2C%20Bestanddeelnr%20924-0809.jpg?width=1200" alt="Gerd Müller bật cao tranh chấp cho Bayern Munich trước Sparta Rotterdam năm 1970." style="object-position:center 43%" /></a><div class="archive-entry-copy"><p class="article-meta">Germany · Gerd Müller</p><h2><a href="der-bomber.html">Der Bomber</a></h2><p>Không cần một cú nã đại bác. Chỉ cần vài mét, một khoảnh khắc và một nhịp phản ứng ngắn hơn tất cả.</p></div><a class="archive-arrow" href="der-bomber.html" aria-label="Đọc bài Der Bomber">↗</a>';
     const firstEntry = archive.querySelector('.archive-entry');
     if (firstEntry) archive.insertBefore(entry, firstEntry);
     else archive.append(entry);
