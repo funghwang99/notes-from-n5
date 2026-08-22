@@ -77,7 +77,7 @@
     const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
     const progress = Math.min(1, Math.max(0, scrollY / max));
     if (railFill) railFill.style.height = `${progress * 100}%`;
-    root.style.setProperty('--pantera-scroll', String(scrollY * .06));
+    root.style.setProperty('--pantera-scroll', `${scrollY * -.06}px`);
   };
   updateScrollState();
   addEventListener('scroll', updateScrollState, { passive:true });
