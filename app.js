@@ -4,6 +4,19 @@
   core.async = false;
   document.head.append(core);
 
+  const archive = document.querySelector('.archive#archive');
+  if (archive && !archive.querySelector('a[href="pantera-negra.html"]')) {
+    const entry = document.createElement('article');
+    entry.className = 'archive-entry reveal';
+    entry.dataset.paths = 'bat-tu';
+    entry.innerHTML = '<a class="archive-thumb" href="pantera-negra.html"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Eusebio%20%281963%29.jpg?width=1000" alt="Eusébio trong một buổi tập năm 1963." style="object-position:center 28%" /></a><div class="archive-entry-copy"><p class="article-meta">Portugal · Eusébio</p><h2><a href="pantera-negra.html">Pantera Negra</a></h2><p>Từ những sân đất ở Mafalala, Pantera Negra đã chạy thẳng vào lịch sử bóng đá thế giới.</p></div><a class="archive-arrow" href="pantera-negra.html" aria-label="Đọc bài Pantera Negra">↗</a>';
+    const firstEntry = archive.querySelector('.archive-entry');
+    if (firstEntry) archive.insertBefore(entry, firstEntry);
+    else archive.append(entry);
+    const count = archive.querySelector('[data-archive-count]');
+    if (count) count.textContent = '28 bài viết';
+  }
+
   if (document.body?.classList.contains('layout-baggio')) {
     const BAGGIO_WC94_IMAGE = 'https://retrosoccerkits.com/cdn/shop/files/IMG_9105.jpg?v=1683804239&width=1946';
     const image = document.querySelector('.baggio-figure--hero img');
