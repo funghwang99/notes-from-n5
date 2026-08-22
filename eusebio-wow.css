@@ -3,15 +3,17 @@
   --pantera-gold:#e6c57d;
   --pantera-glow-x:50%;
   --pantera-glow-y:18%;
+  --pantera-scroll:0px;
 }
 
 /* Pantera Negra — signature layer */
 .eusebio-page{isolation:isolate}
-.eusebio-page>header,.eusebio-page>main,.eusebio-page>footer,.eusebio-page>.reading-progress,.eusebio-page>.skip-link,.eusebio-page>.pantera-rail,.eusebio-page>.pantera-state{position:relative;z-index:2}
+.eusebio-page>.site-header{z-index:50}
+.eusebio-page>.reading-progress,.eusebio-page>.skip-link{z-index:60}
 
-.pantera-ambient{position:fixed;z-index:0;inset:0;overflow:hidden;pointer-events:none;background:radial-gradient(circle at var(--pantera-glow-x) var(--pantera-glow-y),rgba(239,32,53,.13),transparent 22%),linear-gradient(180deg,#050505 0%,#090909 42%,#070707 100%);transition:background .45s ease}
-.pantera-ambient:before{position:absolute;inset:-20%;background:repeating-linear-gradient(116deg,transparent 0 10rem,rgba(255,255,255,.012) 10rem 10.08rem);content:"";transform:translate3d(0,calc(var(--pantera-scroll,0)*-1px),0)}
-.pantera-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.28;mix-blend-mode:screen}
+.pantera-ambient{position:fixed;z-index:8;inset:0;overflow:hidden;pointer-events:none;background:radial-gradient(circle at var(--pantera-glow-x) var(--pantera-glow-y),rgba(239,32,53,.09),transparent 22%);opacity:.82;transition:background .45s ease}
+.pantera-ambient:before{position:absolute;inset:-20%;background:repeating-linear-gradient(116deg,transparent 0 10rem,rgba(255,255,255,.014) 10rem 10.08rem);content:"";transform:translate3d(0,var(--pantera-scroll),0)}
+.pantera-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.22;mix-blend-mode:screen}
 .pantera-orb--1{width:28rem;height:28rem;top:-8rem;left:-10rem;background:rgba(239,32,53,.45)}
 .pantera-orb--2{width:24rem;height:24rem;top:34vh;right:-7rem;background:rgba(255,255,255,.08)}
 .pantera-orb--3{width:18rem;height:18rem;bottom:-4rem;left:24vw;background:rgba(170,18,31,.25)}
@@ -20,7 +22,7 @@
 .pantera-claws i:nth-child(1){top:16%}.pantera-claws i:nth-child(2){top:48%;right:4%}.pantera-claws i:nth-child(3){top:80%;right:8%}
 
 .pantera-state{position:fixed!important;z-index:36!important;top:50%;left:clamp(.75rem,2.3vw,2rem);display:grid;gap:.28rem;pointer-events:none;transform:translateY(-50%)}
-.pantera-state span{color:rgba(255,255,255,.13);font:800 clamp(.58rem,.7vw,.7rem)/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;transform:translateX(-.35rem);transition:color .3s ease,opacity .3s ease,transform .3s ease;opacity:.42}
+.pantera-state span{color:rgba(255,255,255,.13);font:800 clamp(.58rem,.7vw,.7rem)/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;transform:translateX(-.35rem);transition:color .3s ease,opacity .3s ease,transform .3s ease;opacity:.42;text-shadow:0 1px 8px rgba(0,0,0,.6)}
 html[data-pantera-scene="mafalala"] .pantera-state [data-pantera-word="mafalala"],html[data-pantera-scene="amsterdam"] .pantera-state [data-pantera-word="amsterdam"],html[data-pantera-scene="speed"] .pantera-state [data-pantera-word="speed"],html[data-pantera-scene="goodison"] .pantera-state [data-pantera-word="goodison"],html[data-pantera-scene="wembley"] .pantera-state [data-pantera-word="wembley"],html[data-pantera-scene="legacy"] .pantera-state [data-pantera-word="legacy"],html[data-pantera-scene="panteao"] .pantera-state [data-pantera-word="panteao"]{color:#fff;opacity:1;transform:translateX(0)}
 
 .pantera-hero{isolation:isolate}
@@ -48,11 +50,11 @@ html[data-pantera-scene="mafalala"] .pantera-state [data-pantera-word="mafalala"
 .pantera-goodison-note b{display:block;margin-bottom:.35rem;color:#fff;font:800 .58rem/1 var(--sans);letter-spacing:.15em;text-transform:uppercase}
 
 .pantera-wembley-mark{position:relative}
-.pantera-wembley-mark:after{position:absolute;right:0;bottom:-1.4rem;left:0;height:1px;background:linear-gradient(90deg,transparent,#aaa297 30%,var(--pantera-red) 50%,#aaa297 70%,transparent);content:"";transform:scaleX(.25);transform-origin:center;transition:transform .75s ease}
+.pantera-wembley-mark:after{position:absolute;right:0;bottom:-1.4rem;left:0;height:1px;background:linear-gradient(90deg,transparent,#aaa297 30%,var(--panther-red) 50%,#aaa297 70%,transparent);content:"";transform:scaleX(.25);transform-origin:center;transition:transform .75s ease}
 .pantera-wembley-mark.is-visible:after{transform:scaleX(1)}
 
-.pantera-honour{width:min(900px,calc(100% - 3rem));margin:4rem auto 0;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;padding:1.4rem 1.5rem;border:1px solid rgba(230,197,125,.23);background:linear-gradient(180deg,rgba(230,197,125,.08),rgba(255,255,255,.018));box-shadow:0 24px 60px rgba(0,0,0,.18)}
-.pantera-honour span{color:#d8c497;font:850 .58rem/1.35 var(--sans);letter-spacing:.14em;text-transform:uppercase}.pantera-honour strong{color:#fff4d8;font:520 clamp(1.3rem,2.4vw,2.2rem)/1 var(--serif);text-align:center}.pantera-honour i{width:1px;height:3rem;background:linear-gradient(180deg,transparent,rgba(230,197,125,.48),transparent)}
+.pantera-honour{width:min(900px,calc(100% - 3rem));margin:4rem auto 0;display:grid;grid-template-columns:1fr 1px auto 1px 1fr;align-items:center;gap:1rem;padding:1.4rem 1.5rem;border:1px solid rgba(230,197,125,.23);background:linear-gradient(180deg,rgba(230,197,125,.08),rgba(255,255,255,.018));box-shadow:0 24px 60px rgba(0,0,0,.18)}
+.pantera-honour span{color:#d8c497;font:850 .58rem/1.35 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-align:center}.pantera-honour strong{color:#fff4d8;font:520 clamp(1.3rem,2.4vw,2.2rem)/1 var(--serif);text-align:center}.pantera-honour i{width:1px;height:3rem;background:linear-gradient(180deg,transparent,rgba(230,197,125,.48),transparent)}
 
 .pantera-canon{position:relative;z-index:2;width:min(1080px,calc(100% - 3rem));margin:0 auto 4.2rem;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:1rem;color:rgba(255,255,255,.75);font:850 .58rem/1 var(--sans);letter-spacing:.17em;text-transform:uppercase}
 .pantera-canon i{height:1px;background:rgba(255,255,255,.32)}
@@ -60,9 +62,9 @@ html[data-pantera-scene="mafalala"] .pantera-state [data-pantera-word="mafalala"
 .pantera-final-map{position:relative;z-index:2;width:min(1040px,calc(100% - 3rem));margin:2rem auto 5rem;display:flex;align-items:center;justify-content:center;gap:.65rem;flex-wrap:wrap;color:rgba(255,255,255,.78);font:850 .55rem/1 var(--sans);letter-spacing:.13em;text-transform:uppercase}.pantera-final-map i{width:2.4rem;height:1px;background:rgba(255,255,255,.38)}.pantera-final-map strong{color:#fff}
 .pantera-last-word{mix-blend-mode:multiply}
 
-html[data-pantera-scene="goodison"] .pantera-ambient{background:radial-gradient(circle at var(--pantera-glow-x) var(--pantera-glow-y),rgba(239,32,53,.2),transparent 23%),linear-gradient(180deg,#060404 0%,#120708 48%,#090606 100%)}
-html[data-pantera-scene="wembley"] .pantera-ambient{background:radial-gradient(circle at var(--pantera-glow-x) var(--pantera-glow-y),rgba(255,255,255,.07),transparent 20%),linear-gradient(180deg,#080808,#0c0b0a)}
-html[data-pantera-scene="panteao"] .pantera-ambient{background:radial-gradient(circle at 68% 22%,rgba(230,197,125,.14),transparent 25%),linear-gradient(180deg,#080706,#100b08)}
+html[data-pantera-scene="goodison"] .pantera-ambient{background:radial-gradient(circle at var(--pantera-glow-x) var(--pantera-glow-y),rgba(239,32,53,.16),transparent 23%)}
+html[data-pantera-scene="wembley"] .pantera-ambient{background:radial-gradient(circle at var(--pantera-glow-x) var(--pantera-glow-y),rgba(255,255,255,.055),transparent 20%)}
+html[data-pantera-scene="panteao"] .pantera-ambient{background:radial-gradient(circle at 68% 22%,rgba(230,197,125,.12),transparent 25%)}
 
 @media(max-width:1000px){.pantera-state{display:none}.pantera-claws{width:70vw;right:-18%}.pantera-honour{grid-template-columns:1fr;text-align:center}.pantera-honour i{width:100%;height:1px}.pantera-canon{grid-template-columns:1fr;text-align:center}.pantera-canon i{display:none}}
 @media(max-width:700px){.pantera-goal-track{justify-content:flex-start}.pantera-goal-chip{font-size:.5rem}.pantera-final-map{gap:.5rem}.pantera-final-map i{width:1.1rem}.pantera-canon strong{font-size:clamp(3rem,17vw,5rem)}}
