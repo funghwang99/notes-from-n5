@@ -5,6 +5,16 @@
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  const MULLER_CLOSEUP = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gerd%20M%C3%BCller%20c1973%20%28cropped%29.jpg?width=1200';
+  const heroImage = document.querySelector('.bomber-hero-photo img');
+  if (heroImage) {
+    heroImage.src = MULLER_CLOSEUP;
+    heroImage.alt = 'Cận cảnh Gerd Müller vào khoảng năm 1973.';
+    heroImage.style.objectPosition = 'center 24%';
+    const caption = heroImage.closest('figure')?.querySelector('figcaption');
+    if (caption) caption.textContent = 'Gerd Müller · c.1973 · Wikimedia Commons / Public domain';
+  }
+
   if (!document.querySelector('link[href^="muller-wow.css"]')) {
     const wow = document.createElement('link');
     wow.rel = 'stylesheet';
