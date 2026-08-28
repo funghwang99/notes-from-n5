@@ -5,6 +5,16 @@
   document.head.append(core);
 
   const archive = document.querySelector('.archive#archive');
+  if (archive && !archive.querySelector('a[href="o-doutor.html"]')) {
+    const entry = document.createElement('article');
+    entry.className = 'archive-entry reveal';
+    entry.dataset.paths = 'bat-tu';
+    entry.innerHTML = '<a class="archive-thumb" href="o-doutor.html"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Italy%20v%20brazil%201982%2002.jpg?width=1200" alt="Sócrates trong trận Brazil gặp Italy tại World Cup 1982." style="object-position:center 48%" /></a><div class="archive-entry-copy"><p class="article-meta">Brazil · Sócrates</p><h2><a href="o-doutor.html">O Doutor</a></h2><p>Một bác sĩ, một đội trưởng, một playmaker — và trong những cuộc biểu quyết ở Corinthians, vẫn chỉ là một người với một lá phiếu.</p></div><a class="archive-arrow" href="o-doutor.html" aria-label="Đọc bài O Doutor">↗</a>';
+    const firstEntry = archive.querySelector('.archive-entry');
+    if (firstEntry) archive.insertBefore(entry, firstEntry);
+    else archive.append(entry);
+  }
+
   if (archive && !archive.querySelector('a[href="pantera-negra.html"]')) {
     const entry = document.createElement('article');
     entry.className = 'archive-entry reveal';
@@ -27,7 +37,7 @@
 
   if (archive) {
     const count = archive.querySelector('[data-archive-count]');
-    if (count) count.textContent = '29 bài viết';
+    if (count) count.textContent = '30 bài viết';
   }
 
   if (document.body?.classList.contains('layout-baggio')) {
