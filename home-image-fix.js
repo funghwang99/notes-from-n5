@@ -9,6 +9,14 @@
 
   const cards = [
     {
+      href:'o-doutor.html',
+      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Italy%20v%20brazil%201982%2002.jpg?width=1200',
+      alt:'Sócrates trong trận Brazil gặp Italy tại World Cup 1982.',
+      position:'center 48%',
+      meta:'Bất Tử · Sócrates',
+      title:'O Doutor'
+    },
+    {
       href:'pantera-negra.html',
       image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Eusebio%20%281963%29.jpg?width=1000',
       alt:'Eusébio trong một buổi tập năm 1963.',
