@@ -4,15 +4,18 @@
   core.async = false;
   document.head.append(core);
 
+  const BEST_HREF = 'the-fifth-beatle.html?v=20260829-best-3';
   const archive = document.querySelector('.archive#archive');
-  if (archive && !archive.querySelector('a[href="the-fifth-beatle.html"]')) {
+  if (archive && !archive.querySelector('a[href^="the-fifth-beatle.html"]')) {
     const entry = document.createElement('article');
     entry.className = 'archive-entry reveal';
     entry.dataset.paths = 'bat-tu';
-    entry.innerHTML = '<a class="archive-thumb" href="the-fifth-beatle.html"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/George%20Best%20%281976%29.jpg?width=1000" alt="George Best trong một trận đấu của Northern Ireland năm 1976." style="object-position:center 24%" /></a><div class="archive-entry-copy"><p class="article-meta">Northern Ireland · George Best</p><h2><a href="the-fifth-beatle.html">The Fifth Beatle</a></h2><p>Lisbon khiến cả châu Âu nhìn thấy George Best. Sau đó máy ảnh mới bắt đầu đuổi theo cầu thủ ấy ra khỏi sân.</p></div><a class="archive-arrow" href="the-fifth-beatle.html" aria-label="Đọc bài The Fifth Beatle">↗</a>';
+    entry.innerHTML = `<a class="archive-thumb" href="${BEST_HREF}"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/George%20Best%20%281976%29.jpg?width=1000" alt="George Best trong một trận đấu của Northern Ireland năm 1976." style="object-position:center 24%" /></a><div class="archive-entry-copy"><p class="article-meta">Northern Ireland · George Best</p><h2><a href="${BEST_HREF}">The Fifth Beatle</a></h2><p>Lisbon khiến cả châu Âu nhìn thấy George Best. Sau đó máy ảnh mới bắt đầu đuổi theo cầu thủ ấy ra khỏi sân.</p></div><a class="archive-arrow" href="${BEST_HREF}" aria-label="Đọc bài The Fifth Beatle">↗</a>`;
     const firstEntry = archive.querySelector('.archive-entry');
     if (firstEntry) archive.insertBefore(entry, firstEntry);
     else archive.append(entry);
+  } else if (archive) {
+    archive.querySelectorAll('a[href^="the-fifth-beatle.html"]').forEach((link) => link.setAttribute('href', BEST_HREF));
   }
 
   if (archive && !archive.querySelector('a[href="o-doutor.html"]')) {
