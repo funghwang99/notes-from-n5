@@ -9,6 +9,14 @@
 
   const cards = [
     {
+      href:'the-fifth-beatle.html',
+      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/George%20Best%20%281976%29.jpg?width=1000',
+      alt:'George Best trong một trận đấu của Northern Ireland năm 1976.',
+      position:'center 24%',
+      meta:'Bất Tử · George Best',
+      title:'The Fifth Beatle'
+    },
+    {
       href:'o-doutor.html',
       image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Italy%20v%20brazil%201982%2002.jpg?width=1200',
       alt:'Sócrates trong trận Brazil gặp Italy tại World Cup 1982.',
