@@ -2,6 +2,15 @@
   const page = document.querySelector('.best-page');
   if (!page) return;
 
+  const freshVersion = '20260829-best-3';
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('v') !== freshVersion) {
+    params.set('v', freshVersion);
+    const next = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
+    window.location.replace(next);
+    return;
+  }
+
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -37,7 +46,7 @@
       heroImage.style.transform = `scale(1.04) translate(${x * -7}px, ${y * -5}px)`;
     });
     hero.addEventListener('pointerleave', () => {
-      heroImage.style.transform = 'scale(1.025)';
+      heroImage.style.transform = 'scale(1.02)';
     });
   }
 
