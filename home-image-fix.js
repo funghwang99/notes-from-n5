@@ -9,7 +9,8 @@
 
   const cards = [
     {
-      href:'the-fifth-beatle.html',
+      href:'the-fifth-beatle.html?v=20260829-best-3',
+      baseHref:'the-fifth-beatle.html',
       image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/George%20Best%20%281976%29.jpg?width=1000',
       alt:'George Best trong một trận đấu của Northern Ireland năm 1976.',
       position:'center 24%',
@@ -54,7 +55,13 @@
 
   const addCard = (story) => {
     document.querySelectorAll('.home-flow-set').forEach((set) => {
-      if (set.querySelector(`a[href="${story.href}"]`)) return;
+      const selector = story.baseHref ? `a[href^="${story.baseHref}"]` : `a[href="${story.href}"]`;
+      const existing = set.querySelector(selector);
+      if (existing) {
+        if (existing.getAttribute('href') !== story.href) existing.setAttribute('href', story.href);
+        applyImage(existing, story.image, story.alt, story.position);
+        return;
+      }
       const duplicate = set.getAttribute('aria-hidden') === 'true';
       const card = document.createElement('a');
       card.className = 'home-flow-card';
