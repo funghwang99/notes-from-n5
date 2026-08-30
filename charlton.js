@@ -25,6 +25,28 @@
     sections.forEach((section) => sceneObserver.observe(section));
   }
 
+  const presentFallbackSafely = (img, figure, caption) => {
+    if (!figure) return;
+    figure.classList.add('is-fallback');
+    figure.style.width = 'min(760px, calc(100% - 3rem))';
+    figure.style.height = 'auto';
+    figure.style.aspectRatio = '4 / 5';
+    figure.style.background = '#11110f';
+    figure.style.display = 'grid';
+    figure.style.placeItems = 'center';
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'contain';
+    img.style.objectPosition = 'center center';
+    img.style.transform = 'none';
+    img.style.filter = 'grayscale(1) contrast(1.06)';
+    if (caption) {
+      caption.style.right = '1rem';
+      caption.style.bottom = '1rem';
+      caption.style.maxWidth = 'calc(100% - 2rem)';
+    }
+  };
+
   const useFallback = (img) => {
     const figure = img.closest('figure');
     const caption = figure?.querySelector('figcaption');
@@ -39,11 +61,13 @@
     img.src = fallback;
     if (img.dataset.fallbackAlt) img.alt = img.dataset.fallbackAlt;
     if (caption && img.dataset.fallbackCaption) caption.textContent = img.dataset.fallbackCaption;
+    presentFallbackSafely(img, figure, caption);
   };
 
   document.querySelectorAll('img[data-fallback-src]').forEach((img) => {
     img.addEventListener('error', () => useFallback(img));
     if (img.complete && img.naturalWidth === 0) queueMicrotask(() => useFallback(img));
+    if (img.dataset.fallbackUsed) presentFallbackSafely(img, img.closest('figure'), img.closest('figure')?.querySelector('figcaption'));
   });
 
   const finalSequence = document.querySelector('[data-charlton-final]');
