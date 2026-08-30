@@ -1,5 +1,5 @@
 (() => {
-  const HREF = 'sir-bobby-charlton.html?v=20260830-charlton-1';
+  const HREF = 'sir-bobby-charlton.html?v=20260830-charlton-2';
   const BASE = 'sir-bobby-charlton.html';
   const IMAGE = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Bobby%20charlton%20elgrafico.JPG?width=1000';
 
