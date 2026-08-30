@@ -25,26 +25,25 @@
     sections.forEach((section) => sceneObserver.observe(section));
   }
 
-  document.querySelectorAll('img[data-fallback-src]').forEach((img) => {
+  const useFallback = (img) => {
+    const figure = img.closest('figure');
+    const caption = figure?.querySelector('figcaption');
     const fallback = img.dataset.fallbackSrc;
-    if (!fallback) return;
-    img.addEventListener('error', () => {
-      const figure = img.closest('figure');
-      const caption = figure?.querySelector('figcaption');
-      if (img.dataset.fallbackUsed) {
-        if (figure) figure.hidden = true;
-        return;
-      }
-      img.dataset.fallbackUsed = '1';
-      img.src = fallback;
-      if (figure?.classList.contains('charlton-action--1968')) {
-        img.alt = 'Bobby Charlton cùng Manchester United sau trận chung kết Cúp C1 1968 tại Wembley.';
-        if (caption) caption.textContent = 'Wembley · European Cup Final · 1968';
-      } else {
-        img.alt = 'Bobby Charlton trong một ảnh năm 1966.';
-        if (caption) caption.textContent = 'Bobby Charlton · 1966 · Nationaal Archief / Anefo';
-      }
-    });
+
+    if (!fallback || img.dataset.fallbackUsed) {
+      if (figure) figure.hidden = true;
+      return;
+    }
+
+    img.dataset.fallbackUsed = '1';
+    img.src = fallback;
+    if (img.dataset.fallbackAlt) img.alt = img.dataset.fallbackAlt;
+    if (caption && img.dataset.fallbackCaption) caption.textContent = img.dataset.fallbackCaption;
+  };
+
+  document.querySelectorAll('img[data-fallback-src]').forEach((img) => {
+    img.addEventListener('error', () => useFallback(img));
+    if (img.complete && img.naturalWidth === 0) queueMicrotask(() => useFallback(img));
   });
 
   const finalSequence = document.querySelector('[data-charlton-final]');
