@@ -29,13 +29,21 @@
     const fallback = img.dataset.fallbackSrc;
     if (!fallback) return;
     img.addEventListener('error', () => {
+      const figure = img.closest('figure');
+      const caption = figure?.querySelector('figcaption');
       if (img.dataset.fallbackUsed) {
-        const figure = img.closest('figure');
         if (figure) figure.hidden = true;
         return;
       }
       img.dataset.fallbackUsed = '1';
       img.src = fallback;
+      if (figure?.classList.contains('charlton-action--1968')) {
+        img.alt = 'Bobby Charlton cùng Manchester United sau trận chung kết Cúp C1 1968 tại Wembley.';
+        if (caption) caption.textContent = 'Wembley · European Cup Final · 1968';
+      } else {
+        img.alt = 'Bobby Charlton trong một ảnh năm 1966.';
+        if (caption) caption.textContent = 'Bobby Charlton · 1966 · Nationaal Archief / Anefo';
+      }
     });
   });
 
