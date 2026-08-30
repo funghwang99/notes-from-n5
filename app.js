@@ -4,6 +4,14 @@
   core.async = false;
   document.head.append(core);
 
+  if (document.querySelector('.archive#archive') && !window.__N5_CHARLTON_PUBLISH_LOADER__) {
+    window.__N5_CHARLTON_PUBLISH_LOADER__ = true;
+    const publish = document.createElement('script');
+    publish.src = 'charlton-publish.js?v=20260830-charlton-1';
+    publish.async = false;
+    document.head.append(publish);
+  }
+
   const BEST_HREF = 'the-fifth-beatle.html?v=20260829-best-3';
   const archive = document.querySelector('.archive#archive');
   if (archive && !archive.querySelector('a[href^="the-fifth-beatle.html"]')) {
