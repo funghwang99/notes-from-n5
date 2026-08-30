@@ -18,4 +18,12 @@
     }
   });
   observer.observe(document.documentElement, { childList:true, subtree:true });
+
+  if (!window.__N5_CHARLTON_PUBLISH_LOADER__) {
+    window.__N5_CHARLTON_PUBLISH_LOADER__ = true;
+    const publish = document.createElement('script');
+    publish.src = 'charlton-publish.js?v=20260830-charlton-1';
+    publish.async = false;
+    document.head.append(publish);
+  }
 })();
