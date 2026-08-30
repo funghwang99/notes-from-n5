@@ -58,4 +58,12 @@
   apply();
   requestAnimationFrame(apply);
   window.addEventListener('load', apply, { once:true });
+
+  if (!window.__N5_MOORE_PUBLISH_LOADER__) {
+    window.__N5_MOORE_PUBLISH_LOADER__ = true;
+    const publish = document.createElement('script');
+    publish.src = 'moore-publish.js?v=20260830-moore-1';
+    publish.async = false;
+    document.head.append(publish);
+  }
 })();
