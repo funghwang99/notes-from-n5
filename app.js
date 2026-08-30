@@ -7,7 +7,7 @@
   if (document.querySelector('.archive#archive') && !window.__N5_CHARLTON_PUBLISH_LOADER__) {
     window.__N5_CHARLTON_PUBLISH_LOADER__ = true;
     const publish = document.createElement('script');
-    publish.src = 'charlton-publish.js?v=20260830-charlton-1';
+    publish.src = 'charlton-publish.js?v=20260830-charlton-3';
     publish.async = false;
     document.head.append(publish);
   }
@@ -58,7 +58,7 @@
 
   if (archive) {
     const count = archive.querySelector('[data-archive-count]');
-    if (count) count.textContent = '31 bài viết';
+    if (count) count.textContent = '33 bài viết';
   }
 
   if (document.body?.classList.contains('layout-baggio')) {
