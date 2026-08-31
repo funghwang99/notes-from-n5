@@ -1,5 +1,5 @@
 (() => {
-  const HREF = 'piscinin.html?v=20260831-baresi-1';
+  const HREF = 'piscinin.html?v=20260831-baresi-2';
   const BASE = 'piscinin.html';
   const IMAGE = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Franco%20baresi%20panini%20card%201979%20%28cropped%29.jpg?width=900';
 
