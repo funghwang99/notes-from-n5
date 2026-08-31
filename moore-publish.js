@@ -62,7 +62,7 @@
   if (!window.__N5_BARESI_PUBLISH_LOADER__) {
     window.__N5_BARESI_PUBLISH_LOADER__ = true;
     const publish = document.createElement('script');
-    publish.src = 'baresi-publish.js?v=20260831-baresi-1';
+    publish.src = 'baresi-publish.js?v=20260831-baresi-2';
     publish.async = false;
     document.head.append(publish);
   }
