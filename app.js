@@ -7,7 +7,7 @@
   if (document.querySelector('.archive#archive') && !window.__N5_CHARLTON_PUBLISH_LOADER__) {
     window.__N5_CHARLTON_PUBLISH_LOADER__ = true;
     const publish = document.createElement('script');
-    publish.src = 'charlton-publish.js?v=20260830-charlton-3';
+    publish.src = 'charlton-publish.js?v=20260905-paths-1';
     publish.async = false;
     document.head.append(publish);
   }
