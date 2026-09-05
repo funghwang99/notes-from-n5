@@ -2,6 +2,20 @@
   const page = document.querySelector('.tactical-study');
   if (!page) return;
 
+  const heroFocus = {
+    'study-jover': '50% 45%',
+    'study-arteta': '50% 18%',
+    'study-zubi': '50% 16%',
+    'study-gyokeres': '50% 18%',
+    'study-merino': '50% 16%'
+  };
+  Object.entries(heroFocus).some(([className, focus]) => {
+    if (!page.classList.contains(className)) return false;
+    const heroImage = page.querySelector('.td-hero-media img');
+    if (heroImage) heroImage.style.objectPosition = focus;
+    return true;
+  });
+
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const rail = document.querySelector('[data-td-progress]');
   const updateProgress = () => {
