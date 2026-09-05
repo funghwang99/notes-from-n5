@@ -3,11 +3,11 @@
   if (!page) return;
 
   const heroFocus = {
-    'study-jover': '50% 45%',
-    'study-arteta': '50% 18%',
-    'study-zubi': '50% 16%',
-    'study-gyokeres': '50% 18%',
-    'study-merino': '50% 16%'
+    'study-jover': '50% 42%',
+    'study-arteta': '50% 0%',
+    'study-zubi': '50% 0%',
+    'study-gyokeres': '50% 2%',
+    'study-merino': '50% 0%'
   };
   Object.entries(heroFocus).some(([className, focus]) => {
     if (!page.classList.contains(className)) return false;
