@@ -12,12 +12,28 @@
     document.head.append(publish);
   }
 
+  if (document.querySelector('.archive#archive') && !window.__N5_BRUNO_DIRECT_PUBLISH_LOADER__) {
+    window.__N5_BRUNO_DIRECT_PUBLISH_LOADER__ = true;
+    const bruno = document.createElement('script');
+    bruno.src = 'bruno-publish.js?v=20260905-bruno-4';
+    bruno.async = false;
+    document.head.append(bruno);
+  }
+
   if (document.querySelector('.archive#archive') && !window.__N5_ADAMS_PUBLISH_LOADER__) {
     window.__N5_ADAMS_PUBLISH_LOADER__ = true;
     const adams = document.createElement('script');
-    adams.src = 'adams-publish.js?v=20260905-adams-2';
+    adams.src = 'adams-publish.js?v=20260905-adams-3';
     adams.async = false;
     document.head.append(adams);
+  }
+
+  if (document.querySelector('.archive#archive') && !window.__N5_NLD_DIRECT_PUBLISH_LOADER__) {
+    window.__N5_NLD_DIRECT_PUBLISH_LOADER__ = true;
+    const history = document.createElement('script');
+    history.src = 'north-london-publish.js?v=20260905-nld-2';
+    history.async = false;
+    document.head.append(history);
   }
 
   const BEST_HREF = 'the-fifth-beatle.html?v=20260829-best-3';
