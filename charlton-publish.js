@@ -20,7 +20,7 @@
     if (first !== entry) archive.insertBefore(entry, first);
 
     const requested = new URLSearchParams(location.search).get('path');
-    const active = new Set(['hy-vong','tuoi-tre','ngoai-anh-den','chua-nguoi','bat-tu','tuong-dai']).has(requested) ? requested : 'all';
+    const active = new Set(['hy-vong','tuoi-tre','ngoai-anh-den','tactical-dive','history','chua-nguoi','bat-tu','tuong-dai']).has(requested) ? requested : 'all';
     const entries = [...archive.querySelectorAll('.archive-entry[data-paths]')];
     entries.forEach((item) => {
       const paths = (item.dataset.paths || '').split(/\s+/).filter(Boolean);
@@ -58,6 +58,14 @@
   apply();
   requestAnimationFrame(apply);
   window.addEventListener('load', apply, { once:true });
+
+  if (document.querySelector('.archive#archive') && !window.__N5_ARCHIVE_TAXONOMY_V2__) {
+    window.__N5_ARCHIVE_TAXONOMY_V2__ = true;
+    const taxonomy = document.createElement('script');
+    taxonomy.src = 'archive-taxonomy-v2.js?v=20260905-paths-1';
+    taxonomy.async = false;
+    document.head.append(taxonomy);
+  }
 
   if (!window.__N5_MOORE_PUBLISH_LOADER__) {
     window.__N5_MOORE_PUBLISH_LOADER__ = true;
