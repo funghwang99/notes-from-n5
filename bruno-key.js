@@ -4,6 +4,8 @@
 
   const author = document.querySelector('.article-byline span:first-child');
   if (author) author.textContent = 'Chuyện Nhà Chú';
+  const taxonomy = document.querySelector('.bruno-hero .eyebrow');
+  if (taxonomy) taxonomy.textContent = 'Tactical Dive · Bruno Guimarães';
 
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
