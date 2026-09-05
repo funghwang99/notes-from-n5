@@ -112,20 +112,7 @@
     }
   }
 
-  /*
-   * Tactical board v2.
-   * Theoretical XI supplied for this essay:
-   * 33 Calafiori, 6 Gabriel, 2 Saliba, 12 Timber;
-   * 39 Bruno, 41 Rice, 8 Odegaard;
-   * 10 Eze, 29 Havertz, 7 Saka.
-   *
-   * Important phase logic:
-   * - Phase 1 can begin from a 3+2 base.
-   * - Higher possession can form a central four-man box: Bruno/Rice + Eze/Odegaard,
-   *   with Calafiori holding the left width.
-   * - Rest defence is 3+1, with one of Bruno/Rice holding.
-   * - The final state is the 4-4-2 press, not a two-striker possession shape.
-   */
+  /* Tactical board v3: the phase-one signature is a 3-1-6 with Rice/Bruno rotating the single-pivot responsibility. */
   const shapes = document.querySelector('[data-bruno-shapes]');
   if (shapes) {
     const pitch = shapes.querySelector('.bruno-pitch');
@@ -136,6 +123,22 @@
     const players = Object.fromEntries(
       [...shapes.querySelectorAll('[data-player]')].map((player) => [player.dataset.player, player])
     );
+
+    const introParagraph = document.querySelector('.bruno-shapes .bruno-copy p:first-child');
+    if (introParagraph) {
+      introParagraph.textContent = 'Điểm quan trọng ở đây không phải Arsenal có năm sơ đồ khác nhau, mà là cùng một đội hình có thể đi qua nhiều trạng thái khác nhau trong cùng một chuỗi bóng. Ở phase một, Gabriel, Saliba và Timber tạo hàng ba phía sau, còn trước họ chỉ cần một điểm tựa. Rice có thể giữ đáy để Bruno bước lên thành người thứ sáu ở tuyến cao; ở nhịp kế tiếp Bruno có thể lùi xuống và Rice là người tiến lên. Cấu trúc vẫn là 3-1-6, nhưng người giữ số 1 không cố định. Chính khả năng đổi vai này mới là thứ Bruno thêm vào: Arsenal không cần kéo Ødegaard xuống phase một như một mặc định chỉ để duy trì thêm một điểm nối.';
+    }
+
+    if (buttons[1]) buttons[1].innerHTML = 'PHASE 1<span>3—1—6 ROTATION</span>';
+
+    let rotationCue = pitch?.querySelector('.bruno-db-rotation-cue');
+    if (pitch && !rotationCue) {
+      rotationCue = document.createElement('div');
+      rotationCue.className = 'bruno-db-rotation-cue';
+      rotationCue.setAttribute('aria-hidden','true');
+      rotationCue.innerHTML = '<span data-rotation-hold>41 HOLD</span><i>⇄</i><span data-rotation-go>39 GO</span>';
+      pitch.append(rotationCue);
+    }
 
     const states = [
       {
@@ -149,19 +152,23 @@
         }
       },
       {
-        key:'build',
-        label:'PHASE 1 · 3—2 BUILD-UP',
-        note:'Gabriel–Saliba–Timber form the three. Bruno + Rice start as the double pivot. If one jumps, Ødegaard can drop to preserve the second connection — an option, not the preferred default.',
+        key:'rotation',
+        label:'PHASE 1 · 3—1—6 ROTATION',
+        note:'Rice holds, Bruno goes. Then they swap: Bruno holds, Rice goes. The single pivot changes; the 3-1-6 does not. Ødegaard stays high on the right rather than being dragged into phase one by default.',
         positions:{
-          calafiori:[11,34], gabriel:[30,80], saliba:[50,82], timber:[70,80],
-          bruno:[43,60], rice:[57,60], odegaard:[66,41],
-          eze:[29,35], havertz:[50,21], saka:[86,32]
+          calafiori:[10,31], gabriel:[30,81], saliba:[50,83], timber:[70,81],
+          bruno:[40,41], rice:[50,63], odegaard:[67,35],
+          eze:[28,34], havertz:[50,19], saka:[88,30]
+        },
+        rotation:{
+          a:{bruno:[40,41], rice:[50,63]},
+          b:{bruno:[50,63], rice:[40,41]}
         }
       },
       {
         key:'box',
         label:'MIDFIELD BOX · FOUR INSIDE',
-        note:'Eze tucks in from the left while Calafiori owns the touchline. Bruno and Rice sit underneath Eze and Ødegaard: a true four-man central box, not a left-side overload.',
+        note:'Eze tucks in from the left while Calafiori owns the touchline. Bruno and Rice form the lower pair; Eze and Ødegaard sit above them: a true four-man central box, not a left-side overload.',
         positions:{
           calafiori:[10,30], gabriel:[30,80], saliba:[50,82], timber:[70,80],
           bruno:[42,56], rice:[58,56], odegaard:[60,39],
@@ -192,6 +199,8 @@
 
     let state = 0;
     let autoId = 0;
+    let rotationId = 0;
+    let rotationSwapped = false;
     let userLocked = false;
 
     const place = (name, coords) => {
@@ -201,7 +210,41 @@
       player.style.setProperty('--py', `${coords[1]}%`);
     };
 
+    const stopRotation = () => {
+      if (rotationId) clearInterval(rotationId);
+      rotationId = 0;
+      rotationSwapped = false;
+      shapes.classList.remove('is-db-swapped');
+    };
+
+    const renderRotationCue = (swapped) => {
+      if (!rotationCue) return;
+      const hold = rotationCue.querySelector('[data-rotation-hold]');
+      const go = rotationCue.querySelector('[data-rotation-go]');
+      if (hold) hold.textContent = swapped ? '39 HOLD' : '41 HOLD';
+      if (go) go.textContent = swapped ? '41 GO' : '39 GO';
+    };
+
+    const startRotation = () => {
+      stopRotation();
+      const current = states[1];
+      const rotate = () => {
+        rotationSwapped = !rotationSwapped;
+        const pair = rotationSwapped ? current.rotation.b : current.rotation.a;
+        place('bruno', pair.bruno);
+        place('rice', pair.rice);
+        shapes.classList.toggle('is-db-swapped', rotationSwapped);
+        renderRotationCue(rotationSwapped);
+        if (note) note.textContent = rotationSwapped
+          ? 'Bruno holds the single pivot. Rice goes. One drops, one rises — the 3-1-6 stays intact.'
+          : 'Rice holds the single pivot. Bruno goes. One drops, one rises — the 3-1-6 stays intact.';
+      };
+      renderRotationCue(false);
+      if (!reduced) rotationId = setInterval(rotate, 1550);
+    };
+
     const setState = (next, fromUser = false) => {
+      stopRotation();
       state = (next + states.length) % states.length;
       const current = states[state];
       shapes.dataset.state = String(state);
@@ -215,6 +258,7 @@
         button.classList.toggle('is-current', active);
         button.setAttribute('aria-pressed', String(active));
       });
+      if (current.key === 'rotation') startRotation();
       if (fromUser) {
         userLocked = true;
         if (autoId) clearInterval(autoId);
@@ -233,15 +277,15 @@
         if (!userLocked) {
           autoId = setInterval(() => {
             if (!userLocked) setState(state + 1);
-          }, 3200);
+          }, 5200);
         }
         const off = new IntersectionObserver((watch) => {
           if (watch.some((entry) => entry.isIntersecting)) return;
           if (autoId) clearInterval(autoId);
+          stopRotation();
           off.disconnect();
         }, { rootMargin:'70% 0px' });
-        off.observe(shapes);
-        observer.disconnect();
+        off.observe(shapes); observer.disconnect();
       }, { threshold:.42 });
       observer.observe(shapes);
     }
