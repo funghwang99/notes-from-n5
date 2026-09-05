@@ -64,4 +64,12 @@
   apply();
   requestAnimationFrame(apply);
   window.addEventListener('load', apply, { once:true });
+
+  if (!window.__N5_TACTICAL_BATCH_PUBLISH_LOADER__) {
+    window.__N5_TACTICAL_BATCH_PUBLISH_LOADER__ = true;
+    const batch = document.createElement('script');
+    batch.src = 'tactical-batch-publish.js?v=20260905-tactical-batch-1';
+    batch.async = false;
+    document.head.append(batch);
+  }
 })();
