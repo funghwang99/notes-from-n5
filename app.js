@@ -31,7 +31,7 @@
   if (document.querySelector('.archive#archive') && !window.__N5_NLD_DIRECT_PUBLISH_LOADER__) {
     window.__N5_NLD_DIRECT_PUBLISH_LOADER__ = true;
     const history = document.createElement('script');
-    history.src = 'north-london-publish.js?v=20260905-nld-2';
+    history.src = 'north-london-publish.js?v=20260905-false-lines-1';
     history.async = false;
     document.head.append(history);
   }
@@ -82,7 +82,7 @@
 
   if (archive) {
     const count = archive.querySelector('[data-archive-count]');
-    if (count) count.textContent = '33 bài viết';
+    if (count) count.textContent = '38 bài viết';
   }
 
   if (document.body?.classList.contains('layout-baggio')) {
