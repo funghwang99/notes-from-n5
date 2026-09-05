@@ -2,6 +2,30 @@
   const page = document.querySelector('.false-lines-page');
   if (!page) return;
 
+  const photoFix = document.createElement('style');
+  photoFix.textContent = `
+    @media (min-width:981px){
+      .false-lines-page .false-photo-triptych{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        align-items:stretch;
+      }
+      .false-lines-page .false-photo-card,
+      .false-lines-page .false-photo-card--small{
+        min-height:0;
+        aspect-ratio:4/5;
+      }
+      .false-lines-page .false-photo-card img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+      }
+      .false-lines-page .false-photo-card:nth-child(1) img{object-position:center 30%;}
+      .false-lines-page .false-photo-card:nth-child(2) img{object-position:center 42%;}
+      .false-lines-page .false-photo-card:nth-child(3) img{object-position:center 28%;}
+    }
+  `;
+  document.head.append(photoFix);
+
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const rail = document.querySelector('[data-false-rail]');
   const updateRail = () => {
