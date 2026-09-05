@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">False Lines tactical graphic</title>
+  <desc id="desc">A dark football pitch grid with measured player nodes and several red false tactical lines breaking out of alignment.</desc>
+  <rect width="1200" height="800" fill="#111814"/>
+  <g opacity=".16" stroke="#dce4d7" fill="none">
+    <rect x="70" y="70" width="1060" height="660"/>
+    <line x1="600" y1="70" x2="600" y2="730"/>
+    <circle cx="600" cy="400" r="96"/>
+    <rect x="70" y="240" width="180" height="320"/>
+    <rect x="950" y="240" width="180" height="320"/>
+  </g>
+  <g opacity=".12" stroke="#dce4d7">
+    <path d="M0 160H1200M0 320H1200M0 480H1200M0 640H1200"/>
+    <path d="M240 0V800M480 0V800M720 0V800M960 0V800"/>
+  </g>
+  <g fill="#dce4d7" stroke="#718171" stroke-width="3">
+    <circle cx="260" cy="560" r="26"/><circle cx="430" cy="470" r="26"/><circle cx="600" cy="420" r="26"/><circle cx="770" cy="350" r="26"/><circle cx="940" cy="250" r="26"/>
+  </g>
+  <g stroke="#93a795" stroke-width="4" fill="none" opacity=".6">
+    <path d="M260 560L430 470L600 420L770 350L940 250"/>
+    <path d="M430 470L770 350" stroke-dasharray="12 12"/>
+  </g>
+  <g stroke="#ef3f51" stroke-width="10" fill="none" stroke-linecap="round">
+    <path d="M126 650C350 540 465 350 650 300C820 254 940 330 1084 160"/>
+    <path d="M160 182C370 300 520 258 715 195C860 148 980 192 1060 120" opacity=".55"/>
+  </g>
+  <text x="88" y="128" fill="#f1eee6" font-family="Arial,Helvetica,sans-serif" font-size="68" font-weight="800" letter-spacing="-3">FALSE LINES</text>
+  <text x="90" y="694" fill="#9da79d" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" letter-spacing="5">TACTICAL DIVE · JAMIE HAMILTON</text>
+  <text x="1040" y="694" fill="#ef3f51" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700">01 / ∞</text>
+</svg>
