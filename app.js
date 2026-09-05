@@ -36,6 +36,14 @@
     document.head.append(history);
   }
 
+  if (document.querySelector('.archive#archive') && !window.__N5_TACTICAL_BATCH_DIRECT_LOADER__) {
+    window.__N5_TACTICAL_BATCH_DIRECT_LOADER__ = true;
+    const tactical = document.createElement('script');
+    tactical.src = 'tactical-batch-publish.js?v=20260905-tactical-batch-1';
+    tactical.async = false;
+    document.head.append(tactical);
+  }
+
   const BEST_HREF = 'the-fifth-beatle.html?v=20260829-best-3';
   const archive = document.querySelector('.archive#archive');
   if (archive && !archive.querySelector('a[href^="the-fifth-beatle.html"]')) {
@@ -82,7 +90,7 @@
 
   if (archive) {
     const count = archive.querySelector('[data-archive-count]');
-    if (count) count.textContent = '38 bài viết';
+    if (count) count.textContent = '43 bài viết';
   }
 
   if (document.body?.classList.contains('layout-baggio')) {
