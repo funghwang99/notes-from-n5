@@ -58,4 +58,12 @@
   apply();
   requestAnimationFrame(apply);
   window.addEventListener('load', apply, { once:true });
+
+  if (!window.__N5_BRUNO_PUBLISH_LOADER__) {
+    window.__N5_BRUNO_PUBLISH_LOADER__ = true;
+    const publish = document.createElement('script');
+    publish.src = 'bruno-publish.js?v=20260905-bruno-1';
+    publish.async = false;
+    document.head.append(publish);
+  }
 })();
