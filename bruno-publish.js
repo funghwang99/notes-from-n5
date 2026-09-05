@@ -1,5 +1,5 @@
 (() => {
-  const HREF = 'bruno-key.html?v=20260905-bruno-1';
+  const HREF = 'bruno-key.html?v=20260905-bruno-2';
   const BASE = 'bruno-key.html';
   const IMAGE = 'https://assets.goal.com/images/v3/getty-2290826102/crop/MM5DGMRXGI5DCOBUGE5G433XMU5DAORWGU%3D%3D%3D%3D%3D%3D/GettyImages-2290826102.jpg?auto=webp&format=pjpg&quality=68&width=1200';
   const FALLBACK = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Bruno%20Guimar%C3%A3es%2024052026%20%281%29.jpg?width=1000';
