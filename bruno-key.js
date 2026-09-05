@@ -112,31 +112,137 @@
     }
   }
 
+  /*
+   * Tactical board v2.
+   * Theoretical XI supplied for this essay:
+   * 33 Calafiori, 6 Gabriel, 2 Saliba, 12 Timber;
+   * 39 Bruno, 41 Rice, 8 Odegaard;
+   * 10 Eze, 29 Havertz, 7 Saka.
+   *
+   * Important phase logic:
+   * - Phase 1 can begin from a 3+2 base.
+   * - Higher possession can form a central four-man box: Bruno/Rice + Eze/Odegaard,
+   *   with Calafiori holding the left width.
+   * - Rest defence is 3+1, with one of Bruno/Rice holding.
+   * - The final state is the 4-4-2 press, not a two-striker possession shape.
+   */
   const shapes = document.querySelector('[data-bruno-shapes]');
   if (shapes) {
-    const labels = ['3—1—6','3—2—5','LEFT OVERLOAD','REST DEFENCE','TWO STRIKERS'];
+    const pitch = shapes.querySelector('.bruno-pitch');
     const stateLabel = shapes.querySelector('[data-shape-label]');
-    const topState = shapes.querySelector('.bruno-shape-top span:last-child');
-    const options = [...shapes.querySelectorAll('.bruno-shape-options span')];
+    const topState = shapes.querySelector('[data-shape-counter]') || shapes.querySelector('.bruno-shape-top span:last-child');
+    const note = shapes.querySelector('[data-shape-note]');
+    const buttons = [...shapes.querySelectorAll('[data-shape-trigger]')];
+    const players = Object.fromEntries(
+      [...shapes.querySelectorAll('[data-player]')].map((player) => [player.dataset.player, player])
+    );
+
+    const states = [
+      {
+        key:'base',
+        label:'STARTING XI · 4—3—3',
+        note:'33 Calafiori · 6 Gabriel · 2 Saliba · 12 Timber / 39 Bruno · 41 Rice · 8 Ødegaard / 10 Eze · 29 Havertz · 7 Saka.',
+        positions:{
+          calafiori:[16,78], gabriel:[38,80], saliba:[62,80], timber:[84,78],
+          bruno:[42,57], rice:[53,62], odegaard:[66,45],
+          eze:[18,29], havertz:[50,21], saka:[82,29]
+        }
+      },
+      {
+        key:'build',
+        label:'PHASE 1 · 3—2 BUILD-UP',
+        note:'Gabriel–Saliba–Timber form the three. Bruno + Rice start as the double pivot. If one jumps, Ødegaard can drop to preserve the second connection — an option, not the preferred default.',
+        positions:{
+          calafiori:[11,34], gabriel:[30,80], saliba:[50,82], timber:[70,80],
+          bruno:[43,60], rice:[57,60], odegaard:[66,41],
+          eze:[29,35], havertz:[50,21], saka:[86,32]
+        }
+      },
+      {
+        key:'box',
+        label:'MIDFIELD BOX · FOUR INSIDE',
+        note:'Eze tucks in from the left while Calafiori owns the touchline. Bruno and Rice sit underneath Eze and Ødegaard: a true four-man central box, not a left-side overload.',
+        positions:{
+          calafiori:[10,30], gabriel:[30,80], saliba:[50,82], timber:[70,80],
+          bruno:[42,56], rice:[58,56], odegaard:[60,39],
+          eze:[40,39], havertz:[50,19], saka:[88,30]
+        }
+      },
+      {
+        key:'rest',
+        label:'REST DEFENCE · 3+1',
+        note:'Three defenders stay behind the attack, with one of Bruno/Rice as the single screen. Here Rice holds; the roles can flip without changing the 3+1 principle.',
+        positions:{
+          calafiori:[11,30], gabriel:[31,80], saliba:[50,82], timber:[69,80],
+          bruno:[43,47], rice:[50,64], odegaard:[62,40],
+          eze:[35,34], havertz:[51,21], saka:[86,31]
+        }
+      },
+      {
+        key:'press',
+        label:'HIGH PRESS · 4—4—2',
+        note:'Havertz + Ødegaard lead the first line. Eze–Rice–Bruno–Saka form the four behind them: force the goalkeeper or centre-back long, then let 39 and 41 attack the second ball.',
+        positions:{
+          calafiori:[16,79], gabriel:[38,81], saliba:[62,81], timber:[84,79],
+          eze:[16,54], rice:[39,55], bruno:[61,55], saka:[84,54],
+          havertz:[42,28], odegaard:[58,28]
+        }
+      }
+    ];
+
     let state = 0;
-    const setState = (next) => {
-      state = next % labels.length;
-      shapes.dataset.state = String(state);
-      if (stateLabel) stateLabel.textContent = labels[state];
-      if (topState) topState.textContent = `STATE 0${state + 1}/05`;
-      options.forEach((item,index) => item.classList.toggle('is-current', index === state));
+    let autoId = 0;
+    let userLocked = false;
+
+    const place = (name, coords) => {
+      const player = players[name];
+      if (!player || !coords) return;
+      player.style.setProperty('--px', `${coords[0]}%`);
+      player.style.setProperty('--py', `${coords[1]}%`);
     };
+
+    const setState = (next, fromUser = false) => {
+      state = (next + states.length) % states.length;
+      const current = states[state];
+      shapes.dataset.state = String(state);
+      shapes.dataset.stateName = current.key;
+      if (stateLabel) stateLabel.textContent = current.label;
+      if (topState) topState.textContent = `STATE 0${state + 1}/05`;
+      if (note) note.textContent = current.note;
+      Object.entries(current.positions).forEach(([name, coords]) => place(name, coords));
+      buttons.forEach((button,index) => {
+        const active = index === state;
+        button.classList.toggle('is-current', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      if (fromUser) {
+        userLocked = true;
+        if (autoId) clearInterval(autoId);
+      }
+    };
+
+    buttons.forEach((button,index) => {
+      button.addEventListener('click', () => setState(index, true));
+    });
+
     setState(0);
+
     if (!reduced && 'IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         if (!entries.some((entry) => entry.isIntersecting)) return;
-        const id = setInterval(() => setState(state + 1), 1900);
+        if (!userLocked) {
+          autoId = setInterval(() => {
+            if (!userLocked) setState(state + 1);
+          }, 3200);
+        }
         const off = new IntersectionObserver((watch) => {
           if (watch.some((entry) => entry.isIntersecting)) return;
-          clearInterval(id); off.disconnect();
+          if (autoId) clearInterval(autoId);
+          off.disconnect();
         }, { rootMargin:'70% 0px' });
-        off.observe(shapes); observer.disconnect();
-      }, { threshold:.48 });
+        off.observe(shapes);
+        observer.disconnect();
+      }, { threshold:.42 });
       observer.observe(shapes);
     }
   }
