@@ -30,7 +30,16 @@
     });
   };
 
+  const enforceBrunoTaxonomy = () => {
+    const archiveEntry = document.querySelector('.archive-entry a[href^="bruno-key.html"]')?.closest('.archive-entry');
+    if (archiveEntry) archiveEntry.dataset.paths = 'tactical-dive';
+    document.querySelectorAll('.home-flow-card[href^="bruno-key.html"] .home-flow-meta').forEach((meta) => {
+      meta.textContent = 'Tactical Dive · Bruno Guimarães';
+    });
+  };
+
   const refilter = (archive) => {
+    enforceBrunoTaxonomy();
     const requested = new URLSearchParams(location.search).get('path');
     const active = Object.hasOwn(PATHS, requested) ? requested : 'all';
     const entries = [...archive.querySelectorAll('.archive-entry[data-paths]')];
@@ -68,6 +77,7 @@
   };
 
   const applyHome = () => {
+    enforceBrunoTaxonomy();
     document.querySelectorAll('.home-flow-set').forEach((set) => {
       let card = set.querySelector(`a[href^="${BASE}"]`);
       const duplicate = set.getAttribute('aria-hidden') === 'true';
