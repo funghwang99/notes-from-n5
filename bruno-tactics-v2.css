@@ -1,4 +1,4 @@
-/* Bruno Guimaraes — tactical board v2
+/* Bruno Guimaraes — tactical board v3
    Corrected around the user-defined theoretical XI and phase logic. */
 
 .bruno-shape-stage{
@@ -84,6 +84,38 @@
 .bruno-shape-stage .bruno-player.is-odegaard b{border-color:#d7c185}
 .bruno-shape-stage .bruno-player.is-eze b{border-color:#b99ed1}
 
+/* Phase one: 3-1-6. Rice and Bruno rotate the single-pivot responsibility. */
+.bruno-db-rotation-cue{
+  position:absolute;
+  z-index:3;
+  right:4.5%;
+  bottom:7%;
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  padding:.72rem .86rem;
+  border:1px solid rgba(215,193,133,0);
+  background:rgba(8,15,12,0);
+  color:#f2ecdf;
+  opacity:0;
+  transform:translateY(.65rem);
+  transition:opacity .3s ease,transform .35s ease,border-color .3s ease,background .3s ease;
+  pointer-events:none;
+}
+.bruno-db-rotation-cue span{font:900 .48rem/1 var(--bruno-sans);letter-spacing:.12em;white-space:nowrap}
+.bruno-db-rotation-cue span:first-child{color:#cfe5b6}
+.bruno-db-rotation-cue span:last-child{color:#f27786}
+.bruno-db-rotation-cue i{color:#d7c185;font:900 1rem/1 var(--bruno-sans);font-style:normal;transition:transform .4s ease}
+.bruno-shape-stage[data-state="1"] .bruno-db-rotation-cue{
+  border-color:rgba(215,193,133,.28);
+  background:rgba(8,15,12,.72);
+  opacity:1;
+  transform:translateY(0);
+}
+.bruno-shape-stage[data-state="1"] .p5 b,
+.bruno-shape-stage[data-state="1"] .p6 b{box-shadow:0 0 0 .42rem rgba(215,193,133,.08),0 .8rem 1.8rem rgba(0,0,0,.22)}
+.bruno-shape-stage.is-db-swapped .bruno-db-rotation-cue i{transform:rotate(180deg)}
+
 /* The four-man central box: Bruno/Rice underneath Eze/Odegaard. */
 .bruno-midfield-box{
   position:absolute;
@@ -115,7 +147,7 @@
   opacity:1;
 }
 
-/* Rest defence is 3+1, never 3+2 in this board. */
+/* Rest defence is 3+1. */
 .bruno-rest-shell{
   position:absolute;
   z-index:2;
@@ -233,6 +265,8 @@
   .bruno-shape-stage .bruno-player{min-width:3rem}
   .bruno-shape-stage .bruno-player b{width:2.7rem;font-size:.78rem}
   .bruno-shape-stage .bruno-player small{font-size:.38rem;letter-spacing:.04em}
+  .bruno-db-rotation-cue{right:1rem;bottom:5%;gap:.42rem;padding:.55rem .62rem}
+  .bruno-db-rotation-cue span{font-size:.38rem;letter-spacing:.07em}
   .bruno-midfield-box{width:44%;height:24%}
   .bruno-midfield-box:before{font-size:.36rem;letter-spacing:.08em}
   .bruno-rest-shell{width:68%;height:27%}
@@ -244,5 +278,5 @@
 }
 
 @media(prefers-reduced-motion:reduce){
-  .bruno-shape-stage .bruno-player,.bruno-midfield-box,.bruno-rest-shell,.bruno-press-cue{transition:none!important}
+  .bruno-shape-stage .bruno-player,.bruno-db-rotation-cue,.bruno-midfield-box,.bruno-rest-shell,.bruno-press-cue{transition:none!important}
 }
