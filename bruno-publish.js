@@ -3,7 +3,6 @@
   const BASE = 'bruno-key.html';
   const IMAGE = 'https://assets.goal.com/images/v3/getty-2290826102/crop/MM5DGMRXGI5DCOBUGE5G433XMU5DAORWGU%3D%3D%3D%3D%3D%3D/GettyImages-2290826102.jpg?auto=webp&format=pjpg&quality=68&width=1200';
   const FALLBACK = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Bruno%20Guimar%C3%A3es%2024052026%20%281%29.jpg?width=1000';
-
   const guardImage = (img) => {
     if (!img || img.dataset.brunoGuard) return;
     img.dataset.brunoGuard = '1';
@@ -19,7 +18,6 @@
       link?.classList.add('is-image-missing');
     });
   };
-
   const applyArchive = () => {
     const archive = document.querySelector('.archive#archive');
     if (!archive) return;
@@ -35,7 +33,6 @@
     guardImage(entry.querySelector('img'));
     const first = archive.querySelector('.archive-entry');
     if (first !== entry) archive.insertBefore(entry, first);
-
     const requested = new URLSearchParams(location.search).get('path');
     const active = new Set(['hy-vong','tuoi-tre','ngoai-anh-den','chua-nguoi','bat-tu','tuong-dai']).has(requested) ? requested : 'all';
     const entries = [...archive.querySelectorAll('.archive-entry[data-paths]')];
@@ -48,7 +45,6 @@
     if (count) count.textContent = `${entries.filter((item) => !item.hidden).length} bài viết`;
     if (status && active === 'ngoai-anh-den') status.textContent = 'Mạch Ngoài Ánh Đèn';
   };
-
   const applyHome = () => {
     document.querySelectorAll('.home-flow-set').forEach((set) => {
       let card = set.querySelector(`a[href^="${BASE}"]`);
@@ -66,9 +62,16 @@
       if (first !== card) set.insertBefore(card, first);
     });
   };
-
   const apply = () => { applyArchive(); applyHome(); };
   apply();
   requestAnimationFrame(apply);
   window.addEventListener('load', apply, { once:true });
+
+  if (!window.__N5_ADAMS_PUBLISH_LOADER__) {
+    window.__N5_ADAMS_PUBLISH_LOADER__ = true;
+    const publish = document.createElement('script');
+    publish.src = 'adams-publish.js?v=20260905-adams-1';
+    publish.async = false;
+    document.head.append(publish);
+  }
 })();
