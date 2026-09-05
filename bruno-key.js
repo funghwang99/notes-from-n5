@@ -2,6 +2,9 @@
   const page = document.querySelector('.bruno-page');
   if (!page) return;
 
+  const author = document.querySelector('.article-byline span:first-child');
+  if (author) author.textContent = 'Chuyện Nhà Chú';
+
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
