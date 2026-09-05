@@ -1,0 +1,248 @@
+/* Bruno Guimaraes — tactical board v2
+   Corrected around the user-defined theoretical XI and phase logic. */
+
+.bruno-shape-stage{
+  position:relative;
+  overflow:hidden;
+  background:#111713;
+  border-color:#5a5d53;
+  box-shadow:0 2.2rem 5rem rgba(0,0,0,.12);
+}
+
+.bruno-shape-top{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:1rem;
+  padding:1rem 1.2rem;
+  background:#20261f;
+  border-bottom-color:#50554c;
+  color:#aead9f;
+}
+.bruno-shape-top strong{justify-self:center;color:#f4efe5;font-size:.76rem}
+.bruno-shape-top span:last-child{justify-self:end}
+
+.bruno-shape-stage .bruno-pitch{
+  position:relative;
+  height:clamp(39rem,63vw,47rem);
+  background:
+    repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 12.5%,rgba(0,0,0,.025) 12.5% 25%),
+    radial-gradient(circle at 50% 52%,rgba(255,255,255,.025),transparent 28%),
+    #232d20;
+}
+.bruno-shape-stage .bruno-pitch-lines{inset:2.3rem;border-color:rgba(229,225,212,.14)}
+.bruno-shape-stage .bruno-pitch-lines:before{background:rgba(229,225,212,.1)}
+.bruno-shape-stage .bruno-pitch-lines:after{border-color:rgba(229,225,212,.11)}
+
+.bruno-shape-stage .bruno-player{
+  left:var(--px,50%)!important;
+  top:var(--py,50%)!important;
+  width:auto;
+  min-width:4.1rem;
+  aspect-ratio:auto;
+  display:grid;
+  justify-items:center;
+  gap:.38rem;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:#fff;
+  transform:translate(-50%,-50%)!important;
+  transition:left .68s cubic-bezier(.16,.8,.24,1),top .68s cubic-bezier(.16,.8,.24,1),opacity .3s ease,filter .3s ease;
+  pointer-events:none;
+  z-index:4;
+}
+.bruno-shape-stage .bruno-player b{
+  display:grid;
+  width:3.6rem;
+  aspect-ratio:1;
+  place-items:center;
+  border:1px solid #8a806d;
+  border-radius:50%;
+  background:#30291c;
+  color:#fff;
+  font:900 1rem/1 var(--bruno-sans);
+  box-shadow:0 .8rem 1.8rem rgba(0,0,0,.2);
+  transition:background .3s ease,border-color .3s ease,box-shadow .3s ease,transform .3s ease;
+}
+.bruno-shape-stage .bruno-player small{
+  display:block;
+  max-width:7rem;
+  color:#e8e1d4;
+  font:800 .47rem/1 var(--bruno-sans);
+  letter-spacing:.08em;
+  text-align:center;
+  text-transform:uppercase;
+  white-space:nowrap;
+  text-shadow:0 1px 4px rgba(0,0,0,.45);
+}
+.bruno-shape-stage .bruno-player.is-bruno b{
+  border-color:#f24359;
+  background:#d71c39;
+  box-shadow:0 0 0 .65rem rgba(215,28,57,.14),0 1rem 2rem rgba(0,0,0,.22);
+}
+.bruno-shape-stage .bruno-player.is-rice b{border-color:#bdd99f}
+.bruno-shape-stage .bruno-player.is-odegaard b{border-color:#d7c185}
+.bruno-shape-stage .bruno-player.is-eze b{border-color:#b99ed1}
+
+/* The four-man central box: Bruno/Rice underneath Eze/Odegaard. */
+.bruno-midfield-box{
+  position:absolute;
+  z-index:2;
+  left:50%;
+  top:47%;
+  width:31%;
+  height:25%;
+  border:1px dashed rgba(215,193,133,0);
+  background:rgba(215,193,133,0);
+  transform:translate(-50%,-50%) scale(.88);
+  opacity:0;
+  transition:opacity .3s ease,transform .55s cubic-bezier(.16,.8,.24,1),border-color .3s ease,background .3s ease;
+  pointer-events:none;
+}
+.bruno-midfield-box:before{
+  position:absolute;
+  left:.7rem;
+  top:.65rem;
+  color:#d8c897;
+  font:850 .46rem/1 var(--bruno-sans);
+  letter-spacing:.13em;
+  content:"MIDFIELD BOX · 39 / 41 / 10 / 8";
+}
+.bruno-shape-stage[data-state="2"] .bruno-midfield-box{
+  border-color:rgba(215,193,133,.44);
+  background:rgba(215,193,133,.035);
+  transform:translate(-50%,-50%) scale(1);
+  opacity:1;
+}
+
+/* Rest defence is 3+1, never 3+2 in this board. */
+.bruno-rest-shell{
+  position:absolute;
+  z-index:2;
+  left:50%;
+  bottom:8.5%;
+  width:50%;
+  height:29%;
+  border:1px solid rgba(185,216,155,0);
+  background:rgba(185,216,155,0);
+  opacity:0;
+  transform:translateX(-50%) translateY(1rem);
+  transition:.45s ease;
+  pointer-events:none;
+}
+.bruno-rest-shell span{
+  position:absolute;
+  top:.7rem;
+  left:50%;
+  color:#cbe5b2;
+  font:850 .47rem/1 var(--bruno-sans);
+  letter-spacing:.13em;
+  transform:translateX(-50%);
+  white-space:nowrap;
+}
+.bruno-shape-stage[data-state="3"] .bruno-rest-shell{
+  border-color:rgba(185,216,155,.36);
+  background:rgba(185,216,155,.025);
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+.bruno-shape-stage[data-state="3"] .bruno-player:not(.p2):not(.p3):not(.p4):not(.p6){opacity:.58}
+.bruno-shape-stage[data-state="3"] .p2 b,
+.bruno-shape-stage[data-state="3"] .p3 b,
+.bruno-shape-stage[data-state="3"] .p4 b,
+.bruno-shape-stage[data-state="3"] .p6 b{box-shadow:0 0 0 .32rem rgba(185,216,155,.1),0 .8rem 1.8rem rgba(0,0,0,.22)}
+
+/* 4-4-2 press: Havertz + Odegaard lead, DB attack the long second ball. */
+.bruno-press-cue{
+  position:absolute;
+  z-index:3;
+  left:50%;
+  top:12%;
+  display:grid;
+  justify-items:center;
+  gap:.45rem;
+  color:#f4efe5;
+  opacity:0;
+  transform:translate(-50%,-.8rem);
+  transition:.4s ease;
+  pointer-events:none;
+}
+.bruno-press-cue strong{font:900 clamp(1.2rem,2vw,2rem)/1 var(--bruno-sans);letter-spacing:-.03em}
+.bruno-press-cue span{color:#d7c185;font:850 .48rem/1 var(--bruno-sans);letter-spacing:.15em}
+.bruno-shape-stage[data-state="4"] .bruno-press-cue{opacity:1;transform:translate(-50%,0)}
+.bruno-shape-stage[data-state="4"] .p7 b,
+.bruno-shape-stage[data-state="4"] .p9 b{border-color:#efdf9e;box-shadow:0 0 0 .38rem rgba(239,223,158,.1)}
+.bruno-shape-stage[data-state="4"] .p5 b,
+.bruno-shape-stage[data-state="4"] .p6 b{box-shadow:0 0 0 .42rem rgba(215,28,57,.08),0 .8rem 1.8rem rgba(0,0,0,.22)}
+
+.bruno-shape-explainer{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:1rem;
+  align-items:start;
+  padding:1rem 1.2rem;
+  border-top:1px solid #50554c;
+  background:#171d18;
+  color:#c9c3b7;
+}
+.bruno-shape-explainer b{
+  color:#d7c185;
+  font:900 .5rem/1.2 var(--bruno-sans);
+  letter-spacing:.13em;
+  white-space:nowrap;
+}
+.bruno-shape-explainer p{
+  margin:0;
+  font:500 .78rem/1.5 var(--bruno-serif);
+}
+
+.bruno-shape-options{
+  display:grid!important;
+  grid-template-columns:repeat(5,1fr)!important;
+  border-top:1px solid #50554c!important;
+  background:#282d25;
+}
+.bruno-shape-options button{
+  min-height:4.2rem;
+  padding:.85rem .55rem;
+  border:0;
+  border-right:1px solid #50554c;
+  background:transparent;
+  color:#bcb5a7;
+  font:850 .48rem/1.25 var(--bruno-sans);
+  letter-spacing:.08em;
+  text-align:center;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background .18s ease,color .18s ease,box-shadow .18s ease;
+}
+.bruno-shape-options button:last-child{border-right:0}
+.bruno-shape-options button:hover,
+.bruno-shape-options button:focus-visible{background:#1c241f;color:#fff;outline:none}
+.bruno-shape-options button.is-current{
+  background:#0b1310;
+  color:#fff;
+  box-shadow:inset 0 3px 0 var(--bruno-red);
+}
+.bruno-shape-options button span{display:block;margin-top:.3rem;color:#7f877f;font-size:.42rem;letter-spacing:.1em}
+.bruno-shape-options button.is-current span{color:#aab4ac}
+
+@media(max-width:760px){
+  .bruno-shape-stage .bruno-pitch{height:38rem}
+  .bruno-shape-top{grid-template-columns:1fr auto}.bruno-shape-top span:last-child{display:none}
+  .bruno-shape-stage .bruno-player{min-width:3rem}
+  .bruno-shape-stage .bruno-player b{width:2.7rem;font-size:.78rem}
+  .bruno-shape-stage .bruno-player small{font-size:.38rem;letter-spacing:.04em}
+  .bruno-midfield-box{width:44%;height:24%}
+  .bruno-midfield-box:before{font-size:.36rem;letter-spacing:.08em}
+  .bruno-rest-shell{width:68%;height:27%}
+  .bruno-shape-options{grid-template-columns:1fr 1fr!important}
+  .bruno-shape-options button{display:block!important;border-bottom:1px solid #50554c}
+  .bruno-shape-options button:nth-child(even){border-right:0}
+  .bruno-shape-options button:last-child{grid-column:1/-1}
+  .bruno-shape-explainer{grid-template-columns:1fr;gap:.5rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .bruno-shape-stage .bruno-player,.bruno-midfield-box,.bruno-rest-shell,.bruno-press-cue{transition:none!important}
+}
