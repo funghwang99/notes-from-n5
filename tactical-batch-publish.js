@@ -1,8 +1,8 @@
 (() => {
-  const VERSION = '20260906-tactical-batch-5';
+  const VERSION = '20260907-wharton-1';
   const stories = [
     {
-      base:'the-jover.html', href:`the-jover.html?v=${VERSION}`,
+      path:'tactical-dive', base:'the-jover.html', href:`the-jover.html?v=${VERSION}`,
       image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/2024%20Emirates%20Cup%20-%20Corner%20Kick.jpg?width=1200',
       fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Samir%20Nasri%20Arsenal%20corner%20kick.jpg?width=1100',
       focus:'50% 42%', alt:'Declan Rice chuẩn bị thực hiện một quả phạt góc cho Arsenal.',
@@ -10,7 +10,7 @@
       deck:'Khi bóng ngừng lăn, bài vở chiến lược vẫn tiếp tục chuyển động.'
     },
     {
-      base:'twenty-metres.html', href:`twenty-metres.html?v=${VERSION}`,
+      path:'tactical-dive', base:'twenty-metres.html', href:`twenty-metres.html?v=${VERSION}`,
       image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/1%20bukayo%20saka%20arsenal%202025%20%28cropped%29.jpg?width=1100',
       fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mikel%20Arteta%20Arsenal%20Borussia%20Dortmund.jpg?width=1100',
       focus:'50% 0%', alt:'Bukayo Saka trong màu áo Arsenal.',
@@ -18,7 +18,7 @@
       deck:'Arteta không muốn cầm bóng cho đẹp. Ông muốn chiếm đúng không gian để cả trận đấu chạy theo ý mình.'
     },
     {
-      base:'not-the-next-partey.html', href:`not-the-next-partey.html?v=${VERSION}`,
+      path:'tactical-dive', base:'not-the-next-partey.html', href:`not-the-next-partey.html?v=${VERSION}`,
       image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/1%20Mart%C3%ADn%20Zubimendi%20arsenal%202025%20%28cropped%29.jpg?width=1100',
       fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Spain%20football%20team%20in%202025.jpg?width=1100',
       focus:'50% 0%', alt:'Martín Zubimendi trong màu áo Arsenal.',
@@ -26,7 +26,7 @@
       deck:'Không phải một Thomas Partey đệ nhị. Là một cách mới để Arsenal dựng lại cái trụ giữa sân.'
     },
     {
-      base:'necessary-imperfection.html', href:`necessary-imperfection.html?v=${VERSION}`,
+      path:'tactical-dive', base:'necessary-imperfection.html', href:`necessary-imperfection.html?v=${VERSION}`,
       image:'gyokeres-arrival.webp',
       fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/1%20Viktor%20Gy%C3%B6keres%202026.jpg?width=1100',
       focus:'50% 2%', alt:'Viktor Gyökeres trong màu áo Arsenal.',
@@ -34,12 +34,20 @@
       deck:'Bóng đá không cần một tiền đạo hoàn hảo. Arsenal cần một tiền đạo phù hợp với những bài toán hiện tại.'
     },
     {
-      base:'basque-shield.html', href:`basque-shield.html?v=${VERSION}`,
+      path:'tactical-dive', base:'basque-shield.html', href:`basque-shield.html?v=${VERSION}`,
       image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/1%20mikel%20merino%20arsenal%202025%20%28cropped%29.jpg?width=1100',
       fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mikel%20Merino%202018.jpg?width=1100',
       focus:'50% 0%', alt:'Mikel Merino trong màu áo Arsenal.',
       meta:'Tactical Dive · Mikel Merino', title:'Basque Shield',
       deck:'Không phải người khiến khán đài bật dậy. Là người lấp khoảng trống để những người khác được tự do.'
+    },
+    {
+      path:'scouting-report', base:'adam-wharton-scouting-report.html', href:`adam-wharton-scouting-report.html?v=${VERSION}`,
+      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/1%20adam%20wharton%202026%20%28Adam%20Wharton%29.jpg?width=1200',
+      fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20adam%20wharton%202026.jpg?width=1200',
+      focus:'50% 17%', alt:'Adam Wharton trong màu áo Crystal Palace năm 2026.',
+      meta:'Scouting Report · Adam Wharton', title:'Adam Wharton',
+      deck:'Vertical progressive passer / deep-lying playmaker. Một profile được xây từ progression, pre-orientation và deep creation.'
     }
   ];
 
@@ -67,7 +75,8 @@
         card.innerHTML = '<div class="home-path-top"><span>09</span><span class="home-path-arrow">↗</span></div><h3>Scouting Report</h3><p>Đọc dữ liệu, eye test và context để hiểu profile, strengths, limitations và role projection của từng cầu thủ.</p>';
         grid.append(card);
       }
-      grid.dataset.pathCount = String(grid.querySelectorAll('.home-path-card').length);
+      const count = grid.querySelectorAll('.home-path-card').length;
+      if (grid.dataset.pathCount !== String(count)) grid.dataset.pathCount = String(count);
       if (!document.querySelector('#n5-nine-path-grid-style')) {
         const style = document.createElement('style');
         style.id = 'n5-nine-path-grid-style';
@@ -83,17 +92,16 @@
       link.dataset.archiveFilter = 'scouting-report';
       link.textContent = 'Scouting Report';
       const tactical = filters.querySelector('[data-archive-filter="tactical-dive"]');
-      if (tactical) tactical.after(link);
-      else filters.append(link);
+      if (tactical) tactical.after(link); else filters.append(link);
     }
   };
 
   const guard = (img, story) => {
-    if (!img || img.dataset.tdBatchGuard) return;
-    img.dataset.tdBatchGuard = '1';
+    if (!img || img.dataset.n5BatchGuard) return;
+    img.dataset.n5BatchGuard = '1';
     img.addEventListener('error', () => {
-      if (!img.dataset.tdBatchFallback) {
-        img.dataset.tdBatchFallback = '1';
+      if (!img.dataset.n5BatchFallback) {
+        img.dataset.n5BatchFallback = '1';
         img.src = story.fallback;
         return;
       }
@@ -105,16 +113,20 @@
 
   const syncImage = (img, story, alt = story.alt) => {
     if (!img) return;
-    img.src = story.image;
-    img.alt = alt;
-    img.style.objectPosition = story.focus;
+    if (img.getAttribute('src') !== story.image && !img.dataset.n5BatchFallback) img.src = story.image;
+    if (img.alt !== alt) img.alt = alt;
+    if (img.style.objectPosition !== story.focus) img.style.objectPosition = story.focus;
     guard(img, story);
+  };
+
+  const activePath = () => {
+    const requested = new URLSearchParams(location.search).get('path');
+    return Object.hasOwn(PATHS, requested) ? requested : 'all';
   };
 
   const refilter = (archive) => {
     if (!archive) return;
-    const requested = new URLSearchParams(location.search).get('path');
-    const active = Object.hasOwn(PATHS, requested) ? requested : 'all';
+    const active = activePath();
     const entries = [...archive.querySelectorAll('.archive-entry[data-paths]')];
 
     entries.forEach((entry) => {
@@ -154,12 +166,7 @@
         refilter(archive);
       });
     });
-    archiveObserver.observe(archive, {
-      childList:true,
-      subtree:true,
-      attributes:true,
-      attributeFilter:['hidden','class','aria-current','data-paths']
-    });
+    archiveObserver.observe(archive, {childList:true, subtree:true, attributes:true, attributeFilter:['hidden','class','aria-current','data-paths']});
   };
 
   const applyArchive = () => {
@@ -174,8 +181,14 @@
         entry.className = 'archive-entry reveal is-visible';
         entry.innerHTML = `<a class="archive-thumb" href="${story.href}"><img src="${story.image}" alt="${story.alt}" style="object-position:${story.focus}" /></a><div class="archive-entry-copy"><p class="article-meta">${story.meta}</p><h2><a href="${story.href}">${story.title}</a></h2><p>${story.deck}</p></div><a class="archive-arrow" href="${story.href}" aria-label="Đọc bài ${story.title}">↗</a>`;
       }
-      entry.dataset.paths = 'tactical-dive';
-      entry.querySelectorAll(`a[href^="${story.base}"]`).forEach((a) => a.href = story.href);
+      if (entry.dataset.paths !== story.path) entry.dataset.paths = story.path;
+      entry.querySelectorAll(`a[href^="${story.base}"]`).forEach((a) => { if (a.getAttribute('href') !== story.href) a.href = story.href; });
+      const meta = entry.querySelector('.article-meta');
+      const title = entry.querySelector('h2 a');
+      const deck = entry.querySelector('.archive-entry-copy > p:last-child');
+      if (meta && meta.textContent !== story.meta) meta.textContent = story.meta;
+      if (title && title.textContent !== story.title) title.textContent = story.title;
+      if (deck && deck.textContent !== story.deck) deck.textContent = story.deck;
       syncImage(entry.querySelector('img'), story);
       const first = archive.querySelector('.archive-entry');
       if (first !== entry) archive.insertBefore(entry, first);
@@ -268,13 +281,14 @@
           card = document.createElement('a');
           card.className = 'home-flow-card';
           card.draggable = false;
-          if (duplicate) {
-            card.setAttribute('aria-hidden','true');
-            card.tabIndex = -1;
-          }
+          if (duplicate) { card.setAttribute('aria-hidden','true'); card.tabIndex = -1; }
           card.innerHTML = `<img src="${story.image}" alt="${duplicate ? '' : story.alt}" decoding="async" loading="lazy" draggable="false" style="object-position:${story.focus}" /><span class="home-flow-copy"><span class="home-flow-meta">${story.meta}</span><strong>${story.title}</strong></span>`;
         }
-        card.href = story.href;
+        if (card.getAttribute('href') !== story.href) card.href = story.href;
+        const meta = card.querySelector('.home-flow-meta');
+        const title = card.querySelector('.home-flow-copy strong');
+        if (meta && meta.textContent !== story.meta) meta.textContent = story.meta;
+        if (title && title.textContent !== story.title) title.textContent = story.title;
         syncImage(card.querySelector('img'), story, duplicate ? '' : story.alt);
         const first = set.querySelector('.home-flow-card');
         if (first !== card) set.insertBefore(card, first);
