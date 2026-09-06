@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = '20260905-tactical-batch-3';
+  const VERSION = '20260906-tactical-batch-4';
   const stories = [
     {
       base:'the-jover.html', href:`the-jover.html?v=${VERSION}`,
@@ -96,7 +96,7 @@
     const archive=document.querySelector('.archive#archive');
     if(!archive) return;
 
-    stories.slice().reverse().forEach((story)=>{
+    stories.forEach((story)=>{
       let entry=archive.querySelector(`.archive-entry a[href^="${story.base}"]`)?.closest('.archive-entry');
       if(!entry){
         entry=document.createElement('article');
@@ -113,10 +113,83 @@
     refilter(archive);
   };
 
+  let latestRun=0;
+  let latestObserver=null;
+
+  const readFlowStory = (card) => {
+    const img=card?.querySelector('img');
+    return {
+      href:card?.getAttribute('href')||'#',
+      image:img?.getAttribute('src')||img?.dataset.src||'',
+      alt:img?.alt||'',
+      focus:img?.style.objectPosition||'center',
+      meta:card?.querySelector('.home-flow-meta')?.textContent?.trim()||'',
+      title:card?.querySelector('.home-flow-copy strong')?.textContent?.trim()||''
+    };
+  };
+
+  const fillLatestCard = (anchor, story) => {
+    if(!anchor||!story) return;
+    anchor.href=story.href;
+    const img=anchor.querySelector('img');
+    if(img){
+      img.src=story.image;
+      img.alt=story.alt;
+      img.style.objectPosition=story.focus;
+    }
+    const label=anchor.querySelector('.home-story-label');
+    const title=anchor.querySelector('h3');
+    if(label) label.textContent=story.meta;
+    if(title) title.textContent=story.title;
+  };
+
+  const syncLatest = () => {
+    const latest=document.querySelector('.home-latest');
+    const source=document.querySelector('.home-flow-set:not([aria-hidden="true"])');
+    if(!latest||!source) return;
+
+    const cards=[...source.querySelectorAll(':scope > .home-flow-card')].slice(0,3);
+    if(cards.length<3) return;
+    const newest=cards.map(readFlowStory);
+    const main=latest.querySelector('.home-story-main');
+    const side=[...latest.querySelectorAll('.home-story-small')];
+    fillLatestCard(main,newest[0]);
+    fillLatestCard(side[0],newest[1]);
+    fillLatestCard(side[1],newest[2]);
+
+    const deck=main?.querySelector('.home-story-main-copy > p:last-child');
+    if(!deck) return;
+    const matching=stories.find((story)=>newest[0].href.startsWith(story.base));
+    if(matching){
+      deck.textContent=matching.deck;
+      return;
+    }
+
+    const run=++latestRun;
+    deck.textContent='Bài viết mới nhất trên Notes from N5.';
+    fetch(newest[0].href,{cache:'no-store'})
+      .then((response)=>response.ok?response.text():'')
+      .then((html)=>{
+        if(!html||run!==latestRun) return;
+        const doc=new DOMParser().parseFromString(html,'text/html');
+        const description=doc.querySelector('meta[name="description"]')?.content?.trim();
+        if(description) deck.textContent=description;
+      })
+      .catch(()=>{});
+  };
+
+  const watchLatest = () => {
+    if(latestObserver) return;
+    const source=document.querySelector('.home-flow-set:not([aria-hidden="true"])');
+    if(!source) return;
+    latestObserver=new MutationObserver(()=>requestAnimationFrame(syncLatest));
+    latestObserver.observe(source,{childList:true});
+  };
+
   const applyHome = () => {
     document.querySelectorAll('.home-flow-set').forEach((set)=>{
       const duplicate=set.getAttribute('aria-hidden')==='true';
-      stories.slice().reverse().forEach((story)=>{
+      stories.forEach((story)=>{
         let card=set.querySelector(`a[href^="${story.base}"]`);
         if(!card){
           card=document.createElement('a');
@@ -134,6 +207,8 @@
         if(first!==card) set.insertBefore(card,first);
       });
     });
+    syncLatest();
+    watchLatest();
   };
 
   const apply=()=>{
