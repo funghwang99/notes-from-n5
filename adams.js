@@ -2,6 +2,12 @@
   const page = document.querySelector('.adams-page');
   if (!page) return;
 
+  document.title = 'Mr. Arsenal | Notes from N5';
+  const heroTitle = document.querySelector('.adams-hero h1');
+  if (heroTitle) heroTitle.innerHTML = '<span>Mr.</span><em>Arsenal.</em>';
+  const heroKicker = document.querySelector('.adams-kicker');
+  if (heroKicker) heroKicker.textContent = 'TONY ADAMS · 1983—2002';
+
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const root = document.documentElement;
 
