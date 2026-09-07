@@ -1,15 +1,2 @@
 @import url("styles-base.css?v=20260818-retire-tuong-dai-2");
 @import url("retire-tuong-dai.css?v=20260818-retire-tuong-dai-2");
-@import url("scouting-balance.css?v=20260907-balance-3");
-
-/* Keep archive taxonomy in a stable visual order even when filters are injected by publish scripts. */
-.archive-filters [data-archive-filter="all"]{order:0}
-.archive-filters [data-archive-filter="hy-vong"]{order:1}
-.archive-filters [data-archive-filter="tuoi-tre"]{order:2}
-.archive-filters [data-archive-filter="ngoai-anh-den"]{order:3}
-.archive-filters [data-archive-filter="tactical-dive"]{order:4}
-.archive-filters [data-archive-filter="history"]{order:5}
-.archive-filters [data-archive-filter="scouting-report"]{order:6}
-.archive-filters [data-archive-filter="chua-nguoi"]{order:7}
-.archive-filters [data-archive-filter="bat-tu"]{order:8}
-.archive-filters [data-archive-filter="tuong-dai"]{order:9}
