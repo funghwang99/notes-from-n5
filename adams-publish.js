@@ -4,9 +4,6 @@
   const TITLE = 'Mr. Arsenal';
   const IMAGE = 'https://www.arsenal.com/sites/default/files/styles/desktop_16x9/public/images/adams-celeb-everton.png?auto=webp&h=3c8f2bed&itok=ug525wSK';
   const FALLBACK = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Tony%20Adams%20Statue%20-%20front%20%28cropped%29.jpg?width=1000';
-  const PATHS = {
-    'hy-vong':'Hy Vọng','tuoi-tre':'Tuổi Trẻ','ngoai-anh-den':'Ngoài Ánh Đèn','tactical-dive':'Tactical Dive','history':'History','chua-nguoi':'Chưa Nguôi','bat-tu':'Bất Tử','tuong-dai':'Tượng Đài'
-  };
 
   const guardImage = (img) => {
     if (!img || img.dataset.adamsGuard) return;
@@ -19,29 +16,9 @@
         img.alt = 'Tượng Tony Adams bên ngoài Emirates Stadium.';
         return;
       }
-      const link = img.closest('a');
+      img.closest('a')?.classList.add('is-image-missing');
       img.remove();
-      link?.classList.add('is-image-missing');
     });
-  };
-
-  const refilter = (archive) => {
-    const requested = new URLSearchParams(location.search).get('path');
-    const active = Object.hasOwn(PATHS, requested) ? requested : 'all';
-    const entries = [...archive.querySelectorAll('.archive-entry[data-paths]')];
-    entries.forEach((item) => {
-      const paths = (item.dataset.paths || '').split(/\s+/).filter(Boolean);
-      item.hidden = active !== 'all' && !paths.includes(active);
-    });
-    archive.querySelectorAll('[data-archive-filter]').forEach((link) => {
-      const current = link.dataset.archiveFilter === active;
-      link.classList.toggle('is-current', current);
-      if (current) link.setAttribute('aria-current','page'); else link.removeAttribute('aria-current');
-    });
-    const count = archive.querySelector('[data-archive-count]');
-    const status = archive.querySelector('[data-archive-status]');
-    if (count) count.textContent = `${entries.filter((item) => !item.hidden).length} bài viết`;
-    if (status) status.textContent = active === 'all' ? 'Đã xuất bản' : `Mạch ${PATHS[active]}`;
   };
 
   const applyArchive = () => {
@@ -51,11 +28,10 @@
     if (!entry) {
       entry = document.createElement('article');
       entry.className = 'archive-entry reveal is-visible';
-      entry.dataset.paths = 'tuong-dai';
       entry.innerHTML = `<a class="archive-thumb" href="${HREF}"><img src="${IMAGE}" alt="Tony Adams dang hai tay ăn mừng trong màu áo Arsenal tại Highbury năm 1998." style="object-position:center 48%" /></a><div class="archive-entry-copy"><p class="article-meta">Arsenal · Tony Adams</p><h2><a href="${HREF}">${TITLE}</a></h2><p>Arsenal thay huấn luyện viên, cầu thủ, cách chơi rồi cả sân vận động. Trong gần hai thập kỷ, người mang cái tên ấy ra sân vẫn là Tony Adams.</p></div><a class="archive-arrow" href="${HREF}" aria-label="Đọc bài ${TITLE}">↗</a>`;
     }
     entry.dataset.paths = 'tuong-dai';
-    entry.querySelectorAll(`a[href^="${BASE}"]`).forEach((link) => link.setAttribute('href', HREF));
+    entry.querySelectorAll(`a[href^="${BASE}"]`).forEach((link) => { link.href = HREF; });
     const titleLink = entry.querySelector('.archive-entry-copy h2 a');
     if (titleLink) titleLink.textContent = TITLE;
     const arrow = entry.querySelector('.archive-arrow');
@@ -63,7 +39,6 @@
     guardImage(entry.querySelector('img'));
     const first = archive.querySelector('.archive-entry');
     if (first !== entry) archive.insertBefore(entry, first);
-    refilter(archive);
   };
 
   const applyHome = () => {
@@ -87,13 +62,7 @@
   };
 
   const apply = () => { applyArchive(); applyHome(); };
-  apply(); requestAnimationFrame(apply); window.addEventListener('load', apply, { once:true });
-
-  if (!window.__N5_NLD_PUBLISH_LOADER__) {
-    window.__N5_NLD_PUBLISH_LOADER__ = true;
-    const publish = document.createElement('script');
-    publish.src = 'north-london-publish.js?v=20260905-nld-1';
-    publish.async = false;
-    document.head.append(publish);
-  }
+  apply();
+  requestAnimationFrame(apply);
+  window.addEventListener('load', apply, { once:true });
 })();
