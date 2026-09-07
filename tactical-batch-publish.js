@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = '20260907-wharton-2';
+  const VERSION = '20260907-clean-1';
   const stories = [
     {
       path:'tactical-dive', base:'the-jover.html', href:`the-jover.html?v=${VERSION}`,
@@ -51,150 +51,31 @@
     }
   ];
 
-  const PATHS = {
-    'hy-vong':'Hy Vọng',
-    'tuoi-tre':'Tuổi Trẻ',
-    'ngoai-anh-den':'Ngoài Ánh Đèn',
-    'tactical-dive':'Tactical Dive',
-    'history':'History',
-    'scouting-report':'Scouting Report',
-    'chua-nguoi':'Chưa Nguôi',
-    'bat-tu':'Bất Tử',
-    'tuong-dai':'Tượng Đài'
-  };
-
-  const ensurePathUI = () => {
-    const grid = document.querySelector('.home-path-grid');
-    if (grid) {
-      let card = grid.querySelector('a[href*="path=scouting-report"]');
-      if (!card) {
-        card = document.createElement('a');
-        card.className = 'home-path-card reveal is-visible';
-        card.dataset.number = '09';
-        card.href = 'articles.html?path=scouting-report#archive';
-        card.innerHTML = '<div class="home-path-top"><span>09</span><span class="home-path-arrow">↗</span></div><h3>Scouting Report</h3><p>Đọc dữ liệu, eye test và context để hiểu profile, strengths, limitations và role projection của từng cầu thủ.</p>';
-        grid.append(card);
-      }
-      const count = grid.querySelectorAll('.home-path-card').length;
-      if (grid.dataset.pathCount !== String(count)) grid.dataset.pathCount = String(count);
-      if (!document.querySelector('#n5-nine-path-grid-style')) {
-        const style = document.createElement('style');
-        style.id = 'n5-nine-path-grid-style';
-        style.textContent = '@media (min-width:1001px){.home-path-grid[data-path-count="9"]{grid-template-columns:repeat(3,minmax(0,1fr))!important}}';
-        document.head.append(style);
-      }
-    }
-
-    const filters = document.querySelector('.archive-filters');
-    if (filters && !filters.querySelector('[data-archive-filter="scouting-report"]')) {
-      const link = document.createElement('a');
-      link.href = 'articles.html?path=scouting-report#archive';
-      link.dataset.archiveFilter = 'scouting-report';
-      link.textContent = 'Scouting Report';
-      const history = filters.querySelector('[data-archive-filter="history"]');
-      if (history) history.after(link); else filters.append(link);
-    }
-  };
-
-  const guard = (img, story) => {
-    if (!img || img.dataset.n5BatchGuard) return;
-    img.dataset.n5BatchGuard = '1';
+  const guardImage = (img, story) => {
+    if (!img || img.dataset.n5StoryGuard) return;
+    img.dataset.n5StoryGuard = '1';
     img.addEventListener('error', () => {
-      if (!img.dataset.n5BatchFallback) {
-        img.dataset.n5BatchFallback = '1';
+      if (!img.dataset.n5StoryFallback) {
+        img.dataset.n5StoryFallback = '1';
         img.src = story.fallback;
         return;
       }
-      const link = img.closest('a');
+      img.closest('a')?.classList.add('is-image-missing');
       img.remove();
-      link?.classList.add('is-image-missing');
     });
   };
 
   const syncImage = (img, story, alt = story.alt) => {
     if (!img) return;
-    if (img.getAttribute('src') !== story.image && !img.dataset.n5BatchFallback) img.src = story.image;
-    if (img.alt !== alt) img.alt = alt;
-    if (img.style.objectPosition !== story.focus) img.style.objectPosition = story.focus;
-    guard(img, story);
-  };
-
-  const activePath = () => {
-    const requested = new URLSearchParams(location.search).get('path');
-    return Object.hasOwn(PATHS, requested) ? requested : 'all';
-  };
-
-  const refilter = (archive) => {
-    if (!archive) return;
-    const active = activePath();
-    const entries = [...archive.querySelectorAll('.archive-entry[data-paths]')];
-
-    entries.forEach((entry) => {
-      const paths = (entry.dataset.paths || '').split(/\s+/).filter(Boolean);
-      const shouldHide = active !== 'all' && !paths.includes(active);
-      if (entry.hidden !== shouldHide) entry.hidden = shouldHide;
-    });
-
-    archive.querySelectorAll('[data-archive-filter]').forEach((filter) => {
-      const current = filter.dataset.archiveFilter === active;
-      if (filter.classList.contains('is-current') !== current) filter.classList.toggle('is-current', current);
-      if (current) {
-        if (filter.getAttribute('aria-current') !== 'page') filter.setAttribute('aria-current', 'page');
-      } else if (filter.hasAttribute('aria-current')) {
-        filter.removeAttribute('aria-current');
-      }
-    });
-
-    const count = archive.querySelector('[data-archive-count]');
-    const status = archive.querySelector('[data-archive-status]');
-    const countText = `${entries.filter((entry) => !entry.hidden).length} bài viết`;
-    const statusText = active === 'all' ? 'Đã xuất bản' : `Mạch ${PATHS[active]}`;
-    if (count && count.textContent !== countText) count.textContent = countText;
-    if (status && status.textContent !== statusText) status.textContent = statusText;
-  };
-
-  let filtersBound = false;
-  const bindArchiveFilters = (archive) => {
-    if (!archive || filtersBound) return;
-    const filters = archive.querySelector('.archive-filters');
-    if (!filters) return;
-    filtersBound = true;
-
-    filters.addEventListener('click', (event) => {
-      const link = event.target.closest('[data-archive-filter]');
-      if (!link) return;
-      const path = link.dataset.archiveFilter;
-      if (path !== 'all' && !Object.hasOwn(PATHS, path)) return;
-      event.preventDefault();
-      const next = path === 'all' ? 'articles.html#archive' : `articles.html?path=${encodeURIComponent(path)}#archive`;
-      history.pushState({path}, '', next);
-      refilter(archive);
-    });
-
-    window.addEventListener('popstate', () => refilter(archive));
-  };
-
-  let archiveObserver = null;
-  let archiveQueued = false;
-  const watchArchive = (archive) => {
-    if (!archive || archiveObserver) return;
-    archiveObserver = new MutationObserver(() => {
-      if (archiveQueued) return;
-      archiveQueued = true;
-      requestAnimationFrame(() => {
-        archiveQueued = false;
-        ensurePathUI();
-        bindArchiveFilters(archive);
-        refilter(archive);
-      });
-    });
-    archiveObserver.observe(archive, {childList:true, subtree:true, attributes:true, attributeFilter:['hidden','class','aria-current','data-paths']});
+    if (!img.dataset.n5StoryFallback && img.getAttribute('src') !== story.image) img.src = story.image;
+    img.alt = alt;
+    img.style.objectPosition = story.focus;
+    guardImage(img, story);
   };
 
   const applyArchive = () => {
     const archive = document.querySelector('.archive#archive');
     if (!archive) return;
-    ensurePathUI();
 
     stories.forEach((story) => {
       let entry = archive.querySelector(`.archive-entry a[href^="${story.base}"]`)?.closest('.archive-entry');
@@ -203,26 +84,52 @@
         entry.className = 'archive-entry reveal is-visible';
         entry.innerHTML = `<a class="archive-thumb" href="${story.href}"><img src="${story.image}" alt="${story.alt}" style="object-position:${story.focus}" /></a><div class="archive-entry-copy"><p class="article-meta">${story.meta}</p><h2><a href="${story.href}">${story.title}</a></h2><p>${story.deck}</p></div><a class="archive-arrow" href="${story.href}" aria-label="Đọc bài ${story.title}">↗</a>`;
       }
-      if (entry.dataset.paths !== story.path) entry.dataset.paths = story.path;
-      entry.querySelectorAll(`a[href^="${story.base}"]`).forEach((a) => { if (a.getAttribute('href') !== story.href) a.href = story.href; });
+
+      entry.dataset.paths = story.path;
+      entry.querySelectorAll(`a[href^="${story.base}"]`).forEach((link) => { link.href = story.href; });
       const meta = entry.querySelector('.article-meta');
       const title = entry.querySelector('h2 a');
       const deck = entry.querySelector('.archive-entry-copy > p:last-child');
-      if (meta && meta.textContent !== story.meta) meta.textContent = story.meta;
-      if (title && title.textContent !== story.title) title.textContent = story.title;
-      if (deck && deck.textContent !== story.deck) deck.textContent = story.deck;
+      if (meta) meta.textContent = story.meta;
+      if (title) title.textContent = story.title;
+      if (deck) deck.textContent = story.deck;
       syncImage(entry.querySelector('img'), story);
+
       const first = archive.querySelector('.archive-entry');
       if (first !== entry) archive.insertBefore(entry, first);
     });
-
-    bindArchiveFilters(archive);
-    refilter(archive);
-    watchArchive(archive);
   };
 
-  let latestRun = 0;
-  let latestObserver = null;
+  const makeHomeCard = (story, duplicate) => {
+    const card = document.createElement('a');
+    card.className = 'home-flow-card';
+    card.href = story.href;
+    card.draggable = false;
+    if (duplicate) {
+      card.setAttribute('aria-hidden', 'true');
+      card.tabIndex = -1;
+    }
+    card.innerHTML = `<img src="${story.image}" alt="${duplicate ? '' : story.alt}" decoding="async" loading="lazy" draggable="false" style="object-position:${story.focus}" /><span class="home-flow-copy"><span class="home-flow-meta">${story.meta}</span><strong>${story.title}</strong></span>`;
+    return card;
+  };
+
+  const applyHome = () => {
+    document.querySelectorAll('.home-flow-set').forEach((set) => {
+      const duplicate = set.getAttribute('aria-hidden') === 'true';
+      stories.forEach((story) => {
+        let card = set.querySelector(`a[href^="${story.base}"]`);
+        if (!card) card = makeHomeCard(story, duplicate);
+        card.href = story.href;
+        const meta = card.querySelector('.home-flow-meta');
+        const title = card.querySelector('.home-flow-copy strong');
+        if (meta) meta.textContent = story.meta;
+        if (title) title.textContent = story.title;
+        syncImage(card.querySelector('img'), story, duplicate ? '' : story.alt);
+        const first = set.querySelector('.home-flow-card');
+        if (first !== card) set.insertBefore(card, first);
+      });
+    });
+  };
 
   const readFlowStory = (card) => {
     const img = card?.querySelector('img');
@@ -251,6 +158,7 @@
     if (title) title.textContent = story.title;
   };
 
+  let latestRun = 0;
   const syncLatest = () => {
     const latest = document.querySelector('.home-latest');
     const source = document.querySelector('.home-flow-set:not([aria-hidden="true"])');
@@ -275,7 +183,7 @@
 
     const run = ++latestRun;
     deck.textContent = 'Bài viết mới nhất trên Notes from N5.';
-    fetch(newest[0].href, {cache:'no-store'})
+    fetch(newest[0].href, { cache:'no-store' })
       .then((response) => response.ok ? response.text() : '')
       .then((html) => {
         if (!html || run !== latestRun) return;
@@ -286,59 +194,23 @@
       .catch(() => {});
   };
 
+  let latestObserver = null;
   const watchLatest = () => {
     if (latestObserver) return;
     const source = document.querySelector('.home-flow-set:not([aria-hidden="true"])');
     if (!source) return;
     latestObserver = new MutationObserver(() => requestAnimationFrame(syncLatest));
-    latestObserver.observe(source, {childList:true});
+    latestObserver.observe(source, { childList:true });
   };
 
-  const applyHome = () => {
-    ensurePathUI();
-    document.querySelectorAll('.home-flow-set').forEach((set) => {
-      const duplicate = set.getAttribute('aria-hidden') === 'true';
-      stories.forEach((story) => {
-        let card = set.querySelector(`a[href^="${story.base}"]`);
-        if (!card) {
-          card = document.createElement('a');
-          card.className = 'home-flow-card';
-          card.draggable = false;
-          if (duplicate) { card.setAttribute('aria-hidden','true'); card.tabIndex = -1; }
-          card.innerHTML = `<img src="${story.image}" alt="${duplicate ? '' : story.alt}" decoding="async" loading="lazy" draggable="false" style="object-position:${story.focus}" /><span class="home-flow-copy"><span class="home-flow-meta">${story.meta}</span><strong>${story.title}</strong></span>`;
-        }
-        if (card.getAttribute('href') !== story.href) card.href = story.href;
-        const meta = card.querySelector('.home-flow-meta');
-        const title = card.querySelector('.home-flow-copy strong');
-        if (meta && meta.textContent !== story.meta) meta.textContent = story.meta;
-        if (title && title.textContent !== story.title) title.textContent = story.title;
-        syncImage(card.querySelector('img'), story, duplicate ? '' : story.alt);
-        const first = set.querySelector('.home-flow-card');
-        if (first !== card) set.insertBefore(card, first);
-      });
-    });
+  const apply = () => {
+    applyArchive();
+    applyHome();
     syncLatest();
     watchLatest();
   };
 
-  const settleArchive = () => {
-    const archive = document.querySelector('.archive#archive');
-    if (!archive) return;
-    ensurePathUI();
-    bindArchiveFilters(archive);
-    refilter(archive);
-  };
-
-  const apply = () => {
-    ensurePathUI();
-    applyArchive();
-    applyHome();
-  };
-
   apply();
   requestAnimationFrame(apply);
-  window.addEventListener('load', () => {
-    apply();
-    [0,100,350,900].forEach((delay) => setTimeout(settleArchive, delay));
-  }, {once:true});
+  window.addEventListener('load', apply, { once:true });
 })();
