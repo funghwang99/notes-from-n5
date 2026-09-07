@@ -1,6 +1,7 @@
 @import url("styles-base.css?v=20260818-retire-tuong-dai-2");
 @import url("retire-tuong-dai.css?v=20260818-retire-tuong-dai-2");
 @import url("scouting-visuals.css?v=20260907-visuals-1");
+@import url("scouting-balance.css?v=20260907-balance-1");
 
 /* Keep archive taxonomy in a stable visual order even when filters are injected by publish scripts. */
 .archive-filters [data-archive-filter="all"]{order:0}
