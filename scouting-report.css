@@ -36,6 +36,7 @@ body.layout-scouting{
 .scout-portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(7,11,16,.86) 100%)}
 .scout-photo-code{position:absolute;z-index:2;left:18px;bottom:16px;display:flex;gap:10px;align-items:center;font:700 .67rem/1.2 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:#d7e1e8}
 .scout-photo-code::before{content:"SR-01";padding:7px 9px;background:var(--sc-ink);color:#0b1118}
+.scout-photo-code[data-report]::before{content:attr(data-report)}
 
 .scout-brief{border-bottom:1px solid var(--sc-line);background:#0e151e}
 .scout-brief-grid{display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch}
