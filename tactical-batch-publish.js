@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = '20260907-scott-1';
+  const VERSION = '20260907-nico-1';
   const stories = [
     {
       path:'tactical-dive', base:'the-jover.html', href:`the-jover.html?v=${VERSION}`,
@@ -56,6 +56,14 @@
       focus:'50% 18%', alt:'Alex Scott trong màu áo AFC Bournemouth năm 2026.',
       meta:'Scouting Report · Alex Scott', title:'Alex Scott',
       deck:'Press-resistant, ball-carrying No.8 / connector. Một profile được xây từ carry, mobility và two-way activity.'
+    },
+    {
+      path:'scouting-report', base:'nico-paz-scouting-report.html', href:`nico-paz-scouting-report.html?v=${VERSION}`,
+      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Nico%20Paz%20Como%202025.jpg?width=1000',
+      fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Nico%20Paz%20Como%202025%20%28cropped%29.jpg?width=800',
+      focus:'50% 16%', alt:'Nico Paz trong màu áo Como 1907 năm 2025.',
+      meta:'Scouting Report · Nico Paz', title:'Nico Paz',
+      deck:'Direct, high-usage attacking No.10 / creator-finisher. Một profile được xây từ reception giữa tuyến, carry và final-third threat.'
     }
   ];
 
