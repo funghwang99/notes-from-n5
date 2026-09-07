@@ -31,50 +31,10 @@
   margin-top:18px;
 }
 
-/* Visual explainers: one compact rhythm, no oversized empty footer. */
-.layout-scouting #strengths .scout-card::after,
-.layout-scouting #limitations .scout-card::after{
-  box-sizing:border-box;
-  min-height:0 !important;
-  margin-top:20px !important;
-  padding-bottom:14px !important;
-}
-
-.layout-scouting #strengths .scout-card:nth-child(1)::after{
-  padding-top:188px !important;
-  background-position:center 12px !important;
-  background-size:calc(100% - 24px) 164px !important;
-}
-.layout-scouting #strengths .scout-card:nth-child(2)::after{
-  padding-top:156px !important;
-  background-position:center 12px !important;
-  background-size:calc(100% - 24px) 132px !important;
-}
-.layout-scouting #strengths .scout-card:nth-child(3)::after{
-  padding-top:166px !important;
-  background-position:center 12px !important;
-  background-size:calc(100% - 24px) 142px !important;
-}
-.layout-scouting #limitations .scout-card:nth-child(2)::after{
-  padding-top:164px !important;
-  background-position:center 12px !important;
-  background-size:calc(100% - 24px) 140px !important;
-}
-
-/* The role map should also end where its content ends instead of forcing the neighbouring cards taller. */
+/* Role cards use the same compact rhythm and no artificial stretching. */
 .layout-scouting #roles .scout-role--best{
   grid-row:auto;
 }
-.layout-scouting #roles .scout-role--best::after{
-  min-height:0 !important;
-  margin-top:22px !important;
-  padding-top:190px !important;
-  padding-bottom:14px !important;
-  background-position:center 12px !important;
-  background-size:calc(100% - 24px) 166px !important;
-}
-
-/* Give the four role cards a clean, even visual rhythm without artificial height matching. */
 .layout-scouting .scout-role{
   padding:24px;
 }
@@ -102,32 +62,61 @@
   min-height:0;
 }
 
+/* Ceiling drivers: remove browser list numbering so only the custom 01/02/03 labels remain. */
+.layout-scouting .scout-watch{
+  margin-top:30px;
+  padding:26px 28px;
+  border:1px solid var(--sc-line);
+  background:var(--sc-panel);
+}
+.layout-scouting .scout-watch > p{
+  margin:0 0 14px;
+  font:700 .78rem/1.2 Inter,sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--sc-muted);
+}
+.layout-scouting .scout-watch ol,
+.layout-scouting .scout-watch ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.layout-scouting .scout-watch li{
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr);
+  gap:12px;
+  align-items:start;
+  padding:13px 0;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.layout-scouting .scout-watch li:first-child{
+  border-top:0;
+}
+.layout-scouting .scout-watch li span{
+  display:block;
+  padding-top:2px;
+  font:700 .72rem/1.35 Inter,sans-serif;
+  letter-spacing:.08em;
+  color:var(--sc-amber);
+}
+.layout-scouting .scout-watch li strong{
+  display:block;
+  font:620 .96rem/1.5 Inter,sans-serif;
+  color:#c8d2da;
+}
+
 @media(max-width:720px){
   .layout-scouting .scout-card,
   .layout-scouting .scout-role,
   .layout-scouting .scout-list{
     padding:22px;
   }
-  .layout-scouting #strengths .scout-card::after,
-  .layout-scouting #limitations .scout-card::after,
-  .layout-scouting #roles .scout-role--best::after{
-    margin-top:18px !important;
+  .layout-scouting .scout-watch{
+    padding:22px;
   }
-  .layout-scouting #strengths .scout-card:nth-child(1)::after{
-    padding-top:160px !important;
-    background-size:calc(100% - 20px) 138px !important;
-  }
-  .layout-scouting #strengths .scout-card:nth-child(2)::after{
-    padding-top:140px !important;
-    background-size:calc(100% - 20px) 118px !important;
-  }
-  .layout-scouting #strengths .scout-card:nth-child(3)::after,
-  .layout-scouting #limitations .scout-card:nth-child(2)::after{
-    padding-top:150px !important;
-    background-size:calc(100% - 20px) 128px !important;
-  }
-  .layout-scouting #roles .scout-role--best::after{
-    padding-top:170px !important;
-    background-size:calc(100% - 20px) 146px !important;
+  .layout-scouting .scout-watch li{
+    grid-template-columns:34px minmax(0,1fr);
+    gap:10px;
   }
 }
