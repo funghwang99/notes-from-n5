@@ -15,19 +15,10 @@
       entry.innerHTML = `<a class="archive-thumb" href="${HREF}"><img src="${IMAGE}" alt="Bobby Charlton trong một ảnh chân dung đầu thập niên 1960." style="object-position:center 22%" /></a><div class="archive-entry-copy"><p class="article-meta">England · Bobby Charlton</p><h2><a href="${HREF}">Sir Bobby Charlton</a></h2><p>Munich là điều ông mang theo. Hai lần trở lại Wembley mới cho thấy Sir Bobby đã đi xa đến đâu.</p></div><a class="archive-arrow" href="${HREF}" aria-label="Đọc bài Sir Bobby Charlton">↗</a>`;
     }
 
-    entry.querySelectorAll(`a[href^="${BASE}"]`).forEach((link) => link.setAttribute('href', HREF));
+    entry.dataset.paths = 'bat-tu';
+    entry.querySelectorAll(`a[href^="${BASE}"]`).forEach((link) => { link.href = HREF; });
     const first = archive.querySelector('.archive-entry');
     if (first !== entry) archive.insertBefore(entry, first);
-
-    const requested = new URLSearchParams(location.search).get('path');
-    const active = new Set(['hy-vong','tuoi-tre','ngoai-anh-den','tactical-dive','history','scouting-report','chua-nguoi','bat-tu','tuong-dai']).has(requested) ? requested : 'all';
-    const entries = [...archive.querySelectorAll('.archive-entry[data-paths]')];
-    entries.forEach((item) => {
-      const paths = (item.dataset.paths || '').split(/\s+/).filter(Boolean);
-      item.hidden = active !== 'all' && !paths.includes(active);
-    });
-    const count = archive.querySelector('[data-archive-count]');
-    if (count) count.textContent = `${entries.filter((item) => !item.hidden).length} bài viết`;
   };
 
   const applyHome = () => {
@@ -58,14 +49,6 @@
   apply();
   requestAnimationFrame(apply);
   window.addEventListener('load', apply, { once:true });
-
-  if (document.querySelector('.archive#archive') && !window.__N5_ARCHIVE_TAXONOMY_V2__) {
-    window.__N5_ARCHIVE_TAXONOMY_V2__ = true;
-    const taxonomy = document.createElement('script');
-    taxonomy.src = 'archive-taxonomy-v2.js?v=20260907-scouting-filter-2';
-    taxonomy.async = false;
-    document.head.append(taxonomy);
-  }
 
   if (!window.__N5_MOORE_PUBLISH_LOADER__) {
     window.__N5_MOORE_PUBLISH_LOADER__ = true;
