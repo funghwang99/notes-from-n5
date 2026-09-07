@@ -8,6 +8,7 @@
     'ngoai-anh-den': 'Ngoài Ánh Đèn',
     'tactical-dive': 'Tactical Dive',
     'history': 'History',
+    'scouting-report': 'Scouting Report',
     'chua-nguoi': 'Chưa Nguôi',
     'bat-tu': 'Bất Tử',
     'tuong-dai': 'Tượng Đài',
@@ -20,6 +21,7 @@
     ['ngoai-anh-den', 'Ngoài Ánh Đèn'],
     ['tactical-dive', 'Tactical Dive'],
     ['history', 'History'],
+    ['scouting-report', 'Scouting Report'],
     ['chua-nguoi', 'Chưa Nguôi'],
     ['bat-tu', 'Bất Tử'],
     ['tuong-dai', 'Tượng Đài'],
@@ -44,12 +46,15 @@
     });
   }
 
-  const requested = new URLSearchParams(location.search).get('path');
-  const active = Object.prototype.hasOwnProperty.call(PATHS, requested) ? requested : 'all';
+  const getActive = () => {
+    const requested = new URLSearchParams(location.search).get('path');
+    return Object.prototype.hasOwnProperty.call(PATHS, requested) ? requested : 'all';
+  };
 
   let scheduled = false;
   const apply = () => {
     scheduled = false;
+    const active = getActive();
 
     const entries = [...archive.querySelectorAll('.archive-entry[data-paths]')];
     entries.forEach((entry) => {
@@ -80,6 +85,19 @@
     queueMicrotask(apply);
   };
 
+  if (filters) {
+    filters.addEventListener('click', (event) => {
+      const link = event.target.closest('[data-archive-filter]');
+      if (!link) return;
+      const path = link.dataset.archiveFilter;
+      if (path !== 'all' && !Object.prototype.hasOwnProperty.call(PATHS, path)) return;
+      event.preventDefault();
+      const next = path === 'all' ? 'articles.html#archive' : `articles.html?path=${encodeURIComponent(path)}#archive`;
+      history.pushState({ path }, '', next);
+      apply();
+    });
+  }
+
   apply();
 
   const observer = new MutationObserver(schedule);
@@ -90,5 +108,6 @@
     attributeFilter: ['hidden', 'data-paths'],
   });
 
+  window.addEventListener('popstate', apply);
   window.addEventListener('load', schedule, { once: true });
 })();
