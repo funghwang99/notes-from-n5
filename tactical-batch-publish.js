@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = '20260907-wharton-1';
+  const VERSION = '20260907-wharton-2';
   const stories = [
     {
       path:'tactical-dive', base:'the-jover.html', href:`the-jover.html?v=${VERSION}`,
@@ -91,8 +91,8 @@
       link.href = 'articles.html?path=scouting-report#archive';
       link.dataset.archiveFilter = 'scouting-report';
       link.textContent = 'Scouting Report';
-      const tactical = filters.querySelector('[data-archive-filter="tactical-dive"]');
-      if (tactical) tactical.after(link); else filters.append(link);
+      const history = filters.querySelector('[data-archive-filter="history"]');
+      if (history) history.after(link); else filters.append(link);
     }
   };
 
@@ -153,6 +153,27 @@
     if (status && status.textContent !== statusText) status.textContent = statusText;
   };
 
+  let filtersBound = false;
+  const bindArchiveFilters = (archive) => {
+    if (!archive || filtersBound) return;
+    const filters = archive.querySelector('.archive-filters');
+    if (!filters) return;
+    filtersBound = true;
+
+    filters.addEventListener('click', (event) => {
+      const link = event.target.closest('[data-archive-filter]');
+      if (!link) return;
+      const path = link.dataset.archiveFilter;
+      if (path !== 'all' && !Object.hasOwn(PATHS, path)) return;
+      event.preventDefault();
+      const next = path === 'all' ? 'articles.html#archive' : `articles.html?path=${encodeURIComponent(path)}#archive`;
+      history.pushState({path}, '', next);
+      refilter(archive);
+    });
+
+    window.addEventListener('popstate', () => refilter(archive));
+  };
+
   let archiveObserver = null;
   let archiveQueued = false;
   const watchArchive = (archive) => {
@@ -163,6 +184,7 @@
       requestAnimationFrame(() => {
         archiveQueued = false;
         ensurePathUI();
+        bindArchiveFilters(archive);
         refilter(archive);
       });
     });
@@ -194,6 +216,7 @@
       if (first !== entry) archive.insertBefore(entry, first);
     });
 
+    bindArchiveFilters(archive);
     refilter(archive);
     watchArchive(archive);
   };
@@ -302,6 +325,7 @@
     const archive = document.querySelector('.archive#archive');
     if (!archive) return;
     ensurePathUI();
+    bindArchiveFilters(archive);
     refilter(archive);
   };
 
