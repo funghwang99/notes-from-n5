@@ -74,6 +74,7 @@ body.layout-scouting{
 .scout-card p{margin:0;font:400 .92rem/1.7 var(--sans);color:#b9c6d0;text-wrap:pretty}
 .scout-sequence{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 0}
 .scout-sequence span{padding:7px 9px;border:1px solid rgba(139,200,255,.3);background:rgba(139,200,255,.07);font:700 .64rem/1 var(--sans);text-transform:uppercase;letter-spacing:.07em;color:var(--sc-blue)}
+.scout-card .scout-sequence-note{margin-top:14px}
 
 .scout-role-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:28px;align-items:start;grid-auto-rows:max-content}
 .scout-role{align-self:start;height:auto;min-height:0;padding:24px;border:1px solid var(--sc-line);background:var(--sc-panel)}
