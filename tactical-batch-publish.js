@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = '20260907-clean-1';
+  const VERSION = '20260907-scott-1';
   const stories = [
     {
       path:'tactical-dive', base:'the-jover.html', href:`the-jover.html?v=${VERSION}`,
@@ -48,6 +48,14 @@
       focus:'50% 17%', alt:'Adam Wharton trong màu áo Crystal Palace năm 2026.',
       meta:'Scouting Report · Adam Wharton', title:'Adam Wharton',
       deck:'Vertical progressive passer / deep-lying playmaker. Một profile được xây từ progression, pre-orientation và deep creation.'
+    },
+    {
+      path:'scouting-report', base:'alex-scott-scouting-report.html', href:`alex-scott-scouting-report.html?v=${VERSION}`,
+      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Alex%20Scott%2009052026%20%281%29.jpg?width=1200',
+      fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Alex%20Scott%2009052026%20%282%29.jpg?width=1200',
+      focus:'50% 18%', alt:'Alex Scott trong màu áo AFC Bournemouth năm 2026.',
+      meta:'Scouting Report · Alex Scott', title:'Alex Scott',
+      deck:'Press-resistant, ball-carrying No.8 / connector. Một profile được xây từ carry, mobility và two-way activity.'
     }
   ];
 
