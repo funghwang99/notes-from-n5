@@ -1,0 +1,127 @@
+/* Beginner-friendly visual layer for Notes from N5 scouting reports.
+   Kept generic so future reports can reuse the same visual grammar. */
+
+.layout-scouting #overview .scout-section-copy::before{
+  content:"HIỂU ĐƠN GIẢN\A Một deep-lying playmaker nhận bóng ở thấp, nhìn lên trước và cố đưa bóng vượt qua tuyến giữa đối thủ bằng đường chuyền — thay vì tự rê bóng qua người.";
+  display:block;
+  margin:0 0 30px;
+  padding:22px 24px 22px 64px;
+  border:1px solid rgba(139,200,255,.28);
+  background:
+    radial-gradient(circle at 30px 31px,rgba(139,200,255,.18) 0 13px,transparent 14px),
+    linear-gradient(135deg,rgba(139,200,255,.09),rgba(17,26,36,.84));
+  color:#cbd7df;
+  font:500 .93rem/1.65 Inter,sans-serif;
+  white-space:pre-line;
+}
+.layout-scouting #overview .scout-section-copy::before::first-line{color:#8bc8ff}
+
+/* Progressive passing: a simple pitch diagram with one line-breaking pass. */
+.layout-scouting #strengths .scout-card:nth-child(1)::after{
+  content:"Nhận bóng ở thấp → nhìn xuyên tuyến → đưa bóng tới người ở phía sau midfield line.";
+  display:block;
+  min-height:260px;
+  margin-top:24px;
+  padding:214px 18px 16px;
+  border:1px solid rgba(139,200,255,.2);
+  background-color:#0c151e;
+  background-repeat:no-repeat;
+  background-position:center 14px;
+  background-size:calc(100% - 28px) 188px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 360'%3E%3Crect width='760' height='360' rx='18' fill='%230c151e'/%3E%3Crect x='26' y='26' width='708' height='308' rx='10' fill='none' stroke='%23364b5f' stroke-width='3'/%3E%3Cline x1='380' y1='26' x2='380' y2='334' stroke='%23364b5f' stroke-width='3'/%3E%3Ccircle cx='380' cy='180' r='54' fill='none' stroke='%23364b5f' stroke-width='3'/%3E%3Cline x1='476' y1='54' x2='476' y2='306' stroke='%23ff6673' stroke-width='5' stroke-dasharray='13 11' opacity='.78'/%3E%3Ccircle cx='224' cy='246' r='18' fill='%238bc8ff'/%3E%3Ccircle cx='575' cy='118' r='18' fill='%2385d7b1'/%3E%3Cpath d='M246 238 C350 205 425 166 549 126' fill='none' stroke='%23f4f7f8' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M530 112 L556 123 L537 143' fill='none' stroke='%23f4f7f8' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ctext x='169' y='292' fill='%238bc8ff' font-family='Arial' font-size='22' font-weight='700'%3ERECEIVE DEEP%3C/text%3E%3Ctext x='488' y='88' fill='%2385d7b1' font-family='Arial' font-size='22' font-weight='700'%3EFIND NEXT LINE%3C/text%3E%3Ctext x='489' y='326' fill='%23ff8791' font-family='Arial' font-size='18'%3EMIDFIELD LINE%3C/text%3E%3C/svg%3E");
+  color:#9fb0bd;
+  font:560 .8rem/1.55 Inter,sans-serif;
+}
+
+/* Press-resistance sequence: explain the mental process before the ball arrives. */
+.layout-scouting #strengths .scout-card:nth-child(2)::after{
+  content:"Không cần rê qua người: lợi thế đến từ việc biết trước mình sẽ làm gì trước khi bóng tới.";
+  display:block;
+  min-height:224px;
+  margin-top:24px;
+  padding:176px 18px 14px;
+  border:1px solid rgba(139,200,255,.2);
+  background-color:#0c151e;
+  background-repeat:no-repeat;
+  background-position:center 18px;
+  background-size:calc(100% - 28px) 142px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 250'%3E%3Crect width='760' height='250' rx='18' fill='%230c151e'/%3E%3Cg font-family='Arial' font-size='22' font-weight='700' text-anchor='middle'%3E%3Ccircle cx='105' cy='105' r='48' fill='%23152230' stroke='%238bc8ff' stroke-width='3'/%3E%3Ctext x='105' y='113' fill='%23dcecf8'%3ESCAN%3C/text%3E%3Ccircle cx='285' cy='105' r='48' fill='%23152230' stroke='%238bc8ff' stroke-width='3'/%3E%3Ctext x='285' y='100' fill='%23dcecf8'%3EOPEN%3C/text%3E%3Ctext x='285' y='125' fill='%23dcecf8'%3EBODY%3C/text%3E%3Ccircle cx='475' cy='105' r='48' fill='%23152230' stroke='%238bc8ff' stroke-width='3'/%3E%3Ctext x='475' y='113' fill='%23dcecf8'%3ERECEIVE%3C/text%3E%3Ccircle cx='655' cy='105' r='48' fill='%23152230' stroke='%2385d7b1' stroke-width='3'/%3E%3Ctext x='655' y='113' fill='%23e1f7eb'%3ERELEASE%3C/text%3E%3C/g%3E%3Cg stroke='%23778c9f' stroke-width='4' fill='none'%3E%3Cpath d='M157 105 H220'/%3E%3Cpath d='M337 105 H408'/%3E%3Cpath d='M527 105 H590'/%3E%3C/g%3E%3Cg fill='%23778c9f'%3E%3Cpath d='M218 96 l17 9 -17 9z'/%3E%3Cpath d='M406 96 l17 9 -17 9z'/%3E%3Cpath d='M588 96 l17 9 -17 9z'/%3E%3C/g%3E%3Ctext x='380' y='204' text-anchor='middle' fill='%237f95a8' font-family='Arial' font-size='18'%3EDECISION MADE BEFORE THE PRESS ARRIVES%3C/text%3E%3C/svg%3E");
+  color:#9fb0bd;
+  font:560 .8rem/1.55 Inter,sans-serif;
+}
+
+/* Passing range: three routes from the same starting point. */
+.layout-scouting #strengths .scout-card:nth-child(3)::after{
+  content:"Một starting position, nhiều route: xuyên trung lộ, đổi cánh hoặc phất ra sau defensive line.";
+  display:block;
+  min-height:244px;
+  margin-top:24px;
+  padding:190px 18px 14px;
+  border:1px solid rgba(139,200,255,.2);
+  background-color:#0c151e;
+  background-repeat:no-repeat;
+  background-position:center 14px;
+  background-size:calc(100% - 28px) 160px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 280'%3E%3Crect width='760' height='280' rx='18' fill='%230c151e'/%3E%3Ccircle cx='130' cy='140' r='18' fill='%238bc8ff'/%3E%3Ccircle cx='610' cy='70' r='16' fill='%2385d7b1'/%3E%3Ccircle cx='610' cy='140' r='16' fill='%2385d7b1'/%3E%3Ccircle cx='610' cy='210' r='16' fill='%2385d7b1'/%3E%3Cpath d='M151 135 C300 85 410 62 586 70' fill='none' stroke='%23f4f7f8' stroke-width='6'/%3E%3Cpath d='M151 140 H586' fill='none' stroke='%238bc8ff' stroke-width='6'/%3E%3Cpath d='M151 145 C305 198 420 222 586 210' fill='none' stroke='%23f0c674' stroke-width='6' stroke-dasharray='11 9'/%3E%3Ctext x='640' y='76' fill='%23a9b8c5' font-family='Arial' font-size='18'%3ESWITCH%3C/text%3E%3Ctext x='640' y='146' fill='%23a9b8c5' font-family='Arial' font-size='18'%3ELINE BREAK%3C/text%3E%3Ctext x='640' y='216' fill='%23a9b8c5' font-family='Arial' font-size='18'%3ELONG%3C/text%3E%3C/svg%3E");
+  color:#9fb0bd;
+  font:560 .8rem/1.55 Inter,sans-serif;
+}
+
+/* Risk selection: make 'verticality vs recycle' understandable at a glance. */
+.layout-scouting #limitations .scout-card:nth-child(2)::after{
+  content:"Bài toán phát triển: không phải lúc nào đường chuyền khó nhất cũng là đường chuyền tốt nhất.";
+  display:block;
+  min-height:238px;
+  margin-top:24px;
+  padding:184px 18px 14px;
+  border:1px solid rgba(240,198,116,.22);
+  background-color:#0c151e;
+  background-repeat:no-repeat;
+  background-position:center 14px;
+  background-size:calc(100% - 28px) 154px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 270'%3E%3Crect width='760' height='270' rx='18' fill='%230c151e'/%3E%3Ccircle cx='130' cy='135' r='19' fill='%238bc8ff'/%3E%3Cpath d='M153 125 C290 74 405 58 595 76' fill='none' stroke='%23ff6673' stroke-width='7'/%3E%3Cpath d='M153 147 C265 206 390 217 560 188' fill='none' stroke='%2385d7b1' stroke-width='7'/%3E%3Cpath d='M572 65 l27 11 -24 17' fill='none' stroke='%23ff6673' stroke-width='6'/%3E%3Cpath d='M538 178 l27 10 -22 18' fill='none' stroke='%2385d7b1' stroke-width='6'/%3E%3Ctext x='610' y='82' fill='%23ff8791' font-family='Arial' font-size='21' font-weight='700'%3EATTACK LANE%3C/text%3E%3Ctext x='580' y='199' fill='%239ce4c1' font-family='Arial' font-size='21' font-weight='700'%3ERECYCLE%3C/text%3E%3Ctext x='380' y='245' text-anchor='middle' fill='%237f95a8' font-family='Arial' font-size='18'%3EGAME STATE DECIDES%3C/text%3E%3C/svg%3E");
+  color:#b8aa87;
+  font:560 .8rem/1.55 Inter,sans-serif;
+}
+
+/* Role map: where a deep playmaker generally operates in a double pivot. */
+.layout-scouting #roles .scout-role--best::after{
+  content:"Vùng hoạt động lý tưởng: trước hàng thủ, đủ thấp để nhận từ build-up nhưng đủ gần midfield để tìm đường chuyền tiến lên.";
+  display:block;
+  min-height:278px;
+  margin-top:26px;
+  padding:220px 18px 14px;
+  border:1px solid rgba(139,200,255,.22);
+  background-color:#0c151e;
+  background-repeat:no-repeat;
+  background-position:center 14px;
+  background-size:calc(100% - 28px) 194px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 360'%3E%3Crect width='600' height='360' rx='18' fill='%230c151e'/%3E%3Crect x='28' y='24' width='544' height='312' rx='8' fill='none' stroke='%23364b5f' stroke-width='3'/%3E%3Cline x1='300' y1='24' x2='300' y2='336' stroke='%23364b5f' stroke-width='3'/%3E%3Ccircle cx='300' cy='180' r='52' fill='none' stroke='%23364b5f' stroke-width='3'/%3E%3Crect x='28' y='105' width='80' height='150' fill='none' stroke='%23364b5f' stroke-width='3'/%3E%3Crect x='492' y='105' width='80' height='150' fill='none' stroke='%23364b5f' stroke-width='3'/%3E%3Cellipse cx='226' cy='180' rx='92' ry='68' fill='%238bc8ff' opacity='.1' stroke='%238bc8ff' stroke-width='3' stroke-dasharray='10 8'/%3E%3Ccircle cx='215' cy='174' r='19' fill='%238bc8ff'/%3E%3Ccircle cx='260' cy='211' r='14' fill='%235f7890'/%3E%3Cpath d='M236 165 C330 120 392 112 460 124' fill='none' stroke='%23f4f7f8' stroke-width='6'/%3E%3Cpath d='M438 111 l27 12 -22 18' fill='none' stroke='%23f4f7f8' stroke-width='6'/%3E%3Ctext x='165' y='87' fill='%238bc8ff' font-family='Arial' font-size='19' font-weight='700'%3EDEEP CREATION ZONE%3C/text%3E%3C/svg%3E");
+  color:#9fb0bd;
+  font:560 .8rem/1.55 Inter,sans-serif;
+}
+
+/* Lightweight glossary chips for non-specialist readers. */
+.layout-scouting #recruitment .scout-section-copy::before{
+  content:"JARGON CHEAT SHEET\A line-breaking pass = chuyền xuyên qua một tuyến phòng ngự  ·  recycle = chuyền an toàn để giữ bóng  ·  controller = tiền vệ điều chỉnh nhịp và hướng possession";
+  display:block;
+  margin:0 0 30px;
+  padding:20px 22px;
+  border-left:3px solid #85d7b1;
+  background:rgba(133,215,177,.07);
+  color:#bcd0c5;
+  font:500 .86rem/1.7 Inter,sans-serif;
+  white-space:pre-line;
+}
+
+@media(max-width:720px){
+  .layout-scouting #strengths .scout-card:nth-child(1)::after,
+  .layout-scouting #strengths .scout-card:nth-child(2)::after,
+  .layout-scouting #strengths .scout-card:nth-child(3)::after,
+  .layout-scouting #limitations .scout-card:nth-child(2)::after,
+  .layout-scouting #roles .scout-role--best::after{
+    background-size:calc(100% - 20px) auto;
+    padding-left:14px;
+    padding-right:14px;
+  }
+}
