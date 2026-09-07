@@ -106,6 +106,50 @@
   color:#c8d2da;
 }
 
+/* Final verdict: one clear takeaway followed by two clean assessment cells. */
+.layout-scouting .scout-verdict{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  margin-top:34px;
+  padding:0;
+  overflow:hidden;
+  border:1px solid rgba(133,215,177,.34);
+  background:#0f1821;
+}
+.layout-scouting .scout-verdict > p{
+  grid-column:1 / -1;
+  margin:0;
+  padding:30px 32px;
+  border-bottom:1px solid var(--sc-line);
+  background:linear-gradient(135deg,rgba(133,215,177,.1),rgba(17,26,36,.98));
+  font:620 clamp(1.18rem,2vw,1.75rem)/1.48 Inter,sans-serif;
+  letter-spacing:-.02em;
+  color:#e7edef;
+  text-wrap:pretty;
+}
+.layout-scouting .scout-verdict > div{
+  min-width:0;
+  padding:22px 24px 24px;
+  background:#0d161f;
+}
+.layout-scouting .scout-verdict > div + div{
+  border-left:1px solid var(--sc-line);
+}
+.layout-scouting .scout-verdict > div small{
+  display:block;
+  margin-bottom:8px;
+  font:700 .65rem/1.2 Inter,sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--sc-muted);
+}
+.layout-scouting .scout-verdict > div strong{
+  display:block;
+  font:680 .98rem/1.45 Inter,sans-serif;
+  color:var(--sc-ink);
+  text-wrap:balance;
+}
+
 @media(max-width:720px){
   .layout-scouting .scout-card,
   .layout-scouting .scout-role,
@@ -118,5 +162,19 @@
   .layout-scouting .scout-watch li{
     grid-template-columns:34px minmax(0,1fr);
     gap:10px;
+  }
+  .layout-scouting .scout-verdict{
+    grid-template-columns:1fr;
+  }
+  .layout-scouting .scout-verdict > p{
+    grid-column:1;
+    padding:24px 22px;
+  }
+  .layout-scouting .scout-verdict > div{
+    padding:18px 22px 20px;
+  }
+  .layout-scouting .scout-verdict > div + div{
+    border-left:0;
+    border-top:1px solid var(--sc-line);
   }
 }
