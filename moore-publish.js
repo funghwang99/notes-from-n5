@@ -11,23 +11,13 @@
     if (!entry) {
       entry = document.createElement('article');
       entry.className = 'archive-entry reveal is-visible';
-      entry.dataset.paths = 'bat-tu';
       entry.innerHTML = `<a class="archive-thumb" href="${HREF}"><img src="${IMAGE}" alt="Bobby Moore năm 1970 trong ảnh của El Gráfico." style="object-position:center 20%" /></a><div class="archive-entry-copy"><p class="article-meta">England · Bobby Moore</p><h2><a href="${HREF}">Bobby Moore</a></h2><p>Cái hay nhất của Bobby Moore thường nằm trong khoảnh khắc trước khi mọi thứ kịp trở nên nguy hiểm.</p></div><a class="archive-arrow" href="${HREF}" aria-label="Đọc bài Bobby Moore">↗</a>`;
     }
 
-    entry.querySelectorAll(`a[href^="${BASE}"]`).forEach((link) => link.setAttribute('href', HREF));
+    entry.dataset.paths = 'bat-tu';
+    entry.querySelectorAll(`a[href^="${BASE}"]`).forEach((link) => { link.href = HREF; });
     const first = archive.querySelector('.archive-entry');
     if (first !== entry) archive.insertBefore(entry, first);
-
-    const requested = new URLSearchParams(location.search).get('path');
-    const active = new Set(['hy-vong','tuoi-tre','ngoai-anh-den','chua-nguoi','bat-tu','tuong-dai']).has(requested) ? requested : 'all';
-    const entries = [...archive.querySelectorAll('.archive-entry[data-paths]')];
-    entries.forEach((item) => {
-      const paths = (item.dataset.paths || '').split(/\s+/).filter(Boolean);
-      item.hidden = active !== 'all' && !paths.includes(active);
-    });
-    const count = archive.querySelector('[data-archive-count]');
-    if (count) count.textContent = `${entries.filter((item) => !item.hidden).length} bài viết`;
   };
 
   const applyHome = () => {
