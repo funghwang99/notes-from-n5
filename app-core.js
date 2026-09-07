@@ -63,6 +63,9 @@
       'hy-vong': 'Hy Vọng',
       'tuoi-tre': 'Tuổi Trẻ',
       'ngoai-anh-den': 'Ngoài Ánh Đèn',
+      'tactical-dive': 'Tactical Dive',
+      'history': 'History',
+      'scouting-report': 'Scouting Report',
       'chua-nguoi': 'Chưa Nguôi',
       'bat-tu': 'Bất Tử',
       'tuong-dai': 'Tượng Đài',
@@ -205,7 +208,7 @@
       const first = archive.querySelector('.archive-entry');
       if (first) first.before(entry); else archive.append(entry);
 
-      const knownPaths = new Set(['hy-vong','tuoi-tre','ngoai-anh-den','chua-nguoi','bat-tu','tuong-dai']);
+      const knownPaths = new Set(['hy-vong','tuoi-tre','ngoai-anh-den','tactical-dive','history','scouting-report','chua-nguoi','bat-tu','tuong-dai']);
       const requested = new URLSearchParams(window.location.search).get('path');
       const active = knownPaths.has(requested) ? requested : 'all';
       const entries = Array.from(archive.querySelectorAll('.archive-entry[data-paths]'));
