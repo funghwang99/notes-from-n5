@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = '20260907-nico-1';
+  const VERSION = '20260912-chelsea-1';
   const stories = [
     {
       path:'tactical-dive', base:'the-jover.html', href:`the-jover.html?v=${VERSION}`,
@@ -64,6 +64,14 @@
       focus:'50% 16%', alt:'Nico Paz trong màu áo Como 1907 năm 2025.',
       meta:'Scouting Report · Nico Paz', title:'Nico Paz',
       deck:'Direct, high-usage attacking No.10 / creator-finisher. Một profile được xây từ reception giữa tuyến, carry và final-third threat.'
+    },
+    {
+      path:'tactical-dive', base:'out-wide-back-inside.html', href:`out-wide-back-inside.html?v=${VERSION}`,
+      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Arsenal-Chelsea%202026-09-06.jpg?width=1200',
+      fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Corner%20kick%20Arsenal%202026-09-06.jpg?width=1200',
+      focus:'50% 48%', alt:'Arsenal gặp Chelsea tại Emirates ngày 6 tháng 9 năm 2026.',
+      meta:'Tactical Dive · Arsenal 2–1 Chelsea', title:'Out Wide, Back Inside',
+      deck:'Arsenal không ra biên vì không thể đánh trung lộ. Họ ra biên để trung lộ tự mở ra.'
     }
   ];
 
