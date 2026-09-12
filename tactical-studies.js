@@ -2,12 +2,18 @@
   const page = document.querySelector('.tactical-study');
   if (!page) return;
 
-  if (page.classList.contains('study-chelsea-2026') && !window.__N5_CHELSEA_DIAGRAMS__) {
-    window.__N5_CHELSEA_DIAGRAMS__ = true;
-    const diagrams = document.createElement('script');
-    diagrams.src = 'chelsea-boards.js?v=20260912-boards-1';
-    diagrams.defer = true;
-    document.head.append(diagrams);
+  if (page.classList.contains('study-chelsea-2026')) {
+    const boardVisibility = document.createElement('style');
+    boardVisibility.textContent = '.study-chelsea-2026 .td-board-diagram,.study-chelsea-2026 .td-board-diagram.reveal{opacity:1!important;visibility:visible!important;transform:none!important;}';
+    document.head.append(boardVisibility);
+
+    if (!window.__N5_CHELSEA_DIAGRAMS__) {
+      window.__N5_CHELSEA_DIAGRAMS__ = true;
+      const diagrams = document.createElement('script');
+      diagrams.src = 'chelsea-boards.js?v=20260912-boards-2';
+      diagrams.defer = true;
+      document.head.append(diagrams);
+    }
   }
 
   const heroFocus = {
