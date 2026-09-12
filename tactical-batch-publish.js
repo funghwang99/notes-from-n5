@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = '20260912-chelsea-1';
+  const VERSION = '20260912-order-1';
   const stories = [
     {
       path:'tactical-dive', base:'the-jover.html', href:`the-jover.html?v=${VERSION}`,
@@ -74,6 +74,7 @@
       deck:'Arsenal không ra biên vì không thể đánh trung lộ. Họ ra biên để trung lộ tự mở ra.'
     }
   ];
+  const newestStory = stories[stories.length - 1];
 
   const guardImage = (img, story) => {
     if (!img || img.dataset.n5StoryGuard) return;
@@ -155,6 +156,23 @@
     });
   };
 
+  const pinNewestArchive = () => {
+    const archive = document.querySelector('.archive#archive');
+    if (!archive || !newestStory) return;
+    const entry = archive.querySelector(`.archive-entry a[href^="${newestStory.base}"]`)?.closest('.archive-entry');
+    const first = archive.querySelector('.archive-entry');
+    if (entry && first !== entry) archive.insertBefore(entry, first);
+  };
+
+  const pinNewestHome = () => {
+    if (!newestStory) return;
+    document.querySelectorAll('.home-flow-set').forEach((set) => {
+      const card = set.querySelector(`.home-flow-card[href^="${newestStory.base}"]`);
+      const first = set.querySelector('.home-flow-card');
+      if (card && first !== card) set.insertBefore(card, first);
+    });
+  };
+
   const readFlowStory = (card) => {
     const img = card?.querySelector('img');
     return {
@@ -218,20 +236,32 @@
       .catch(() => {});
   };
 
+  let archiveObserver = null;
   let latestObserver = null;
-  const watchLatest = () => {
-    if (latestObserver) return;
+  const watchOrder = () => {
+    const archive = document.querySelector('.archive#archive');
+    if (archive && !archiveObserver) {
+      archiveObserver = new MutationObserver(() => requestAnimationFrame(pinNewestArchive));
+      archiveObserver.observe(archive, { childList:true });
+    }
+
     const source = document.querySelector('.home-flow-set:not([aria-hidden="true"])');
-    if (!source) return;
-    latestObserver = new MutationObserver(() => requestAnimationFrame(syncLatest));
-    latestObserver.observe(source, { childList:true });
+    if (source && !latestObserver) {
+      latestObserver = new MutationObserver(() => requestAnimationFrame(() => {
+        pinNewestHome();
+        syncLatest();
+      }));
+      latestObserver.observe(source, { childList:true });
+    }
   };
 
   const apply = () => {
     applyArchive();
     applyHome();
+    pinNewestArchive();
+    pinNewestHome();
     syncLatest();
-    watchLatest();
+    watchOrder();
   };
 
   apply();
