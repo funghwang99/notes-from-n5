@@ -1,51 +1,171 @@
 (() => {
   const page = document.querySelector('.study-chelsea-2026');
-  if (!page || page.dataset.n5ChelseaBoards) return;
-  page.dataset.n5ChelseaBoards = '1';
+  if (!page) return;
 
   document.querySelectorAll('.td-match-diagram, .td-board-diagram').forEach((node) => node.remove());
+  page.dataset.n5ChelseaBoards = '3';
 
   const css = document.createElement('style');
   css.textContent = `
-    .td-board-diagram{margin:28px auto 0;max-width:980px;padding:16px 16px 14px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#10181f,#0b1117);box-shadow:0 16px 34px rgba(0,0,0,.18)}
-    .td-board-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:10px;flex-wrap:wrap}
-    .td-board-chip{display:inline-flex;align-items:center;padding:8px 12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:#f5f7f8;font:700 .78rem/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase}
-    .td-board-key{display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:#9eb0bf;font:600 .75rem/1 Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase}.td-board-key span{display:inline-flex;align-items:center;gap:7px}
-    .td-board-dot{width:11px;height:11px;border-radius:50%}.td-board-dot.is-ars{background:#cb3945}.td-board-dot.is-che{background:#387ee0}.td-board-dot.is-zone{background:#d8bd67}
-    .td-board-insight{margin:0 0 12px;color:#c2ced8;font:500 .97rem/1.6 Inter,sans-serif}.td-board-insight b{color:#f4f7f8}
-    .td-board-svg{display:block;width:100%;height:auto}.td-board-diagram figcaption{margin:12px 2px 0;color:#b5c0ca;font:500 .92rem/1.62 Inter,sans-serif}.td-board-diagram figcaption b{color:#f5f7f8}
-    .td-board-svg .pitch{fill:#111b24;stroke:rgba(255,255,255,.14);stroke-width:2}.td-board-svg .line{fill:none;stroke:rgba(255,255,255,.12);stroke-width:2}.td-board-svg .box{fill:none;stroke:rgba(255,255,255,.1);stroke-width:2}
-    .td-board-svg .zone-gold{fill:rgba(216,189,103,.11);stroke:rgba(216,189,103,.46);stroke-width:2.2;stroke-dasharray:10 9}.td-board-svg .zone-red{fill:rgba(203,57,69,.1);stroke:rgba(235,107,116,.5);stroke-width:2.2;stroke-dasharray:10 9}.td-board-svg .zone-blue{fill:rgba(56,126,224,.1);stroke:rgba(121,168,255,.46);stroke-width:2.2;stroke-dasharray:10 9}
-    .td-board-svg .ars{fill:#cb3945;stroke:#ffd7da;stroke-width:2}.td-board-svg .che{fill:#387ee0;stroke:#dce9ff;stroke-width:2}.td-board-svg .label{fill:#fff;font:800 12px/1 Inter,sans-serif;text-anchor:middle;dominant-baseline:middle}.td-board-svg .tag{fill:#afc0cf;font:700 10px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase}
-    .td-board-svg .arrow-red,.td-board-svg .arrow-blue,.td-board-svg .arrow-gold{fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.td-board-svg .arrow-red{stroke:#eb6b74;marker-end:url(#arr-r)}.td-board-svg .arrow-blue{stroke:#80afff;marker-end:url(#arr-b)}.td-board-svg .arrow-gold{stroke:#d8bd67;marker-end:url(#arr-g)}.td-board-svg .ghost{fill:none;stroke:rgba(220,228,237,.34);stroke-width:3;stroke-dasharray:10 8}
-    .td-board-svg .note-box{fill:#0c1318;stroke:rgba(255,255,255,.1);stroke-width:1.5}.td-board-svg .note-title{fill:#f4f7f8;font:700 13px/1.2 Inter,sans-serif}.td-board-svg .note-copy{fill:#a8bbcb;font:500 12px/1.35 Inter,sans-serif}
-    @media(max-width:720px){.td-board-diagram{padding:12px}.td-board-top{gap:10px}.td-board-insight{font-size:.93rem}.td-board-diagram figcaption{font-size:.87rem}}
+    .td-board-diagram{margin:30px auto 0;max-width:900px;opacity:1!important;visibility:visible!important;transform:none!important}
+    .td-board-shell{padding:14px;border:1px solid rgba(255,255,255,.10);background:#0d1115;box-shadow:0 20px 52px rgba(0,0,0,.28)}
+    .td-board-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:0 2px 12px;flex-wrap:wrap}
+    .td-board-head strong{display:block;color:#f6f7f8;font:800 clamp(.92rem,1.6vw,1.08rem)/1.25 Inter,sans-serif;letter-spacing:.03em}
+    .td-board-head span{color:#98a6b2;font:700 .72rem/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+    .td-board-legend{display:flex;gap:12px;align-items:center;color:#98a6b2;font:700 .7rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+    .td-board-legend i{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:-1px}
+    .td-board-legend .a{background:#d83b45}.td-board-legend .c{background:#3278db}
+    .td-board-svg{display:block;width:100%;height:auto;background:radial-gradient(circle at 50% 32%,#3e3e3e 0%,#292929 38%,#171717 75%,#101010 100%)}
+    .td-board-note{margin:12px 2px 0;color:#c1c9cf;font:500 .95rem/1.62 Inter,sans-serif}
+    .td-board-note b{color:#fff}
+    .td-board-svg .pitch-line{fill:none;stroke:rgba(255,255,255,.92);stroke-width:2.2}
+    .td-board-svg .soft-line{fill:none;stroke:rgba(255,255,255,.32);stroke-width:1.4;stroke-dasharray:8 8}
+    .td-board-svg .zone{fill:rgba(229,193,91,.09);stroke:rgba(229,193,91,.58);stroke-width:2.2;stroke-dasharray:10 10}
+    .td-board-svg .zone-blue{fill:rgba(75,137,240,.08);stroke:rgba(111,164,255,.42);stroke-width:2;stroke-dasharray:10 10}
+    .td-board-svg .route-a,.td-board-svg .route-c,.td-board-svg .route-g{fill:none;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+    .td-board-svg .route-a{stroke:#ef6a72}.td-board-svg .route-c{stroke:#6da5ff}.td-board-svg .route-g{stroke:#e0c65f}
+    .td-board-svg .token-ring{fill:#f4f4f4;stroke:#101010;stroke-width:2.2;filter:url(#shadow)}
+    .td-board-svg .token-a{fill:#d83b45}.td-board-svg .token-c{fill:#3278db}
+    .td-board-svg .token-text{fill:white;font:800 13px/1 Inter,sans-serif;text-anchor:middle;dominant-baseline:middle}
+    .td-board-svg .token-name{fill:#f4f5f6;font:700 10px/1 Inter,sans-serif;text-anchor:middle;paint-order:stroke;stroke:#111;stroke-width:3px;stroke-linejoin:round}
+    .td-board-svg .zone-label{fill:#f0d77b;font:800 10px/1 Inter,sans-serif;letter-spacing:.11em;text-anchor:middle;paint-order:stroke;stroke:#111;stroke-width:3px}
+    .td-board-svg .ball{fill:#fff;stroke:#101010;stroke-width:2;filter:url(#shadow)}
+    .td-board-svg .ball-dot{fill:#111}
+    @media(max-width:720px){.td-board-shell{padding:8px}.td-board-note{font-size:.88rem}.td-board-head{margin-bottom:8px}.td-board-legend{gap:8px}}
   `;
   document.head.append(css);
 
-  const defs = `<defs><marker id="arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#eb6b74"/></marker><marker id="arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#80afff"/></marker><marker id="arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d8bd67"/></marker></defs>`;
-  const pitch = `<rect x="20" y="20" width="720" height="400" rx="28" class="pitch"/><line x1="380" y1="20" x2="380" y2="420" class="line"/><circle cx="380" cy="220" r="52" class="line"/><rect x="20" y="122" width="84" height="196" class="box"/><rect x="656" y="122" width="84" height="196" class="box"/>`;
-  const n=(x,y,t,l,r=18)=>`<circle cx="${x}" cy="${y}" r="${r}" class="${t}"/><text x="${x}" y="${y+1}" class="label">${l}</text>`;
-  const nt=(x,y,w,title,lines)=>`<rect x="${x}" y="${y}" width="${w}" height="${42+lines.length*16}" rx="14" class="note-box"/><text x="${x+18}" y="${y+24}" class="note-title">${title}</text>${lines.map((s,i)=>`<text x="${x+18}" y="${y+41+i*16}" class="note-copy">${s}</text>`).join('')}`;
+  const P = (x,y,team,short,name) => ({x,y,team,short,name});
+  const A = (x1,y1,x2,y2,color='a') => ({x1,y1,x2,y2,color});
+  const Z = (x,y,w,h,label,kind='gold') => ({x,y,w,h,label,kind});
 
-  const boards=[
-    {i:'00',idea:'Chelsea bịt giữa sân. Arsenal ra cánh phải để kéo khối lệch, rồi chuyền ngược vào khe trung lộ vừa mở.',cap:'Đây là ý lớn của cả bài: Arsenal không cố ép bóng qua nơi Chelsea đông người nhất. Họ kéo Chelsea ra ngoài trước, rồi mới quay vào trong.',svg:`${defs}${pitch}<rect x="248" y="112" width="262" height="210" rx="26" class="zone-blue"/><rect x="338" y="160" width="96" height="126" rx="22" class="zone-gold"/>${n(320,146,'che','PA')}${n(380,126,'che','JP')}${n(440,146,'che','RO')}${n(334,222,'che','JA')}${n(426,222,'che','LA')}<rect x="558" y="112" width="118" height="226" rx="24" class="zone-red"/>${n(620,118,'ars','SA')}${n(596,184,'ars','BW')}${n(550,238,'ars','ØD')}${n(512,294,'ars','RI')}${n(592,288,'ars','KA')}<path d="M592 288C606 252 608 226 600 194" class="arrow-red"/><path d="M618 118C608 158 592 188 568 216" class="arrow-red"/><path d="M550 238C512 238 470 238 428 238" class="arrow-gold"/>${nt(44,42,228,'Chelsea khóa giữa',['5 người bảo vệ trung lộ','và chấp nhận nhường biên'])}${nt(486,352,226,'Arsenal đi vòng ngoài',['Overload cánh phải','→ chuyền ngược vào trong'])}<text x="344" y="152" class="tag">KHOẢNG TRỐNG ĐỂ TÁI NHẬP</text>`},
-    {i:'01',idea:'Chỉ có width thôi chưa đủ. Chelsea vẫn ổn nếu khối 5 người ở giữa sân còn nguyên hình.',cap:'Hai cánh được nhường tương đối, nhưng trọng tâm của Chelsea vẫn là giữ khối 5 người ở trung lộ.',svg:`${defs}${pitch}<rect x="230" y="104" width="300" height="200" rx="28" class="zone-blue"/><rect x="64" y="58" width="116" height="320" rx="24" class="zone-gold"/><rect x="580" y="58" width="116" height="320" rx="24" class="zone-gold"/>${n(304,142,'che','PA')}${n(380,122,'che','JP')}${n(456,142,'che','RO')}${n(330,220,'che','JA')}${n(430,220,'che','LA')}${n(110,110,'ars','LW')}${n(648,110,'ars','RW')}<path d="M146 110C194 114 228 118 258 124" class="arrow-red"/><path d="M612 110C564 114 530 118 500 124" class="arrow-red"/>${nt(42,34,178,'Biên chưa đủ nguy hiểm',['Có người đứng biên','nhưng Chelsea vẫn giữ giữa'])}${nt(250,336,260,'Khối trung lộ là lõi chính',['Palmer · João Pedro · Rogers','cộng với James · Lavia'])}`},
-    {i:'02',idea:'Arsenal nhồi quân bên phải đến mức Chelsea phải giải bài toán quá tải người trong cùng một hành lang.',cap:'Saka, White, Ødegaard, Rice và Havertz cùng dồn về một hành lang. Đó là cách Arsenal tạo áp lực thật sự.',svg:`${defs}${pitch}<rect x="468" y="64" width="214" height="290" rx="26" class="zone-red"/>${n(640,108,'ars','SA')}${n(604,170,'ars','BW')}${n(556,224,'ars','ØD')}${n(514,286,'ars','RI')}${n(610,286,'ars','KA')}${n(640,182,'che','WB')}${n(596,126,'che','CB')}${n(556,168,'che','JA')}${n(524,126,'che','RO')}<path d="M514 286C532 254 544 238 554 226" class="arrow-red"/><path d="M610 286C618 254 620 226 616 196" class="arrow-red"/><path d="M640 108C632 132 624 150 612 168" class="arrow-red"/>${nt(44,54,230,'Overload cánh phải',['5 cầu thủ Arsenal tập trung','vào cùng một corridor'])}${nt(42,318,250,'Chelsea bị hỏi quá nhiều câu',['Wing-back, CM và RCB','đều phải bước ra cùng lúc'])}`},
-    {i:'03',idea:'Chelsea chuyển sang 5-4-1, nhưng Palmer và Rogers phải hồi vị trí dài nên biên vẫn có thể bị khai thác.',cap:'5-4-1 giúp Chelsea che biên tốt hơn trên giấy, nhưng Palmer và Rogers phải chạy một quãng dài để về đúng chỗ.',svg:`${defs}${pitch}<rect x="76" y="146" width="608" height="132" rx="28" class="zone-blue"/>${n(158,212,'che','PA')}${n(290,212,'che','JA')}${n(470,212,'che','LA')}${n(602,212,'che','RO')}${n(380,132,'che','JP')}<path d="M158 124C178 96 198 78 224 58" class="ghost"/><path d="M602 124C582 96 562 78 536 58" class="ghost"/>${n(112,84,'ars','RUN')}${n(648,84,'ars','RUN')}<path d="M112 84C144 104 162 122 178 146" class="arrow-red"/><path d="M648 84C616 104 598 122 582 146" class="arrow-red"/>${nt(52,314,266,'Trên sơ đồ thì kín hơn',['Nhưng wide midfielder phải chạy dài','mỗi khi Arsenal chạy sau lưng'])}`},
-    {i:'04',idea:'Overload ngoài biên làm một pivot Chelsea phải dạt sang hỗ trợ. Khi pivot lệch đi, khoảng trống ở trong mở ra.',cap:'Arsenal không thắng biên để kết thúc ở biên. Họ thắng biên để kéo James hoặc Lavia ra khỏi trung lộ.',svg:`${defs}${pitch}<rect x="500" y="92" width="164" height="246" rx="24" class="zone-red"/><rect x="304" y="150" width="118" height="120" rx="22" class="zone-gold"/>${n(380,206,'che','LA')}${n(322,180,'che','JA')}<path d="M322 180C382 184 440 182 514 176" class="arrow-blue"/>${n(602,112,'ars','SA')}${n(566,170,'ars','BW')}${n(536,228,'ars','ØD')}${n(612,258,'ars','KA')}<path d="M536 228C502 220 468 214 420 206" class="arrow-gold"/>${nt(56,58,224,'Một pivot bị kéo lệch',['Không hỗ trợ: biên quá tải','Hỗ trợ: giữa sân mở ra'])}<text x="308" y="142" class="tag">KHE TRUNG LỘ / HALF-SPACE</text>`},
-    {i:'05',idea:'Rice hoặc Lewis-Skelly lùi xuống kéo một pivot bước theo, làm hàng tiền vệ Chelsea bị phẳng và lộ tầng sau.',cap:'Khi một pivot bước lên theo người nhận bóng, tuyến giữa Chelsea không còn che được tầng phía sau một cách tự nhiên.',svg:`${defs}${pitch}<rect x="278" y="152" width="208" height="96" rx="20" class="zone-gold"/>${n(280,302,'ars','RI')}${n(338,240,'che','JA')}${n(430,210,'che','LA')}${n(388,188,'ars','ØD')}${n(468,178,'ars','CA')}<path d="M280 302C300 278 316 262 332 248" class="arrow-red"/><path d="M388 188C404 186 422 186 442 186" class="arrow-gold"/><path d="M468 178C490 170 512 156 534 140" class="arrow-gold"/>${nt(56,56,242,'Người kéo ra khỏi vị trí',['Rice / MLS lùi xuống nhận bóng','→ Chelsea phải bước theo'])}${nt(436,298,234,'Người hưởng lợi phía sau',['Ødegaard, Calafiori và runner','xuất hiện sau lớp pressing'])}`},
-    {i:'06',idea:'Calafiori chạy vào trong kéo Neto đi theo. Chỉ cần vậy, back five Chelsea đã méo hình và hở khoảng ngoài biên.',cap:'Calafiori không nhất thiết phải chạm bóng. Việc anh kéo reference của Neto đã đủ làm hành lang Chelsea xô lệch.',svg:`${defs}${pitch}<rect x="114" y="94" width="158" height="242" rx="24" class="zone-red"/><rect x="246" y="132" width="174" height="154" rx="22" class="zone-gold"/>${n(176,316,'ars','CA')}${n(252,238,'che','NE')}${n(152,170,'che','A')}${n(228,158,'che','CB')}${n(304,150,'che','CB')}${n(380,154,'che','CB')}<path d="M176 316C210 270 242 228 292 196" class="arrow-red"/><path d="M252 238C270 226 288 212 308 198" class="arrow-blue"/>${nt(454,60,230,'Calafiori kéo Neto vào trong',['Neto bỏ hành lang để theo người','→ back five mất hình dạng'])}${nt(454,308,224,'Khoảng hở được tạo ra',['Giữa wing-back và centre-back','gần nhất'])}`},
-    {i:'07',idea:'Arsenal thêm quân số để tấn công nhưng đổi lại chỉ còn back two. Khi mất bóng, hai hành lang mở ra rất nhanh.',cap:'Overload giúp Arsenal phá low block, nhưng cũng khiến họ dễ tổn thương hơn trong chuyển trạng thái.',svg:`${defs}${pitch}<rect x="38" y="58" width="144" height="312" rx="24" class="zone-blue"/><rect x="578" y="58" width="144" height="312" rx="24" class="zone-blue"/>${n(286,336,'ars','CB')}${n(474,336,'ars','CB')}${n(208,166,'ars','SA',16)}${n(288,188,'ars','BW',16)}${n(368,204,'ars','ØD',16)}${n(446,190,'ars','KA',16)}${n(528,166,'ars','ML',16)}${n(126,98,'che','RO',16)}${n(380,98,'che','PA',16)}${n(634,98,'che','NE',16)}<path d="M126 98C180 146 220 198 252 266" class="arrow-blue"/><path d="M380 98C384 148 384 200 382 262" class="arrow-blue"/><path d="M634 98C580 146 540 198 508 266" class="arrow-blue"/>${nt(220,48,314,'Back two + quá nhiều người đứng cao',['Tốt cho việc ép khối thấp','nhưng hai sườn sau lưng dễ lộ'])}`},
-    {i:'08',idea:'Chelsea có bóng thì biến thành shape hybrid: Palmer vào trong, RCB dâng half-space, Neto giữ rộng. Arsenal đáp lại bằng 4-4-2 cẩn trọng.',cap:'Chelsea khi cầm bóng không giữ nguyên cấu trúc xuất phát. Đó là lý do Arsenal không pressing mù quáng.',svg:`${defs}${pitch}<rect x="458" y="66" width="152" height="272" rx="24" class="zone-blue"/>${n(586,100,'che','NE')}${n(512,174,'che','RCB')}${n(432,144,'che','PA')}${n(336,186,'che','JA')}${n(398,214,'che','LA')}<path d="M512 174C532 154 552 132 578 108" class="arrow-blue"/><path d="M432 144C404 152 384 164 362 178" class="arrow-blue"/>${n(286,170,'ars','KA',16)}${n(344,150,'ars','ØD',16)}${n(252,234,'ars','LM',16)}${n(328,238,'ars','CM',16)}${n(404,238,'ars','CM',16)}${n(480,234,'ars','RM',16)}${nt(54,54,242,'Chelsea khi có bóng',['Palmer vào trong','RCB dâng · Neto giữ biên'])}${nt(56,316,262,'Arsenal đáp lại bằng 4-4-2',['Giữ người gần tuyến giữa','không cho Chelsea nối bóng dễ'])}`},
-    {i:'09',idea:'Arsenal không cần xóa Palmer khỏi trận. Họ chỉ cần đẩy anh xa khu số 10 và buộc anh nhận bóng ở vùng ít nguy hiểm hơn.',cap:'Palmer vẫn chạm bóng, nhưng nếu các lần chạm bóng ấy diễn ra sâu hơn và xa khung thành hơn, tác động của anh giảm rõ rệt.',svg:`${defs}${pitch}<rect x="298" y="60" width="164" height="80" rx="22" class="zone-gold"/>${n(380,102,'che','PA',20)}<path d="M380 102C380 146 380 190 380 236" class="ghost"/>${n(330,204,'che','JA')}${n(430,204,'che','LA')}${n(380,154,'ars','MARK')}<path d="M380 102C372 132 362 158 350 184" class="arrow-blue"/><path d="M380 154C380 138 380 126 380 116" class="arrow-red"/>${nt(492,78,214,'Palmer vẫn có bóng',['Nhưng ở vị trí sâu hơn','và xa vùng số 10 hơn'])}${nt(56,306,286,'Arsenal đổi điều kiện nhận bóng',['Không cần loại Palmer khỏi trận','chỉ đẩy anh ra xa khu nguy hiểm'])}<text x="312" y="52" class="tag">VÙNG SỐ 10 / KHU NGUY HIỂM</text>`}
+  const boards = [
+    {
+      n:'00', title:'Khóa giữa → kéo ra biên → quay vào trong',
+      note:'Chelsea đóng trung lộ bằng 5 người. Arsenal đưa bóng sang phải để kéo shape lệch đi, rồi mới tái nhập vào khoảng trống ở giữa.',
+      ball:[600,196],
+      zones:[Z(282,240,250,170,'CENTRAL LOCK','blue'),Z(548,110,150,275,'RIGHT OVERLOAD'),Z(350,260,112,120,'RE-ENTRY')],
+      players:[P(330,228,'c','PA','Palmer'),P(410,208,'c','JP','J. Pedro'),P(490,228,'c','RO','Rogers'),P(348,318,'c','JA','James'),P(472,318,'c','LA','Lavia'),P(636,145,'a','SA','Saka'),P(608,218,'a','BW','White'),P(565,292,'a','ØD','Ødegaard'),P(520,360,'a','RI','Rice'),P(625,340,'a','KA','Havertz')],
+      arrows:[A(625,340,610,238),A(636,145,605,260),A(565,292,448,315,'g')]
+    },
+    {
+      n:'01', title:'Chelsea nhường biên, nhưng giữ lõi trung tâm',
+      note:'Width tự nó chưa đủ. Chelsea chấp nhận Arsenal có bóng ngoài biên miễn là khối 5 người ở giữa sân vẫn nguyên vẹn.',
+      ball:[676,188],
+      zones:[Z(270,205,280,210,'CENTRAL SHIELD','blue')],
+      players:[P(335,220,'c','PA','Palmer'),P(410,198,'c','JP','J. Pedro'),P(485,220,'c','RO','Rogers'),P(355,310,'c','JA','James'),P(465,310,'c','LA','Lavia'),P(105,185,'a','LW','Left width'),P(680,185,'a','RW','Right width')],
+      arrows:[A(666,188,540,220),A(120,185,276,220)]
+    },
+    {
+      n:'02', title:'Right-side overload: 5 Arsenal, 1 hành lang',
+      note:'Saka, White, Ødegaard, Rice và Havertz dồn sang phải. Chelsea phải giải quá nhiều reference trong cùng một corridor.',
+      ball:[640,180],
+      zones:[Z(520,92,190,360,'5v4 OVERLOAD')],
+      players:[P(655,130,'a','SA','Saka'),P(622,210,'a','BW','White'),P(575,285,'a','ØD','Ødegaard'),P(525,355,'a','RI','Rice'),P(635,350,'a','KA','Havertz'),P(670,250,'c','WB','Wing-back'),P(620,155,'c','CB','RCB'),P(580,215,'c','JA','James'),P(535,170,'c','RO','Rogers')],
+      arrows:[A(525,355,570,295),A(635,350,640,260),A(655,130,642,220)]
+    },
+    {
+      n:'03', title:'5–4–1: kín hơn trên giấy, vẫn hở ở hành lang',
+      note:'Palmer và Rogers phải lùi rất xa ra hai cánh. Arsenal vẫn có thể chạy sau lưng họ trước khi Chelsea kịp set lại block.',
+      ball:[142,168],
+      zones:[Z(120,255,580,135,'CHELSEA 4-MAN MIDFIELD','blue')],
+      players:[P(160,318,'c','PA','Palmer'),P(300,318,'c','JA','James'),P(520,318,'c','LA','Lavia'),P(660,318,'c','RO','Rogers'),P(410,225,'c','JP','J. Pedro'),P(126,155,'a','RUN','Runner'),P(694,155,'a','RUN','Runner')],
+      arrows:[A(126,155,176,270),A(694,155,644,270)],
+      ghost:[A(160,250,220,125,'c'),A(660,250,600,125,'c')]
+    },
+    {
+      n:'04', title:'Overload ngoài biên để mở khoảng trống phía trong',
+      note:'Một pivot phải dạt sang cứu cánh phải. Khi James hoặc Lavia rời vị trí, inside lane mới là nơi Arsenal muốn tấn công.',
+      ball:[565,270],
+      zones:[Z(535,100,155,335,'OVERLOAD'),Z(325,250,132,132,'INSIDE SPACE')],
+      players:[P(408,320,'c','LA','Lavia'),P(350,278,'c','JA','James'),P(642,150,'a','SA','Saka'),P(604,225,'a','BW','White'),P(566,300,'a','ØD','Ødegaard'),P(645,365,'a','KA','Havertz')],
+      arrows:[A(350,278,548,245,'c'),A(566,300,435,318,'g')]
+    },
+    {
+      n:'05', title:'Kéo pivot bước lên, nhận bóng sau lưng lớp pressing',
+      note:'Rice hoặc Lewis-Skelly lùi xuống. Một pivot Chelsea bước theo, và Ødegaard/Calafiori xuất hiện đúng tầng phía sau.',
+      ball:[292,438],
+      zones:[Z(315,245,225,145,'BETWEEN LINES')],
+      players:[P(292,438,'a','RI','Rice'),P(355,355,'c','JA','James'),P(470,322,'c','LA','Lavia'),P(410,280,'a','ØD','Ødegaard'),P(505,265,'a','CA','Calafiori')],
+      arrows:[A(292,438,348,365),A(410,280,455,282,'g'),A(505,265,555,210,'g')]
+    },
+    {
+      n:'06', title:'Calafiori kéo Neto vào trong, back five méo hình',
+      note:'Calafiori không cần nhận bóng. Chỉ cần anh invert đủ sâu để Neto đi theo, khoảng giữa wing-back và centre-back đã mở.',
+      ball:[175,485],
+      zones:[Z(95,140,170,360,'OUTSIDE SPACE'),Z(250,235,180,190,'HALF-SPACE')],
+      players:[P(175,485,'a','CA','Calafiori'),P(270,355,'c','NE','Neto'),P(145,250,'c','AC','Acheampong'),P(245,238,'c','CB','CB'),P(345,225,'c','CB','CB'),P(445,235,'c','CB','CB')],
+      arrows:[A(175,485,315,315),A(270,355,325,312,'c')]
+    },
+    {
+      n:'07', title:'Cái giá của overload: back two và hai hành lang trống',
+      note:'Đẩy thêm người lên cao giúp Arsenal ép low block, nhưng khi mất bóng, Rogers, Palmer và Neto có thể chạy thẳng vào hai kênh transition.',
+      ball:[420,340],
+      zones:[Z(70,120,130,480,'TRANSITION'),Z(620,120,130,480,'TRANSITION')],
+      players:[P(320,560,'a','CB','CB'),P(500,560,'a','CB','CB'),P(230,275,'a','SA','Saka'),P(315,305,'a','BW','White'),P(405,325,'a','ØD','Ødegaard'),P(492,305,'a','KA','Havertz'),P(575,275,'a','ML','Left 8'),P(140,165,'c','RO','Rogers'),P(410,160,'c','PA','Palmer'),P(680,165,'c','NE','Neto')],
+      arrows:[A(140,165,270,500,'c'),A(410,160,410,505,'c'),A(680,165,550,500,'c')]
+    },
+    {
+      n:'08', title:'Chelsea có bóng: Palmer vào trong, Neto giữ biên',
+      note:'Chelsea biến hình khi possession: Palmer bó vào, RCB bước lên half-space, Neto đứng rộng. Arsenal đáp lại bằng 4–4–2 trung block.',
+      ball:[535,245],
+      zones:[Z(520,80,170,360,'NETO WIDE','blue')],
+      players:[P(650,138,'c','NE','Neto'),P(555,255,'c','RCB','RCB'),P(470,220,'c','PA','Palmer'),P(365,285,'c','JA','James'),P(435,335,'c','LA','Lavia'),P(305,250,'a','KA','Havertz'),P(372,230,'a','ØD','Ødegaard'),P(265,375,'a','LM','LM'),P(350,390,'a','CM','CM'),P(445,390,'a','CM','CM'),P(535,375,'a','RM','RM')],
+      arrows:[A(555,255,635,160,'c'),A(470,220,405,270,'c')]
+    },
+    {
+      n:'09', title:'Không xóa Palmer khỏi trận — đẩy anh ra xa vùng số 10',
+      note:'Palmer vẫn được chạm bóng, nhưng ở vị trí sâu hơn gần James/Lavia. Arsenal đổi nơi anh nhận bóng thay vì cố loại anh hoàn toàn.',
+      ball:[410,315],
+      zones:[Z(325,120,170,120,'DANGEROUS #10')],
+      players:[P(410,175,'c','PA','Palmer'),P(355,330,'c','JA','James'),P(465,330,'c','LA','Lavia'),P(410,255,'a','MK','Marker')],
+      arrows:[A(410,175,380,305,'c'),A(410,255,410,200)]
+    }
   ];
 
-  const sections=[...page.querySelectorAll('.td-section')];
-  boards.forEach((b,idx)=>{
-    const s=sections[idx]; if(!s)return;
-    const f=document.createElement('figure'); f.className='td-board-diagram reveal';
-    f.innerHTML=`<div class="td-board-top"><span class="td-board-chip">Sa bàn ${b.i}</span><div class="td-board-key"><span><i class="td-board-dot is-ars"></i>Arsenal</span><span><i class="td-board-dot is-che"></i>Chelsea</span><span><i class="td-board-dot is-zone"></i>Khu vực chính</span></div></div><p class="td-board-insight"><b>Ý chính:</b> ${b.idea}</p><svg class="td-board-svg" viewBox="0 0 760 440" role="img" aria-label="Sa bàn ${b.i}">${b.svg}</svg><figcaption><b>Hình ${b.i}.</b> ${b.cap}</figcaption>`;
-    (s.querySelector('.td-copy')||s.lastElementChild)?.insertAdjacentElement('afterend',f);
+  const defs = (id) => `
+    <defs>
+      <filter id="shadow-${id}" x="-80%" y="-80%" width="260%" height="260%"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000" flood-opacity=".62"/></filter>
+      <marker id="arr-a-${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#ef6a72"/></marker>
+      <marker id="arr-c-${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#6da5ff"/></marker>
+      <marker id="arr-g-${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#e0c65f"/></marker>
+    </defs>`;
+
+  const pitch = `
+    <path d="M95 18 L725 18 L785 700 L35 700 Z" class="pitch-line"/>
+    <path d="M66 335 L754 335" class="pitch-line"/>
+    <circle cx="410" cy="335" r="90" class="pitch-line"/>
+    <circle cx="410" cy="335" r="4" fill="#fff"/>
+    <path d="M270 700 L270 610 L550 610 L550 700" class="pitch-line"/>
+    <path d="M330 700 L330 660 L490 660 L490 700" class="pitch-line"/>
+    <path d="M346 610 A72 72 0 0 1 474 610" class="pitch-line"/>
+    <circle cx="410" cy="644" r="4" fill="#fff"/>
+    <path d="M306 18 L306 76 L514 76 L514 18" class="pitch-line" opacity=".42"/>
+    <path d="M355 76 A62 62 0 0 0 465 76" class="pitch-line" opacity=".42"/>`;
+
+  const token = (p,id) => {
+    const cls = p.team === 'a' ? 'token-a' : 'token-c';
+    return `<g filter="url(#shadow-${id})"><circle cx="${p.x}" cy="${p.y}" r="25" class="token-ring"/><circle cx="${p.x}" cy="${p.y}" r="21" class="${cls}"/><path d="M${p.x-16} ${p.y+9} Q${p.x} ${p.y-8} ${p.x+16} ${p.y+9}" fill="rgba(255,255,255,.16)"/><text x="${p.x}" y="${p.y+1}" class="token-text">${p.short}</text></g><text x="${p.x}" y="${p.y+39}" class="token-name">${p.name}</text>`;
+  };
+
+  const ball = ([x,y],id) => `<g filter="url(#shadow-${id})"><circle cx="${x}" cy="${y}" r="12" class="ball"/><circle cx="${x}" cy="${y}" r="3.3" class="ball-dot"/><circle cx="${x-6}" cy="${y+4}" r="2.2" class="ball-dot"/><circle cx="${x+6}" cy="${y+4}" r="2.2" class="ball-dot"/></g>`;
+  const zone = (z) => `<rect x="${z.x}" y="${z.y}" width="${z.w}" height="${z.h}" rx="24" class="${z.kind==='blue'?'zone-blue':'zone'}"/><text x="${z.x+z.w/2}" y="${z.y+18}" class="zone-label">${z.label}</text>`;
+  const route = (r,id,ghost=false) => {
+    const cls = ghost ? 'soft-line' : `route-${r.color}`;
+    const marker = ghost ? '' : ` marker-end="url(#arr-${r.color}-${id})"`;
+    const mx=(r.x1+r.x2)/2;
+    return `<path d="M${r.x1} ${r.y1} C${mx} ${r.y1}, ${mx} ${r.y2}, ${r.x2} ${r.y2}" class="${cls}"${marker}/>`;
+  };
+
+  const sections = [...page.querySelectorAll('.td-section')];
+  boards.forEach((b,idx) => {
+    const section = sections[idx];
+    if (!section) return;
+    const id = `b${idx}`;
+    const figure = document.createElement('figure');
+    figure.className = 'td-board-diagram';
+    figure.innerHTML = `<div class="td-board-shell"><div class="td-board-head"><div><span>Sa bàn ${b.n}</span><strong>${b.title}</strong></div><div class="td-board-legend"><span><i class="a"></i>Arsenal</span><span><i class="c"></i>Chelsea</span></div></div><svg class="td-board-svg" viewBox="0 0 820 720" role="img" aria-label="Sa bàn ${b.n}: ${b.title}">${defs(id)}${pitch}${(b.zones||[]).map(zone).join('')}${(b.ghost||[]).map(r=>route(r,id,true)).join('')}${(b.arrows||[]).map(r=>route(r,id,false)).join('')}${(b.players||[]).map(p=>token(p,id)).join('')}${b.ball?ball(b.ball,id):''}</svg><p class="td-board-note"><b>Ý chính:</b> ${b.note}</p></div>`;
+    const anchor = section.querySelector('.td-copy') || section.lastElementChild;
+    anchor?.insertAdjacentElement('afterend', figure);
   });
 })();
