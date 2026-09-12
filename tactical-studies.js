@@ -16,7 +16,7 @@
         if (window.__N5_CHELSEA_PORTRAITS__) return;
         window.__N5_CHELSEA_PORTRAITS__ = true;
         const portraits = document.createElement('script');
-        portraits.src = 'chelsea-portraits.js?v=20260912-portraits-1';
+        portraits.src = 'chelsea-portraits.js?v=20260912-portraits-2';
         portraits.defer = true;
         document.head.append(portraits);
       };
