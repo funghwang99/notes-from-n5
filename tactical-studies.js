@@ -2,6 +2,14 @@
   const page = document.querySelector('.tactical-study');
   if (!page) return;
 
+  if (page.classList.contains('study-chelsea-2026') && !window.__N5_CHELSEA_DIAGRAMS__) {
+    window.__N5_CHELSEA_DIAGRAMS__ = true;
+    const diagrams = document.createElement('script');
+    diagrams.src = 'chelsea-diagrams.js?v=20260912-diagrams-1';
+    diagrams.defer = true;
+    document.head.append(diagrams);
+  }
+
   const heroFocus = {
     'study-jover': '50% 42%',
     'study-arteta': '50% 0%',
