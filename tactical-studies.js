@@ -10,7 +10,7 @@
     if (!window.__N5_CHELSEA_DIAGRAMS__) {
       window.__N5_CHELSEA_DIAGRAMS__ = true;
       const diagrams = document.createElement('script');
-      diagrams.src = 'chelsea-boards.js?v=20260912-boards-2';
+      diagrams.src = 'chelsea-boards.js?v=20260912-boards-3';
       diagrams.defer = true;
       document.head.append(diagrams);
     }
