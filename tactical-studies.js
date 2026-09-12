@@ -10,16 +10,8 @@
     if (!window.__N5_CHELSEA_DIAGRAMS__) {
       window.__N5_CHELSEA_DIAGRAMS__ = true;
       const diagrams = document.createElement('script');
-      diagrams.src = 'chelsea-boards.js?v=20260912-boards-5';
+      diagrams.src = 'chelsea-boards.js?v=20260913-lineup-1';
       diagrams.defer = true;
-      diagrams.onload = () => {
-        if (window.__N5_CHELSEA_PORTRAITS__) return;
-        window.__N5_CHELSEA_PORTRAITS__ = true;
-        const portraits = document.createElement('script');
-        portraits.src = 'chelsea-portraits.js?v=20260912-portraits-2';
-        portraits.defer = true;
-        document.head.append(portraits);
-      };
       document.head.append(diagrams);
     }
   }
