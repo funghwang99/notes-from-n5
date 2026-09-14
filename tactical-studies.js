@@ -4,13 +4,13 @@
 
   if (page.classList.contains('study-chelsea-2026')) {
     const boardVisibility = document.createElement('style');
-    boardVisibility.textContent = '.study-chelsea-2026 .td-board-diagram,.study-chelsea-2026 .td-board-diagram.reveal,.study-chelsea-2026 .td-portrait-board,.study-chelsea-2026 .td-five-board{opacity:1!important;visibility:visible!important;transform:none!important;}';
+    boardVisibility.textContent = '.study-chelsea-2026 .td-board-diagram,.study-chelsea-2026 .td-board-diagram.reveal,.study-chelsea-2026 .td-portrait-board,.study-chelsea-2026 .td-five-board,.study-chelsea-2026 .td-reference-board{opacity:1!important;visibility:visible!important;transform:none!important;}';
     document.head.append(boardVisibility);
 
     if (!window.__N5_CHELSEA_DIAGRAMS__) {
       window.__N5_CHELSEA_DIAGRAMS__ = true;
       const diagrams = document.createElement('script');
-      diagrams.src = 'chelsea-boards.js?v=20260914-fiveboards-1';
+      diagrams.src = 'chelsea-boards.js?v=20260914-reference-2';
       diagrams.defer = true;
       document.head.append(diagrams);
     }
