@@ -3,15 +3,31 @@
   const navigation = document.querySelector('[data-navigation], #site-navigation');
 
   if (menuButton && navigation) {
+    const closeNavigation = () => {
+      menuButton.setAttribute('aria-expanded', 'false');
+      navigation.classList.remove('is-open');
+    };
+
     menuButton.addEventListener('click', () => {
       const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
       menuButton.setAttribute('aria-expanded', String(!isOpen));
       navigation.classList.toggle('is-open', !isOpen);
     });
+
     navigation.addEventListener('click', (event) => {
-      if (!event.target.closest('a')) return;
-      menuButton.setAttribute('aria-expanded', 'false');
-      navigation.classList.remove('is-open');
+      if (event.target.closest('a')) closeNavigation();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape' || menuButton.getAttribute('aria-expanded') !== 'true') return;
+      closeNavigation();
+      menuButton.focus();
+    });
+
+    document.addEventListener('click', (event) => {
+      if (menuButton.getAttribute('aria-expanded') !== 'true') return;
+      if (event.target.closest('[data-menu-button], [data-navigation], #site-navigation')) return;
+      closeNavigation();
     });
   }
 
@@ -20,7 +36,8 @@
   });
 
   const revealElements = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
+  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  if (!reducedMotion && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -64,7 +81,7 @@
 
   const loadFirstAvailableImage = (sources, onReady) => {
     const trySource = (index) => {
-      if (index >= sources.length || document.hidden) return;
+      if (index >= sources.length) return;
       const probe = new Image();
       probe.decoding = 'async';
       probe.onload = () => onReady(sources[index]);
