@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = '20260912-order-1';
+  const VERSION = '20261001-refine-1';
   const stories = [
     {
       path:'tactical-dive', base:'the-jover.html', href:`the-jover.html?v=${VERSION}`,
@@ -66,8 +66,6 @@
       deck:'Direct, high-usage attacking No.10 / creator-finisher. Một profile được xây từ reception giữa tuyến, carry và final-third threat.'
     }
   ];
-  const newestStory = stories[stories.length - 1];
-
   const guardImage = (img, story) => {
     if (!img || img.dataset.n5StoryGuard) return;
     img.dataset.n5StoryGuard = '1';
@@ -148,20 +146,40 @@
     });
   };
 
-  const pinNewestArchive = () => {
+  const pinStoryBatchArchive = () => {
     const archive = document.querySelector('.archive#archive');
-    if (!archive || !newestStory) return;
-    const entry = archive.querySelector(`.archive-entry a[href^="${newestStory.base}"]`)?.closest('.archive-entry');
-    const first = archive.querySelector('.archive-entry');
-    if (entry && first !== entry) archive.insertBefore(entry, first);
+    if (!archive) return;
+
+    const entries = [...archive.querySelectorAll('.archive-entry')];
+    const desired = [...stories].reverse()
+      .map((story) => archive.querySelector(`.archive-entry a[href^="${story.base}"]`)?.closest('.archive-entry'))
+      .filter(Boolean);
+
+    if (!desired.length || desired.every((entry, index) => entries[index] === entry)) return;
+
+    const desiredSet = new Set(desired);
+    const anchor = entries.find((entry) => !desiredSet.has(entry)) || null;
+    const fragment = document.createDocumentFragment();
+    desired.forEach((entry) => fragment.append(entry));
+    if (anchor) archive.insertBefore(fragment, anchor);
+    else archive.append(fragment);
   };
 
-  const pinNewestHome = () => {
-    if (!newestStory) return;
+  const pinStoryBatchHome = () => {
     document.querySelectorAll('.home-flow-set').forEach((set) => {
-      const card = set.querySelector(`.home-flow-card[href^="${newestStory.base}"]`);
-      const first = set.querySelector('.home-flow-card');
-      if (card && first !== card) set.insertBefore(card, first);
+      const cards = [...set.querySelectorAll(':scope > .home-flow-card')];
+      const desired = [...stories].reverse()
+        .map((story) => set.querySelector(`.home-flow-card[href^="${story.base}"]`))
+        .filter(Boolean);
+
+      if (!desired.length || desired.every((card, index) => cards[index] === card)) return;
+
+      const desiredSet = new Set(desired);
+      const anchor = cards.find((card) => !desiredSet.has(card)) || null;
+      const fragment = document.createDocumentFragment();
+      desired.forEach((card) => fragment.append(card));
+      if (anchor) set.insertBefore(fragment, anchor);
+      else set.append(fragment);
     });
   };
 
@@ -233,14 +251,14 @@
   const watchOrder = () => {
     const archive = document.querySelector('.archive#archive');
     if (archive && !archiveObserver) {
-      archiveObserver = new MutationObserver(() => requestAnimationFrame(pinNewestArchive));
+      archiveObserver = new MutationObserver(() => requestAnimationFrame(pinStoryBatchArchive));
       archiveObserver.observe(archive, { childList:true });
     }
 
     const source = document.querySelector('.home-flow-set:not([aria-hidden="true"])');
     if (source && !latestObserver) {
       latestObserver = new MutationObserver(() => requestAnimationFrame(() => {
-        pinNewestHome();
+        pinStoryBatchHome();
         syncLatest();
       }));
       latestObserver.observe(source, { childList:true });
@@ -250,8 +268,8 @@
   const apply = () => {
     applyArchive();
     applyHome();
-    pinNewestArchive();
-    pinNewestHome();
+    pinStoryBatchArchive();
+    pinStoryBatchHome();
     syncLatest();
     watchOrder();
   };
