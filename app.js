@@ -22,16 +22,19 @@
     document.head.append(style);
   };
 
-  loadScriptOnce('app-core.js?v=20260907-clean-1', '__N5_CORE_LOADER__');
+  loadScriptOnce('app-core.js?v=20261001-refine-1', '__N5_CORE_LOADER__');
 
   const archive = document.querySelector('.archive#archive');
   if (archive) {
-    loadScriptOnce('archive-taxonomy-v2.js?v=20260907-clean-1', '__N5_ARCHIVE_TAXONOMY_V2__');
-    loadScriptOnce('charlton-publish.js?v=20260905-adams-1', '__N5_CHARLTON_PUBLISH_LOADER__');
-    loadScriptOnce('bruno-publish.js?v=20260905-bruno-4', '__N5_BRUNO_DIRECT_PUBLISH_LOADER__');
-    loadScriptOnce('adams-publish.js?v=20260905-adams-3', '__N5_ADAMS_PUBLISH_LOADER__');
-    loadScriptOnce('north-london-publish.js?v=20260905-false-lines-1', '__N5_NLD_DIRECT_PUBLISH_LOADER__');
-    loadScriptOnce('tactical-batch-publish.js?v=20260907-clean-1', '__N5_TACTICAL_BATCH_DIRECT_LOADER__');
+    loadScriptOnce('archive-taxonomy-v2.js?v=20261001-refine-1', '__N5_ARCHIVE_TAXONOMY_V2__');
+    loadScriptOnce('charlton-publish.js?v=20261001-refine-1', '__N5_CHARLTON_PUBLISH_LOADER__');
+    loadScriptOnce('moore-publish.js?v=20261001-refine-1', '__N5_MOORE_PUBLISH_LOADER__');
+    loadScriptOnce('baresi-publish.js?v=20261001-refine-1', '__N5_BARESI_PUBLISH_LOADER__');
+    loadScriptOnce('bruno-publish.js?v=20261001-refine-1', '__N5_BRUNO_DIRECT_PUBLISH_LOADER__');
+    loadScriptOnce('adams-publish.js?v=20261001-refine-1', '__N5_ADAMS_PUBLISH_LOADER__');
+    loadScriptOnce('north-london-publish.js?v=20261001-refine-1', '__N5_NLD_DIRECT_PUBLISH_LOADER__');
+    loadScriptOnce('false-lines-publish.js?v=20261001-refine-1', '__N5_FALSE_LINES_PUBLISH_LOADER__');
+    loadScriptOnce('tactical-batch-publish.js?v=20261001-refine-1', '__N5_TACTICAL_BATCH_DIRECT_LOADER__');
 
     const addLegacyEntry = ({ base, href, path, image, alt, position, meta, title, deck }) => {
       let entry = archive.querySelector(`.archive-entry a[href^="${base}"]`)?.closest('.archive-entry');
