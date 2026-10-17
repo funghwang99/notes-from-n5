@@ -97,7 +97,7 @@
       if (!entry) {
         entry = document.createElement('article');
         entry.className = 'archive-entry reveal is-visible';
-        entry.innerHTML = `<a class="archive-thumb" href="${story.href}"><img src="${story.image}" alt="${story.alt}" style="object-position:${story.focus}" /></a><div class="archive-entry-copy"><p class="article-meta">${story.meta}</p><h2><a href="${story.href}">${story.title}</a></h2><p>${story.deck}</p></div><a class="archive-arrow" href="${story.href}" aria-label="Đọc bài ${story.title}">↗</a>`;
+        entry.innerHTML = `<a class="archive-thumb" href="${story.href}"><img src="${story.image}" alt="${story.alt}" loading="lazy" decoding="async" style="object-position:${story.focus}" /></a><div class="archive-entry-copy"><p class="article-meta">${story.meta}</p><h2><a href="${story.href}">${story.title}</a></h2><p>${story.deck}</p></div><a class="archive-arrow" href="${story.href}" aria-label="Đọc bài ${story.title}">↗</a>`;
       }
 
       entry.dataset.paths = story.path;
@@ -200,9 +200,9 @@
     anchor.href = story.href;
     const img = anchor.querySelector('img');
     if (img) {
-      img.src = story.image;
-      img.alt = story.alt;
-      img.style.objectPosition = story.focus;
+      if (img.getAttribute('src') !== story.image) img.src = story.image;
+      if (img.alt !== story.alt) img.alt = story.alt;
+      if (img.style.objectPosition !== story.focus) img.style.objectPosition = story.focus;
     }
     const label = anchor.querySelector('.home-story-label');
     const title = anchor.querySelector('h3');
