@@ -58,6 +58,14 @@
 
     const entries = [...archive.querySelectorAll('.archive-entry[data-paths]')];
     entries.forEach((entry) => {
+      // Publisher scripts add archive cards after initial HTML parsing.
+      // Defer their thumbnails too, without observing irrelevant image attributes.
+      const image = entry.querySelector('img');
+      if (image && !image.dataset.n5MediaOptimized) {
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        image.dataset.n5MediaOptimized = '1';
+      }
       const itemPaths = (entry.dataset.paths || '').split(/\s+/).filter(Boolean);
       const shouldHide = active !== 'all' && !itemPaths.includes(active);
       if (entry.hidden !== shouldHide) entry.hidden = shouldHide;
