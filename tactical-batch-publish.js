@@ -64,6 +64,14 @@
       focus:'50% 16%', alt:'Nico Paz trong màu áo Como 1907 năm 2025.',
       meta:'Scouting Report · Nico Paz', title:'Nico Paz',
       deck:'Direct, high-usage attacking No.10 / creator-finisher. Một profile được xây từ reception giữa tuyến, carry và final-third threat.'
+    },
+    {
+      path:'history', base:'the-transfer-that-never-happened.html', href:'the-transfer-that-never-happened.html',
+      image:'bosman-history-card.svg',
+      fallback:'bosman-history-card.svg',
+      focus:'center center', alt:'Minh họa hồ sơ chuyển nhượng Jean-Marc Bosman, 1990–1995.',
+      meta:'History · Jean-Marc Bosman', title:'The Transfer That Never Happened',
+      deck:'Mùa hè năm 1990, Bosman chỉ muốn tiếp tục chơi bóng. Cuộc chuyển nhượng không thành đã thay đổi luật chơi của cả châu Âu.'
     }
   ];
   const guardImage = (img, story) => {
