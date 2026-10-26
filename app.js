@@ -72,20 +72,9 @@
       meta:'Germany · Gerd Müller', title:'Der Bomber', deck:'Không cần một cú nã đại bác. Chỉ cần vài mét, một khoảnh khắc và một nhịp phản ứng ngắn hơn tất cả.'
     });
 
-    loadScriptOnce('puskas-preview.js?v=20260822-baggio-commons-1', '__N5_PUSKAS_PREVIEW_LOADER__');
-    loadScriptOnce('baggio-archive-fix.js?v=20260822-wc94-1', '__N5_BAGGIO_ARCHIVE_FIX_LOADER__');
+    loadScriptOnce('puskas-preview.js?v=20261026-baggio-fix-1', '__N5_PUSKAS_PREVIEW_LOADER__');
+    loadScriptOnce('baggio-archive-fix.js?v=20261026-baggio-fix-1', '__N5_BAGGIO_ARCHIVE_FIX_LOADER__');
     loadScriptOnce('di-stefano-preview.js?v=20260822-image-fix-1', '__N5_DI_STEFANO_PREVIEW_LOADER__');
-  }
-
-  if (document.body?.classList.contains('layout-baggio')) {
-    const image = document.querySelector('.baggio-figure--hero img');
-    if (image) {
-      image.src = 'https://retrosoccerkits.com/cdn/shop/files/IMG_9105.jpg?v=1683804239&width=1946';
-      image.alt = 'Roberto Baggio trong màu áo sân nhà của Italy tại World Cup 1994.';
-      image.style.objectPosition = 'center 28%';
-      const caption = image.closest('figure')?.querySelector('figcaption');
-      if (caption) caption.textContent = 'Roberto Baggio trong màu áo Italy tại World Cup 1994.';
-    }
   }
 
   const outsideLightLayouts = new Set(['layout-bould','layout-eight','layout-language','layout-photoessay','layout-keystone','layout-mask']);
