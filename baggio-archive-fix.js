@@ -1,18 +1,13 @@
 (() => {
-  const BAGGIO_ARCHIVE_IMAGE = "https://retrosoccerkits.com/cdn/shop/files/IMG_9105.jpg?v=1683804239&width=1946";
-
+  // Keep this compatibility script in sync with the archive and the article.
+  const BAGGIO_ARCHIVE_IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Roberto_Baggio_-_Italia_%2790.jpg';
   const apply = () => {
-    const image = document.querySelector('.archive#archive a[href="the-second-arrow.html"] img');
-    if (!image) return;
-    if (image.src !== BAGGIO_ARCHIVE_IMAGE) image.src = BAGGIO_ARCHIVE_IMAGE;
-    image.alt = 'Roberto Baggio trong màu áo sân nhà của Italy tại World Cup 1994.';
-    image.style.objectPosition = 'center 28%';
+    const img = document.querySelector('.archive#archive a[href="the-second-arrow.html"] img');
+    if (!img) return;
+    if (img.getAttribute('src') !== BAGGIO_ARCHIVE_IMAGE) img.src = BAGGIO_ARCHIVE_IMAGE;
+    img.alt = 'Roberto Baggio trong màu áo đội tuyển Italy năm 1990.';
+    img.style.objectPosition = 'center 32%';
   };
-
   apply();
-  queueMicrotask(apply);
-  requestAnimationFrame(apply);
-  setTimeout(apply, 120);
-  setTimeout(apply, 500);
   window.addEventListener('load', apply, { once: true });
 })();
