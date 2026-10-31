@@ -72,6 +72,14 @@
       focus:'center center', alt:'Minh họa hồ sơ chuyển nhượng Jean-Marc Bosman, 1990–1995.',
       meta:'History · Jean-Marc Bosman', title:'The Transfer That Never Happened',
       deck:'Mùa hè năm 1990, Bosman chỉ muốn tiếp tục chơi bóng. Cuộc chuyển nhượng không thành đã thay đổi luật chơi của cả châu Âu.'
+    },
+    {
+      path:'tuoi-tre', base:'nineteen-against-the-world.html', href:'nineteen-against-the-world.html',
+      image:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Jack_Wilshere_Oct_2010_%28cropped%29.jpg/960px-Jack_Wilshere_Oct_2010_%28cropped%29.jpg',
+      fallback:'wilshere-19-card.svg',
+      focus:'center 22%', alt:'Jack Wilshere trong màu áo Arsenal, tháng 10 năm 2010.',
+      meta:'Tuổi Trẻ · Jack Wilshere', title:'Nineteen Against the World.',
+      deck:'Có một đêm tại Emirates, Jack Wilshere mới mười chín tuổi và chơi bóng giữa những người giỏi nhất thế giới như thể anh đã thuộc về nơi ấy từ lâu.'
     }
   ];
   const guardImage = (img, story) => {
