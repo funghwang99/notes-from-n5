@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="t d">
+<title id="t">Nineteen Against the World. — Notes from N5</title>
+<desc id="d">Bìa minh họa dự phòng của bài Jack Wilshere, Arsenal 2–1 Barcelona ngày 16 tháng 2 năm 2011.</desc>
+<defs>
+  <radialGradient id="a" cx=".78" cy=".3" r=".8"><stop stop-color="#2d4855"/><stop offset=".53" stop-color="#142635"/><stop offset="1" stop-color="#0a1724"/></radialGradient>
+  <linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6deba"/><stop offset="1" stop-color="#d9b190"/></linearGradient>
+</defs>
+<rect width="1200" height="780" fill="url(#a)"/>
+<path d="M0 0H1200V7H0Z" fill="#d04148"/>
+<path d="M100 0V780M300 0V780M500 0V780M700 0V780M900 0V780M1100 0V780" stroke="#98b4bd" opacity=".09"/>
+<text x="78" y="95" fill="#f4bcb3" font-family="Arial,sans-serif" font-size="21" font-weight="700" letter-spacing="6">TUỔI TRẺ  ·  JACK WILSHERE</text>
+<path d="M78 117H1122" stroke="#e2e2db" opacity=".24"/>
+<text x="65" y="330" font-family="Georgia,serif" font-size="118" letter-spacing="-8" fill="#f7f0e7">NINETEEN</text>
+<text x="72" y="453" font-family="Georgia,serif" font-size="113" letter-spacing="-8" fill="#f7f0e7">AGAINST</text>
+<text x="68" y="579" font-family="Georgia,serif" font-style="italic" font-size="120" letter-spacing="-9" fill="url(#b)">THE WORLD.</text>
+<text x="78" y="668" font-family="Arial,sans-serif" font-size="23" font-weight="800" letter-spacing="5" fill="#b6c8c8">ARSENAL 2–1 BARCELONA</text>
+<text x="78" y="722" font-family="Arial,sans-serif" font-size="17" letter-spacing="4" fill="#b7c4bd">16 FEBRUARY 2011  ·  EMIRATES STADIUM</text>
+<text x="1067" y="740" font-family="Arial,sans-serif" font-size="27" font-weight="800" letter-spacing="-2" fill="#d2a7a0">N5</text>
+</svg>
