@@ -34,7 +34,7 @@
     loadScriptOnce('adams-publish.js?v=20261001-refine-1', '__N5_ADAMS_PUBLISH_LOADER__');
     loadScriptOnce('north-london-publish.js?v=20261001-refine-1', '__N5_NLD_DIRECT_PUBLISH_LOADER__');
     loadScriptOnce('false-lines-publish.js?v=20261001-refine-1', '__N5_FALSE_LINES_PUBLISH_LOADER__');
-    loadScriptOnce('tactical-batch-publish.js?v=20261027-bosman-1', '__N5_TACTICAL_BATCH_DIRECT_LOADER__');
+    loadScriptOnce('tactical-batch-publish.js?v=20261031-wilshere-1', '__N5_TACTICAL_BATCH_DIRECT_LOADER__');
 
     const addLegacyEntry = ({ base, href, path, image, alt, position, meta, title, deck }) => {
       let entry = archive.querySelector(`.archive-entry a[href^="${base}"]`)?.closest('.archive-entry');
