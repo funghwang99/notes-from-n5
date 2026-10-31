@@ -1,0 +1,110 @@
+/* Notes from N5 | Tuổi Trẻ: Nineteen Against the World */
+.wilshere-page {
+  --wy-paper:#f1eee7;--wy-ink:#192329;--wy-muted:#6d777a;--wy-red:#cd4144;
+  --wy-night:#101c2a;--wy-sky:#91c5c4;--wy-gold:#edc88f;
+  background:var(--wy-paper);color:var(--wy-ink);overflow-x:clip;
+}
+.wilshere-page .reading-progress {height:3px;background:linear-gradient(90deg,#ca3b42 0 50%,#8fc9c5 50%);}
+.wilshere-page .site-header {background:rgba(11,21,32,.98);color:#f7f4ee;border-bottom:1px solid rgba(255,255,255,.16);}
+.wilshere-page .site-header .brand,.wilshere-page .site-header .site-nav a,.wilshere-page .site-header .menu-button{color:#f7f4ee}
+.wy-hero {position:relative;min-height:min(920px,96svh);background:radial-gradient(circle at 65% 34%,#203247 0%,#101c2a 47%,#0c141e 100%);color:#f8f5ee;isolation:isolate;overflow:hidden;}
+.wy-hero:before {content:"";position:absolute;inset:0;z-index:-1;opacity:.22;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(12.5% - 1px),#637789 calc(12.5% - 1px),#637789 12.5%);}
+.wy-hero-layout {display:grid;grid-template-columns:minmax(0,1.17fr) minmax(280px,.83fr);align-items:stretch;max-width:1640px;min-height:inherit;margin:auto;}
+.wy-hero-copy {position:relative;z-index:3;display:flex;flex-direction:column;justify-content:center;padding:clamp(5rem,7vw,9rem) 2rem clamp(4rem,7vw,7rem) clamp(1.4rem,7vw,8rem);}
+.wy-eyebrow {display:flex;align-items:center;gap:1rem;margin:0 0 2.2rem;color:#edb8ae;font-size:.74rem;font-weight:750;letter-spacing:.19em;text-transform:uppercase;}
+.wy-eyebrow:before{content:"";width:2.2rem;height:2px;background:#d2464b;}
+.wy-title {margin:0;color:#f7f4eb;font-family:var(--serif),Georgia,serif;font-size:clamp(3.9rem,7.2vw,8.8rem);font-weight:430;line-height:.99;letter-spacing:-.073em;text-wrap:balance;}
+.wy-title span{display:block}
+.wy-title em{display:block;margin-left:-.045em;color:#efb493;font-weight:430;}
+.wy-hero-hook {max-width:46rem;margin:2.7rem 0 0;color:#d2d9d6;font-family:var(--serif),Georgia,serif;font-size:clamp(1.12rem,1.75vw,1.6rem);line-height:1.66;}
+.wy-hero-meta{display:flex;gap:1.6rem;flex-wrap:wrap;margin-top:3rem;padding-top:1.1rem;border-top:1px solid rgba(241,238,229,.25);color:#abb8c0;font-size:.73rem;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
+.wy-hero-visual{position:relative;min-height:680px;background:#1e2b3b;overflow:hidden;}
+.wy-hero-visual:before{position:absolute;inset:0;content:"19";z-index:0;display:flex;justify-content:center;align-items:center;color:rgba(220,226,227,.09);font-family:var(--sans),sans-serif;font-size:clamp(20rem,34vw,38rem);font-weight:850;line-height:1}
+.wy-hero-visual img{position:relative;display:block;z-index:1;width:100%;height:100%;object-fit:cover;object-position:center 23%;filter:grayscale(.38) saturate(.9) contrast(1.1)}
+.wy-hero-visual:after{position:absolute;z-index:2;inset:0;content:"";pointer-events:none;background:linear-gradient(90deg,#101c2a 0%,rgba(16,28,42,.22) 24%,transparent 50%),linear-gradient(0deg,#111c2b 0%,transparent 36%)}
+.wy-hero-photo-label{position:absolute;z-index:3;right:1.3rem;bottom:1.8rem;left:1.3rem;color:#e3e5e3;font-size:.65rem;line-height:1.6;text-shadow:0 1px 6px #000;letter-spacing:.015em}
+.wy-hero-photo-label a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.wy-score{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:2rem;padding:1.75rem clamp(1.3rem,7vw,8rem);background:#b72f38;color:#fff7eb;}
+.wy-score-team{font-family:var(--sans),sans-serif;font-size:clamp(.78rem,1.25vw,1.1rem);font-weight:770;letter-spacing:.12em;text-transform:uppercase}
+.wy-score-team:last-child{text-align:right}
+.wy-score-result{font-family:var(--serif),Georgia,serif;font-size:clamp(2.5rem,4.5vw,4.3rem);line-height:1;letter-spacing:-.06em;white-space:nowrap}
+.wy-score-note{margin:0;padding:.6rem 1.3rem;text-align:center;background:#e8dfd1;color:#75675d;font-size:.64rem;font-weight:730;letter-spacing:.12em;text-transform:uppercase}
+.wy-story{padding-bottom:3.5rem}
+.wy-chapter{display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,760px) minmax(120px,1fr);column-gap:clamp(.9rem,4vw,5rem);padding:clamp(5rem,9vw,9rem) clamp(1.2rem,4vw,4rem) 0}
+.wy-side{grid-column:1;align-self:start;position:sticky;top:7rem;max-width:12rem;padding-top:.5rem;color:#a84944;font-size:.66rem;font-weight:800;line-height:1.6;letter-spacing:.17em;text-transform:uppercase}
+.wy-side i{display:block;margin:1.2rem 0;width:3rem;border-top:1px solid #bc8f84}
+.wy-side small{display:block;color:#75746e;font-size:.65rem;font-weight:550;letter-spacing:.03em;text-transform:none}
+.wy-copy{grid-column:2;min-width:0}
+.wy-copy p{margin:0 0 1.85rem;color:#263037;font-family:var(--serif),Georgia,serif;font-size:clamp(1.06rem,1.31vw,1.22rem);font-weight:450;line-height:1.99;letter-spacing:-.015em}
+.wy-copy .wy-lead{color:#161e24;font-size:clamp(1.27rem,1.9vw,1.6rem);line-height:1.78;}
+.wy-copy .wy-lead:first-letter{float:left;margin:.115em .13em 0 0;color:#bf3640;font-size:4.5em;line-height:.72}
+.wy-subhead{margin:0 0 2.7rem;font-family:var(--serif),Georgia,serif;font-size:clamp(2.2rem,4.4vw,4.7rem);font-weight:460;line-height:1.13;letter-spacing:-.06em}
+.wy-subhead em{color:#bf4540;font-weight:450}
+.wy-full-bleed{position:relative;max-width:1440px;margin:clamp(4rem,8vw,8rem) auto;padding:0 clamp(1.3rem,5vw,6rem)}
+.wy-photo-frame{position:relative;min-height:240px;overflow:hidden;background:linear-gradient(140deg,#122030,#23433e)}
+.wy-photo-frame img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;filter:saturate(.69) contrast(1.1)}
+.wy-photo-frame:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(7,17,26,.34),transparent 35%)}
+.wy-caption{margin:.8rem 0 0;color:#70716d;font-size:.69rem;line-height:1.65}
+.wy-caption a{color:#a43f3b;text-decoration:underline;text-underline-offset:2px}
+.wy-quote{margin:3.8rem 0 4rem;padding:1.9rem 0 1.9rem 1.6rem;border-left:4px solid #c3424a;color:#a0373b;font-family:var(--serif),Georgia,serif;font-size:clamp(1.85rem,3vw,3rem);font-style:italic;font-weight:470;line-height:1.4;letter-spacing:-.04em}
+.wy-night{margin-top:clamp(4rem,7vw,7rem);padding-bottom:clamp(5rem,8vw,8rem);background:#14202e;color:#f6f1e9}
+.wy-night .wy-copy p{color:#e1e3e1}
+.wy-night .wy-subhead{color:#f2f0eb}
+.wy-night .wy-subhead em{color:#efb89d}
+.wy-night .wy-side{color:#ecafab}
+.wy-night .wy-side small{color:#acb2b9}
+.wy-night .wy-quote{border-color:#e89c90;color:#f2c5aa}
+.wy-timeline{display:flex;gap:1rem;align-items:flex-end;margin:3rem 0 2.4rem;padding-bottom:1.6rem;border-bottom:1px solid rgba(255,255,255,.19)}
+.wy-timeline strong{color:#f0b397;font-family:var(--serif),Georgia,serif;font-size:clamp(5rem,10vw,10rem);font-weight:390;line-height:.85;letter-spacing:-.09em}
+.wy-timeline span{max-width:11rem;color:#c9ced0;font-size:.76rem;font-weight:720;letter-spacing:.11em;line-height:1.6;text-transform:uppercase}
+.wy-interlude{position:relative;display:grid;place-items:center;min-height:clamp(330px,55vw,570px);padding:5rem 1.4rem;overflow:hidden;background:radial-gradient(circle at 75% 40%,#253d4e,#0b1725 65%);color:#f9eee2;text-align:center}
+.wy-interlude:before{content:"19";position:absolute;inset:auto -1.5rem -6rem auto;pointer-events:none;color:rgba(255,255,255,.045);font-family:var(--sans),sans-serif;font-size:clamp(19rem,45vw,53rem);font-weight:900;line-height:.8}
+.wy-interlude-content{position:relative;max-width:970px}
+.wy-interlude small{color:#e09b89;font-size:.68rem;font-weight:780;letter-spacing:.2em;text-transform:uppercase}
+.wy-interlude h2{margin:1.8rem 0;font-family:var(--serif),Georgia,serif;font-size:clamp(2.6rem,6.2vw,7rem);font-weight:410;letter-spacing:-.065em;line-height:1.12}
+.wy-interlude h2 em{color:#ebb49b}
+.wy-interlude p{max-width:34rem;margin:0 auto;color:#c4ced0;font-size:1rem;line-height:1.8}
+.wy-finale{padding:clamp(6rem,12vw,11rem) 1.3rem;background:#e5ded2;color:#1d2526}
+.wy-finale-inner{max-width:960px;margin:0 auto}
+.wy-finale-kicker{color:#a63d3e;font-size:.71rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+.wy-finale p{font-family:var(--serif),Georgia,serif;font-size:clamp(1.1rem,1.8vw,1.45rem);line-height:1.9}
+.wy-finale h2{margin:3rem 0 2rem;font-family:var(--serif),Georgia,serif;font-size:clamp(2.7rem,5.5vw,5.8rem);font-weight:430;line-height:1.15;letter-spacing:-.065em}
+.wy-finale h2 em{color:#bb3d42}
+.wy-return{display:inline-flex;margin-top:3.1rem;padding-bottom:.45rem;border-bottom:1px solid #a63840;color:#91353b;font-size:.81rem;font-weight:740;letter-spacing:.06em;text-decoration:none}
+.wilshere-page .site-footer{background:#0c1725;color:#dfdfda;border-top:1px solid #2b3946}
+.wilshere-page .site-footer a{color:inherit}
+@media(max-width:1000px){
+  .wy-hero-layout{grid-template-columns:1.08fr .92fr}
+  .wy-hero-copy{padding-left:2.2rem}
+  .wy-title{font-size:clamp(3.8rem,7.2vw,6.2rem)}
+  .wy-chapter{grid-template-columns:92px minmax(0,760px);justify-content:center}
+  .wy-side{grid-column:1}
+  .wy-copy{grid-column:2}
+}
+@media(max-width:700px){
+  .wy-hero{min-height:auto}
+  .wy-hero-layout{display:flex;flex-direction:column}
+  .wy-hero-copy{padding:5.2rem 1.3rem 3.7rem}
+  .wy-title{font-size:clamp(3.5rem,12.6vw,5.7rem)}
+  .wy-hero-hook{margin-top:2rem;font-size:1.1rem}
+  .wy-hero-meta{margin-top:2rem}
+  .wy-hero-visual{height:74vw;min-height:340px;max-height:560px}
+  .wy-hero-visual:after{background:linear-gradient(0deg,#111c2b,transparent 40%)}
+  .wy-score{gap:.75rem;padding:1.3rem .85rem}
+  .wy-score-team{font-size:.64rem;letter-spacing:.02em}
+  .wy-score-result{font-size:2.55rem}
+  .wy-chapter{display:block;padding:4.5rem 1.25rem 0}
+  .wy-side{position:static;max-width:none;margin-bottom:1.4rem}
+  .wy-side i,.wy-side small{display:none}
+  .wy-copy p{font-size:1.055rem;line-height:1.89}
+  .wy-copy .wy-lead{font-size:1.21rem}
+  .wy-subhead{font-size:clamp(2.4rem,9vw,3.8rem)}
+  .wy-quote{margin:3rem 0}
+  .wy-full-bleed{margin:3.7rem 0;padding:0 1.1rem}
+  .wy-night{padding-bottom:4.6rem}
+  .wy-timeline strong{font-size:5.2rem}
+  .wy-interlude{min-height:420px}
+  .wy-interlude h2{font-size:clamp(2.7rem,10vw,4.7rem)}
+  .wy-finale{padding:5rem 1.35rem}
+}
+@media(prefers-reduced-motion:reduce){.wy-hero-visual img{transition:none}}
