@@ -83,8 +83,8 @@
     },
     {
       path:'tuong-dai', base:'the-future-he-built.html', href:'the-future-he-built.html',
-      image:'wenger-statue-card.svg', fallback:'wenger-statue-card.svg',
-      focus:'center center', alt:'Bìa biên tập The Future He Built, về Arsène Wenger và bức tượng ngoài Emirates.',
+      image:'wenger-statue-emirates.webp', fallback:'wenger-statue-then-now.webp',
+      focus:'center 42%', alt:'Tượng đồng Arsène Wenger nâng chiếc cúp Premier League trước Emirates Stadium.',
       meta:'Tượng Đài · Arsène Wenger', title:'The Future He Built.',
       deck:'Arsène Wenger, Arsenal và quãng đường rất dài từ một người xa lạ ở Highbury đến bức tượng bên ngoài Emirates.'
     }
