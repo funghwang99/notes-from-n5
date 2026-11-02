@@ -96,7 +96,7 @@
 .wenger-page main{width:100%;max-width:100%;overflow-x:clip}
 .w2-hero{grid-template-columns:minmax(0,54fr) minmax(0,46fr);min-height:clamp(690px,94svh,1050px)}
 .w2-hero-photo{min-height:0;min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:stretch;overflow:hidden;background:#111719}
-.w2-hero-photo img{display:block;width:100%;height:100%;max-height:calc(1050px - 2.5rem);object-fit:contain;object-position:center;transform:none;filter:grayscale(.18) contrast(1.02) brightness(.93)}
+.w2-hero-photo img{display:block;flex:1 1 auto;min-height:0;width:100%;height:0;max-height:none;object-fit:contain;object-position:center;transform:none;filter:grayscale(.18) contrast(1.02) brightness(.93)}
 .w2-hero-photo::after{display:none}
 .w2-hero-photo figcaption{position:static;flex:0 0 auto;padding:.65rem clamp(1rem,2vw,2rem);max-width:none;background:#111719;color:#c4c4c1;font-size:.6rem;line-height:1.5}
 .w2-hero-copy{min-width:0;width:100%;margin:0;padding:clamp(5rem,7vw,8rem) clamp(1.5rem,3.5vw,4.5rem);align-self:center}
@@ -160,7 +160,7 @@
   .w2-anchor-year{flex-wrap:wrap;gap:.4rem 1rem}
   .w2-anchor-year strong{font-size:clamp(3.9rem,14vw,5.6rem)}
   .w2-division h2{font-size:clamp(2.5rem,9.4vw,4.5rem)}
-  .w2-stadium{margin-top:0;padding-top:0;padding-bottom:4.5rem}
+  .w2-stadium{margin-top:0;padding-top:4rem;padding-bottom:4.5rem}
   .w2-finale-image{padding-top:1rem}
   .w2-finale-image img{height:auto;max-height:75svh;aspect-ratio:auto;object-fit:contain}
   .w2-finale-copy{padding:3.5rem 1.3rem 4.5rem}
