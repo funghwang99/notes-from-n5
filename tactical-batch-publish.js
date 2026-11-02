@@ -80,6 +80,13 @@
       focus:'center 22%', alt:'Jack Wilshere trong màu áo Arsenal, tháng 10 năm 2010.',
       meta:'Tuổi Trẻ · Jack Wilshere', title:'Nineteen Against the World.',
       deck:'Có một đêm tại Emirates, Jack Wilshere mới mười chín tuổi và chơi bóng giữa những người giỏi nhất thế giới như thể anh đã thuộc về nơi ấy từ lâu.'
+    },
+    {
+      path:'tuong-dai', base:'the-future-he-built.html', href:'the-future-he-built.html',
+      image:'wenger-statue-card.svg', fallback:'wenger-statue-card.svg',
+      focus:'center center', alt:'Bìa biên tập The Future He Built, về Arsène Wenger và bức tượng ngoài Emirates.',
+      meta:'Tượng Đài · Arsène Wenger', title:'The Future He Built.',
+      deck:'Arsène Wenger, Arsenal và quãng đường rất dài từ một người xa lạ ở Highbury đến bức tượng bên ngoài Emirates.'
     }
   ];
   const guardImage = (img, story) => {
