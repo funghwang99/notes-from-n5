@@ -94,3 +94,41 @@
 @media(max-width:760px){.ff-hero-shell{display:block;min-height:0;width:min(100% - 2.4rem,620px);padding:6rem 0 4rem}.ff-hero h1{font-size:clamp(2.9rem,10.5vw,5.2rem)}.ff-scoreboard{margin-top:3rem;max-width:520px}.ff-readline{font-size:.59rem;letter-spacing:.08em}.ff-section-head h2{font-size:clamp(2.3rem,9vw,4.2rem)}.ff-chapter,.ff-opener .ff-chapter{display:block;padding:4rem 1.2rem 0}.ff-opener .ff-chapter{padding:0}.ff-side{position:static;margin-bottom:1.4rem}.ff-side span{display:none}.ff-copy p{font-size:1.05rem;line-height:1.92}.ff-copy p.ff-lead{font-size:1.17rem}.ff-copy h2{font-size:clamp(2.2rem,9vw,3.9rem)}.ff-winter-stamp{grid-template-columns:1fr;gap:.3rem;margin:3rem 1.2rem 0;padding:1.3rem}.ff-winter-stamp strong{font-size:clamp(5rem,21vw,9rem)}.ff-winter-stamp p{font-size:1.12rem}.ff-ribbon{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:1.5rem}.ff-ribbon li:last-child{grid-column:1/-1}.ff-minute-header h2{font-size:clamp(3rem,11vw,5.4rem)}.ff-minute-phase{display:block;padding:3rem 1.2rem}.ff-minute-num{position:static;margin-bottom:1.7rem;font-size:clamp(4.6rem,17vw,7.2rem)}.ff-minute-phase .ff-copy{grid-column:auto}.ff-minute-phase .ff-copy h3{font-size:clamp(2rem,7vw,3.3rem)}.ff-after{padding-bottom:2rem}.ff-final{padding:5rem 1.2rem}.ff-final h2{font-size:clamp(2.5rem,9vw,4.3rem)}}
 @media(max-width:400px){.ff-score-teams{gap:.4rem}.ff-score-teams strong{font-size:3.35rem}.ff-score-teams span{font-size:.65rem}.ff-ribbon{gap:.35rem}.ff-ribbon span{font-size:.73rem}}
 @media(prefers-reduced-motion:reduce){.ff-page *{scroll-behavior:auto}}
+
+/* FF ARCHIVAL PHOTOGRAPHS 20261105 — real historical context, accurately dated. */
+.ff-archive-photo,
+.ff-archive-gallery,
+.ff-lineup-feature{box-sizing:border-box;max-width:100%;min-width:0}
+.ff-archive-photo{position:relative;margin:0;overflow:hidden;background:#1c292c}
+.ff-archive-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(.36) contrast(1.07)}
+.ff-archive-photo figcaption{position:absolute;inset:auto 0 0;z-index:2;padding:1.3rem clamp(1rem,2.3vw,2rem) .8rem;background:linear-gradient(transparent,rgba(7,15,17,.87));color:#f2ece0;font:500 .67rem/1.6 "Inter N5",Arial,sans-serif;letter-spacing:.01em}
+.ff-archive-photo figcaption a{color:#f3dfb2;text-decoration:underline;text-underline-offset:2px}
+.ff-photo-wembley{width:100%;height:clamp(250px,34vw,510px);border-block:1px solid rgba(255,255,255,.15)}
+.ff-photo-wembley img{object-position:center 54%}
+.ff-archive-gallery{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(.7rem,1.8vw,1.35rem);width:min(100% - 2.4rem,1110px);margin:clamp(3rem,5vw,5rem) auto 0}
+.ff-archive-gallery .ff-archive-photo{height:clamp(290px,37vw,510px)}
+.ff-archive-gallery .ff-archive-photo:first-child img{object-position:center}
+.ff-archive-gallery .ff-archive-photo:last-child img{object-position:center}
+.ff-photo-label{display:inline-block;margin-right:.35rem;color:#f3d68b;font-weight:800;letter-spacing:.06em}
+.ff-lineup-feature{display:grid;grid-template-columns:minmax(260px,.67fr) minmax(0,1fr);gap:clamp(1.8rem,5vw,6rem);align-items:center;padding:clamp(3rem,6vw,6rem) clamp(1.2rem,6vw,7rem);background:#202d2c;color:#f4eee2}
+.ff-lineup-feature figure{margin:0;min-width:0;justify-self:center;width:min(100%,420px)}
+.ff-lineup-feature figure img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;background:#e8e9df;border:1px solid rgba(255,255,255,.25);padding:clamp(.5rem,2vw,1rem)}
+.ff-lineup-feature figcaption{margin:.8rem 0 0;color:#c1cac2;font:500 .67rem/1.6 "Inter N5",Arial,sans-serif}
+.ff-lineup-feature figcaption a{color:#edd28a;text-decoration:underline}
+.ff-lineup-feature aside{max-width:510px;min-width:0}
+.ff-lineup-feature aside small{display:block;color:#e4c976;font-size:.69rem;letter-spacing:.2em;font-weight:800;text-transform:uppercase}
+.ff-lineup-feature aside h2{margin:1.1rem 0 1.7rem;font:500 clamp(2.2rem,4vw,4.3rem)/1.12 "Lora N5",Georgia,serif;letter-spacing:-.065em;text-wrap:balance}
+.ff-lineup-feature aside h2 em{color:#e6ca77}
+.ff-lineup-feature aside p{color:#d0d8d0;font:440 clamp(1rem,1.4vw,1.2rem)/1.8 "Lora N5",Georgia,serif}
+.ff-lineup-feature aside .ff-small-note{margin-top:1.5rem;font:600 .7rem/1.6 "Inter N5",Arial,sans-serif;color:#adb9b4}
+.ff-archive-photo[hidden],.ff-lineup-feature figure[hidden]{display:none}
+@media(max-width:760px){
+  .ff-photo-wembley{height:clamp(235px,64vw,380px)}
+  .ff-archive-gallery{grid-template-columns:1fr;width:min(100% - 2rem,580px);gap:.9rem}
+  .ff-archive-gallery .ff-archive-photo{height:clamp(250px,64vw,390px)}
+  .ff-archive-gallery .ff-archive-photo:last-child{height:clamp(270px,85vw,460px)}
+  .ff-lineup-feature{grid-template-columns:minmax(0,1fr);padding:3.4rem 1.2rem;gap:2.4rem}
+  .ff-lineup-feature figure{width:min(100%,340px)}
+  .ff-lineup-feature aside h2{font-size:clamp(2.15rem,8vw,3.3rem)}
+  .ff-archive-photo figcaption{font-size:.61rem}
+}
