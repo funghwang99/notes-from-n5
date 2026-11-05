@@ -87,6 +87,13 @@
       focus:'center 42%', alt:'Tượng đồng Arsène Wenger nâng chiếc cúp Premier League trước Emirates Stadium.',
       meta:'Tượng Đài · Arsène Wenger', title:'The Future He Built.',
       deck:'Arsène Wenger, Arsenal và quãng đường rất dài từ một người xa lạ ở Highbury đến bức tượng bên ngoài Emirates.'
+    },
+    {
+      path:'history', base:'five-minutes-of-forever.html', href:'five-minutes-of-forever.html',
+      image:'five-minutes-of-forever-card.svg', fallback:'five-minutes-of-forever-card.svg',
+      focus:'center center', alt:'Bìa thiết kế bảng tỷ số trận Arsenal thắng Manchester United 3–2 tại Wembley năm 1979.',
+      meta:'History · Arsenal · Wembley 1979', title:'Five Minutes of Forever.',
+      deck:'540 phút để vượt qua vòng ba, rồi năm phút cuối tại Wembley đủ để Arsenal đánh mất tất cả và giành lại chiếc cúp.'
     }
   ];
   const guardImage = (img, story) => {
