@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" role="img" aria-labelledby="title description">
+<title id="title">Five Minutes of Forever — Arsenal vs Manchester United 1979</title>
+<desc id="description">Original editorial scoreboard artwork for the 1979 FA Cup Final, Arsenal 3 Manchester United 2, with the decisive goals at minutes 86, 88, and 89.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101b20"/><stop offset=".7" stop-color="#273639"/><stop offset="1" stop-color="#11191f"/></linearGradient>
+<linearGradient id="yellow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe58c"/><stop offset="1" stop-color="#d5ab48"/></linearGradient>
+<pattern id="lines" width="140" height="140" patternUnits="userSpaceOnUse"><path d="M140 0V140M0 140H140" fill="none" stroke="#9dada8" opacity=".065"/></pattern>
+</defs>
+<rect width="1280" height="800" fill="url(#bg)"/><rect width="1280" height="800" fill="url(#lines)"/>
+<rect width="1280" height="9" fill="url(#yellow)"/>
+<path d="M76 127H1200" stroke="#abbab2" opacity=".34"/>
+<text x="76" y="99" font-family="Arial,sans-serif" font-size="22" fill="#ebd98c" letter-spacing="6" font-weight="700">HISTORY · WEMBLEY · 12 MAY 1979</text>
+<text x="61" y="310" font-family="Georgia,serif" font-size="119" fill="#f7f0e3" letter-spacing="-8">FIVE MINUTES</text>
+<text x="63" y="429" font-family="Georgia,serif" font-size="120" font-style="italic" fill="#f0d17b" letter-spacing="-8">OF FOREVER.</text>
+<path d="M77 475H1200" stroke="#b1c0b7" opacity=".33"/>
+<g transform="translate(74 536)">
+  <text x="0" y="28" fill="#d9dfd6" font-family="Arial,sans-serif" font-size="25" letter-spacing="3" font-weight="700">ARSENAL</text>
+  <text x="214" y="95" fill="#f7edce" font-family="Arial,sans-serif" font-size="115" letter-spacing="-12" font-weight="800">3 : 2</text>
+  <text x="584" y="28" fill="#d9dfd6" font-family="Arial,sans-serif" font-size="25" letter-spacing="3" font-weight="700">MANCHESTER UNITED</text>
+  <path d="M1 118H1108" stroke="#d7caa8" opacity=".35"/>
+  <text x="0" y="159" fill="#d0c8b6" font-family="Arial,sans-serif" font-size="20" letter-spacing="4">86'   ·   88'</text>
+  <text x="327" y="159" fill="#e8d382" font-family="Arial,sans-serif" font-size="21" letter-spacing="5" font-weight="700">89'  ALAN SUNDERLAND</text>
+</g>
+<text x="72" y="769" fill="#c3c5bd" font-family="Arial,sans-serif" font-size="17" letter-spacing="4">NOTES FROM N5</text>
+</svg>
