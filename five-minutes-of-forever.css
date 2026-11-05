@@ -1,0 +1,96 @@
+/* NOTES FROM N5 / HISTORY — Five Minutes of Forever (1979)
+   A text-led archival feature. No third-party image requests or simulated photos. */
+.ff-page{--ff-night:#111a1e;--ff-night2:#1c292d;--ff-paper:#f2eee3;--ff-warm:#e5dccb;--ff-ink:#20292c;--ff-yellow:#edcf68;--ff-red:#d65e54;--ff-grey:#bdc4bb;background:var(--ff-paper);color:var(--ff-ink);font-synthesis:none;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.ff-page,.ff-page *, .ff-page *::before,.ff-page *::after{box-sizing:border-box}
+.ff-page .reading-progress{height:3px;background:var(--ff-yellow)}
+.ff-page .site-header{z-index:80;background:#0f171b;color:#f6f1e4;border-bottom:1px solid rgba(255,255,255,.15)}
+.ff-page .site-header .brand,.ff-page .site-header .site-nav a,.ff-page .site-header .menu-button{color:#f6f1e4}
+.ff-page main{width:100%;max-width:100%;overflow:clip}
+.ff-hero{position:relative;isolation:isolate;background:radial-gradient(ellipse at 83% 9%,#364445,transparent 50%),var(--ff-night);color:#f5f1e9;overflow:hidden}
+.ff-hero:before{content:"1979";position:absolute;inset:auto -.05em -.26em auto;color:rgba(246,241,233,.026);font-family:"Inter N5",Arial,sans-serif;font-weight:900;font-size:clamp(22rem,48vw,55rem);letter-spacing:-.11em;line-height:1;pointer-events:none;z-index:-1}
+.ff-hero-shell{width:min(100% - clamp(2.4rem,7vw,8rem),1460px);min-height:clamp(700px,92svh,1020px);margin:auto;padding:clamp(6rem,9vw,10rem) 0 clamp(4rem,7vw,7rem);display:grid;grid-template-columns:minmax(0,1.11fr) minmax(330px,.89fr);align-items:center;gap:clamp(2.5rem,6vw,7rem)}
+.ff-eyebrow{display:flex;align-items:center;gap:.9rem;margin:0 0 2.2rem;color:var(--ff-yellow);font:800 .73rem/1.5 "Inter N5",Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.ff-eyebrow:before{content:"";display:block;width:36px;height:1px;background:currentColor}
+.ff-hero h1{margin:0;font-family:"Lora N5",Georgia,serif;font-size:clamp(3.35rem,6vw,7rem);line-height:1.06;letter-spacing:-.075em;font-weight:580;text-wrap:balance}
+.ff-hero h1 span,.ff-hero h1 em{display:block}
+.ff-hero h1 em{color:var(--ff-yellow);font-style:italic;font-weight:510}
+.ff-deck{max-width:610px;margin:2.1rem 0 0;color:#d6dad4;font-family:"Lora N5",Georgia,serif;font-size:clamp(1.05rem,1.43vw,1.27rem);line-height:1.82}
+.ff-hero-meta{display:flex;flex-wrap:wrap;gap:.75rem 1.6rem;margin-top:2.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.22);color:#acbab7;font-size:.72rem;font-weight:700;letter-spacing:.06em}
+.ff-scoreboard{position:relative;width:100%;max-width:490px;margin-inline:auto;padding:clamp(1.25rem,3vw,2.2rem);border:1px solid rgba(243,239,225,.29);background:linear-gradient(156deg,rgba(41,58,58,.88),rgba(13,22,27,.88));box-shadow:0 28px 85px rgba(0,0,0,.23)}
+.ff-scoreboard:before{content:"";position:absolute;inset:9px;border:1px solid rgba(255,255,255,.08);pointer-events:none}
+.ff-scoreboard-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:1.35rem;border-bottom:1px solid rgba(255,255,255,.21);color:#d8ddcf;font-size:.66rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.ff-score-teams{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:.65rem;padding:2.2rem 0 1.2rem}
+.ff-score-teams span{font-size:clamp(.75rem,1.25vw,1rem);line-height:1.45;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.ff-score-teams span:last-child{text-align:right}
+.ff-score-teams strong{color:#f8ecbd;font-family:"Inter N5",Arial,sans-serif;font-size:clamp(3.6rem,6.7vw,6.5rem);letter-spacing:-.09em;line-height:1;font-weight:800;white-space:nowrap}
+.ff-scoreboard-sub{text-align:center;margin:0 0 1.4rem;color:#a9b6ae;font-size:.69rem;font-weight:650;letter-spacing:.09em;text-transform:uppercase}
+.ff-goals{border-top:1px solid rgba(255,255,255,.17);padding-top:1.15rem;display:grid;gap:.9rem}
+.ff-goal{display:grid;grid-template-columns:2.7rem 1fr auto;align-items:baseline;gap:.75rem;font-size:.79rem;color:#e1e3d9;line-height:1.45}
+.ff-goal b{color:var(--ff-yellow);font-size:.88rem}
+.ff-goal i{font-style:normal;color:#b6c5bf}
+.ff-goal--against b,.ff-goal--against i{color:#e69d91}
+.ff-goal--winner{margin:.15rem -.65rem -.15rem;padding:.8rem .65rem;background:rgba(237,207,104,.11);border-left:3px solid var(--ff-yellow);font-weight:800}
+.ff-goal--winner i{color:var(--ff-yellow)}
+.ff-scoreboard-foot{margin:1.7rem 0 0;border-top:1px solid rgba(255,255,255,.17);padding-top:1rem;color:#b7c6bd;font:800 .64rem/1.5 "Inter N5",Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;text-align:center}
+.ff-readline{display:flex;justify-content:space-between;gap:2rem;max-width:1460px;margin:auto;padding:1rem clamp(1.2rem,4vw,4rem);border-top:1px solid rgba(255,255,255,.15);color:#b7c4bc;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:750}
+.ff-opener{background:#161e22;color:#efeae0;padding:clamp(5rem,9vw,10rem) 1.2rem clamp(5rem,8vw,8rem)}
+.ff-section-head{max-width:930px;margin:0 auto clamp(2.3rem,5vw,5rem)}
+.ff-section-head small{display:block;color:#d5b96d;font-size:.69rem;font-weight:850;letter-spacing:.2em;text-transform:uppercase}
+.ff-section-head h2{margin:1.2rem 0 0;font-family:"Lora N5",Georgia,serif;font-size:clamp(2.5rem,5.3vw,5.7rem);font-weight:450;line-height:1.14;letter-spacing:-.064em;text-wrap:balance}
+.ff-section-head h2 em{color:var(--ff-yellow);font-style:normal}
+.ff-chapter{display:grid;grid-template-columns:minmax(0,150px) minmax(0,770px) minmax(0,150px);justify-content:center;gap:clamp(1.2rem,3vw,4rem);max-width:1380px;margin:0 auto;padding:clamp(4.7rem,8vw,8.4rem) clamp(1.2rem,4vw,4rem) 0}
+.ff-opener .ff-chapter{padding:0}
+.ff-side{grid-column:1;position:sticky;top:7rem;align-self:start;color:#ab413b;font-size:.68rem;font-weight:800;letter-spacing:.14em;line-height:1.6;text-transform:uppercase}
+.ff-side span{display:block;margin:.85rem 0 0;color:#837e73;font-size:.66rem;letter-spacing:0;text-transform:none;font-weight:550}
+.ff-copy{grid-column:2;min-width:0;max-width:100%}
+.ff-copy p{margin:0 0 1.8rem;color:var(--ff-ink);font-family:"Lora N5",Georgia,serif;font-size:clamp(1.05rem,1.32vw,1.21rem);font-weight:430;line-height:1.98;letter-spacing:-.013em}
+.ff-copy p.ff-lead{font-size:clamp(1.23rem,1.82vw,1.55rem);line-height:1.83}
+.ff-opener .ff-copy p,.ff-night .ff-copy p{color:#e4e2da}
+.ff-opener .ff-side,.ff-night .ff-side{color:#dfb98a}
+.ff-opener .ff-side span,.ff-night .ff-side span{color:#a7ada6}
+.ff-copy h2{margin:0 0 2.5rem;font:500 clamp(2.3rem,4.5vw,4.65rem)/1.16 "Lora N5",Georgia,serif;letter-spacing:-.06em;text-wrap:balance}
+.ff-copy h2 em{color:#a8403e;font-style:normal}
+.ff-night .ff-copy h2{color:#f7f3e7}
+.ff-night .ff-copy h2 em{color:var(--ff-yellow)}
+.ff-pullquote{margin:3.5rem 0 1rem;padding:.7rem 0 .7rem 1.4rem;border-left:3px solid var(--ff-yellow);font:italic 510 clamp(1.75rem,3vw,3rem)/1.5 "Lora N5",Georgia,serif;color:#e8cd80;letter-spacing:-.04em}
+.ff-winter{padding-bottom:clamp(5rem,8vw,8rem)}
+.ff-winter-stamp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:2rem;max-width:1100px;margin:clamp(4rem,8vw,7rem) auto 0;padding:2rem clamp(1rem,4vw,4rem);background:#dcd4bf;border-top:4px solid #b6a371}
+.ff-winter-stamp strong{display:block;color:#252e2b;font:790 clamp(5.3rem,16vw,13rem)/1 "Inter N5",Arial,sans-serif;letter-spacing:-.11em}
+.ff-winter-stamp span{display:block;color:#4a4940;font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+.ff-winter-stamp p{margin:0;color:#3b443f;font-family:"Lora N5",Georgia,serif;font-size:clamp(1.05rem,2vw,1.65rem);line-height:1.65}
+.ff-winter-stamp em{font-style:normal;color:#9a4739}
+.ff-ribbon{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));width:min(100% - 2.4rem,1260px);margin:3rem auto 0;gap:.5rem;list-style:none;padding:0}
+.ff-ribbon li{padding:1rem .8rem;background:#eae4d8;border-top:2px solid #bdb29a;min-width:0;text-align:center}
+.ff-ribbon b{display:block;color:#8a4d3f;font-size:.7rem;letter-spacing:.09em}
+.ff-ribbon span{display:block;margin:.35rem 0 0;color:#464943;font:500 .78rem/1.4 "Lora N5",Georgia,serif}
+.ff-middle{background:#e4dccd;padding-bottom:clamp(4rem,8vw,8rem)}
+.ff-middle .ff-copy h2{color:#26302d}
+.ff-minute-header{padding:clamp(5rem,8vw,8rem) 1.2rem 0;background:#10191e;color:#faf5e9;text-align:center}
+.ff-minute-header small{color:#e7d18f;letter-spacing:.22em;font-size:.7rem;font-weight:850}
+.ff-minute-header h2{margin:1.4rem 0 0;font:520 clamp(2.9rem,7.5vw,8rem)/1.05 "Lora N5",Georgia,serif;letter-spacing:-.07em}
+.ff-minute-header h2 span{color:#e6ca70}
+.ff-minute-header p{max-width:690px;margin:2rem auto 0;color:#c2ccc5;font-family:"Lora N5",Georgia,serif;font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.78}
+.ff-night{padding:0 0 clamp(5rem,9vw,9rem);background:#10191e;color:#f7f2ea}
+.ff-minute-phase{max-width:1180px;margin:0 auto;padding:clamp(4rem,7vw,7rem) clamp(1.2rem,4vw,4rem);display:grid;grid-template-columns:minmax(0,240px) minmax(0,780px);gap:clamp(1rem,5vw,5rem);border-bottom:1px solid rgba(255,255,255,.16)}
+.ff-minute-num{position:sticky;top:5rem;align-self:start;color:#e9c866;font:830 clamp(4.9rem,9vw,9.5rem)/1 "Inter N5",Arial,sans-serif;letter-spacing:-.11em;white-space:nowrap}
+.ff-minute-num small{display:block;margin-top:1rem;color:#9eaaa7;font-size:.68rem;font-weight:850;letter-spacing:.15em;text-transform:uppercase;line-height:1.5}
+.ff-minute-phase--red .ff-minute-num{color:#e07f78}
+.ff-minute-phase--gold .ff-minute-num{color:#f3cf65}
+.ff-minute-phase .ff-copy{grid-column:2}
+.ff-minute-phase .ff-copy p{margin:0 0 1.7rem}
+.ff-minute-phase .ff-copy h3{margin:.1rem 0 2rem;color:#f4efdf;font:520 clamp(1.8rem,3.6vw,3.6rem)/1.22 "Lora N5",Georgia,serif;letter-spacing:-.06em}
+.ff-minute-phase .ff-copy h3 em{color:#f1d081}
+.ff-after{background:var(--ff-paper);padding-bottom:clamp(2rem,4vw,4rem)}
+.ff-final{margin-top:clamp(4rem,7vw,7rem);padding:clamp(5rem,8vw,8rem) 1.2rem;background:#d6ccad}
+.ff-final-inner{max-width:850px;margin:auto}
+.ff-final small{display:block;color:#8b4837;font-size:.71rem;letter-spacing:.2em;text-transform:uppercase;font-weight:850}
+.ff-final h2{margin:1.5rem 0 2.2rem;font:510 clamp(2.4rem,5vw,5.7rem)/1.17 "Lora N5",Georgia,serif;letter-spacing:-.068em}
+.ff-final h2 em{color:#944d3e}
+.ff-final p{font:440 clamp(1.13rem,1.65vw,1.43rem)/1.96 "Lora N5",Georgia,serif}
+.ff-return{display:inline-block;margin:3rem 0 0;padding:0 0 .45rem;border-bottom:1px solid #954936;text-decoration:none;color:#864737;font-size:.79rem;font-weight:750;letter-spacing:.05em}
+.ff-page .site-footer{background:#0e161b;color:#ddd9d0;border-top-color:#394540}
+.ff-page .site-footer a{color:inherit}
+@media(max-width:1080px){.ff-hero-shell{grid-template-columns:minmax(0,1fr) minmax(280px,.8fr);gap:2.5rem}.ff-hero h1{font-size:clamp(3rem,5.7vw,5.6rem)}.ff-chapter{grid-template-columns:110px minmax(0,770px);gap:2rem}.ff-side{grid-column:1}.ff-copy{grid-column:2}.ff-minute-phase{grid-template-columns:180px minmax(0,780px)}}
+@media(max-width:760px){.ff-hero-shell{display:block;min-height:0;width:min(100% - 2.4rem,620px);padding:6rem 0 4rem}.ff-hero h1{font-size:clamp(2.9rem,10.5vw,5.2rem)}.ff-scoreboard{margin-top:3rem;max-width:520px}.ff-readline{font-size:.59rem;letter-spacing:.08em}.ff-section-head h2{font-size:clamp(2.3rem,9vw,4.2rem)}.ff-chapter,.ff-opener .ff-chapter{display:block;padding:4rem 1.2rem 0}.ff-opener .ff-chapter{padding:0}.ff-side{position:static;margin-bottom:1.4rem}.ff-side span{display:none}.ff-copy p{font-size:1.05rem;line-height:1.92}.ff-copy p.ff-lead{font-size:1.17rem}.ff-copy h2{font-size:clamp(2.2rem,9vw,3.9rem)}.ff-winter-stamp{grid-template-columns:1fr;gap:.3rem;margin:3rem 1.2rem 0;padding:1.3rem}.ff-winter-stamp strong{font-size:clamp(5rem,21vw,9rem)}.ff-winter-stamp p{font-size:1.12rem}.ff-ribbon{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:1.5rem}.ff-ribbon li:last-child{grid-column:1/-1}.ff-minute-header h2{font-size:clamp(3rem,11vw,5.4rem)}.ff-minute-phase{display:block;padding:3rem 1.2rem}.ff-minute-num{position:static;margin-bottom:1.7rem;font-size:clamp(4.6rem,17vw,7.2rem)}.ff-minute-phase .ff-copy{grid-column:auto}.ff-minute-phase .ff-copy h3{font-size:clamp(2rem,7vw,3.3rem)}.ff-after{padding-bottom:2rem}.ff-final{padding:5rem 1.2rem}.ff-final h2{font-size:clamp(2.5rem,9vw,4.3rem)}}
+@media(max-width:400px){.ff-score-teams{gap:.4rem}.ff-score-teams strong{font-size:3.35rem}.ff-score-teams span{font-size:.65rem}.ff-ribbon{gap:.35rem}.ff-ribbon span{font-size:.73rem}}
+@media(prefers-reduced-motion:reduce){.ff-page *{scroll-behavior:auto}}
