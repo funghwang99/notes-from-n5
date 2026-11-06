@@ -94,6 +94,14 @@
       focus:'center center', alt:'Bìa thiết kế bảng tỷ số trận Arsenal thắng Manchester United 3–2 tại Wembley năm 1979.',
       meta:'History · Arsenal · Wembley 1979', title:'Five Minutes of Forever.',
       deck:'540 phút để vượt qua vòng ba, rồi năm phút cuối tại Wembley đủ để Arsenal đánh mất tất cả và giành lại chiếc cúp.'
+    },
+    {
+      path:'ngoai-anh-den', base:'the-things-he-made-possible.html', href:'the-things-he-made-possible.html',
+      image:'https://upload.wikimedia.org/wikipedia/commons/1/1d/Gilberto_against_Villa.jpg',
+      fallback:'https://upload.wikimedia.org/wikipedia/commons/8/8b/Spurs_vs_Arsenal%2C_Avril_2007.jpg',
+      focus:'center 30%', alt:'Gilberto Silva trong trận Arsenal gặp Aston Villa tại Emirates năm 2006.',
+      meta:'Ngoài Ánh Đèn · Gilberto Silva', title:'The Things He Made Possible.',
+      deck:'Từ 20,07 giây tại Eindhoven tới mùa bất bại, Gilberto giữ lại những khoảng trống để Arsenal của Wenger được bay lên.'
     }
   ];
   const guardImage = (img, story) => {
