@@ -1,0 +1,82 @@
+/* NOTES FROM N5 — NGOAI ANH DEN / GILBERTO SILVA
+   Editorial photography and measured negative space; not an illustrative portrait. */
+.gilberto-page{--gs-night:#111b1b;--gs-night2:#20302e;--gs-paper:#f0eee7;--gs-warm:#e6e1d6;--gs-ink:#242f2d;--gs-muted:#7c8078;--gs-lime:#b7c8a1;--gs-gold:#ceb98e;--gs-rule:rgba(37,48,43,.2);background:var(--gs-paper);color:var(--gs-ink);overflow-x:clip}
+.gilberto-page,.gilberto-page *, .gilberto-page *:before,.gilberto-page *:after{box-sizing:border-box}
+.gilberto-page main{max-width:100%;overflow-x:clip}
+.gilberto-page .reading-progress{height:3px;background:#b6c99d}
+.gilberto-page .site-header{background:#101b19;color:#edece7;border-bottom:1px solid rgba(255,255,255,.19)}
+.gilberto-page .site-header .brand,.gilberto-page .site-header .site-nav a,.gilberto-page .site-header .menu-button{color:#f1ede3}
+.gs-hero{position:relative;background:#111c1a;color:#f0f1e8;overflow:hidden}
+.gs-hero-inner{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);width:min(100%,1640px);margin:auto;min-height:clamp(680px,96svh,1020px)}
+.gs-hero-content{position:relative;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:clamp(5rem,8vw,10rem) clamp(1.4rem,5vw,6rem) clamp(3.5rem,6vw,6rem);background:radial-gradient(ellipse at 95% 15%,rgba(139,159,132,.12),transparent 55%),#111c1a}
+.gs-eyebrow{display:flex;gap:.8rem;align-items:center;margin:0 0 clamp(2rem,4vw,4rem);color:#c4c9b0;font-size:.7rem;font-weight:780;letter-spacing:.19em;text-transform:uppercase}
+.gs-eyebrow:before{content:"";display:block;width:2.2rem;height:1px;background:#c6cdaf}
+.gs-title{max-width:100%;margin:0;font:480 clamp(3.3rem,6.4vw,7.3rem)/1.04 "Lora N5",Georgia,serif;letter-spacing:-.073em;text-wrap:balance}
+.gs-title span{display:block}
+.gs-title em{display:block;color:#b4c7a1;font-weight:440}
+.gs-hero-deck{max-width:38rem;margin:2.15rem 0 0;color:#d2d7cb;font:440 clamp(1.1rem,1.6vw,1.46rem)/1.77 "Lora N5",Georgia,serif}
+.gs-hero-meta{display:flex;flex-wrap:wrap;gap:1rem 1.5rem;margin:2.8rem 0 0;padding-top:1.1rem;border-top:1px solid rgba(244,243,236,.18);color:#a4b1a7;font-size:.69rem;letter-spacing:.08em;font-weight:760;text-transform:uppercase}
+.gs-hero-photo{position:relative;display:flex;flex-direction:column;min-height:0;min-width:0;margin:0;background:#27312b;overflow:hidden}
+.gs-hero-photo img{display:block;flex:1 1 auto;min-height:0;width:100%;height:0;object-fit:cover;object-position:50% 40%;filter:grayscale(.19) saturate(.86) contrast(1.1)}
+.gs-hero-photo:after{position:absolute;inset:0;content:"";pointer-events:none;background:linear-gradient(90deg,rgba(17,28,26,.17),transparent 32%),linear-gradient(0deg,rgba(10,18,17,.45),transparent 42%)}
+.gs-hero-photo figcaption{position:relative;z-index:2;padding:0 .9rem .65rem;margin-top:-2rem;color:#f0ece2;text-align:right;font-size:.62rem;line-height:1.4;text-shadow:0 1px 4px #111}
+.gs-hero-photo figcaption a{color:inherit;text-decoration:underline}
+.gs-hero-caption{position:absolute;z-index:3;left:clamp(1rem,2.6vw,2.3rem);top:2rem;writing-mode:vertical-rl;transform:rotate(180deg);font-size:.67rem;font-weight:800;letter-spacing:.2em;color:#ebeddf}
+.gs-hero-photo.is-missing:before{position:absolute;inset:0;content:"GILBERTO SILVA";display:grid;place-items:center;color:#a5baa5;font:500 clamp(2rem,5vw,4rem)/1.2 "Lora N5",Georgia,serif;letter-spacing:-.04em}
+.gs-underhero{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#d9dbc9;border-bottom:1px solid #c9ccb9}
+.gs-underhero>div{padding:1.2rem clamp(.9rem,4vw,4rem);border-right:1px solid #c3c5b6}
+.gs-underhero>div:last-child{border-right:0}
+.gs-underhero strong{display:block;font-size:.71rem;font-weight:800;letter-spacing:.11em;color:#4e6155}
+.gs-underhero span{display:block;margin-top:.38rem;font-family:"Lora N5",Georgia,serif;font-size:clamp(.86rem,1.4vw,1.08rem);line-height:1.45}
+.gs-section{display:grid;grid-template-columns:minmax(0,135px) minmax(0,760px) minmax(0,135px);justify-content:center;gap:clamp(1rem,3vw,3rem);width:100%;max-width:1340px;margin:auto;padding:clamp(5rem,8.5vw,8.5rem) clamp(1.2rem,4vw,3.6rem) 0}
+.gs-side{grid-column:1;align-self:start;position:sticky;top:7rem;color:#6c7e69;font-size:.69rem;font-weight:780;letter-spacing:.14em;line-height:1.65;text-transform:uppercase}
+.gs-side span{display:block;margin-top:1rem;font-size:.63rem;font-weight:500;letter-spacing:.03em;text-transform:none;color:#8a8880}
+.gs-prose{grid-column:2;max-width:100%;min-width:0}
+.gs-prose p{margin:0 0 1.7rem;color:var(--gs-ink);font:445 clamp(1.08rem,1.3vw,1.22rem)/1.99 "Lora N5",Georgia,serif;letter-spacing:-.016em}
+.gs-prose .gs-lead{font-size:clamp(1.29rem,1.84vw,1.58rem);line-height:1.78;color:#1b2623}
+.gs-prose .gs-lead:first-letter{float:left;padding:.09em .11em 0 0;font-size:4.2em;line-height:.74;color:#52705b}
+.gs-prose h2{max-width:100%;margin:0 0 2.5rem;color:#29352e;font:500 clamp(2.3rem,4.45vw,4.8rem)/1.14 "Lora N5",Georgia,serif;letter-spacing:-.065em;text-wrap:balance}
+.gs-prose h2 em{color:#637e64;font-style:normal}
+.gs-quote{max-width:760px;margin:3.8rem 0 1rem;border-left:3px solid #7d9b77;padding:1rem 0 1rem 1.55rem;color:#5b795f;font:italic 490 clamp(1.8rem,2.8vw,2.95rem)/1.46 "Lora N5",Georgia,serif;letter-spacing:-.043em}
+.gs-interlude{position:relative;margin:clamp(4rem,9vw,9rem) 0 0;padding:clamp(5.5rem,10vw,11rem) clamp(1.2rem,5vw,5rem);background:radial-gradient(ellipse at 80% 10%,#354840,#111d1b 69%);color:#f3f0e6;overflow:hidden;text-align:center}
+.gs-interlude:before{position:absolute;content:"20.07";inset:auto -1rem -.24em auto;color:rgba(231,239,215,.055);font:850 clamp(12rem,30vw,30rem)/1 "Inter N5",Arial,sans-serif;letter-spacing:-.13em;pointer-events:none}
+.gs-interlude-inner{position:relative;max-width:980px;margin:auto}
+.gs-interlude small{font-size:.71rem;color:#c4cfaf;font-weight:800;letter-spacing:.21em;text-transform:uppercase}
+.gs-interlude h2{margin:1.4rem auto 1.8rem;font:460 clamp(2.9rem,6.8vw,7.5rem)/1.1 "Lora N5",Georgia,serif;letter-spacing:-.067em}
+.gs-interlude h2 em{color:#b5c7a3}
+.gs-interlude p{max-width:40rem;margin:auto;color:#c8d2c7;font:440 clamp(1.07rem,1.5vw,1.31rem)/1.75 "Lora N5",Georgia,serif}
+.gs-photo-block{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.72fr);gap:clamp(1.5rem,5vw,6rem);max-width:1250px;min-width:0;margin:clamp(5rem,9vw,9rem) auto;padding:0 clamp(1.2rem,4vw,3rem);align-items:center}
+.gs-photo-block figure{min-width:0;margin:0}
+.gs-photo-block img{display:block;width:100%;max-width:100%;height:auto;max-height:760px;object-fit:contain;object-position:center;background:#24332c}
+.gs-photo-block figcaption{padding:.6rem .1rem 0;color:#777b73;font-size:.67rem;line-height:1.6}
+.gs-photo-block figcaption a{color:inherit;text-decoration:underline}
+.gs-photo-block h3{margin:0 0 1rem;font:460 clamp(2rem,3.6vw,3.9rem)/1.19 "Lora N5",Georgia,serif;letter-spacing:-.06em}
+.gs-photo-block p{max-width:340px;font:450 clamp(1rem,1.37vw,1.18rem)/1.8 "Lora N5",Georgia,serif;color:#626f64}
+.gs-photo-block small{display:block;margin:0 0 1rem;color:#617463;font-size:.67rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.gs-photo-block--reverse{grid-template-columns:minmax(0,.65fr) minmax(0,1fr)}
+.gs-photo-block--reverse figure{grid-column:2;grid-row:1}
+.gs-photo-block--reverse aside{grid-column:1;grid-row:1}
+.gs-photo-block--reverse figure img{max-height:580px}
+.gs-night{margin-top:clamp(4rem,7vw,7rem);padding-bottom:clamp(5rem,9vw,9rem);background:#1d2b27;color:#f2f1e7}
+.gs-night .gs-prose p{color:#e7e9e1}
+.gs-night .gs-prose h2{color:#f2f1e7}
+.gs-night .gs-prose h2 em{color:#abc3a5}
+.gs-night .gs-side{color:#b2c6a6}
+.gs-night .gs-side span{color:#acb9ab}
+.gs-ribbon{width:min(100% - 2.4rem,1020px);margin:4rem auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
+.gs-ribbon>div{padding:1.5rem;background:#dee4d4}
+.gs-ribbon b{display:block;font:740 clamp(2.6rem,4.8vw,4.7rem)/1.1 "Inter N5",Arial,sans-serif;letter-spacing:-.07em;color:#49634b}
+.gs-ribbon span{display:block;margin-top:.5rem;color:#4c5d4d;font-size:.69rem;letter-spacing:.08em;font-weight:700;text-transform:uppercase;line-height:1.5}
+.gs-outro{padding:clamp(5rem,9vw,10rem) clamp(1.2rem,5vw,5rem);background:#e0ddcf}
+.gs-outro-inner{max-width:850px;margin:auto}
+.gs-outro small{color:#526e56;font-size:.71rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.gs-outro h2{margin:1.5rem 0 3rem;font:470 clamp(2.8rem,6vw,6.3rem)/1.15 "Lora N5",Georgia,serif;letter-spacing:-.064em}
+.gs-outro h2 em{color:#56765b}
+.gs-outro p{font:440 clamp(1.1rem,1.6vw,1.33rem)/1.95 "Lora N5",Georgia,serif}
+.gs-back{display:inline-flex;margin-top:3rem;padding-bottom:.4rem;border-bottom:1px solid #53745e;color:#46684f;font-size:.78rem;font-weight:750;text-decoration:none;letter-spacing:.06em}
+.gilberto-page .site-footer{background:#111b1a;color:#dedbd1;border-top:1px solid #38423c}
+.gilberto-page .site-footer a{color:inherit}
+@media(max-width:1100px){.gs-hero-inner{grid-template-columns:minmax(0,1fr) minmax(0,.82fr)}.gs-title{font-size:clamp(3.2rem,6.1vw,5.4rem)}.gs-hero-content{padding-left:clamp(1.4rem,4vw,4rem);padding-right:clamp(1.4rem,4vw,4rem)}.gs-section{grid-template-columns:minmax(0,100px) minmax(0,760px);gap:clamp(1rem,2.5vw,2rem)}.gs-side{grid-column:1}.gs-prose{grid-column:2}}
+@media(max-width:780px){.gs-hero-inner{display:flex;flex-direction:column;min-height:0}.gs-hero-content{order:1;padding:4rem 1.3rem 4.5rem;max-width:750px;margin:auto;width:100%}.gs-hero-photo{order:0;height:clamp(340px,65svh,620px);flex:0 0 auto}.gs-hero-photo img{height:100%;flex:0 0 auto;object-position:center 34%}.gs-title{font-size:clamp(3rem,10.7vw,5.5rem)}.gs-hero-photo figcaption{font-size:.57rem}.gs-underhero{grid-template-columns:1fr}.gs-underhero>div{border-right:0;border-bottom:1px solid #c4cabb;padding:.65rem 1.25rem}.gs-underhero strong{display:inline;font-size:.65rem;margin-right:1rem}.gs-underhero span{display:inline;font-size:.86rem}.gs-section{display:block;padding:4.5rem 1.25rem 0}.gs-side{position:static;margin-bottom:1.6rem}.gs-side span{display:none}.gs-prose p{font-size:1.055rem;line-height:1.87}.gs-prose .gs-lead{font-size:1.2rem}.gs-prose h2{font-size:clamp(2.25rem,9vw,4.1rem)}.gs-photo-block,.gs-photo-block--reverse{display:flex;flex-direction:column;align-items:stretch;margin:4rem auto;gap:1.5rem}.gs-photo-block figure,.gs-photo-block--reverse figure{order:0;width:100%}.gs-photo-block aside,.gs-photo-block--reverse aside{order:1;width:100%}.gs-photo-block img{max-height:520px}.gs-photo-block h3{font-size:clamp(2.2rem,8.5vw,3.3rem)}.gs-ribbon{grid-template-columns:1fr 1fr}.gs-ribbon>div:last-child{grid-column:1/-1}.gs-interlude h2{font-size:clamp(2.8rem,10vw,5rem)}.gs-outro{padding:5rem 1.25rem}.gs-outro h2{font-size:clamp(2.6rem,10vw,4.8rem)}}
+@media(max-width:390px){.gs-title{font-size:clamp(2.7rem,10.1vw,3.5rem)}.gs-hero-meta{gap:.55rem .8rem}.gs-ribbon b{font-size:2.6rem}}
+@media(prefers-reduced-motion:reduce){.gilberto-page{scroll-behavior:auto}}
