@@ -102,6 +102,14 @@
       focus:'center 30%', alt:'Gilberto Silva trong trận Arsenal gặp Aston Villa tại Emirates năm 2006.',
       meta:'Ngoài Ánh Đèn · Gilberto Silva', title:'The Things He Made Possible.',
       deck:'Từ 20,07 giây tại Eindhoven tới mùa bất bại, Gilberto giữ lại những khoảng trống để Arsenal của Wenger được bay lên.'
+    },
+    {
+      path:'tuong-dai', base:'the-statue-that-moved-again.html', href:'the-statue-that-moved-again.html',
+      image:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Thierry_Henry_Statue_4.jpg/1280px-Thierry_Henry_Statue_4.jpg',
+      fallback:'https://upload.wikimedia.org/wikipedia/commons/8/8d/Thierry_Henry_statue.jpg',
+      focus:'27% 45%', alt:'Tượng đồng Thierry Henry trượt gối ngoài Emirates Stadium.',
+      meta:'Tượng Đài · Thierry Henry', title:'Ngày Hoàng Đế Trở Về Nhà.',
+      deck:'Một tháng sau ngày Arsenal dựng tượng, Thierry Henry trở lại Emirates và ghi bàn trước Leeds. Lần này, ký ức biết chuyển động.'
     }
   ];
   const guardImage = (img, story) => {
