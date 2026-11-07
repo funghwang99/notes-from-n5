@@ -202,3 +202,272 @@
  @keyframes th-cover-in{from{transform:scale(1.055);filter:grayscale(1) brightness(.53)}to{transform:scale(1);}}
 }
 @media(prefers-reduced-motion:reduce){.th-page *, .th-page *:before,.th-page *:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* HENRY MEDIA ALIGNMENT REWORK v2 — preserve subjects, eliminate stretched or
+   misaligned image boxes at desktop, tablet, and phone breakpoints. */
+.th-page .th-cover-images{
+  grid-template-columns:minmax(0,48fr) minmax(0,52fr);
+  align-items:stretch;
+  width:100%;
+  height:100%;
+}
+.th-page .th-cover-image{
+  position:relative;
+  display:block;
+  width:100%;
+  height:100%;
+  min-width:0;
+  min-height:0;
+  margin:0;
+  overflow:hidden;
+}
+.th-page .th-cover-image img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  min-width:0;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center center;
+  animation:none;
+  transform:none;
+}
+.th-page .th-cover-image--stone img{
+  object-position:center center;
+  filter:grayscale(1) contrast(1.16) brightness(.68);
+}
+.th-page .th-cover-image--living img{
+  object-position:center center;
+  filter:saturate(.84) contrast(1.1) brightness(.65);
+}
+.th-page .th-moment--highbury{
+  min-height:clamp(440px,54vw,660px);
+}
+.th-page .th-moment--highbury .th-moment-content{
+  min-height:clamp(440px,54vw,660px);
+}
+.th-page .th-moment--highbury > img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 48%;
+}
+.th-page .th-statue-scene,
+.th-page .th-return-frame,
+.th-page .th-ending{
+  align-items:stretch;
+  grid-auto-rows:minmax(0,auto);
+}
+.th-page .th-statue-scene{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  min-height:clamp(540px,68svh,790px);
+}
+.th-page .th-statue-scene-media{
+  position:relative;
+  width:100%;
+  min-width:0;
+  min-height:clamp(420px,55svh,670px);
+  margin:0;
+  background:#1d2222;
+}
+.th-page .th-statue-scene-media > img{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center center;
+  padding:clamp(.45rem,1.8vw,1.3rem);
+}
+.th-page .th-return-frame{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  min-height:clamp(500px,64svh,700px);
+}
+.th-page .th-return-frame figure{
+  position:relative;
+  display:block;
+  width:100%;
+  height:auto;
+  min-width:0;
+  min-height:clamp(420px,52svh,610px);
+  margin:0;
+  background:#111a1d;
+}
+.th-page .th-return-frame figure > img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center center;
+}
+.th-page .th-applause{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  min-height:clamp(550px,78svh,880px);
+  align-items:stretch;
+  background:#080d11;
+}
+.th-page .th-applause:after{display:none}
+.th-page .th-applause > img{
+  position:relative;
+  inset:auto;
+  grid-column:2;
+  grid-row:1;
+  width:100%;
+  height:100%;
+  min-height:0;
+  object-fit:contain;
+  object-position:center center;
+  background:#0b1115;
+  filter:brightness(.78) saturate(.75);
+}
+.th-page .th-applause-inner{
+  grid-column:1;
+  grid-row:1;
+  width:100%;
+  min-height:0;
+  margin:0;
+  padding:clamp(3rem,6vw,7rem) clamp(1.7rem,5.5vw,6rem);
+  justify-content:center;
+  align-items:flex-start;
+}
+.th-page .th-ending{
+  grid-template-columns:minmax(0,46fr) minmax(0,54fr);
+  min-height:0;
+}
+.th-page .th-ending-portrait{
+  position:relative;
+  display:block;
+  height:auto;
+  min-height:clamp(630px,82svh,920px);
+  margin:0;
+  background:#212423;
+}
+.th-page .th-ending-portrait img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center center;
+  padding:clamp(.4rem,1.5vw,1.3rem);
+}
+@media(max-width:900px){
+  .th-page .th-statue-scene,
+  .th-page .th-return-frame,
+  .th-page .th-ending{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  }
+  .th-page .th-applause{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  }
+  .th-page .th-applause-inner{padding:2.8rem 1.8rem}
+  .th-page .th-ending-text{padding:3.5rem 1.8rem}
+}
+@media(max-width:720px){
+  .th-page .th-cover-images{
+    position:relative;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    width:100%;
+    height:clamp(320px,55svh,500px);
+  }
+  .th-page .th-cover-image{height:100%}
+  .th-page .th-cover-image img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 35%;
+  }
+  .th-page .th-cover-image--stone img{object-position:center 35%}
+  .th-page .th-cover-image--living img{object-position:center 22%}
+  .th-page .th-moment--highbury,
+  .th-page .th-moment--highbury .th-moment-content{
+    min-height:clamp(410px,67svh,570px);
+  }
+  .th-page .th-moment--highbury > img{object-position:center center}
+  .th-page .th-statue-scene{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  .th-page .th-statue-scene-media{
+    display:block;
+    height:auto;
+    min-height:0;
+    aspect-ratio:3 / 2;
+    flex:0 0 auto;
+  }
+  .th-page .th-statue-scene-media img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    padding:0;
+    object-fit:contain;
+  }
+  .th-page .th-return-frame{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  .th-page .th-return-frame figure{
+    width:100%;
+    height:auto;
+    min-height:0;
+    aspect-ratio:4 / 3;
+    flex:0 0 auto;
+  }
+  .th-page .th-return-frame figure img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+  .th-page .th-applause{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  .th-page .th-applause > img{
+    display:block;
+    width:100%;
+    height:clamp(390px,70svh,620px);
+    min-height:0;
+    flex:0 0 auto;
+    object-fit:contain;
+    object-position:center center;
+    filter:brightness(.82) saturate(.78);
+  }
+  .th-page .th-applause-inner{
+    display:flex;
+    width:100%;
+    min-height:0;
+    padding:3.4rem 1.25rem 4.3rem;
+    justify-content:flex-start;
+  }
+  .th-page .th-ending{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  .th-page .th-ending-portrait{
+    width:100%;
+    min-height:0;
+    height:clamp(400px,70svh,630px);
+    flex:0 0 auto;
+  }
+  .th-page .th-ending-portrait img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    padding:.5rem;
+  }
+  .th-page .th-ending-text{padding:3.5rem 1.25rem 5rem}
+}
