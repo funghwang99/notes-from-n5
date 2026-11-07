@@ -1,0 +1,204 @@
+/* N5 SPECIAL EDITION — NGÀY HOÀNG ĐẾ TRỞ VỀ NHÀ
+   Documentary photographs, typographic narrative, and understated cinematic motion. */
+.th-page{--th-night:#090d11;--th-ink:#161c20;--th-white:#f3efe6;--th-paper:#ebe5d9;--th-red:#a6192b;--th-ruby:#b82434;--th-bronze:#b5a186;--th-pale:#d5cebd;background:var(--th-paper);color:var(--th-ink);overflow-x:clip}
+.th-page,.th-page *,.th-page *:before,.th-page *:after{box-sizing:border-box}
+.th-page main{width:100%;max-width:100%;min-width:0;overflow-x:clip}
+.th-page img{max-width:100%;display:block}
+.th-page .reading-progress{height:3px;background:#b51e31}
+.th-page .site-header{z-index:90;background:#0c0f14;color:#f2eee5;border-bottom:1px solid rgba(255,255,255,.15)}
+.th-page .site-header .brand,.th-page .site-header .site-nav a,.th-page .site-header .menu-button{color:#f0eae0}
+.th-cover{position:relative;isolation:isolate;background:#090d11;color:#f6f1e8;overflow:hidden}
+.th-cover-images{position:absolute;inset:0;display:grid;grid-template-columns:48% 52%;overflow:hidden}
+.th-cover-image{position:relative;margin:0;min-width:0;overflow:hidden;background:#182024}
+.th-cover-image img{width:100%;height:100%;object-fit:cover;object-position:center 36%}
+.th-cover-image--stone img{filter:grayscale(1) contrast(1.16) brightness(.69);object-position:center 36%}
+.th-cover-image--living img{filter:saturate(.85) contrast(1.14) brightness(.59);object-position:center 43%}
+.th-cover-images:after{position:absolute;inset:0;content:"";pointer-events:none;background:linear-gradient(to bottom,rgba(3,8,10,.27) 0%,rgba(2,7,9,.25) 30%,rgba(3,7,10,.75) 67%,#090d11 100%);z-index:1}
+.th-cover-images:before{position:absolute;top:0;bottom:0;left:48%;width:1px;background:rgba(255,255,255,.36);content:"";z-index:2}
+.th-cover-inner{position:relative;z-index:3;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(740px,104svh,1110px);width:min(100% - clamp(2.4rem,8vw,9rem),1480px);margin:auto;padding:clamp(8rem,11vw,13rem) 0 clamp(4rem,6vw,6rem)}
+.th-topline{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.8rem;color:#d9d3c3;font:760 .66rem/1.4 "Inter N5",Arial,sans-serif;letter-spacing:.21em;text-transform:uppercase}
+.th-topline span:first-child{color:#f0cdcb}
+.th-cover-eyebrow{margin:clamp(5rem,11vw,9rem) 0 1.5rem;font-size:.73rem;font-weight:780;letter-spacing:.22em;text-transform:uppercase;color:#d3c8b0}
+.th-cover h1{max-width:min(1220px,100%);margin:0;font:480 clamp(3.8rem,8.25vw,10.5rem)/.99 "Lora N5",Georgia,serif;letter-spacing:-.09em;text-wrap:balance;overflow-wrap:break-word}
+.th-cover h1 span{display:block}
+.th-cover h1 em{display:block;font-weight:450;font-style:italic;color:#e6c7c1}
+.th-cover-sub{max-width:710px;margin:2rem 0 0;color:#e0d9cf;font:450 clamp(1.04rem,1.7vw,1.44rem)/1.7 "Lora N5",Georgia,serif}
+.th-cover-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-top:2.7rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.27);font:770 .64rem/1.5 "Inter N5",Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#babeb7}
+.th-cover-vertical{position:absolute;z-index:3;top:23%;right:clamp(.4rem,1.5vw,1.6rem);color:#ece5df;writing-mode:vertical-rl;font:780 .61rem/1.5 "Inter N5",Arial,sans-serif;letter-spacing:.2em}
+.th-cover-negative{position:absolute;z-index:2;inset:auto 0 9% auto;transform:rotate(-90deg);transform-origin:right bottom;color:rgba(255,255,255,.35);font-size:.65rem;letter-spacing:.28em;font-weight:770}
+.th-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#202322;color:#ede6db;border-bottom:1px solid #56534f}
+.th-strip div{min-width:0;padding:1.4rem clamp(.9rem,3.5vw,3.4rem);border-right:1px solid rgba(255,255,255,.15)}
+.th-strip div:last-child{border-right:none}
+.th-strip b{display:block;color:#c0aa9a;font:760 .7rem/1.6 "Inter N5",Arial,sans-serif;letter-spacing:.14em}
+.th-strip span{display:block;margin-top:.3rem;font:460 clamp(.9rem,1.23vw,1.1rem)/1.52 "Lora N5",Georgia,serif}
+.th-rail{position:fixed;z-index:35;right:clamp(1rem,2vw,2.5rem);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:.75rem;align-items:flex-end;mix-blend-mode:difference}
+.th-rail a{display:flex;align-items:center;gap:.6rem;color:#f6f3ee;text-decoration:none;font:800 .56rem/1.4 "Inter N5",Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase;opacity:.6;transition:opacity .2s ease}
+.th-rail a:after{content:"";height:1px;width:14px;background:currentColor;transition:width .2s ease}
+.th-rail a[aria-current="location"],.th-rail a:hover{opacity:1}
+.th-rail a[aria-current="location"]:after{width:32px}
+.th-section{position:relative;padding:clamp(5rem,9vw,10rem) clamp(1.2rem,4vw,4rem);scroll-margin-top:5rem}
+.th-section--night{background:var(--th-night);color:var(--th-white)}
+.th-section--paper{background:#eeeae0;color:var(--th-ink)}
+.th-section--bronze{background:#d7cfbe;color:var(--th-ink)}
+.th-section--white{background:#f7f4ec;color:var(--th-ink)}
+.th-section-inner{max-width:1280px;margin:auto;display:grid;grid-template-columns:minmax(130px,.22fr) minmax(0,790px) minmax(0,.16fr);gap:clamp(1.2rem,3vw,4.5rem);justify-content:center}
+.th-section-kicker{grid-column:1;align-self:start;position:sticky;top:7.5rem;font:790 .68rem/1.75 "Inter N5",Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#8f2939}
+.th-section-kicker small{display:block;margin-top:1rem;max-width:170px;color:#827c73;text-transform:none;letter-spacing:0;font-size:.67rem;font-weight:510;line-height:1.7}
+.th-section--night .th-section-kicker{color:#d6b4aa}
+.th-section--night .th-section-kicker small{color:#aeb9b9}
+.th-copy{grid-column:2;max-width:100%;min-width:0}
+.th-copy p{max-width:790px;margin:0 0 1.85rem;font:430 clamp(1.06rem,1.35vw,1.23rem)/1.99 "Lora N5",Georgia,serif;letter-spacing:-.015em;overflow-wrap:break-word}
+.th-section--night .th-copy p{color:#e6e1d7}
+.th-copy .th-lead{font-size:clamp(1.28rem,1.75vw,1.6rem);line-height:1.8}
+.th-copy h2{max-width:100%;margin:.3rem 0 2.8rem;font:470 clamp(2.5rem,4.8vw,5.3rem)/1.17 "Lora N5",Georgia,serif;letter-spacing:-.075em;text-wrap:balance;overflow-wrap:break-word}
+.th-copy h2 em{color:#ae2538;font-weight:460}
+.th-section--night .th-copy h2{color:#fff8ef}
+.th-section--night .th-copy h2 em{color:#d6c0ae}
+.th-opening{position:relative;overflow:hidden;padding-top:clamp(6.5rem,12vw,12rem)}
+.th-opening:before{content:"68";position:absolute;inset:-.16em auto auto clamp(1rem,3vw,4rem);font:800 clamp(18rem,39vw,42rem)/1 "Inter N5",Arial,sans-serif;letter-spacing:-.15em;color:rgba(255,255,255,.037);pointer-events:none}
+.th-opening .th-copy{position:relative}
+.th-excerpt{margin:3.5rem 0 0!important;padding:1.1rem 0 1.1rem 1.5rem;border-left:2px solid #be3b49;font:italic 450 clamp(1.65rem,2.75vw,2.7rem)/1.5 "Lora N5",Georgia,serif!important;letter-spacing:-.04em;color:#e5cfca!important}
+.th-moment{position:relative;background:#0b1012;color:#f7f0e8;isolation:isolate;overflow:hidden}
+.th-moment--highbury{min-height:clamp(440px,68vw,820px)}
+.th-moment img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.th-moment--highbury img{filter:grayscale(.56) brightness(.63)}
+.th-moment:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(7,12,15,.85),rgba(7,12,15,.1) 70%),linear-gradient(0deg,rgba(7,12,15,.46),transparent 64%)}
+.th-moment-content{position:relative;z-index:2;width:min(100% - 2.4rem,1280px);margin:auto;min-height:clamp(440px,68vw,820px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(3rem,7vw,7rem) 0}
+.th-moment-content small{color:#e6d0c4;font-weight:800;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+.th-moment-content h2{max-width:870px;margin:1.3rem 0 0;font:470 clamp(3rem,7vw,8.3rem)/1.08 "Lora N5",Georgia,serif;letter-spacing:-.078em;text-wrap:balance}
+.th-moment-content h2 em{color:#e4bbb0}
+.th-moment-content p{max-width:650px;margin:1.5rem 0 0;font:450 clamp(1.01rem,1.5vw,1.27rem)/1.7 "Lora N5",Georgia,serif;color:#dfd5cb}
+.th-index{margin:3rem 0 1rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+.th-index div{padding:1.2rem .6rem;border-top:1px solid #b5a696}
+.th-index b{display:block;color:#9e2637;font:700 clamp(2rem,4.1vw,4.5rem)/1.1 "Lora N5",Georgia,serif;letter-spacing:-.06em}
+.th-index span{display:block;margin-top:.45rem;font:760 .63rem/1.6 "Inter N5",Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#756e68}
+.th-statue-scene{display:grid;grid-template-columns:minmax(0,47%) minmax(0,53%);min-height:clamp(720px,95svh,1080px);background:#b6a996;overflow:hidden;scroll-margin-top:4rem}
+.th-statue-scene-media{position:relative;min-width:0;overflow:hidden;background:#252624}
+.th-statue-scene-media img{width:100%;height:100%;object-fit:cover;object-position:center 38%;filter:grayscale(.92) contrast(1.14)}
+.th-statue-scene-copy{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:clamp(4rem,7vw,9rem) clamp(1.5rem,5vw,6rem);color:#1e2522}
+.th-statue-scene-copy small{font:810 .7rem/1.6 "Inter N5",Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#7f2b34}
+.th-statue-scene-copy h2{margin:1.4rem 0 1.6rem;font:450 clamp(2.6rem,5vw,6rem)/1.12 "Lora N5",Georgia,serif;letter-spacing:-.075em;text-wrap:balance}
+.th-statue-scene-copy h2 em{color:#953444}
+.th-statue-scene-copy p{max-width:560px;margin:0;font:420 clamp(1.06rem,1.55vw,1.35rem)/1.82 "Lora N5",Georgia,serif}
+.th-years{display:flex;justify-content:space-between;gap:1rem;max-width:560px;margin:3.2rem 0 0;padding-top:1rem;border-top:1px solid rgba(0,0,0,.26);font-size:.68rem;letter-spacing:.15em;font-weight:800;text-transform:uppercase}
+.th-bridge{background:#100e10;color:#f3eee6;padding:clamp(6rem,11vw,12rem) clamp(1.2rem,5vw,5rem);text-align:center}
+.th-bridge small{display:block;color:#bbaba4;font-size:.72rem;letter-spacing:.19em;text-transform:uppercase;font-weight:800}
+.th-bridge h2{max-width:1050px;margin:1.6rem auto;font:450 clamp(3rem,7.3vw,8.4rem)/1.11 "Lora N5",Georgia,serif;letter-spacing:-.077em;text-wrap:balance}
+.th-bridge h2 em{color:#d8ada6}
+.th-bridge p{max-width:650px;margin:0 auto;font:420 clamp(1.05rem,1.5vw,1.3rem)/1.7 "Lora N5",Georgia,serif;color:#c8bfc0}
+.th-return-frame{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:clamp(520px,70vw,790px);background:#111619;overflow:hidden}
+.th-return-frame figure{position:relative;margin:0;min-width:0;overflow:hidden}
+.th-return-frame img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.85) contrast(1.09)}
+.th-return-frame figcaption{position:absolute;inset:auto 0 0;padding:1rem 2rem;color:#ede6db;font-size:.64rem;font-weight:760;letter-spacing:.11em;text-transform:uppercase;background:linear-gradient(transparent,rgba(0,0,0,.67))}
+.th-return-frame aside{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:1.2rem;min-width:0;padding:clamp(3rem,6vw,7rem);color:#ebe6df}
+.th-return-frame small{font-size:.7rem;letter-spacing:.2em;color:#dbc2b8;font-weight:800}
+.th-return-frame strong{font:490 clamp(3rem,6vw,7rem)/1 "Lora N5",Georgia,serif;letter-spacing:-.08em}
+.th-return-frame strong em{color:#d5a7a4}
+.th-return-frame p{max-width:420px;font:440 clamp(1.02rem,1.5vw,1.34rem)/1.76 "Lora N5",Georgia,serif;color:#c7c9c7}
+.th-timebar{width:min(100% - 2.4rem,960px);margin:4rem auto 1rem;padding:1.1rem 0;border-block:1px solid #bbb0a1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;text-align:center}
+.th-timebar strong{display:block;font:570 clamp(2.4rem,5vw,5.5rem)/1.2 "Lora N5",Georgia,serif;letter-spacing:-.075em;color:#9f2434}
+.th-timebar span{display:block;font:780 .64rem/1.6 "Inter N5",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#645c54}
+.th-goal{position:relative;isolation:isolate;background:#a41c2c;color:#fbf3ee;text-align:center;padding:clamp(6rem,11vw,13rem) 1.2rem;overflow:hidden}
+.th-goal:before{content:"1–0";position:absolute;left:-.1em;top:-.13em;font:850 clamp(22rem,48vw,54rem)/1 "Inter N5",Arial,sans-serif;letter-spacing:-.13em;color:rgba(255,255,255,.045);pointer-events:none;z-index:-1}
+.th-goal small{display:block;color:#f3cfcc;font-size:.68rem;font-weight:850;letter-spacing:.24em;text-transform:uppercase}
+.th-goal h2{max-width:980px;margin:2rem auto;font:470 clamp(3.3rem,8.6vw,10rem)/1.02 "Lora N5",Georgia,serif;letter-spacing:-.082em;text-wrap:balance}
+.th-goal h2 em{color:#f3d0b4}
+.th-goal p{max-width:710px;margin:0 auto;font:445 clamp(1.13rem,1.8vw,1.5rem)/1.75 "Lora N5",Georgia,serif}
+.th-goal-score{display:flex;justify-content:center;gap:1.2rem;align-items:center;margin-top:3rem;font:780 .71rem/1.5 "Inter N5",Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.th-goal-score b{font-size:clamp(1.8rem,3.8vw,3.5rem);font-weight:800;letter-spacing:-.04em}
+.th-applause{position:relative;min-height:clamp(650px,95svh,1030px);background:#080d11;color:#f0e9e0;overflow:hidden}
+.th-applause img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 35%;filter:brightness(.6) saturate(.72)}
+.th-applause:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#060a0e 0%,rgba(6,10,14,.86) 35%,rgba(6,10,14,.06) 92%),linear-gradient(0deg,#060a0e 0%,transparent 50%)}
+.th-applause-inner{position:relative;z-index:2;width:min(100% - 2.4rem,1230px);margin:auto;min-height:inherit;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding:5rem 0}
+.th-applause-inner small{color:#e7bcb7;font-weight:800;letter-spacing:.2em;font-size:.7rem;text-transform:uppercase}
+.th-applause h2{max-width:800px;margin:1.3rem 0;font:465 clamp(2.9rem,6.6vw,7.6rem)/1.12 "Lora N5",Georgia,serif;letter-spacing:-.077em}
+.th-applause h2 em{color:#e2b1a8}
+.th-applause p{max-width:620px;font:435 clamp(1.06rem,1.6vw,1.35rem)/1.75 "Lora N5",Georgia,serif;color:#d5d0ca}
+.th-ending{display:grid;grid-template-columns:minmax(0,46%) minmax(0,54%);background:#d6c9b5}
+.th-ending-portrait{position:relative;min-height:clamp(620px,85svh,1020px);margin:0;overflow:hidden}
+.th-ending-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 39%;filter:grayscale(.76) contrast(1.1)}
+.th-ending-text{min-width:0;display:flex;flex-direction:column;justify-content:center;padding:clamp(4rem,7vw,9rem) clamp(1.3rem,5vw,5.5rem)}
+.th-ending-text>small{font-weight:820;font-size:.7rem;color:#873340;letter-spacing:.18em;text-transform:uppercase}
+.th-ending-text h2{margin:1.5rem 0 2rem;font:470 clamp(2.7rem,5vw,5.7rem)/1.12 "Lora N5",Georgia,serif;letter-spacing:-.076em}
+.th-ending-text h2 em{color:#9a3343}
+.th-ending-text p{max-width:720px;font:425 clamp(1.04rem,1.37vw,1.23rem)/1.95 "Lora N5",Georgia,serif}
+.th-ending-text p+p{margin-top:.7rem}
+.th-endline{max-width:550px;margin:3rem 0 0;padding-top:1.8rem;border-top:1px solid #978b7b;font:italic 470 clamp(1.35rem,2.2vw,2rem)/1.65 "Lora N5",Georgia,serif}
+.th-below{padding:4rem 1.2rem 5rem;background:#0a0f12;color:#d5cec4}
+.th-below-inner{max-width:1050px;margin:auto;display:flex;justify-content:space-between;gap:3rem;align-items:flex-start}
+.th-back{display:inline-flex;border-bottom:1px solid #c6b5a9;padding:.3rem 0;color:#f5e9dc;text-decoration:none;font-size:.79rem;font-weight:740;letter-spacing:.05em}
+.th-credits{max-width:450px;color:#a9a59d;font:480 .67rem/1.85 "Inter N5",Arial,sans-serif}
+.th-credits summary{cursor:pointer;color:#bdb5a8;font-weight:760;letter-spacing:.09em}
+.th-credits a{color:#c9c9bf;text-decoration:underline;text-underline-offset:2px}
+.th-credits p{margin:1rem 0 0}
+.th-page .site-footer{background:#0a0f12;color:#c7c4bb;border-top:1px solid rgba(255,255,255,.12)}
+.th-page .site-footer a{color:inherit}
+@media(max-width:1240px){.th-rail{display:none}.th-section-inner{grid-template-columns:minmax(105px,.16fr) minmax(0,790px);gap:1.8rem}.th-cover h1{font-size:clamp(3.4rem,8.3vw,8.3rem)}}
+@media(max-width:900px){.th-cover-images{grid-template-columns:45% 55%}.th-cover-images:before{left:45%}.th-cover-inner{min-height:clamp(650px,88svh,900px)}.th-cover h1{font-size:clamp(3.1rem,8.7vw,6.8rem)}.th-statue-scene,.th-return-frame,.th-ending{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.th-statue-scene-copy{padding:3rem 1.8rem}.th-statue-scene-copy h2{font-size:clamp(2.4rem,5vw,4rem)}.th-return-frame aside{padding:2rem}.th-ending-text{padding:4rem 2rem}}
+@media(max-width:720px){
+  .th-cover-images{position:relative;display:grid;height:clamp(310px,54svh,550px)}
+  .th-cover-images:after{background:linear-gradient(0deg,#090d11 0%,transparent 32%)}
+  .th-cover-inner{display:block;min-height:0;width:100%;padding:1rem 1.2rem 3.2rem}
+  .th-cover-eyebrow{margin:1.4rem 0 1.2rem;font-size:.63rem}
+  .th-cover h1{font-size:clamp(2.75rem,10.4vw,5rem);line-height:1.08;letter-spacing:-.07em}
+  .th-cover-sub{font-size:1.03rem;margin:1.3rem 0 0}
+  .th-cover-bottom{margin-top:1.8rem;font-size:.58rem}
+  .th-topline{font-size:.57rem}
+  .th-cover-vertical,.th-cover-negative{display:none}
+  .th-strip{grid-template-columns:1fr}
+  .th-strip div{padding:.7rem 1.2rem;border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .th-strip b{display:inline;font-size:.61rem;margin-right:1rem}
+  .th-strip span{display:inline;font-size:.82rem}
+  .th-section{padding:4.7rem 1.25rem}
+  .th-section-inner{display:block}
+  .th-section-kicker{position:static;display:block;margin-bottom:1.5rem;font-size:.62rem}
+  .th-section-kicker small{display:none}
+  .th-copy p{font-size:1.05rem;line-height:1.92}
+  .th-copy .th-lead{font-size:1.18rem}
+  .th-copy h2{font-size:clamp(2.35rem,9.2vw,4.3rem)}
+  .th-opening:before{font-size:20rem}
+  .th-excerpt{font-size:clamp(1.6rem,7vw,2.3rem)!important}
+  .th-moment--highbury,.th-moment-content{min-height:clamp(450px,78svh,680px)}
+  .th-moment-content{padding:3rem 0}
+  .th-moment-content h2{font-size:clamp(2.6rem,10vw,5.4rem)}
+  .th-index{grid-template-columns:1fr 1fr;gap:.7rem}
+  .th-index div:last-child{grid-column:1/-1}
+  .th-statue-scene{display:flex;flex-direction:column;min-height:0}
+  .th-statue-scene-media{height:clamp(330px,62svh,590px)}
+  .th-statue-scene-media img{height:100%;object-fit:cover}
+  .th-statue-scene-copy{padding:3.7rem 1.25rem 4.6rem}
+  .th-statue-scene-copy h2{font-size:clamp(2.5rem,9.1vw,4.2rem)}
+  .th-bridge{padding:5.5rem 1.2rem}
+  .th-bridge h2{font-size:clamp(2.5rem,9.5vw,5.3rem)}
+  .th-return-frame{display:flex;flex-direction:column}
+  .th-return-frame figure{height:clamp(310px,55svh,520px)}
+  .th-return-frame img{height:100%;object-fit:cover}
+  .th-return-frame aside{padding:3.8rem 1.25rem 4.5rem}
+  .th-return-frame strong{font-size:clamp(3.1rem,12vw,5rem)}
+  .th-timebar{margin:2.6rem auto 0;gap:.3rem}
+  .th-timebar strong{font-size:clamp(2.2rem,7vw,3.4rem)}
+  .th-timebar span{font-size:.58rem;letter-spacing:.05em}
+  .th-goal{padding:5.5rem 1.2rem}
+  .th-goal h2{font-size:clamp(3rem,11vw,5.5rem)}
+  .th-applause{min-height:clamp(580px,85svh,870px)}
+  .th-applause img{object-position:65% 39%;filter:brightness(.56) saturate(.72)}
+  .th-applause:after{background:linear-gradient(0deg,#060a0e 0%,rgba(6,10,14,.72) 36%,rgba(6,10,14,.02) 80%)}
+  .th-applause-inner{justify-content:flex-end;padding:3.6rem 0}
+  .th-applause h2{font-size:clamp(2.65rem,10vw,4.7rem)}
+  .th-ending{display:flex;flex-direction:column}
+  .th-ending-portrait{height:clamp(350px,65svh,580px);min-height:0}
+  .th-ending-portrait img{height:100%}
+  .th-ending-text{padding:3.5rem 1.25rem 5rem}
+  .th-ending-text h2{font-size:clamp(2.5rem,9vw,4.2rem)}
+  .th-ending-text p{font-size:1.05rem}
+  .th-below-inner{display:block}
+  .th-credits{margin-top:2.6rem}
+}
+@media(max-width:360px){.th-cover h1{font-size:2.65rem}.th-strip b{font-size:.58rem}.th-timebar strong{font-size:1.95rem}}
+@media(prefers-reduced-motion:no-preference){
+ .th-animated .th-reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+ .th-animated .th-reveal.is-visible{opacity:1;transform:none}
+ .th-cover-image img{animation:th-cover-in 1.6s ease both}
+ @keyframes th-cover-in{from{transform:scale(1.055);filter:grayscale(1) brightness(.53)}to{transform:scale(1);}}
+}
+@media(prefers-reduced-motion:reduce){.th-page *, .th-page *:before,.th-page *:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
