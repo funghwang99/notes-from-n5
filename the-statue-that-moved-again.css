@@ -471,3 +471,136 @@
   }
   .th-page .th-ending-text{padding:3.5rem 1.25rem 5rem}
 }
+
+/* THIERRY HENRY SPECIAL INTERACTIVE CHAPTER v3
+   Authentic archive pictures, no synthetic match photography. */
+.th-page .th-cover-switch{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin-top:1.35rem}
+.th-page .th-cover-switch button{
+  appearance:none;border:1px solid rgba(245,239,231,.29);background:rgba(12,15,20,.62);
+  color:#e1dbd1;padding:.72rem 1rem;min-height:42px;border-radius:0;
+  font:740 .64rem/1.4 "Inter N5",Arial,sans-serif;letter-spacing:.07em;cursor:pointer;
+  transition:border-color .25s ease,background .25s ease,color .25s ease
+}
+.th-page .th-cover-switch button span{display:inline-block;margin-right:.65rem;color:#dfbdb5}
+.th-page .th-cover-switch button.is-selected{border-color:#edd9c6;background:#e5d1c2;color:#1d1919}
+.th-page .th-cover-switch button.is-selected span{color:#902737}
+.th-page .th-cover-switch button:focus-visible,
+.th-page .th-memory-range:focus-visible,
+.th-page [data-th-replay-button]:focus-visible{outline:2px solid #f5dfaf;outline-offset:4px}
+.th-page .th-cover-images{transition:grid-template-columns .8s cubic-bezier(.22,.8,.27,1)}
+.th-page .th-cover.is-living .th-cover-images{grid-template-columns:minmax(0,33fr) minmax(0,67fr)}
+.th-page .th-cover.is-living .th-cover-images:before{left:33%;transition:left .8s cubic-bezier(.22,.8,.27,1)}
+.th-page .th-cover-images:before{transition:left .8s cubic-bezier(.22,.8,.27,1)}
+.th-page .th-cover.is-living .th-cover-image--living img{filter:saturate(1) contrast(1.07) brightness(.85)}
+.th-page .th-cover.is-living .th-cover-image--stone img{filter:grayscale(1) contrast(1.12) brightness(.44)}
+.th-archival-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);align-items:center;gap:clamp(1.5rem,5vw,6rem);width:min(100% - clamp(2.4rem,8vw,8rem),1190px);margin:0 auto;padding:clamp(3rem,7vw,7rem) 0;overflow:visible}
+.th-archival-pair-copy{min-width:0}
+.th-archive-index{display:block;color:#9e3342;font:820 .66rem/1.5 "Inter N5",Arial,sans-serif;letter-spacing:.2em}
+.th-archive-date{margin:2rem 0 .65rem!important;color:#82796e;font-size:.69rem!important;font-family:"Inter N5",Arial,sans-serif!important;letter-spacing:.12em!important;font-weight:800!important}
+.th-archival-pair h2{margin:0 0 1.6rem;font:490 clamp(2.1rem,3.6vw,4rem)/1.15 "Lora N5",Georgia,serif;letter-spacing:-.065em;text-wrap:balance}
+.th-archival-pair h2 em{color:#9d3444}
+.th-archival-pair-copy>p:not(.th-archive-date){max-width:32rem;font:440 clamp(1.02rem,1.3vw,1.19rem)/1.85 "Lora N5",Georgia,serif}
+.th-archive-meta{display:block;margin-top:2rem;color:#858075;font:760 .62rem/1.6 "Inter N5",Arial,sans-serif;letter-spacing:.06em}
+.th-archival-pair-photo{display:grid;place-items:center;position:relative;min-width:0;margin:0;overflow:hidden;aspect-ratio:1012 / 734;background:#202728}
+.th-archival-pair-photo img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:grayscale(.22) saturate(.88)}
+.th-archival-pair-photo:after{position:absolute;inset:0;content:"";pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.th-statue-panorama{position:relative;margin:0;min-height:0;overflow:hidden;background:#17191b;isolation:isolate}
+.th-statue-panorama img{display:block;width:100%;height:auto;max-height:440px;min-height:220px;object-fit:cover;object-position:center 50%;filter:grayscale(.78) contrast(1.19) brightness(.75)}
+.th-statue-panorama:after{content:"";position:absolute;inset:0;width:30%;background:linear-gradient(90deg,transparent,rgba(249,235,213,.13),transparent);pointer-events:none;transform:translateX(-160%) skewX(-10deg);z-index:1}
+.th-statue-panorama.is-in-view:after{animation:th-panorama-glint 1.85s ease-out both}
+.th-statue-panorama figcaption{position:absolute;inset:auto 0 0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.4rem clamp(1.2rem,5vw,5rem);background:linear-gradient(transparent,rgba(0,0,0,.7));color:#f0e6dc}
+.th-statue-panorama figcaption span{font:770 .63rem/1.5 "Inter N5",Arial,sans-serif;letter-spacing:.17em}
+.th-statue-panorama figcaption strong{max-width:400px;font:italic 440 clamp(.82rem,1.4vw,1.15rem)/1.6 "Lora N5",Georgia,serif;text-align:right}
+@keyframes th-panorama-glint{to{transform:translateX(530%) skewX(-10deg)}}
+.th-memory{background:#0c1115;color:#f0e7e1;padding:clamp(4rem,7vw,8rem) clamp(1.2rem,4vw,4rem);overflow:hidden}
+.th-memory-heading{max-width:1010px;margin:0 auto clamp(2rem,4vw,4rem);text-align:center}
+.th-memory-heading small{color:#d2aaa5;font:800 .67rem/1.6 "Inter N5",Arial,sans-serif;letter-spacing:.2em}
+.th-memory-heading h2{margin:1.1rem auto 1.4rem;font:470 clamp(2.55rem,5.6vw,6rem)/1.12 "Lora N5",Georgia,serif;letter-spacing:-.073em;text-wrap:balance}
+.th-memory-heading h2 em{color:#e0b7ae}
+.th-memory-heading p{max-width:680px;margin:0 auto;font:420 clamp(1rem,1.45vw,1.23rem)/1.8 "Lora N5",Georgia,serif;color:#cbc3c0}
+.th-memory-compare{position:relative;isolation:isolate;width:min(100%,1040px);height:clamp(380px,60vw,710px);margin:0 auto;overflow:hidden;background:#1c2022;border:1px solid rgba(255,255,255,.12)}
+.th-memory-compare>img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;object-position:center center;pointer-events:none}
+.th-memory-stone{filter:grayscale(1) brightness(.77) contrast(1.12)}
+.th-memory-living{clip-path:inset(0 0 0 var(--th-compare));filter:brightness(.9) saturate(.96)}
+.th-memory-divider{position:absolute;top:0;bottom:0;left:var(--th-compare);width:2px;background:#faf4e8;z-index:3;pointer-events:none}
+.th-memory-divider>span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;border:1px solid #f7f0df;background:rgba(10,15,18,.9);color:white;display:flex;gap:1rem;align-items:center;justify-content:center;box-shadow:0 5px 28px rgba(0,0,0,.2)}
+.th-memory-divider>span>span{font:800 1.65rem/1 "Inter N5",Arial,sans-serif}
+.th-memory-label{position:absolute;bottom:1.4rem;z-index:4;color:#fff5ee;font:800 .67rem/1.4 "Inter N5",Arial,sans-serif;letter-spacing:.15em;text-shadow:0 1px 8px #000}
+.th-memory-label--stone{left:1.5rem}
+.th-memory-label--living{right:1.5rem}
+.th-memory-range{position:absolute;z-index:5;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;appearance:none;-webkit-appearance:none}
+.th-memory-footer{display:flex;justify-content:space-between;gap:.5rem;width:min(100%,1040px);margin:1rem auto 0;color:#a9a09d;font:720 .61rem/1.6 "Inter N5",Arial,sans-serif;letter-spacing:.12em}
+.th-goal-playback{width:min(100%,840px);margin:3.2rem auto 0;padding:clamp(1.1rem,3vw,2.2rem);border:1px solid rgba(255,241,220,.25);background:rgba(12,19,22,.30);text-align:left}
+.th-goal-playback-top{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.th-goal-playback-top>span{font:760 .65rem/1.5 "Inter N5",Arial,sans-serif;letter-spacing:.12em;color:#f7dcc7}
+.th-goal-playback button{appearance:none;background:#f0d3bd;border:1px solid #f0d3bd;border-radius:0;color:#302125;cursor:pointer;padding:.6rem 1rem;font:800 .72rem/1.35 "Inter N5",Arial,sans-serif;letter-spacing:.05em;min-height:42px}
+.th-goal-playback button:hover{background:#fff3e6}
+.th-goal-playback button span{display:inline-block;margin-right:.4rem;font-size:1.2rem;vertical-align:middle}
+.th-goal-pitch{display:block;width:100%;height:auto;max-height:370px;margin:1rem auto 0;color:#f8eddc}
+.th-goal-playback-steps{display:flex;justify-content:space-between;gap:.6rem;margin-top:.7rem;color:#e9cabb;font:760 .62rem/1.6 "Inter N5",Arial,sans-serif;letter-spacing:.1em}
+.th-goal-playback .th-pitch-henry{opacity:.52}
+.th-goal-playback .th-pitch-goal{opacity:.4}
+.th-goal-playback.is-replaying .th-pitch-pass{animation:th-pass-draw .85s .22s ease-out forwards}
+.th-goal-playback.is-replaying .th-pitch-henry{animation:th-fade-in .4s 1.05s ease-out forwards}
+.th-goal-playback.is-replaying .th-pitch-run{animation:th-run-draw .74s 1.1s ease-out forwards}
+.th-goal-playback.is-replaying .th-pitch-shot{animation:th-shot-draw .6s 1.88s ease-out forwards}
+.th-goal-playback.is-replaying .th-pitch-goal{animation:th-goal-flash .72s 2.35s ease-out forwards}
+@keyframes th-pass-draw{to{stroke-dashoffset:0}}
+@keyframes th-run-draw{to{stroke-dashoffset:0}}
+@keyframes th-shot-draw{to{stroke-dashoffset:0}}
+@keyframes th-fade-in{to{opacity:1}}
+@keyframes th-goal-flash{0%{opacity:.4;transform:scale(.6);transform-origin:681px 182px}50%{opacity:1;transform:scale(1.9);transform-origin:681px 182px}100%{opacity:1;transform:scale(1);transform-origin:681px 182px}}
+.th-final-run{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);min-height:clamp(590px,75svh,850px);background:#cfc3b1;overflow:hidden}
+.th-final-run-photo{position:relative;display:grid;place-items:center;min-width:0;min-height:0;margin:0;background:#22282a}
+.th-final-run-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center}
+.th-final-run-copy{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:clamp(3rem,6vw,7rem);color:#1d2423}
+.th-final-run-copy>span{font:800 .65rem/1.6 "Inter N5",Arial,sans-serif;letter-spacing:.19em;color:#842c3d}
+.th-final-run h2{margin:1.5rem 0 1.6rem;font:475 clamp(2.4rem,4.7vw,5.3rem)/1.13 "Lora N5",Georgia,serif;letter-spacing:-.075em;text-wrap:balance}
+.th-final-run h2 em{color:#963b4b}
+.th-final-run p{max-width:540px;font:440 clamp(1.04rem,1.5vw,1.33rem)/1.82 "Lora N5",Georgia,serif}
+.th-final-run small{margin-top:2rem;color:#776f63;font:730 .64rem/1.5 "Inter N5",Arial,sans-serif;letter-spacing:.06em}
+@media(max-width:850px){
+  .th-final-run-copy{padding:3rem 2rem}
+  .th-final-run h2{font-size:clamp(2.5rem,5vw,3.8rem)}
+}
+@media(max-width:720px){
+  .th-page .th-cover.is-living .th-cover-images{grid-template-columns:minmax(0,36fr) minmax(0,64fr)}
+  .th-page .th-cover.is-living .th-cover-images:before{left:36%}
+  .th-archival-pair{display:flex;flex-direction:column;align-items:stretch;gap:2rem;width:min(100% - 2.4rem,550px);padding:4.3rem 0}
+  .th-archival-pair-copy{order:1}
+  .th-archival-pair-photo{order:0;width:100%}
+  .th-archival-pair h2{font-size:clamp(2.3rem,8.7vw,3.65rem)}
+  .th-statue-panorama img{height:clamp(220px,35svh,360px);min-height:220px;object-fit:cover}
+  .th-statue-panorama figcaption{flex-direction:column;align-items:flex-start;gap:.3rem;padding:1rem 1.25rem}
+  .th-statue-panorama figcaption strong{text-align:left;font-size:.82rem}
+  .th-memory{padding:4.5rem 1.15rem}
+  .th-memory-heading h2{font-size:clamp(2.65rem,9vw,4.6rem)}
+  .th-memory-compare{height:clamp(355px,63svh,580px)}
+  .th-memory-divider>span{width:53px;height:53px}
+  .th-memory-label{font-size:.55rem;bottom:.8rem;letter-spacing:.08em}
+  .th-memory-label--stone{left:.6rem}
+  .th-memory-label--living{right:.6rem}
+  .th-memory-footer{font-size:.53rem;letter-spacing:.02em}
+  .th-memory-footer span:nth-child(2){display:none}
+  .th-goal-playback{padding:1rem;margin-top:2.4rem}
+  .th-goal-playback-top>span{max-width:55%;font-size:.55rem}
+  .th-goal-playback button{font-size:.66rem;padding:.5rem .8rem}
+  .th-goal-playback-steps{font-size:.52rem;letter-spacing:0}
+  .th-final-run{display:flex;flex-direction:column;min-height:0}
+  .th-final-run-photo{min-height:0;height:clamp(410px,70svh,620px);flex:0 0 auto}
+  .th-final-run-photo img{position:absolute;width:100%;height:100%;object-fit:contain}
+  .th-final-run-copy{padding:3.6rem 1.25rem 4.4rem}
+  .th-final-run h2{font-size:clamp(2.7rem,10vw,4.4rem)}
+}
+@media(prefers-reduced-motion:reduce){
+  .th-page .th-cover-images,.th-page .th-cover-images:before{transition:none}
+  .th-statue-panorama.is-in-view:after,
+  .th-goal-playback.is-replaying .th-pitch-pass,
+  .th-goal-playback.is-replaying .th-pitch-run,
+  .th-goal-playback.is-replaying .th-pitch-shot,
+  .th-goal-playback.is-replaying .th-pitch-henry,
+  .th-goal-playback.is-replaying .th-pitch-goal{animation:none}
+  .th-goal-playback.is-replaying .th-pitch-pass,
+  .th-goal-playback.is-replaying .th-pitch-run,
+  .th-goal-playback.is-replaying .th-pitch-shot{stroke-dashoffset:0}
+}
