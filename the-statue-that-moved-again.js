@@ -1,43 +1,121 @@
-/* Notes from N5 — The Statue That Moved Again.
-   Progressive enhancements only: article remains fully readable without scripts. */
+/* The Statue That Moved Again — Notes from N5, interactive edition.
+   Progressive enhancement only: story, pictures, and source text work without JS.
+   All archival photographs are real. Pitch diagram is explanatory, not match footage. */
 (() => {
   'use strict';
+
   const doc = document;
-  const nav = Array.from(doc.querySelectorAll('[data-th-nav]'));
-  const allSections = Array.from(doc.querySelectorAll('#th-beginning,#th-highbury,#th-bronze,#th-return,#th-goal,#th-after,#th-end'));
-  if (!nav.length || !allSections.length) return;
+  const reducedMotion = !!(window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const canObserve = typeof IntersectionObserver !== 'undefined';
+
+  // Chapter navigation. Side rail is hidden at tablet widths.
+  const chapterLinks = Array.from(doc.querySelectorAll('[data-th-nav]'));
+  const chapterEls = Array.from(doc.querySelectorAll(
+    '#th-beginning,#th-highbury,#th-bronze,#th-return,#th-goal,#th-after,#th-end'
+  ));
   const setCurrent = (id) => {
-    for (const link of nav) {
+    chapterLinks.forEach((link) => {
       if (link.getAttribute('href') === '#' + id) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
-    }
+    });
   };
-  setCurrent('th-beginning');
-  if (typeof IntersectionObserver !== 'undefined') {
-    const chapters = new IntersectionObserver((entries) => {
-      for (const item of entries) {
-        if (item.isIntersecting) setCurrent(item.target.id);
-      }
-    }, { rootMargin: '-30% 0px -54% 0px', threshold: 0 });
-    for (const chapter of allSections) chapters.observe(chapter);
-    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduced) {
-      const revealEls = Array.from(doc.querySelectorAll('.th-reveal'));
-      const reveal = new IntersectionObserver((entries, obs) => {
-        for (const entry of entries) if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
-      }, { rootMargin: '0px 0px 80px 0px', threshold: .01 });
-      revealEls.forEach((el) => { el.classList.add('is-visible'); });
-      doc.body.classList.add('th-animated');
-      requestAnimationFrame(() => {
-        revealEls.forEach((el) => {
-          el.classList.remove('is-visible');
-          if (el.getBoundingClientRect().top < window.innerHeight * .95) el.classList.add('is-visible');
-          else reveal.observe(el);
-        });
+  if (chapterLinks.length) setCurrent('th-beginning');
+
+  if (canObserve && chapterEls.length) {
+    const chapterObserver = new IntersectionObserver((entries) => {
+      entries.filter((entry) => entry.isIntersecting).forEach((entry) => {
+        setCurrent(entry.target.id);
       });
+    }, { rootMargin: '-27% 0px -52% 0px', threshold: 0 });
+    chapterEls.forEach((element) => chapterObserver.observe(element));
+  }
+
+  // Quiet, one-shot text/photo entrances; never hide content without observer support.
+  if (canObserve && !reducedMotion) {
+    const revealEls = Array.from(doc.querySelectorAll('.th-reveal'));
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px 90px 0px', threshold: 0.01 });
+
+    revealEls.forEach((element) => {
+      const bounds = element.getBoundingClientRect();
+      if (bounds.top < window.innerHeight * 0.93 || bounds.bottom < 0) {
+        element.classList.add('is-visible');
+      } else {
+        revealObserver.observe(element);
+      }
+    });
+    doc.body.classList.add('th-animated');
+  }
+
+  // A switch between the bronze monument and the real player on the cover.
+  const cover = doc.querySelector('.th-cover');
+  const coverButtons = Array.from(doc.querySelectorAll('[data-th-cover-mode]'));
+  coverButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const living = button.dataset.thCoverMode === 'living';
+      if (cover) cover.classList.toggle('is-living', living);
+      coverButtons.forEach((other) => {
+        const selected = other === button;
+        other.classList.toggle('is-selected', selected);
+        other.setAttribute('aria-pressed', String(selected));
+      });
+    });
+  });
+
+  // A direct, accessible side-by-side photo comparison. The pictures retain
+  // their original proportions; only the reveal boundary moves.
+  const compare = doc.querySelector('[data-th-compare]');
+  const slider = doc.querySelector('[data-th-compare-range]');
+  if (compare && slider) {
+    const update = () => {
+      const value = Math.max(5, Math.min(95, Number(slider.value) || 50));
+      compare.style.setProperty('--th-compare', value + '%');
+      slider.setAttribute('aria-valuetext',
+        value + '% bức tượng, ' + (100 - value) + '% ảnh Henry trở lại');
+    };
+    slider.addEventListener('input', update);
+    slider.addEventListener('change', update);
+    update();
+  }
+
+  // The football diagram can be replayed, but is never presented as real video.
+  const replay = doc.querySelector('[data-th-goal-replay]');
+  const replayButton = doc.querySelector('[data-th-replay-button]');
+  if (replay) {
+    const play = () => {
+      replay.classList.remove('is-replaying');
+      // Reflow re-arms the path animations on subsequent clicks.
+      void replay.offsetWidth;
+      replay.classList.add('is-replaying');
+    };
+    if (replayButton) replayButton.addEventListener('click', play);
+    if (canObserve && !reducedMotion) {
+      const replayObserver = new IntersectionObserver((entries, observer) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          play();
+          observer.disconnect();
+        }
+      }, { rootMargin: '0px 0px -18% 0px', threshold: 0.12 });
+      replayObserver.observe(replay);
+    } else {
+      replay.classList.add('is-replaying');
     }
+  }
+
+  const panoramic = doc.querySelector('.th-statue-panorama');
+  if (panoramic && canObserve && !reducedMotion) {
+    const panoramicObserver = new IntersectionObserver((entries, observer) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        panoramic.classList.add('is-in-view');
+        observer.disconnect();
+      }
+    }, { threshold: 0.16 });
+    panoramicObserver.observe(panoramic);
   }
 })();
