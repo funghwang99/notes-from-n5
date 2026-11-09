@@ -19,4 +19,16 @@
     else observer.observe(item);
   });
   document.body.classList.add('bk-motion');
+
+  // The referee's card moves once only, and always remains visible.
+  const yellowCard = document.querySelector('.bk-yellow-card');
+  if (yellowCard) {
+    const cardObserver = new IntersectionObserver((entries, watch) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        yellowCard.classList.add('is-in-view');
+        watch.disconnect();
+      }
+    }, { threshold: 0.25 });
+    cardObserver.observe(yellowCard);
+  }
 })();
