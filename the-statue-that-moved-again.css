@@ -604,3 +604,92 @@
   .th-goal-playback.is-replaying .th-pitch-run,
   .th-goal-playback.is-replaying .th-pitch-shot{stroke-dashoffset:0}
 }
+
+/* TH HENRY OFFICIAL VIDEO v4 — licensed-source embed, no local re-upload. */
+.th-page .th-goal-video{
+  width:min(100%,1020px);
+  margin:clamp(2.8rem,5vw,5rem) auto 0;
+  padding:clamp(.85rem,2vw,1.8rem);
+  background:#14191b;
+  border:1px solid rgba(245,222,203,.35);
+  color:#f2e7dc;
+  box-shadow:0 22px 65px rgba(30,6,14,.2);
+  text-align:left;
+  min-width:0;
+}
+.th-page .th-goal-video-heading{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.6rem 1.4rem;
+  padding:0 0 clamp(.75rem,1.7vw,1.25rem);
+  border-bottom:1px solid rgba(255,255,255,.18);
+  margin-bottom:clamp(.75rem,1.7vw,1.25rem);
+  font:760 clamp(.57rem,.77vw,.68rem)/1.6 "Inter N5",Arial,sans-serif;
+  letter-spacing:.14em;
+  color:#e4c6b9;
+}
+.th-page .th-goal-video-heading span:last-child{color:#c3bab7}
+.th-page .th-goal-video-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16 / 9;
+  height:auto;
+  min-width:0;
+  background:#07090a;
+  overflow:hidden;
+}
+.th-page .th-goal-video-frame iframe{
+  display:block;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  background:#07090a;
+}
+.th-page .th-goal-video-footer{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:1rem 2rem;
+  padding-top:clamp(1rem,2.2vw,1.7rem);
+}
+.th-page .th-goal-video-footer p{
+  margin:0;
+  flex:1 1 340px;
+  max-width:570px;
+  font:450 clamp(.91rem,1.1vw,1.07rem)/1.7 "Lora N5",Georgia,serif;
+  color:#eee6dc;
+  text-align:left;
+}
+.th-page .th-goal-video-footer a{
+  flex:0 1 auto;
+  color:#f5c9a9;
+  text-decoration:none;
+  border-bottom:1px solid currentColor;
+  padding-bottom:.26rem;
+  font:760 .69rem/1.5 "Inter N5",Arial,sans-serif;
+  letter-spacing:.03em;
+}
+.th-page .th-goal-video-footer a:hover,.th-page .th-goal-video-footer a:focus-visible{color:white}
+.th-page .th-goal-video-credit{
+  max-width:none;
+  margin:clamp(.8rem,1.7vw,1.25rem) 0 0;
+  padding-top:.7rem;
+  border-top:1px solid rgba(255,255,255,.12);
+  font:540 clamp(.64rem,.8vw,.73rem)/1.7 "Inter N5",Arial,sans-serif;
+  color:#aeb3b1;
+  text-align:left;
+}
+@media(max-width:720px){
+  .th-page .th-goal-video{margin-top:2.5rem;padding:.65rem}
+  .th-page .th-goal-video-heading{padding:.5rem .35rem .9rem;margin-bottom:.65rem;font-size:.56rem;letter-spacing:.055em}
+  .th-page .th-goal-video-heading span:last-child{font-size:.51rem}
+  .th-page .th-goal-video-footer{display:block;padding:.9rem .35rem .3rem}
+  .th-page .th-goal-video-footer p{font-size:.91rem}
+  .th-page .th-goal-video-footer a{display:inline-block;margin-top:.8rem;font-size:.65rem}
+  .th-page .th-goal-video-credit{margin:.8rem .35rem 0;font-size:.61rem}
+}
