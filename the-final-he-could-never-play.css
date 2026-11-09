@@ -124,3 +124,200 @@
 }
 @media(prefers-reduced-motion:no-preference){.bk-reveal{opacity:1;transform:none}.bk-motion .bk-reveal:not(.is-visible){opacity:0;transform:translateY(27px)}.bk-motion .bk-reveal{transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}.bk-motion .bk-reveal.is-visible{opacity:1;transform:none}.bk-steps .bk-step-mark i{animation:bk-pulse 2.7s ease-in-out infinite}@keyframes bk-pulse{50%{box-shadow:0 0 0 12px rgba(246,207,151,.11)}}}
 @media(prefers-reduced-motion:reduce){.bk-page *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* BALLACK 2002 ARCHIVE PHOTO EDITION v2
+   Archival photos are accurately dated. No press-agency or unlicensed 2002 match shots. */
+.bk-page .bk-hampden,
+.bk-page .bk-seoul-crowd,
+.bk-page .bk-fevernova,
+.bk-page .bk-final-relic,
+.bk-page .bk-ballack-2006{box-sizing:border-box;width:100%;max-width:100%;min-width:0;overflow:hidden}
+.bk-page .bk-hampden{
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  min-height:clamp(460px,65svh,730px);background:#192027;color:#f1ede5
+}
+.bk-page .bk-hampden-photo{
+  position:relative;display:block;min-width:0;min-height:400px;margin:0;overflow:hidden;background:#2b3434
+}
+.bk-page .bk-hampden-photo img{
+  display:block;position:absolute;inset:0;width:100%;height:100%;max-width:100%;
+  object-fit:cover;object-position:center 52%;filter:grayscale(.38) brightness(.82) contrast(1.08)
+}
+.bk-page .bk-hampden-copy{
+  display:flex;flex-direction:column;justify-content:center;min-width:0;
+  padding:clamp(2rem,5.8vw,7rem) clamp(1.6rem,5vw,6rem)
+}
+.bk-page .bk-hampden-copy small,.bk-page .bk-photo-label,
+.bk-page .bk-seoul-crowd-copy small,.bk-page .bk-fevernova-copy small,
+.bk-page .bk-final-relic-copy small,.bk-page .bk-ballack-2006-copy small{
+  display:block;color:#dec195;font:790 .66rem/1.65 "Inter N5",Arial,sans-serif;
+  letter-spacing:.16em;text-transform:uppercase
+}
+.bk-page .bk-hampden-copy h2,
+.bk-page .bk-seoul-crowd-copy h2,
+.bk-page .bk-fevernova-copy h2,
+.bk-page .bk-final-relic-copy h2,
+.bk-page .bk-ballack-2006-copy h2{
+  margin:1.25rem 0 1.65rem;font:470 clamp(2.35rem,4.5vw,5.2rem)/1.15 "Lora N5",Georgia,serif;
+  letter-spacing:-.069em;text-wrap:balance;overflow-wrap:break-word
+}
+.bk-page .bk-hampden-copy h2 em,
+.bk-page .bk-final-relic-copy h2 em,
+.bk-page .bk-ballack-2006-copy h2 em{color:#d9bd96}
+.bk-page .bk-hampden-copy p,.bk-page .bk-seoul-crowd-copy p,
+.bk-page .bk-fevernova-copy p,.bk-page .bk-final-relic-copy p,
+.bk-page .bk-ballack-2006-copy p{
+  max-width:590px;margin:0;font:435 clamp(1.01rem,1.43vw,1.25rem)/1.82 "Lora N5",Georgia,serif
+}
+.bk-page .bk-hampden-copy p{color:#d6d3cc}
+.bk-page .bk-photo-provenance{
+  display:block;margin-top:2rem;color:#a8ada8;
+  font:720 .62rem/1.7 "Inter N5",Arial,sans-serif;letter-spacing:.065em
+}
+.bk-page .bk-knockout{
+  background:#ded6c9;padding:clamp(3rem,6vw,6rem) clamp(1.2rem,5vw,5rem);
+  color:#2a3337;border-block:1px solid #c8bfb2
+}
+.bk-page .bk-knockout-inner{max-width:1250px;margin:auto}
+.bk-page .bk-knockout-title{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:2rem}
+.bk-page .bk-knockout-title small{
+  color:#8b4437;font:800 .66rem/1.5 "Inter N5",Arial,sans-serif;
+  letter-spacing:.16em;text-transform:uppercase
+}
+.bk-page .bk-knockout-title h2{margin:.7rem 0 0;font:470 clamp(2rem,3.5vw,3.8rem)/1.2 "Lora N5",Georgia,serif;letter-spacing:-.06em}
+.bk-page .bk-knockout-title>span{max-width:270px;text-align:right;font-size:.7rem;line-height:1.6;letter-spacing:.06em;color:#7b6b60}
+.bk-page .bk-knockout-track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#af9d8b;border:1px solid #af9d8b}
+.bk-page .bk-knockout-track>div{min-width:0;position:relative;padding:clamp(1.1rem,2vw,2rem);background:#e9e2d6}
+.bk-page .bk-knockout-track>div:last-child{background:#283238;color:#f2e8da}
+.bk-page .bk-knockout-track small{display:block;font:830 .61rem/1.5 "Inter N5",Arial,sans-serif;letter-spacing:.13em;color:#97483b}
+.bk-page .bk-knockout-track>div:last-child small{color:#dec093}
+.bk-page .bk-knockout-track strong{
+  display:block;margin:1.45rem 0 0;font:730 clamp(1.95rem,3.3vw,3.55rem)/1.15 "Lora N5",Georgia,serif;
+  letter-spacing:-.06em;color:#202b30
+}
+.bk-page .bk-knockout-track>div:last-child strong{color:#fff3e8}
+.bk-page .bk-knockout-track h3{
+  margin:.7rem 0 .35rem;font:690 clamp(.85rem,1.3vw,1.15rem)/1.4 "Inter N5",Arial,sans-serif;
+  color:inherit;letter-spacing:.025em
+}
+.bk-page .bk-knockout-track span{font:610 .69rem/1.55 "Inter N5",Arial,sans-serif;color:#84766a}
+.bk-page .bk-knockout-track>div:last-child span{color:#c1c0b8}
+.bk-page .bk-seoul-crowd{
+  display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);
+  min-height:clamp(490px,69svh,800px);background:#762d29;color:#f6e7df
+}
+.bk-page .bk-seoul-crowd-photo{position:relative;display:block;min-width:0;min-height:420px;margin:0;overflow:hidden;background:#6c211f}
+.bk-page .bk-seoul-crowd-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 56%;filter:contrast(1.1) saturate(.87) brightness(.79)}
+.bk-page .bk-seoul-crowd-copy{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:clamp(2.5rem,5.2vw,6rem)}
+.bk-page .bk-seoul-crowd-copy small{color:#ffd0b2}
+.bk-page .bk-seoul-crowd-copy h2 em{color:#eacbad}
+.bk-page .bk-seoul-crowd-copy p{color:#f1dcd3}
+.bk-page .bk-seoul-crowd-copy .bk-photo-provenance{color:#eed0c7}
+.bk-page .bk-fevernova{
+  display:grid;grid-template-columns:minmax(0,.68fr) minmax(0,1fr);
+  background:#e6ded0;min-height:clamp(490px,66svh,740px);color:#292f30
+}
+.bk-page .bk-fevernova-photo{position:relative;display:grid;place-items:center;min-width:0;min-height:460px;margin:0;padding:clamp(1rem,3vw,2.5rem);background:#d4c9b8;overflow:hidden}
+.bk-page .bk-fevernova-photo img{
+  display:block;width:100%;height:100%;max-height:650px;
+  object-fit:contain;object-position:center;filter:grayscale(.12) contrast(1.04)
+}
+.bk-page .bk-fevernova-copy{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:clamp(2rem,6vw,7rem)}
+.bk-page .bk-fevernova-copy small{color:#8e4e3b}
+.bk-page .bk-fevernova-copy h2 em{color:#944532}
+.bk-page .bk-fevernova-copy p{color:#62615b}
+.bk-page .bk-fevernova-copy .bk-photo-provenance{color:#887a6a}
+.bk-page .bk-final-relic{
+  display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);
+  min-height:clamp(630px,84svh,960px);background:#22282b;color:#f1e9df
+}
+.bk-page .bk-final-relic-photo{
+  display:grid;place-items:center;position:relative;min-width:0;min-height:590px;
+  margin:0;padding:clamp(1rem,3vw,2.7rem);background:#202527;overflow:hidden
+}
+.bk-page .bk-final-relic-photo img{display:block;width:100%;height:100%;max-height:900px;object-fit:contain;object-position:center}
+.bk-page .bk-final-relic-copy{
+  display:flex;flex-direction:column;justify-content:center;min-width:0;
+  padding:clamp(3rem,7vw,8rem) clamp(2rem,5vw,6rem)
+}
+.bk-page .bk-final-relic-copy p{color:#d5d0c8}
+.bk-page .bk-final-relic-copy .bk-photo-provenance{color:#aaa9a1}
+.bk-page .bk-final-relic-mark{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;max-width:560px;
+  margin-top:2.8rem;background:#605753;border:1px solid #605753
+}
+.bk-page .bk-final-relic-mark div{padding:1.1rem;background:#303638}
+.bk-page .bk-final-relic-mark b{display:block;font:760 clamp(2rem,4vw,4.1rem)/1.15 "Lora N5",Georgia,serif;letter-spacing:-.07em;color:#e5d1ad}
+.bk-page .bk-final-relic-mark span{display:block;margin-top:.5rem;font:760 .61rem/1.5 "Inter N5",Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#b7b7b2}
+.bk-page .bk-ballack-2006{
+  display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
+  background:#15232b;color:#f3ede3;min-height:clamp(580px,76svh,890px)
+}
+.bk-page .bk-ballack-2006-photo{
+  position:relative;display:grid;place-items:center;min-width:0;min-height:520px;
+  margin:0;padding:clamp(1rem,3vw,2.5rem);background:#18252b
+}
+.bk-page .bk-ballack-2006-photo img{
+  display:block;width:100%;height:100%;max-height:830px;
+  object-fit:contain;object-position:center;filter:grayscale(.12) brightness(.9)
+}
+.bk-page .bk-ballack-2006-copy{
+  display:flex;flex-direction:column;justify-content:center;min-width:0;
+  padding:clamp(2rem,6vw,7rem)
+}
+.bk-page .bk-ballack-2006-copy p{color:#cdd5d2}
+.bk-page .bk-ballack-2006-copy .bk-photo-provenance{color:#9caba9}
+.bk-page .bk-ballack-2006-copy small{color:#dfbe93}
+.bk-page .bk-article-jump{
+  display:inline-flex;align-items:center;gap:.65rem;width:max-content;max-width:100%;
+  margin-top:2rem;padding:.65rem .2rem;border-bottom:1px solid #e0b97a;
+  color:#edd5b2;text-decoration:none;font:760 .72rem/1.6 "Inter N5",Arial,sans-serif;
+  letter-spacing:.06em;transition:gap .25s ease
+}
+.bk-page .bk-article-jump:hover{gap:1.05rem;color:#fff4e1}
+.bk-page .bk-yellow-card{transform:rotate(-6deg);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.bk-page .bk-yellow-card.is-in-view{transform:rotate(0deg)}
+@media(max-width:980px){
+  .bk-page .bk-hampden,.bk-page .bk-seoul-crowd,.bk-page .bk-fevernova,
+  .bk-page .bk-final-relic,.bk-page .bk-ballack-2006{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .bk-page .bk-hampden-copy,.bk-page .bk-fevernova-copy,
+  .bk-page .bk-final-relic-copy,.bk-page .bk-ballack-2006-copy{padding:2.7rem 2.1rem}
+  .bk-page .bk-hampden-copy h2,.bk-page .bk-seoul-crowd-copy h2,
+  .bk-page .bk-fevernova-copy h2,.bk-page .bk-final-relic-copy h2,
+  .bk-page .bk-ballack-2006-copy h2{font-size:clamp(2.2rem,4.5vw,3.9rem)}
+  .bk-page .bk-final-relic-photo,.bk-page .bk-ballack-2006-photo{min-height:450px}
+}
+@media(max-width:760px){
+  .bk-page .bk-hampden,.bk-page .bk-seoul-crowd,.bk-page .bk-fevernova,
+  .bk-page .bk-final-relic,.bk-page .bk-ballack-2006{
+    display:flex;flex-direction:column;min-height:0
+  }
+  .bk-page .bk-hampden-photo{height:clamp(280px,54svh,510px);min-height:0;flex:0 0 auto}
+  .bk-page .bk-hampden-copy{padding:3.7rem 1.25rem 4.5rem}
+  .bk-page .bk-hampden-copy h2,.bk-page .bk-seoul-crowd-copy h2,
+  .bk-page .bk-fevernova-copy h2,.bk-page .bk-final-relic-copy h2,
+  .bk-page .bk-ballack-2006-copy h2{font-size:clamp(2.5rem,9.1vw,4.4rem)}
+  .bk-page .bk-knockout{padding:4rem 1.1rem}
+  .bk-page .bk-knockout-title{display:block}
+  .bk-page .bk-knockout-title>span{display:block;text-align:left;margin-top:1rem}
+  .bk-page .bk-knockout-track{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bk-page .bk-knockout-track>div{padding:1.15rem}
+  .bk-page .bk-knockout-track strong{margin-top:1rem;font-size:2.5rem}
+  .bk-page .bk-knockout-track h3{font-size:.85rem}
+  .bk-page .bk-seoul-crowd-photo{height:clamp(310px,58svh,570px);min-height:0;flex:0 0 auto}
+  .bk-page .bk-seoul-crowd-copy{padding:3.7rem 1.25rem 4.5rem}
+  .bk-page .bk-fevernova-photo{height:clamp(320px,61svh,520px);min-height:0;flex:0 0 auto}
+  .bk-page .bk-fevernova-photo img{height:100%;max-height:100%;object-fit:contain}
+  .bk-page .bk-fevernova-copy{padding:3.7rem 1.25rem 4.5rem}
+  .bk-page .bk-final-relic-photo{height:clamp(440px,74svh,670px);min-height:0;flex:0 0 auto}
+  .bk-page .bk-final-relic-photo img{height:100%;max-height:100%;object-fit:contain}
+  .bk-page .bk-final-relic-copy{padding:3.7rem 1.25rem 4.5rem}
+  .bk-page .bk-final-relic-mark{margin-top:2rem}
+  .bk-page .bk-ballack-2006-photo{height:clamp(420px,69svh,630px);min-height:0;flex:0 0 auto}
+  .bk-page .bk-ballack-2006-photo img{height:100%;max-height:100%;object-fit:contain}
+  .bk-page .bk-ballack-2006-copy{padding:3.7rem 1.25rem 4.5rem}
+  .bk-page .bk-photo-provenance{margin-top:1.4rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .bk-page .bk-article-jump,.bk-page .bk-yellow-card{transition:none;transform:none}
+}
