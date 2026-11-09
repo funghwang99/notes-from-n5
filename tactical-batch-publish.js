@@ -110,6 +110,14 @@
       focus:'27% 45%', alt:'Tượng đồng Thierry Henry trượt gối ngoài Emirates Stadium.',
       meta:'Tượng Đài · Thierry Henry', title:'Ngày Hoàng Đế Trở Về Nhà.',
       deck:'Một tháng sau ngày Arsenal dựng tượng, Thierry Henry trở lại Emirates và ghi bàn trước Leeds. Lần này, ký ức biết chuyển động.'
+    },
+    {
+      path:'chua-nguoi', base:'the-final-he-could-never-play.html', href:'the-final-he-could-never-play.html',
+      image:'https://upload.wikimedia.org/wikipedia/commons/3/36/Michael_Ballack_%28Confed-Cup_2005%29.JPG',
+      fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Michael%20Ballack%20%28Confed-Cup%202005%29%20cropped.jpg?width=900',
+      focus:'center 18%', alt:'Michael Ballack trong màu áo tuyển Đức năm 2005, ảnh tư liệu sau World Cup 2002.',
+      meta:'Chưa Nguôi · Michael Ballack · World Cup 2002', title:'The Final He Could Never Play.',
+      deck:'Phút 71 nhận thẻ, phút 75 ghi bàn. Ballack đưa nước Đức đến chung kết World Cup 2002, nhưng chính anh không thể ra sân.'
     }
   ];
   const guardImage = (img, story) => {
