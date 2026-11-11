@@ -605,7 +605,7 @@
   .th-goal-playback.is-replaying .th-pitch-shot{stroke-dashoffset:0}
 }
 
-/* TH HENRY OFFICIAL VIDEO v4 — licensed-source embed, no local re-upload. */
+/* Henry goal: HTML5 clip with YouTube fallback until local media is available. */
 .th-page .th-goal-video{
   width:min(100%,1020px);
   margin:clamp(2.8rem,5vw,5rem) auto 0;
@@ -640,6 +640,7 @@
   background:#07090a;
   overflow:hidden;
 }
+.th-page .th-goal-video-frame video,
 .th-page .th-goal-video-frame iframe{
   display:block;
   position:absolute;
@@ -693,3 +694,7 @@
   .th-page .th-goal-video-footer a{display:inline-block;margin-top:.8rem;font-size:.65rem}
   .th-page .th-goal-video-credit{margin:.8rem .35rem 0;font-size:.61rem}
 }
+
+.th-page .th-goal-video-frame video{object-fit:contain}
+.th-page .th-goal-video-frame video[hidden],
+.th-page .th-goal-video-frame iframe[hidden]{display:none!important}
