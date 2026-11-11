@@ -118,6 +118,14 @@
       focus:'center 18%', alt:'Michael Ballack trong màu áo tuyển Đức năm 2005, ảnh tư liệu sau World Cup 2002.',
       meta:'Chưa Nguôi · Michael Ballack · World Cup 2002', title:'The Final He Could Never Play.',
       deck:'Phút 71 nhận thẻ, phút 75 ghi bàn. Ballack đưa nước Đức đến chung kết World Cup 2002, nhưng chính anh không thể ra sân.'
+    },
+    {
+      path:'chua-nguoi', base:'the-crossbar-in-johannesburg.html', href:'the-crossbar-in-johannesburg.html',
+      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/FIFA%20World%20Cup%202010%20Uruguay%20Ghana3.jpg?width=1280',
+      fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Asamoah%20Gyan%20%282014%29.jpg?width=700',
+      focus:'center 50%', alt:'Ghana đối đầu Uruguay tại tứ kết World Cup 2010 ở Soccer City.',
+      meta:'Chưa Nguôi · Asamoah Gyan · World Cup 2010', title:'The Crossbar in Johannesburg.',
+      deck:'Asamoah Gyan, hai quả phạt đền trong một đêm và ký ức về cơ hội đã đưa Ghana đến rất gần lịch sử.'
     }
   ];
   const guardImage = (img, story) => {
