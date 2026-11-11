@@ -1,3 +1,14 @@
+/* Prefer the supplied Henry clip once the MP4 is deployed. */
+(() => {
+  const player=document.querySelector('.th-local-video');
+  const fallback=document.querySelector('.th-video-fallback');
+  if(!player || !fallback)return;
+  const showLocal=()=>{player.hidden=false;fallback.hidden=true;};
+  const showFallback=()=>{player.hidden=true;fallback.hidden=false;};
+  player.addEventListener('loadedmetadata',showLocal);
+  player.addEventListener('error',showFallback);
+  if(player.readyState >= 1) showLocal(); else showFallback();
+})();
 /* The Statue That Moved Again — Notes from N5, interactive edition.
    Progressive enhancement only: story, pictures, and source text work without JS.
    All archival photographs are real. Pitch diagram is explanatory, not match footage. */
