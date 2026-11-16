@@ -3,12 +3,12 @@
   const marker=document.querySelector('[data-cesc-marker]');
   const progress=document.querySelector('[data-cesc-progress]');
   const label=document.querySelector('[data-cesc-year]');
-  const chapters=[...document.querySelectorAll('.cesc-observed[data-year]')];
+  const chapters=[...document.querySelectorAll('.cesc-observed[data-cesc-era]')];
   if(!marker||!progress||!label||!chapters.length||!('IntersectionObserver' in window)) return;
   const from=(chapter)=>{
     const i=chapters.indexOf(chapter);
     const pct=Math.max(0,Math.min(100,(i/(chapters.length-1))*100));
-    marker.style.left=pct+'%';progress.style.width=pct+'%';label.textContent=chapter.dataset.year;
+    marker.style.left=pct+'%';progress.style.width=pct+'%';label.textContent=chapter.dataset.cescEra;
   };
   const io=new IntersectionObserver((entries)=>{
     const visible=entries.filter(x=>x.isIntersecting);
