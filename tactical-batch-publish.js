@@ -126,6 +126,14 @@
       focus:'center 50%', alt:'Ghana đối đầu Uruguay tại tứ kết World Cup 2010 ở Soccer City.',
       meta:'Chưa Nguôi · Asamoah Gyan · World Cup 2010', title:'The Crossbar in Johannesburg.',
       deck:'Asamoah Gyan, hai quả phạt đền trong một đêm và ký ức về cơ hội đã đưa Ghana đến rất gần lịch sử.'
+    },
+    {
+      path:'tuoi-tre', base:'a-home-in-borrowed-time.html', href:'a-home-in-borrowed-time.html',
+      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cesc%20F%C3%A0bregas%20captain.jpg?width=900',
+      fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cesc%20F%C3%A0bregas%20Aug%202007.jpg?width=900',
+      focus:'center 15%', alt:'Cesc Fàbregas đeo băng đội trưởng Arsenal vào tháng 11 năm 2008.',
+      meta:'Tuổi Trẻ · Cesc Fàbregas', title:'A Home in Borrowed Time.',
+      deck:'Cesc Fàbregas, tám năm ở Arsenal và những lời anh không thể nói khi rời London.'
     }
   ];
   const guardImage = (img, story) => {
