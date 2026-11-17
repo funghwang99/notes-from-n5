@@ -1,0 +1,98 @@
+/* Notes from N5 — contextual archive-photo breaks, 17 Nov 2026.
+   Used by four long-form articles only. No text overlays or image captions. */
+.article-page .n5-photo-break{
+  position:relative;
+  left:50%;
+  translate:-50% 0;
+  clear:both;
+  display:block;
+  width:min(calc(100vw - 2.5rem),70rem);
+  max-width:none;
+  margin:clamp(3.2rem,8vw,7rem) 0;
+  padding:0;
+  overflow:hidden;
+  background:#172321;
+  isolation:isolate;
+}
+.article-page .n5-photo-break img{
+  display:block;
+  width:100%;
+  height:clamp(315px,48vw,620px);
+  max-width:none;
+  object-fit:cover;
+  object-position:var(--n5-photo-focus,50% 45%);
+  filter:saturate(.84) contrast(1.05);
+}
+.article-page .n5-photo-break--portrait{
+  width:min(calc(100vw - 2.5rem),40rem);
+}
+.article-page .n5-photo-break--portrait img{
+  height:clamp(395px,64vw,670px);
+}
+.article-page .n5-photo-break--inset{
+  width:min(calc(100vw - 2.5rem),53rem);
+}
+.article-page .n5-photo-break--inset img{
+  height:clamp(330px,42vw,510px);
+}
+.article-page .n5-photo-break--wide{
+  width:min(calc(100vw - 2.5rem),76rem);
+}
+.article-page .n5-new-photo-credits{
+  display:block;
+  width:100%;
+  max-width:52rem;
+  margin:clamp(3rem,7vw,5rem) auto 1.25rem;
+  padding:1.25rem 1.4rem;
+  color:inherit;
+  background:rgba(106,115,104,.07);
+  border-top:1px solid rgba(100,110,103,.2);
+  border-bottom:1px solid rgba(100,110,103,.2);
+  font-family:var(--sans,Arial,sans-serif);
+}
+.article-page .n5-new-photo-credits summary{
+  font-weight:750;
+  font-size:.73rem;
+  line-height:1.5;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  cursor:pointer;
+}
+.article-page .n5-new-photo-credits p{
+  margin:1rem 0 0;
+  font-family:var(--sans,Arial,sans-serif);
+  font-size:.75rem;
+  line-height:1.85;
+}
+.article-page .n5-new-photo-credits a{
+  color:inherit;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+@media(max-width:700px){
+  .article-page .n5-photo-break,
+  .article-page .n5-photo-break--inset,
+  .article-page .n5-photo-break--wide{
+    width:calc(100vw - 1.5rem);
+    margin-block:3rem;
+  }
+  .article-page .n5-photo-break img,
+  .article-page .n5-photo-break--inset img,
+  .article-page .n5-photo-break--wide img{
+    height:clamp(275px,74vw,430px);
+  }
+  .article-page .n5-photo-break--portrait{
+    width:min(calc(100vw - 1.5rem),36rem);
+    margin-block:3rem;
+  }
+  .article-page .n5-photo-break--portrait img{
+    height:clamp(400px,115vw,590px);
+  }
+  .article-page .n5-new-photo-credits{
+    margin-block:3rem 1rem;
+    padding:1.2rem 1rem;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .article-page .n5-photo-break{scroll-behavior:auto}
+}
