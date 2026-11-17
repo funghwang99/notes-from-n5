@@ -1,12 +1,12 @@
+/* Gyan's real match clip replaces the illustrative goal animation. */
 (() => {
-  const host=document.querySelector('.cj-penalty-visual');
-  const replay=document.querySelector('[data-replay]');
-  if (!host) return;
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const play=()=>{if(reduced)return;host.classList.remove('is-playing');void host.offsetWidth;host.classList.add('is-playing');};
-  replay?.addEventListener('click',play);
-  if ('IntersectionObserver' in window) {
-    const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){play();observer.disconnect();}},{threshold:.3});
-    observer.observe(host);
-  } else play();
+  const video = document.querySelector('.cj-penalty-video');
+  const replay = document.querySelector('[data-replay]');
+  if (!video) return;
+  replay?.addEventListener('click', () => {
+    video.pause();
+    video.currentTime = 0;
+    const playing = video.play();
+    if (playing?.catch) playing.catch(() => video.focus());
+  });
 })();
