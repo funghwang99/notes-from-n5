@@ -171,3 +171,18 @@
   .w2-hero-meta{gap:.65rem}
   .w2-prose p,.w2-finale-copy p{overflow-wrap:break-word}
 }
+
+/* Historical photography between Wenger chapters — photo-only, no overlays. */
+.w2-archive-photo{width:min(100% - 2.5rem,1250px);margin:clamp(4rem,7vw,7rem) auto;overflow:hidden;background:#1a2224;position:relative}
+.w2-archive-photo img{display:block;width:100%;height:clamp(320px,48vw,660px);object-fit:cover;object-position:center 45%;filter:saturate(.78) contrast(1.06)}
+.w2-archive--highbury{width:min(100% - 2.5rem,1030px)}
+.w2-archive--highbury img{height:clamp(320px,43vw,580px);object-position:50% 52%}
+.w2-archive--invincibles{width:100%;max-width:none;margin:clamp(3.5rem,6vw,6rem) auto;background:#0a1214}
+.w2-archive--invincibles img{height:clamp(360px,53vw,700px);object-position:center 48%}
+.w2-archive--touchline{width:min(100% - 2.5rem,1100px)}
+.w2-archive--touchline img{height:clamp(355px,54vw,620px);object-position:center 25%}
+.w2-archive--farewell{width:min(100% - 2.5rem,920px)}
+.w2-archive--farewell img{height:clamp(390px,62vw,670px);object-position:center 19%}
+.w2-image-credits{background:#e2dbd0;color:#343432;padding:1.7rem clamp(1.3rem,6vw,7rem);font:400 .74rem/1.8 "Inter N5",Arial,sans-serif}
+.w2-image-credits details{max-width:920px;margin:auto}.w2-image-credits summary{font-weight:700;letter-spacing:.06em;cursor:pointer;text-transform:uppercase}.w2-image-credits p{margin:1.2rem 0 0}.w2-image-credits a{color:#8e3b49;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:760px){.w2-archive-photo{width:100%;margin-block:3.5rem}.w2-archive-photo img,.w2-archive--highbury img,.w2-archive--touchline img{height:clamp(280px,74vw,470px)}.w2-archive--invincibles img{height:clamp(320px,82vw,510px)}.w2-archive--farewell img{height:clamp(350px,105vw,590px)}.w2-image-credits{padding:1.5rem 1.2rem}}
