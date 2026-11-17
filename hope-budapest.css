@@ -45,3 +45,80 @@
 .layout-final .site-footer{background:#050706;color:#96938d}
 @media(max-width:900px){.layout-final .article-heading{width:min(calc(100% - 2.5rem),48rem)}.layout-final .article-body{width:min(calc(100% - 2.5rem),48rem)}.layout-final .article-hero:after{display:none}.layout-final .story-figure{width:calc(100vw - 2rem)}.layout-final .story-figure--wide{width:100vw}.layout-final .article-body .article-lead{padding-left:max(1.25rem,calc((100vw - 48rem)/2));padding-right:max(1.25rem,calc((100vw - 48rem)/2))}}
 @media(max-width:640px){.layout-final .article-hero{min-height:92svh}.layout-final .article-hero-media{background-image:linear-gradient(0deg,rgba(4,7,6,.85),rgba(4,7,6,.35)),url("budapest-final.webp");background-position:center,58% center}.layout-final .article-hero:before{display:none}.layout-final .article-heading{width:calc(100% - 2rem);padding-top:8rem;padding-bottom:4rem}.layout-final .article-heading h1{font-size:clamp(3.5rem,16vw,5.7rem)}.layout-final .article-body{width:calc(100% - 2rem);padding-top:4.5rem}.layout-final .article-body .article-lead{padding:5rem 1rem}.layout-final .story-figure{width:calc(100vw - 2rem)}.layout-final .story-figure--left img,.layout-final .story-figure--wide img{aspect-ratio:4/3}.layout-final .pull-quote:not(.anthem-quote){padding:6rem 1rem}.layout-final .chapter-line{min-height:62svh}.layout-final .anthem-quote{padding:6rem 1rem}.layout-final .anthem-quote+ p{padding:6rem 1rem}}
+
+/* Split-hero alignment fix: keep 2006 and 2026 photographs in separate
+   halves rather than masking the left half of the 2026 photograph. */
+.layout-final .article-hero-media{
+  inset:0 0 0 50%;
+  width:50%;
+  background-image:
+    linear-gradient(90deg,rgba(5,8,7,.18),rgba(5,8,7,.12) 48%,rgba(5,8,7,.42)),
+    url("budapest-final.webp");
+  background-size:cover;
+  background-position:center,45% 50%;
+  filter:saturate(.76) contrast(1.05);
+}
+.layout-final .article-hero:before{
+  left:0;
+  width:50%;
+  background-position:center,35% 50%;
+  background-size:cover;
+}
+.layout-final .article-hero{
+  background:#080c0b;
+}
+.layout-final .article-heading{
+  text-shadow:0 2px 20px rgba(0,0,0,.2);
+}
+.layout-final .story-figure--venue{
+  width:min(76rem,calc(100vw - 3rem));
+  margin-block:clamp(4.5rem,8vw,7rem);
+  background:#121c19;
+}
+.layout-final .story-figure--venue img{
+  display:block;
+  width:100%;
+  max-height:none;
+  height:clamp(320px,46vw,620px);
+  object-fit:cover;
+  object-position:50% 52%;
+  filter:saturate(.73) contrast(1.07);
+}
+.layout-final .budapest-photo-credits{
+  padding-block:1.4rem 2rem;
+  background:#e7e2d7;
+  color:#3d423d;
+  font-family:var(--sans);
+}
+.layout-final .budapest-photo-credits details{
+  max-width:58rem;
+  margin:auto;
+}
+.layout-final .budapest-photo-credits summary{
+  cursor:pointer;
+  font-size:.75rem;
+  font-weight:750;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.layout-final .budapest-photo-credits p{
+  margin:1rem 0 0;
+  font-size:.75rem;
+  line-height:1.8;
+}
+.layout-final .budapest-photo-credits a{color:#6f4b3c;text-decoration:underline}
+@media(max-width:640px){
+  .layout-final .article-hero-media{
+    inset:0;
+    width:100%;
+    background-image:
+      linear-gradient(0deg,rgba(4,7,6,.86) 0%,rgba(4,7,6,.34) 50%,rgba(4,7,6,.38) 100%),
+      url("budapest-final.webp");
+    background-size:cover;
+    background-position:center,45% center;
+  }
+  .layout-final .article-hero:before{display:none}
+  .layout-final .story-figure--venue{width:calc(100vw - 2rem)}
+  .layout-final .story-figure--venue img{height:clamp(290px,73vw,440px)}
+  .layout-final .budapest-photo-credits{padding:1.25rem}
+}
