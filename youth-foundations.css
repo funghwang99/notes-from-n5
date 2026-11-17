@@ -32,7 +32,7 @@
 .layout-foundations .story-figure::before{position:absolute;z-index:2;top:1.45rem;left:1.45rem;padding:.4rem .56rem;background:#17364d;color:#f2ede4;content:"SITE PHOTO / WORK IN PROGRESS";font-size:.48rem;font-weight:800;letter-spacing:.15em}
 .layout-foundations .story-figure img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;filter:saturate(.72) contrast(1.04)}
 .layout-foundations .story-figure--wide{width:min(68rem,calc(100vw - 4rem))}
-.layout-foundations .story-figure--right{width:min(54rem,calc(100vw - 4rem));margin-left:auto;margin-right:-4vw;translate:-50% 0}
+.layout-foundations .story-figure--right{width:min(54rem,calc(100vw - 4rem));margin-left:0;margin-right:0;translate:-50% 0}
 .layout-foundations .article-body>p:nth-last-of-type(-n+2){font-size:clamp(1.25rem,1.8vw,1.55rem);line-height:1.78}
 .layout-foundations .article-body>p:last-of-type{position:relative;left:50%;width:100vw;margin:clamp(7rem,11vw,10rem) 0 -10rem!important;padding:clamp(8rem,13vw,12rem) max(1.5rem,calc((100vw - 58rem)/2));translate:-50% 0;background:#cfc7ba;color:#17364d!important;font-size:clamp(1.55rem,2.7vw,2.45rem)!important;line-height:1.55!important}
 .layout-foundations .article-body>p:last-of-type::after{position:absolute;right:max(1.5rem,calc((100vw - 58rem)/2));bottom:2rem;color:rgba(23,54,77,.5);content:"THE STONES REMAIN BELOW THE LINE";font-family:var(--sans);font-size:.52rem;font-weight:800;letter-spacing:.18em}
@@ -44,3 +44,39 @@
 }
 @media(max-width:900px){.layout-foundations .article-hero-media{inset:35% -12% 0 22%;opacity:.52}.layout-foundations .article-body{width:min(calc(100% - 2.5rem),50rem)}.layout-foundations .article-body::after,.layout-foundations .article-body>p:not(.chapter-line)::before{display:none}.layout-foundations .story-figure,.layout-foundations .story-figure--wide,.layout-foundations .story-figure--right{width:calc(100vw - 2rem);margin-left:0;margin-right:0}.layout-foundations .pull-quote{padding-left:1.5rem;padding-right:1.5rem}}
 @media(max-width:640px){.layout-foundations .article-hero{min-height:92svh;padding-left:1rem;padding-right:1rem}.layout-foundations .article-heading h1{font-size:clamp(4rem,18vw,6.2rem)}.layout-foundations .article-body{width:calc(100% - 2rem);padding-top:5rem}.layout-foundations .story-figure{width:calc(100vw - 2rem);padding:.6rem}.layout-foundations .story-figure::before{display:none}.layout-foundations .chapter-line{min-height:58svh;padding-left:1rem;padding-right:1rem}.layout-foundations .pull-quote::before{inset:.65rem}.layout-foundations .article-body>p:last-of-type{margin-bottom:-10rem!important;padding-left:1rem;padding-right:1rem}}
+
+
+/* 2026-11-17: align all The Stones Beneath story images on the article
+   centre line. The old --right negative margin shifted the penalty image. */
+.layout-foundations .article-body > figure.story-figure,
+.layout-foundations .article-body > figure.n5-photo-break {
+  position:relative;
+  left:50%;
+  margin-left:0 !important;
+  margin-right:0 !important;
+  translate:-50% 0;
+  box-sizing:border-box;
+  max-width:none;
+}
+.layout-foundations .article-body > figure.story-figure--right{
+  width:min(54rem,calc(100vw - 4rem));
+}
+.layout-foundations .article-body > figure.n5-photo-break img {
+  display:block;
+  width:100%;
+  object-fit:cover;
+  object-position:var(--n5-photo-focus,50% 45%);
+}
+@media(max-width:700px){
+  .layout-foundations .article-body > figure.story-figure,
+  .layout-foundations .article-body > figure.n5-photo-break {
+    width:calc(100vw - 2rem);
+    left:50%;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    translate:-50% 0;
+  }
+  .layout-foundations .article-body > figure.n5-photo-break--portrait {
+    width:min(calc(100vw - 2rem),36rem);
+  }
+}
