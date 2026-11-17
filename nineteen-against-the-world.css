@@ -108,3 +108,12 @@
   .wy-finale{padding:5rem 1.35rem}
 }
 @media(prefers-reduced-motion:reduce){.wy-hero-visual img{transition:none}}
+
+/* Additional licensed match photography / editorial breathing room */
+.wy-new-archive{width:min(calc(100% - 2.5rem),1160px);margin:clamp(4rem,7vw,7rem) auto;overflow:hidden;background:#152631}
+.wy-new-archive img{display:block;width:100%;height:clamp(330px,48vw,635px);object-fit:cover;object-position:center 48%;filter:saturate(.85) contrast(1.07)}
+.wy-new-archive--barca{width:min(calc(100% - 2.5rem),980px)}
+.wy-new-archive--barca img{height:clamp(345px,49vw,600px);object-position:center 30%}
+.wy-new-credits{background:#e5dfd5;padding:1.8rem clamp(1.2rem,6vw,6rem);font:.75rem/1.85 "Inter N5",Arial,sans-serif;color:#333}
+.wy-new-credits details{max-width:940px;margin:auto}.wy-new-credits summary{font-weight:750;cursor:pointer;text-transform:uppercase;letter-spacing:.05em}.wy-new-credits p{margin:1rem 0 0}.wy-new-credits a{color:#9c4447;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:750px){.wy-new-archive{width:100%;margin-block:3.4rem}.wy-new-archive img,.wy-new-archive--barca img{height:clamp(280px,78vw,470px)}.wy-new-credits{padding:1.5rem 1.2rem}}
