@@ -49,3 +49,34 @@
 .cesc-mentor-frame figcaption small{font:500 .63rem/1.6 var(--sans);color:#77665c}
 @media(max-width:850px){.cesc-archive-wide{grid-template-columns:1fr}.cesc-archive-wide-image,.cesc-archive-wide-image img{min-height:350px;height:clamp(350px,56vw,520px)}.cesc-archive-caption{border-left:0;padding:2.25rem 1.5rem}.cesc-inset-photo{grid-template-columns:1fr 1fr}.cesc-mentor-frame{grid-template-columns:.72fr 1fr}}
 @media(max-width:560px){.cesc-archive-wide-image,.cesc-archive-wide-image img{height:320px;min-height:320px}.cesc-archive-caption strong{font-size:2rem}.cesc-inset-photo{display:block;margin:2.5rem auto 1rem!important}.cesc-inset-photo>div{aspect-ratio:1.5}.cesc-inset-photo figcaption{padding:1.25rem .65rem .7rem}.cesc-photo-diptych{grid-template-columns:1fr;padding:.8rem}.cesc-diptych-photo{min-height:390px}.cesc-diptych-photo>img{height:430px}.cesc-diptych-photo figcaption{left:1.2rem;bottom:1.3rem}.cesc-diptych-photo figcaption strong{font-size:1.8rem}.cesc-mentor-frame{grid-template-columns:1fr;margin:3rem auto 1rem!important;box-shadow:10px 12px 0 #00000022}.cesc-mentor-frame>img{height:270px;object-position:50% 17%}.cesc-mentor-frame figcaption{padding:1.8rem 1.2rem}}
+
+
+/* Wenger portrait alignment: tall source image (425 × 1094) must be anchored to
+   the top of each crop. Older 23%/17% positions clipped his face on small screens. */
+.cesc-page .cesc-mentor-frame{
+  width:min(100%,850px);
+  margin-left:auto!important;
+  margin-right:auto!important;
+  box-shadow:0 16px 40px rgba(0,0,0,.20);
+}
+.cesc-page .cesc-mentor-frame > img{
+  display:block;
+  width:100%;
+  height:clamp(430px,44vw,500px);
+  object-fit:cover;
+  object-position:50% 0%;
+  align-self:stretch;
+}
+@media(max-width:560px){
+  .cesc-page .cesc-mentor-frame{
+    width:100%;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    box-shadow:0 12px 28px rgba(0,0,0,.17);
+  }
+  .cesc-page .cesc-mentor-frame > img{
+    height:clamp(290px,75vw,355px);
+    object-fit:cover;
+    object-position:50% 0%;
+  }
+}
