@@ -32,3 +32,40 @@
 @media(max-width:900px){.cj-hero{min-height:auto}.cj-hero-grid{grid-template-columns:1fr;padding-top:8rem;padding-bottom:3rem}.cj-hero h1{font-size:clamp(3.5rem,10vw,6rem)}.cj-hero-portrait{display:none}.cj-prologue-inner{grid-template-columns:1fr;gap:1.2rem}.cj-factstrip{grid-template-columns:1fr 1fr}.cj-penalty-scene{grid-template-columns:1fr}.cj-penalty-visual{min-height:520px}.cj-scoreline-main{gap:.5rem}.cj-scoreline-main span{gap:.35rem}.cj-chapter-head{margin-bottom:2rem}}
 @media(max-width:620px){.cj-hero-grid{padding-top:8.5rem;padding-bottom:3.5rem}.cj-hero h1{font-size:clamp(3rem,12vw,4.6rem)}.cj-hero h1 em{font-size:.72em}.cj-hero-end{font-size:.5rem}.cj-byline{line-height:1.7}.cj-kicker{font-size:.58rem}.cj-factstrip{padding:1.5rem 1.2rem}.cj-factstrip strong{font-size:.88rem}.cj-prologue{padding:4.3rem 1.2rem}.cj-prologue-copy>p:not(.cj-opening-line){font-size:1.06rem;line-height:1.9}.cj-chapter{padding:4.5rem 1.2rem}.cj-body-copy p,.cj-outro-copy p{font-size:1.07rem;line-height:1.9}.cj-wide-photo,.cj-wide-photo img{height:410px;min-height:410px}.cj-wide-photo figcaption strong{font-size:1.8rem}.cj-wide-photo figcaption{left:1.2rem;right:1.2rem}.cj-scoreline{margin-top:3rem}.cj-scoreline-main strong{font-size:3.3rem}.cj-scoreline-main small{font-size:.48rem}.cj-penalty-copy{padding:4rem 1.2rem}.cj-penalty-copy h2{font-size:4.7rem}.cj-penalty-visual{min-height:420px;padding:2rem 1.2rem}.cj-goal{width:90%;max-width:370px}.cj-kicks-comparison{grid-template-columns:1fr}.cj-kick{min-height:245px}.cj-two-kicks{padding:4.5rem 1.2rem}.cj-endnav{grid-template-columns:1fr}.cj-outro-end{flex-direction:column}.cj-page .site-nav{background:#162522}}
 @media(prefers-reduced-motion:reduce){.cj-penalty-visual.is-playing .cj-ball,.cj-penalty-visual.is-playing .cj-hit{animation:none}.cj-goal .cj-ball{top:-22px;left:54%}}
+
+
+/* Real 2010 penalty footage replaces the previous CSS goal animation. */
+.cj-penalty-visual--footage {
+  min-height:460px;
+  gap:clamp(1.2rem,3vw,2.4rem);
+  justify-content:center;
+  background:radial-gradient(circle at 50% 48%,#244139,#122821 70%,#101f1a);
+}
+.cj-penalty-visual--footage::before{display:none}
+.cj-penalty-video{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  margin:0 auto;
+  object-fit:contain;
+  background:#050a08;
+  border:1px solid rgba(224,223,211,.35);
+  box-shadow:0 20px 46px rgba(2,10,7,.4);
+}
+.cj-penalty-visual--footage .cj-graphic-label,
+.cj-penalty-visual--footage .cj-penalty-bottom{
+  position:relative;
+  z-index:1;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  line-height:1.55;
+}
+@media(max-width:900px){
+  .cj-penalty-visual--footage{min-height:0;padding:clamp(1.5rem,5vw,3rem)}
+}
+@media(max-width:620px){
+  .cj-penalty-visual--footage{padding:1.6rem 1rem;gap:1.25rem}
+  .cj-penalty-visual--footage .cj-graphic-label,
+  .cj-penalty-visual--footage .cj-penalty-bottom{font-size:.53rem;flex-wrap:wrap}
+}
