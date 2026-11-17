@@ -80,3 +80,22 @@
 @media(max-width:780px){.gs-hero-inner{display:flex;flex-direction:column;min-height:0}.gs-hero-content{order:1;padding:4rem 1.3rem 4.5rem;max-width:750px;margin:auto;width:100%}.gs-hero-photo{order:0;height:clamp(340px,65svh,620px);flex:0 0 auto}.gs-hero-photo img{height:100%;flex:0 0 auto;object-position:center 34%}.gs-title{font-size:clamp(3rem,10.7vw,5.5rem)}.gs-hero-photo figcaption{font-size:.57rem}.gs-underhero{grid-template-columns:1fr}.gs-underhero>div{border-right:0;border-bottom:1px solid #c4cabb;padding:.65rem 1.25rem}.gs-underhero strong{display:inline;font-size:.65rem;margin-right:1rem}.gs-underhero span{display:inline;font-size:.86rem}.gs-section{display:block;padding:4.5rem 1.25rem 0}.gs-side{position:static;margin-bottom:1.6rem}.gs-side span{display:none}.gs-prose p{font-size:1.055rem;line-height:1.87}.gs-prose .gs-lead{font-size:1.2rem}.gs-prose h2{font-size:clamp(2.25rem,9vw,4.1rem)}.gs-photo-block,.gs-photo-block--reverse{display:flex;flex-direction:column;align-items:stretch;margin:4rem auto;gap:1.5rem}.gs-photo-block figure,.gs-photo-block--reverse figure{order:0;width:100%}.gs-photo-block aside,.gs-photo-block--reverse aside{order:1;width:100%}.gs-photo-block img{max-height:520px}.gs-photo-block h3{font-size:clamp(2.2rem,8.5vw,3.3rem)}.gs-ribbon{grid-template-columns:1fr 1fr}.gs-ribbon>div:last-child{grid-column:1/-1}.gs-interlude h2{font-size:clamp(2.8rem,10vw,5rem)}.gs-outro{padding:5rem 1.25rem}.gs-outro h2{font-size:clamp(2.6rem,10vw,4.8rem)}}
 @media(max-width:390px){.gs-title{font-size:clamp(2.7rem,10.1vw,3.5rem)}.gs-hero-meta{gap:.55rem .8rem}.gs-ribbon b{font-size:2.6rem}}
 @media(prefers-reduced-motion:reduce){.gilberto-page{scroll-behavior:auto}}
+
+/* Photo rhythm / no visible captions / 17 Nov 2026 */
+.gs-hero-photo > img{min-height:100%;height:100%;flex:1 1 auto}
+.gs-new-image{display:block;margin:clamp(4rem,8vw,7rem) auto;max-width:1240px;width:min(100% - 2.5rem,1240px);background:#1b2927;overflow:hidden;position:relative}
+.gs-new-image>img{display:block;width:100%;height:clamp(310px,48vw,660px);object-fit:cover;object-position:center 45%;filter:saturate(.88) contrast(1.04)}
+.gs-new-image--fans{width:min(100% - 2.5rem,940px);margin-block:clamp(3rem,6vw,6rem)}
+.gs-new-image--fans>img{height:clamp(300px,43vw,500px)}
+.gs-new-image--invincibles{width:100%;max-width:none;margin:clamp(5rem,8vw,8rem) auto 0;background:#182b25}
+.gs-new-image--invincibles>img{height:clamp(370px,51vw,700px);object-position:50% 45%}
+.gs-new-image--highbury{width:min(100% - 2.5rem,920px)}
+.gs-new-image--highbury>img{height:clamp(310px,42vw,510px)}
+.gs-new-image--emirates{width:min(100% - 2.5rem,1080px);margin:clamp(4rem,7vw,6rem) auto}
+.gs-new-image--emirates>img{height:clamp(300px,42vw,580px)}
+.gs-image-credits{background:#dedfd4;padding:1.8rem clamp(1.3rem,7vw,8rem);font-family:"Inter N5",Arial,sans-serif;color:#344337}
+.gs-image-credits details{max-width:950px;margin:auto}
+.gs-image-credits summary{cursor:pointer;font-weight:750;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.gs-image-credits p{font-size:.74rem;line-height:1.85;margin:1rem 0}
+.gs-image-credits a{color:#3f684b;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:780px){.gs-hero-photo>img{height:100%;min-height:0}.gs-new-image{width:100%;margin-block:3.5rem}.gs-new-image>img,.gs-new-image--fans>img,.gs-new-image--highbury>img,.gs-new-image--emirates>img{height:clamp(260px,72vw,440px)}.gs-new-image--invincibles>img{height:clamp(310px,83vw,490px)}.gs-image-credits{padding:1.6rem 1.25rem}}
