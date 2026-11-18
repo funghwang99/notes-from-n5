@@ -3,6 +3,7 @@
   if (!host) return;
 
   const stories = [
+    { href:'one-last-job-at-wembley.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Arsenal%202%20Chelsea%201%20%2834621140880%29.jpg?width=1200', label:'Ngoài Ánh Đèn · Per Mertesacker', title:'One Last Job at Wembley.', alt:'Per Mertesacker cùng Arsenal tại Wembley trong chung kết FA Cup năm 2017.', position:'center 42%' },
     { href:'a-home-in-borrowed-time.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cesc%20F%C3%A0bregas%20captain.jpg?width=900', label:'Tuổi Trẻ · Cesc Fàbregas', title:'A Home in Borrowed Time.', alt:'Cesc Fàbregas đeo băng đội trưởng Arsenal vào tháng 11 năm 2008.', position:'center 15%' },
     { href:'the-crossbar-in-johannesburg.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/FIFA%20World%20Cup%202010%20Uruguay%20Ghana3.jpg?width=1280', label:'Chưa Nguôi · Asamoah Gyan · World Cup 2010', title:'The Crossbar in Johannesburg.', alt:'Ghana đối đầu Uruguay tại tứ kết World Cup 2010 ở Soccer City.', position:'center 50%' },
     { href:'el-pibe-de-oro.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Maradona%20cup%20azteca.jpg?width=1000', label:'Bất Tử · Diego Maradona', title:'El Pibe de Oro', alt:'Diego Maradona nâng World Cup tại Azteca năm 1986.', position:'center 42%' },
