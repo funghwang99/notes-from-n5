@@ -134,6 +134,14 @@
       focus:'center 15%', alt:'Cesc Fàbregas đeo băng đội trưởng Arsenal vào tháng 11 năm 2008.',
       meta:'Tuổi Trẻ · Cesc Fàbregas', title:'A Home in Borrowed Time.',
       deck:'Cesc Fàbregas, tám năm ở Arsenal và những lời anh không thể nói khi rời London.'
+    },
+    {
+      path:'ngoai-anh-den', base:'one-last-job-at-wembley.html', href:'one-last-job-at-wembley.html',
+      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Arsenal%202%20Chelsea%201%20%2834621140880%29.jpg?width=1200',
+      fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Per%20Mertesacker%202014%20v%20Palace.jpg?width=900',
+      focus:'center 42%', alt:'Per Mertesacker cùng Arsenal tại Wembley trong chung kết FA Cup năm 2017.',
+      meta:'Ngoài Ánh Đèn · Per Mertesacker', title:'One Last Job at Wembley.',
+      deck:'Per Mertesacker, 392 ngày không đá chính và một buổi chiều anh vẫn còn cần cho Arsenal.'
     }
   ];
   const guardImage = (img, story) => {
