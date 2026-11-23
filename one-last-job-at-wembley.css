@@ -60,3 +60,32 @@
 @media(max-width:780px){.pm-hero-top{padding-top:7.7rem}.pm-hero-grid{grid-template-columns:1fr;padding-bottom:3.2rem}.pm-hero h1{font-size:clamp(3.6rem,10vw,6.4rem)}.pm-hero-photo{height:560px;max-width:560px;width:100%;justify-self:end}.pm-intro-heading{grid-template-columns:1fr;gap:1rem}.pm-type-year{font-size:8rem}.pm-photo--gallery{margin:0 1rem}.pm-score-main{gap:1rem}}
 @media(max-width:540px){.pm-hero-top{padding:6.7rem 1.15rem 1rem;font-size:.49rem}.pm-hero-grid{padding:2.4rem 1.15rem 2.9rem}.pm-hero h1{font-size:clamp(2.9rem,12vw,4.5rem)}.pm-hero-number strong{font-size:9rem}.pm-hero-number small{font-size:.55rem}.pm-hero-photo{height:410px;box-shadow:10px 12px 0 #060b0d55}.pm-hero-strip{font-size:.49rem}.pm-intro,.pm-chapter,.pm-ending{padding:4.5rem 1.2rem}.pm-intro h2,.pm-chapter h2,.pm-ending h2{font-size:clamp(2.65rem,11vw,4rem)}.pm-type-year{font-size:6rem}.pm-copy p{font-size:1.07rem;line-height:1.95}.pm-photo img,.pm-photo--memory img,.pm-photo--wembley img,.pm-photo--match img{height:clamp(270px,74vw,430px)}.pm-photo--gallery{margin:0 .75rem;transform:none;border-width:6px}.pm-photo--gallery img{height:clamp(270px,75vw,390px)}.pm-score{padding:3.5rem 1.2rem}.pm-score-main{flex-wrap:wrap;justify-content:space-between}.pm-score-main strong{font-size:4.1rem}.pm-score-main>span{font-size:.72rem}.pm-score-foot{display:grid;grid-template-columns:1fr;gap:.3rem;font-size:.51rem}.pm-talisman{justify-content:center;text-align:center}.pm-talisman strong{font-size:8rem}.pm-endnav{grid-template-columns:1fr}.pm-page .site-nav{background:#1b2327}}
 @media(prefers-reduced-motion:reduce){.pm-scroll{scroll-behavior:auto}}
+
+/* Scorecard alignment: each scorer belongs visually beneath their club. */
+.pm-page .pm-score-main{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  align-items:center;
+  column-gap:clamp(.4rem,2vw,2rem);
+}
+.pm-page .pm-score-main > span:first-child{text-align:left;justify-self:start}
+.pm-page .pm-score-main > span:last-child{text-align:right;justify-self:end}
+.pm-page .pm-score-main > strong{text-align:center;justify-self:center}
+.pm-page .pm-score-foot{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:start;
+  column-gap:clamp(1rem,5vw,4rem);
+  font-size:.6rem;
+  line-height:1.8;
+}
+.pm-page .pm-score-team{display:flex;flex-direction:column;gap:.5rem;min-width:0}
+.pm-page .pm-score-team--arsenal{align-items:flex-start;text-align:left}
+.pm-page .pm-score-team--chelsea{align-items:flex-end;text-align:right}
+@media(max-width:540px){
+  .pm-page .pm-score-main{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:.35rem}
+  .pm-page .pm-score-main strong{font-size:clamp(2.6rem,12vw,4.1rem)}
+  .pm-page .pm-score-main>span{font-size:clamp(.58rem,2.9vw,.78rem);letter-spacing:.08em}
+  .pm-page .pm-score-foot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:.7rem;font-size:.54rem;letter-spacing:.07em}
+  .pm-page .pm-score-team{gap:.5rem}
+}
