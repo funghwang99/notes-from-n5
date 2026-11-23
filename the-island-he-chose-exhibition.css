@@ -523,13 +523,12 @@
 }
 .riva-page .rv-finale>p{color:#cfb094}
 .riva-page .rv-credits{background:#e5d9c7;border-top:1px solid #ba9b82}
+/* Fade-in never resets archival photo rotations or the scoreboard's centering. */
 .riva-page.rv-motion-on .rv-reveal{
-  opacity:0;transform:translateY(28px);
-  transition:opacity .8s cubic-bezier(.2,.8,.25,1),transform .8s cubic-bezier(.2,.8,.25,1);
+  opacity:0;
+  transition:opacity .8s cubic-bezier(.2,.8,.25,1);
 }
-.riva-page.rv-motion-on .rv-reveal.rv-visible{
-  opacity:1;transform:translateY(0);
-}
+.riva-page.rv-motion-on .rv-reveal.rv-visible{opacity:1;}
 @media(max-width:1100px){
   .riva-page .rv-hero{height:auto;min-height:840px}
   .riva-page .rv-hero h1{font-size:clamp(5rem,10vw,9rem)}
