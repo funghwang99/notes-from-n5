@@ -3,6 +3,7 @@
   if (!host) return;
 
   const stories = [
+    { href:'the-island-he-chose.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gigi%20Riva%20-%20Cagliari%20%28ca.%201970%29.jpg?width=1200', label:'Bất Tử · Gigi Riva', title:'The Island He Chose', alt:'Gigi Riva trong màu áo Cagliari khoảng năm 1970.', position:'48% 23%' },
     { href:'one-last-job-at-wembley.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Arsenal%202%20Chelsea%201%20%2834621140880%29.jpg?width=1200', label:'Ngoài Ánh Đèn · Per Mertesacker', title:'One Last Job at Wembley.', alt:'Per Mertesacker cùng Arsenal tại Wembley trong chung kết FA Cup năm 2017.', position:'center 42%' },
     { href:'a-home-in-borrowed-time.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cesc%20F%C3%A0bregas%20captain.jpg?width=900', label:'Tuổi Trẻ · Cesc Fàbregas', title:'A Home in Borrowed Time.', alt:'Cesc Fàbregas đeo băng đội trưởng Arsenal vào tháng 11 năm 2008.', position:'center 15%' },
     { href:'the-crossbar-in-johannesburg.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/FIFA%20World%20Cup%202010%20Uruguay%20Ghana3.jpg?width=1280', label:'Chưa Nguôi · Asamoah Gyan · World Cup 2010', title:'The Crossbar in Johannesburg.', alt:'Ghana đối đầu Uruguay tại tứ kết World Cup 2010 ở Soccer City.', position:'center 50%' },
