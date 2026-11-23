@@ -222,6 +222,6 @@
 .rv-finale{margin:4rem auto 0;padding-top:3rem}
 .rv-finale strong{font-size:3.4rem}
 .rv-next{grid-template-columns:1fr}.rv-next a{padding:2.2rem 1.3rem}
-.rv-page .site-nav{background:#17252a}
+.riva-page .site-nav{background:#17252a}
 }
 @media(prefers-reduced-motion:reduce){.rv-next a{transition:none}.rv-index{scroll-behavior:auto}}
