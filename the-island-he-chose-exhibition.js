@@ -20,7 +20,10 @@
       folio.before(element('<div class="rv-cover-decor" aria-hidden="true"><span>1963 / A STRANGER</span><i></i><span>2024 / A SON</span></div>'));
     }
     const title = hero.querySelector('#riva-title');
-    if (title) title.innerHTML = '<span class="rv-hero-title-line rv-hero-word--one">The</span><span class="rv-hero-title-line rv-hero-word--two">Island</span><span class="rv-hero-title-line rv-hero-word--three"><em>He Chose.</em></span>';
+    if (title) {
+      title.innerHTML = '<span class="rv-hero-title-line rv-hero-word--one">The</span><span class="rv-hero-title-line rv-hero-word--two">Island</span><span class="rv-hero-title-line rv-hero-word--three"><em>He Chose.</em></span>';
+      title.setAttribute('aria-label', 'The Island He Chose');
+    }
     const bottom = hero.querySelector('.rv-hero-bottom');
     if (bottom) bottom.appendChild(element('<span class="rv-hero-coordinate">39°13′ N / 9°07′ E</span>'));
   }
