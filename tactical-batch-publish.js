@@ -142,14 +142,6 @@
       focus:'center 42%', alt:'Per Mertesacker cùng Arsenal tại Wembley trong chung kết FA Cup năm 2017.',
       meta:'Ngoài Ánh Đèn · Per Mertesacker', title:'One Last Job at Wembley.',
       deck:'Per Mertesacker, 392 ngày không đá chính và một buổi chiều anh vẫn còn cần cho Arsenal.'
-    },
-    {
-      path:'bat-tu', base:'the-island-he-chose.html', href:'the-island-he-chose.html',
-      image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gigi%20Riva%20-%20Cagliari%20%28ca.%201970%29.jpg?width=1200',
-      fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gigi%20Riva%20-%20US%20Cagliari%20%281970%29.jpg?width=1100',
-      focus:'48% 23%', alt:'Gigi Riva trong màu áo Cagliari khoảng năm 1970.',
-      meta:'Bất Tử · Gigi Riva', title:'The Island He Chose',
-      deck:'Gigi Riva đến Sardinia như một người xa lạ. Ông đã dành phần lớn cuộc đời cho hòn đảo từng khiến mình muốn quay về.'
     }
   ];
   const guardImage = (img, story) => {
