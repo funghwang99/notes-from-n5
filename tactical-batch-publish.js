@@ -142,7 +142,8 @@
       focus:'center 42%', alt:'Per Mertesacker cùng Arsenal tại Wembley trong chung kết FA Cup năm 2017.',
       meta:'Ngoài Ánh Đèn · Per Mertesacker', title:'One Last Job at Wembley.',
       deck:'Per Mertesacker, 392 ngày không đá chính và một buổi chiều anh vẫn còn cần cho Arsenal.'
-    }
+    },
+    { path:'bat-tu', base:'rombo-di-tuono.html', href:'rombo-di-tuono.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gigi%20Riva%20-%20US%20Cagliari%20(1970).jpg?width=1000', fallback:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gigi%20Riva%20-%20Cagliari%20(ca.%201970).jpg?width=1200', focus:'50% 22%', alt:'Riva trong trang phục thi đấu Cagliari năm 1970.', meta:'Bất Tử · Gigi Riva', title:'Rombo di Tuono', deck:'Từ sân Amsicora năm 1963 đến Bonaria năm 2024, câu chuyện về tiếng sấm của một hòn đảo.' }
   ];
   const guardImage = (img, story) => {
     if (!img || img.dataset.n5StoryGuard) return;
