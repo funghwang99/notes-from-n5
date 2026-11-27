@@ -31,7 +31,7 @@
     loadScriptOnce('moore-publish.js?v=20261001-refine-1', '__N5_MOORE_PUBLISH_LOADER__');
     loadScriptOnce('baresi-publish.js?v=20261001-refine-1', '__N5_BARESI_PUBLISH_LOADER__');
     loadScriptOnce('bruno-publish.js?v=20261001-refine-1', '__N5_BRUNO_DIRECT_PUBLISH_LOADER__');
-    loadScriptOnce('adams-publish.js?v=20261001-refine-1', '__N5_ADAMS_PUBLISH_LOADER__');
+    loadScriptOnce('adams-publish.js?v=20261127-title-1', '__N5_ADAMS_PUBLISH_LOADER__');
     loadScriptOnce('north-london-publish.js?v=20261001-refine-1', '__N5_NLD_DIRECT_PUBLISH_LOADER__');
     loadScriptOnce('false-lines-publish.js?v=20261001-refine-1', '__N5_FALSE_LINES_PUBLISH_LOADER__');
     loadScriptOnce('tactical-batch-publish.js?v=20261126-nusa-2', '__N5_TACTICAL_BATCH_DIRECT_LOADER__');
