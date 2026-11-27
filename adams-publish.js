@@ -1,7 +1,7 @@
 (() => {
-  const HREF = 'mr-arsenal.html?v=20260906-adams-4';
+  const HREF = 'mr-arsenal.html?v=20261127-title-1';
   const BASE = 'mr-arsenal.html';
-  const TITLE = 'Mr. Arsenal';
+  const TITLE = 'The Ship That Still Knew Its Name.';
   const IMAGE = 'https://www.arsenal.com/sites/default/files/styles/desktop_16x9/public/images/adams-celeb-everton.png?auto=webp&h=3c8f2bed&itok=ug525wSK';
   const FALLBACK = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Tony%20Adams%20Statue%20-%20front%20%28cropped%29.jpg?width=1000';
 
@@ -28,10 +28,12 @@
     if (!entry) {
       entry = document.createElement('article');
       entry.className = 'archive-entry reveal is-visible';
-      entry.innerHTML = `<a class="archive-thumb" href="${HREF}"><img src="${IMAGE}" alt="Tony Adams dang hai tay ăn mừng trong màu áo Arsenal tại Highbury năm 1998." style="object-position:center 48%" /></a><div class="archive-entry-copy"><p class="article-meta">Arsenal · Tony Adams</p><h2><a href="${HREF}">${TITLE}</a></h2><p>Arsenal thay huấn luyện viên, cầu thủ, cách chơi rồi cả sân vận động. Trong gần hai thập kỷ, người mang cái tên ấy ra sân vẫn là Tony Adams.</p></div><a class="archive-arrow" href="${HREF}" aria-label="Đọc bài ${TITLE}">↗</a>`;
+      entry.innerHTML = `<a class="archive-thumb" href="${HREF}"><img src="${IMAGE}" alt="Tony Adams dang hai tay ăn mừng trong màu áo Arsenal tại Highbury năm 1998." style="object-position:center 48%" /></a><div class="archive-entry-copy"><p class="article-meta">Tượng Đài · Tony Adams</p><h2><a href="${HREF}">${TITLE}</a></h2><p>Arsenal thay huấn luyện viên, cầu thủ, cách chơi rồi cả sân vận động. Trong gần hai thập kỷ, người mang cái tên ấy ra sân vẫn là Tony Adams.</p></div><a class="archive-arrow" href="${HREF}" aria-label="Đọc bài ${TITLE}">↗</a>`;
     }
     entry.dataset.paths = 'tuong-dai';
     entry.querySelectorAll(`a[href^="${BASE}"]`).forEach((link) => { link.href = HREF; });
+    const meta = entry.querySelector('.article-meta');
+    if (meta) meta.textContent = 'Tượng Đài · Tony Adams';
     const titleLink = entry.querySelector('.archive-entry-copy h2 a');
     if (titleLink) titleLink.textContent = TITLE;
     const arrow = entry.querySelector('.archive-arrow');
