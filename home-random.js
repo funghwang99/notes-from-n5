@@ -3,6 +3,7 @@
   if (!host) return;
 
   const stories = [
+    {"href":"a-country-that-no-longer-exists.html","image":"a-country-that-no-longer-exists-card.svg","label":"History · Yugoslavia · 1987-1998","title":"A Country That No Longer Exists.","alt":"Bìa hồ sơ History về bóng đá Nam Tư 1987–1998.","position":"center"},
     {"href":"the-boy-who-never-left.html","image":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Statue%20of%20Ken%20Friar%20as%20a%20boy%202024-04-26%20(cropped).jpg?width=1200","label":"Tượng Đài · Ken Friar","title":"The Boy Who Never Left.","alt":"Tượng Ken Friar lúc còn nhỏ bên ngoài Emirates, chụp năm 2024.","position":"50% 34%"},
     {"href":"antonio-nusa-scouting-report.html","image":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Antonio%20Nusa%20Morocco%20v%20Norway%207%20June%202026-110%20%28cropped%29.jpg?width=960","label":"Scouting Report · Antonio Nusa","title":"Antonio Nusa","alt":"Antonio Nusa trong màu áo đội tuyển Na Uy, tháng 6 năm 2026.","position":"50% 18%"},
     { href:'rombo-di-tuono.html', image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gigi%20Riva%20-%20US%20Cagliari%20(1970).jpg?width=1000', label:'Bất Tử · Gigi Riva', title:'Rombo di Tuono', alt:'Riva trong trang phục thi đấu Cagliari năm 1970.', position:'50% 22%' },
